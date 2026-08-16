@@ -1668,24 +1668,6 @@
       "Turned wooden feet for a classic finish"
     ],
     "dimensions": "Approx. 210cm wide \u00d7 90cm deep \u00d7 78cm high",
-    "fabrics": [
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      },
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "coniston-blue",
-        "name": "Coniston Blue"
-      }
-    ],
     "images": [
       "images/img-44.png",
       "images/img-53.png",
@@ -1707,24 +1689,6 @@
       "Reinforced frame designed for regular use"
     ],
     "dimensions": "Approx. 280cm \u00d7 210cm corner footprint \u00d7 85cm high",
-    "fabrics": [
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      },
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "coniston-blue",
-        "name": "Coniston Blue"
-      }
-    ],
     "images": [
       "images/img-41.png",
       "images/img-55.png",
@@ -1746,24 +1710,6 @@
       "Neat tapered legs in a natural wood finish"
     ],
     "dimensions": "Approx. 165cm wide \u00d7 86cm deep \u00d7 80cm high",
-    "fabrics": [
-    {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      },
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "coniston-blue",
-        "name": "Coniston Blue"
-      }
-    ],
     "images": [
       "images/img-42.png",
       "images/img-57.png",
@@ -1785,24 +1731,6 @@
       "Reinforced frame designed for everyday family use"
     ],
     "dimensions": "Approx. 300cm configurable \u00d7 95cm deep \u00d7 80cm high",
-    "fabrics": [
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      },
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "coniston-blue",
-        "name": "Coniston Blue"
-      }
-    ],
     "images": [
       "images/img-45.png",
       "images/img-59.png",
@@ -1810,6 +1738,49 @@
     ]
   }
 };
+
+  // ==========================================
+  // SOFA FABRIC / COLOUR OPTIONS
+  // ==========================================
+  // Same simple array style used above for each sofa's
+  // "images" list. To change a fabric photo, just edit the
+  // "image" path below — no slug, no auto extension, no
+  // separate mapping. Every sofa detail page shows these
+  // same 8 options.
+  var SOFA_FABRIC_OPTIONS = [
+    {
+      "name": "Grey",
+      "image": "images/fabrics/img-1.png"
+    },
+    {
+      "name": "Silver",
+      "image": "images/fabrics/img-2.png"
+    },
+    {
+      "name": "Black",
+      "image": "images/fabrics/img-3.png"
+    },
+    {
+      "name": "Emerald",
+      "image": "images/fabrics/img-4.png"
+    },
+    {
+      "name": "Turquoise",
+      "image": "images/fabrics/img-5.png"
+    },
+    {
+      "name": "Blue",
+      "image": "images/fabrics/img-6.png"
+    },
+    {
+      "name": "Beige",
+      "image": "images/fabrics/img-7.png"
+    },
+    {
+      "name": "Mink",
+      "image": "images/fabrics/img-8.png"
+    }
+  ];
 
   function sfMoney(v) {
     return "\u00A3" + v.toFixed(2);
@@ -2130,18 +2101,17 @@
     }
 
     function renderFabrics() {
-      var product = SF_PRODUCTS[sfModalState.slug];
       fabricsEl.innerHTML = "";
-      if (!product || !product.fabrics || product.fabrics.length === 0) {
+      if (!SOFA_FABRIC_OPTIONS || SOFA_FABRIC_OPTIONS.length === 0) {
         fabricsEl.parentElement.hidden = true;
         return;
       }
       fabricsEl.parentElement.hidden = false;
 
-      // Only this sofa's own available fabrics are shown — restricted
-      // per product, reusing the same fabric data/images as the
-      // Fabric Samples page rather than a new fabric list.
-      product.fabrics.forEach(function (fabric, index) {
+      // Same 8 fabric/colour options shown on every sofa's detail page.
+      // fabric.image is used directly as the <img> src below — to swap
+      // a photo, just change the "image" path in SOFA_FABRIC_OPTIONS.
+      SOFA_FABRIC_OPTIONS.forEach(function (fabric, index) {
         var isSelected = sfModalState.selectedFabric === fabric.name;
         if (sfModalState.selectedFabric === null && index === 0) {
           sfModalState.selectedFabric = fabric.name;
@@ -2155,7 +2125,7 @@
         btn.setAttribute("aria-label", "Select " + fabric.name);
         btn.innerHTML =
           '<span class="fabric-swatch__ring">' +
-            '<img src="images/fabrics/' + fabric.slug + '.svg" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+            '<img src="' + fabric.image + '" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
             '<span class="fabric-swatch__check" aria-hidden="true">' +
               '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
