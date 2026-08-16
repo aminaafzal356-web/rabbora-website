@@ -1043,9 +1043,9 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/manhattan-style-blanket-box-main.svg",
-      "images/blanket-boxes/manhattan-style-blanket-box-angle.svg",
-      "images/blanket-boxes/manhattan-style-blanket-box-detail.svg"
+      "images/img-84.png",
+      "images/img-91.png",
+      "images/img-92.png"
     ]
   },
   "chesterfield-blanket-box": {
@@ -1077,9 +1077,8 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/chesterfield-blanket-box-main.svg",
-      "images/blanket-boxes/chesterfield-blanket-box-angle.svg",
-      "images/blanket-boxes/chesterfield-blanket-box-detail.svg"
+      "images/img-86.png",
+      "images/img-93.png"
     ]
   },
   "luxury-storage-blanket-box": {
@@ -1111,9 +1110,8 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/luxury-storage-blanket-box-main.svg",
-      "images/blanket-boxes/luxury-storage-blanket-box-angle.svg",
-      "images/blanket-boxes/luxury-storage-blanket-box-detail.svg"
+      "images/img-87.png",
+      "images/img-94.png"
     ]
   },
   "ottoman-style-blanket-box": {
@@ -1145,9 +1143,8 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/ottoman-style-blanket-box-main.svg",
-      "images/blanket-boxes/ottoman-style-blanket-box-angle.svg",
-      "images/blanket-boxes/ottoman-style-blanket-box-detail.svg"
+      "images/img-88.png",
+      "images/img-95.png"
     ]
   },
   "premium-fabric-blanket-box": {
@@ -1179,9 +1176,8 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/premium-fabric-blanket-box-main.svg",
-      "images/blanket-boxes/premium-fabric-blanket-box-angle.svg",
-      "images/blanket-boxes/premium-fabric-blanket-box-detail.svg"
+      "images/img-85.png",
+      "images/img-95.png"
     ]
   },
   "classic-blanket-box": {
@@ -1213,9 +1209,8 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/classic-blanket-box-main.svg",
-      "images/blanket-boxes/classic-blanket-box-angle.svg",
-      "images/blanket-boxes/classic-blanket-box-detail.svg"
+      "images/img-89.png",
+      "images/img-97.png"
     ]
   },
   "plush-storage-blanket-box": {
@@ -1247,9 +1242,8 @@
       }
     ],
     "images": [
-      "images/blanket-boxes/plush-storage-blanket-box-main.svg",
-      "images/blanket-boxes/plush-storage-blanket-box-angle.svg",
-      "images/blanket-boxes/plush-storage-blanket-box-detail.svg"
+      "images/img-90.png",
+      "images/img-98.png"
     ]
   }
 };
