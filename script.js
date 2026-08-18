@@ -747,6 +747,15 @@
     var selected = [];
     var limitTimer = null;
 
+    // If a swatch is already marked as selected in the HTML (the
+    // default fabric shown when the page loads), reflect that in the
+    // selection state so the counter/form list match what's on screen.
+    swatches.forEach(function (btn) {
+      if (btn.getAttribute("aria-pressed") === "true") {
+        selected.push(btn.dataset.fabric);
+      }
+    });
+
     function updateStatus() {
       if (statusEl) {
         statusEl.textContent = selected.length + " / " + FABRIC_MAX_SELECTION + " Samples Selected";
@@ -788,13 +797,16 @@
     }
 
     function selectSwatch(btn, name) {
-      if (selected.length >= FABRIC_MAX_SELECTION) {
-        showLimitMessage();
-        btn.classList.add("fabric-swatch--shake");
-        window.setTimeout(function () {
-          btn.classList.remove("fabric-swatch--shake");
-        }, 400);
-        return;
+      // Only one fabric colour is ever the active selection. Selecting a
+      // new colour clears the previous one's border + tick first, then
+      // applies both to the newly clicked swatch.
+      if (selected.length > 0) {
+        swatches.forEach(function (otherBtn) {
+          if (otherBtn.getAttribute("aria-pressed") === "true") {
+            otherBtn.setAttribute("aria-pressed", "false");
+          }
+        });
+        selected = [];
       }
       selected.push(name);
       btn.setAttribute("aria-pressed", "true");
@@ -12580,6 +12592,843 @@
     }
   }
 
+
+  // ==========================================
+  // STORAGE BEDS WITH DRAWERS PRODUCTS
+  // ==========================================
+  // 9 products. To change a product's name, price, description
+  // or image, edit the matching field below. To replace an
+  // image, just change the "image" path, e.g.:
+  //   "image": "images/storage-drawers/img-1.png"
+  // becomes:
+  //   "image": "images/storage-drawers/my-new-photo.jpg"
+  // No slugs, no auto-generated filenames, nothing else to update.
+  var SD_PRODUCTS_LIST = 
+[
+  {
+    "id": 1,
+    "slug": "storage-drawer-1",
+    "name": "Chelsea Storage Drawer Bed",
+    "drawerCount": 2,
+    "price": 329,
+    "oldPrice": 379,
+    "monthly": 27,
+    "rating": 4,
+    "reviews": 22,
+    "badge": "New",
+    "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Chelsea Storage Drawer Bed pairs a tailored upholstered frame with 2 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "2 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 2 drawers built directly into the base, giving you a practical amount of extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-1.png"
+  },
+  {
+    "id": 2,
+    "slug": "storage-drawer-2",
+    "name": "Hampton Storage Drawer Bed",
+    "drawerCount": 4,
+    "price": 356,
+    "oldPrice": null,
+    "monthly": 30,
+    "rating": 5,
+    "reviews": 31,
+    "badge": "Best Seller",
+    "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Hampton Storage Drawer Bed pairs a tailored upholstered frame with 4 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "4 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 4 drawers built directly into the base, giving you generous extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-2.png"
+  },
+  {
+    "id": 3,
+    "slug": "storage-drawer-3",
+    "name": "Windsor Storage Drawer Bed",
+    "drawerCount": 2,
+    "price": 383,
+    "oldPrice": null,
+    "monthly": 32,
+    "rating": 5,
+    "reviews": 40,
+    "badge": null,
+    "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Windsor Storage Drawer Bed pairs a tailored upholstered frame with 2 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "2 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 2 drawers built directly into the base, giving you a practical amount of extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-3.png"
+  },
+  {
+    "id": 4,
+    "slug": "storage-drawer-4",
+    "name": "Kensington Storage Drawer Bed",
+    "drawerCount": 4,
+    "price": 410,
+    "oldPrice": 460,
+    "monthly": 34,
+    "rating": 5,
+    "reviews": 49,
+    "badge": null,
+    "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Kensington Storage Drawer Bed pairs a tailored upholstered frame with 4 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "4 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 4 drawers built directly into the base, giving you generous extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-4.png"
+  },
+  {
+    "id": 5,
+    "slug": "storage-drawer-5",
+    "name": "Mayfair Storage Drawer Bed",
+    "drawerCount": 2,
+    "price": 437,
+    "oldPrice": null,
+    "monthly": 36,
+    "rating": 4,
+    "reviews": 58,
+    "badge": "Best Seller",
+    "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Mayfair Storage Drawer Bed pairs a tailored upholstered frame with 2 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "2 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 2 drawers built directly into the base, giving you a practical amount of extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-5.png"
+  },
+  {
+    "id": 6,
+    "slug": "storage-drawer-6",
+    "name": "Richmond Storage Drawer Bed",
+    "drawerCount": 4,
+    "price": 464,
+    "oldPrice": null,
+    "monthly": 39,
+    "rating": 5,
+    "reviews": 67,
+    "badge": "New",
+    "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Richmond Storage Drawer Bed pairs a tailored upholstered frame with 4 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "4 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 4 drawers built directly into the base, giving you generous extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-6.png"
+  },
+  {
+    "id": 7,
+    "slug": "storage-drawer-7",
+    "name": "Cambridge Storage Drawer Bed",
+    "drawerCount": 2,
+    "price": 491,
+    "oldPrice": 541,
+    "monthly": 41,
+    "rating": 5,
+    "reviews": 76,
+    "badge": null,
+    "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Cambridge Storage Drawer Bed pairs a tailored upholstered frame with 2 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "2 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 2 drawers built directly into the base, giving you a practical amount of extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-7.png"
+  },
+  {
+    "id": 8,
+    "slug": "storage-drawer-8",
+    "name": "Victoria Storage Drawer Bed",
+    "drawerCount": 4,
+    "price": 518,
+    "oldPrice": null,
+    "monthly": 43,
+    "rating": 5,
+    "reviews": 85,
+    "badge": "Best Seller",
+    "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Victoria Storage Drawer Bed pairs a tailored upholstered frame with 4 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "4 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 4 drawers built directly into the base, giving you generous extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-8.png"
+  },
+  {
+    "id": 9,
+    "slug": "storage-drawer-9",
+    "name": "Oxford Storage Drawer Bed",
+    "drawerCount": 2,
+    "price": 545,
+    "oldPrice": null,
+    "monthly": 45,
+    "rating": 4,
+    "reviews": 94,
+    "badge": null,
+    "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+    "description": "The Oxford Storage Drawer Bed pairs a tailored upholstered frame with 2 generously sized drawers built into the base, giving you practical everyday storage without needing extra furniture. Handmade to order, it's designed to be a comfortable, lasting centrepiece for your bedroom.",
+    "sizes": [
+      "Single",
+      "Small Double",
+      "Double",
+      "King",
+      "Super King"
+    ],
+    "features": [
+      "2 spacious storage drawers built into the base",
+      "Smooth-glide runners for easy everyday use",
+      "Solid frame construction built for everyday use",
+      "Sprung slatted top for a comfortable, breathable sleep surface"
+    ],
+    "storageInfo": "This bed includes 2 drawers built directly into the base, giving you a practical amount of extra storage for bedding, clothing or everyday items \u2014 without needing a separate chest of drawers.",
+    "dimensions": {
+      "Single": {
+        "width": 105,
+        "length": 206
+      },
+      "Small Double": {
+        "width": 136,
+        "length": 206
+      },
+      "Double": {
+        "width": 152,
+        "length": 206
+      },
+      "King": {
+        "width": 167,
+        "length": 211
+      },
+      "Super King": {
+        "width": 197,
+        "length": 211
+      }
+    },
+    "delivery": "Handmade to order, with standard UK delivery included.",
+    "warranty": "24 month warranty",
+    "returns": "30-day easy returns on unused, unassembled beds.",
+    "image": "images/storage-drawers/img-9.png"
+  }
+];
+
+  var SD_PRODUCTS = {};
+  SD_PRODUCTS_LIST.forEach(function (p) {
+    SD_PRODUCTS[p.slug] = p;
+  });
+
+  var SD_SIZE_DELTAS = {
+    "Single": -90,
+    "Small Double": -45,
+    "Double": 0,
+    "King": 95,
+    "Super King": 170
+  };
+
+  function sdMoney(v) {
+    return "\u00A3" + v.toFixed(2);
+  }
+  function sdStars(n) {
+    return "\u2605".repeat(n) + "\u2606".repeat(5 - n);
+  }
+
+  var sdState = {
+    selectedSize: null,
+    quantity: 1,
+    imageIndex: 0
+  };
+
+  /* ---- FAQ accordion (works for both the category-page FAQ and
+     the detail-page FAQ, since both reuse .sd-faq-item) ---- */
+  function initStorageDrawersFaq() {
+    var items = qsa(".sd-faq-item");
+    if (items.length === 0) return;
+
+    items.forEach(function (item) {
+      var toggle = qs(".sd-faq-item__toggle", item);
+      if (!toggle) return;
+      toggle.addEventListener("click", function () {
+        var isOpen = item.classList.contains("is-open");
+        item.classList.toggle("is-open", !isOpen);
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+  }
+
+  /* ---- Detail view: one reusable component for all 9 products ---- */
+  function initStorageDrawersDetail() {
+    var categoryView = document.getElementById("sdCategoryView");
+    var detailView = document.getElementById("sdDetailView");
+    var notFoundView = document.getElementById("sdNotFoundView");
+    if (!categoryView || !detailView || !notFoundView) return;
+
+    var breadcrumbName = document.getElementById("sdDetailBreadcrumbName");
+    var mainImage = document.getElementById("sdGalleryMainImage");
+    var thumbsWrap = document.getElementById("sdGalleryThumbs");
+    var prevBtn = document.getElementById("sdGalleryPrev");
+    var nextBtn = document.getElementById("sdGalleryNext");
+    var zoomBtn = document.getElementById("sdGalleryZoom");
+    var drawerCountEl = document.getElementById("sdDetailDrawerCount");
+    var titleEl = document.getElementById("sdDetailTitle");
+    var starsEl = document.getElementById("sdDetailStars");
+    var reviewCountEl = document.getElementById("sdDetailReviewCount");
+    var priceEl = document.getElementById("sdDetailPrice");
+    var prevPriceEl = document.getElementById("sdDetailPrevPrice");
+    var monthlyEl = document.getElementById("sdDetailMonthly");
+    var descriptionEl = document.getElementById("sdDetailDescription");
+    var storageInfoEl = document.getElementById("sdDetailStorageInfo");
+    var sizeOptionsEl = document.getElementById("sdSizeOptions");
+    var featuresEl = document.getElementById("sdDetailFeatures");
+    var dimensionsEl = document.getElementById("sdDetailDimensions");
+    var deliveryEl = document.getElementById("sdDetailDelivery");
+    var warrantyEl = document.getElementById("sdDetailWarranty");
+    var returnsEl = document.getElementById("sdDetailReturns");
+    var relatedGrid = document.getElementById("sdRelatedGrid");
+    var qtyValueEl = document.getElementById("sdQtyValue");
+    var qtyMinus = document.getElementById("sdQtyMinus");
+    var qtyPlus = document.getElementById("sdQtyPlus");
+    var addBtn = document.getElementById("sdAddToCart");
+    var messageEl = document.getElementById("sdPurchaseMessage");
+    var lightbox = document.getElementById("sdLightbox");
+    var lightboxImage = document.getElementById("sdLightboxImage");
+    var lightboxClose = document.getElementById("sdLightboxClose");
+
+    var currentProduct = null;
+
+    function currentSlug() {
+      return window.location.hash.replace(/^#\/?/, "");
+    }
+
+    function currentPrice(product) {
+      var delta = sdState.selectedSize ? (SD_SIZE_DELTAS[sdState.selectedSize] || 0) : 0;
+      return Math.max(0, product.price + delta);
+    }
+
+    function renderGallery(product) {
+      // Each product currently has one image (product.image). If you
+      // later add more angles, add a "gallery" array of your own
+      // filenames to the product and this code will show them as
+      // thumbnails automatically.
+      var images = product.gallery && product.gallery.length ? product.gallery : [product.image];
+      mainImage.src = images[sdState.imageIndex] || images[0];
+      mainImage.alt = product.name;
+
+      thumbsWrap.innerHTML = "";
+      if (images.length > 1) {
+        images.forEach(function (src, index) {
+          var thumb = document.createElement("button");
+          thumb.type = "button";
+          thumb.className = "bb-modal__thumb" + (index === sdState.imageIndex ? " is-active" : "");
+          thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
+          thumb.innerHTML = '<img src="' + src + '" alt="" loading="lazy" />';
+          thumb.addEventListener("click", function () {
+            sdState.imageIndex = index;
+            renderGallery(product);
+          });
+          thumbsWrap.appendChild(thumb);
+        });
+      }
+      prevBtn.hidden = images.length < 2;
+      nextBtn.hidden = images.length < 2;
+    }
+
+    function renderSizeOptions(product) {
+      sizeOptionsEl.innerHTML = "";
+      product.sizes.forEach(function (size) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mt-option-pill";
+        btn.setAttribute("aria-pressed", String(sdState.selectedSize === size));
+        btn.textContent = size;
+        btn.addEventListener("click", function () {
+          sdState.selectedSize = size;
+          messageEl.textContent = "";
+          qsa(".mt-option-pill", sizeOptionsEl).forEach(function (el) {
+            el.setAttribute("aria-pressed", "false");
+          });
+          btn.setAttribute("aria-pressed", "true");
+          renderPrice(product);
+        });
+        sizeOptionsEl.appendChild(btn);
+      });
+    }
+
+    function renderPrice(product) {
+      priceEl.textContent = sdMoney(currentPrice(product));
+      prevPriceEl.textContent = product.oldPrice ? sdMoney(product.oldPrice) : "";
+    }
+
+    function renderDimensions(product) {
+      var rows = product.sizes.map(function (size) {
+        var d = product.dimensions[size];
+        return "<tr><td>" + size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
+      }).join("");
+      dimensionsEl.innerHTML =
+        "<thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Width (cm)</th><th scope=\"col\">Length (cm)</th></tr></thead><tbody>" +
+        rows + "</tbody>";
+    }
+
+    function renderRelated(product) {
+      relatedGrid.innerHTML = "";
+      var others = SD_PRODUCTS_LIST.filter(function (p) { return p.slug !== product.slug; });
+      var related = others.slice(0, 4);
+
+      related.forEach(function (p) {
+        var badgeHtml = p.badge ? '<span class="product-card__badge">' + p.badge + '</span>' : "";
+        var prevHtml = p.oldPrice ? '<span class="product-card__price-prev">' + sdMoney(p.oldPrice) + '</span>' : "";
+        var card = document.createElement("article");
+        card.className = "product-card";
+        card.innerHTML =
+          '<div class="product-card__image-wrap">' +
+            '<a class="product-card__image-link" href="storage-drawers.html#/' + p.slug + '">' +
+              '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
+            '</a>' + badgeHtml +
+          '</div>' +
+          '<div class="product-card__body">' +
+            '<a href="storage-drawers.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
+            '<div class="product-card__rating">' +
+              '<span class="product-card__stars" aria-hidden="true">' + sdStars(p.rating) + '</span>' +
+              '<span class="product-card__review-count">(' + p.reviews + ')</span>' +
+            '</div>' +
+            '<div class="product-card__price-row">' +
+              '<span class="product-card__price">' + sdMoney(p.price) + '</span>' + prevHtml +
+            '</div>' +
+          '</div>';
+        relatedGrid.appendChild(card);
+      });
+    }
+
+    function renderDetail(product) {
+      document.title = product.name + " | Rabbora Living";
+      var descTag = document.getElementById("pageDescription");
+      if (descTag) descTag.setAttribute("content", product.name + " \u2014 " + product.shortInfo);
+      var canonicalTag = document.getElementById("pageCanonical");
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/storage-drawers/" + product.slug);
+
+      breadcrumbName.textContent = product.name;
+      drawerCountEl.textContent = product.drawerCount + " Drawers";
+      titleEl.textContent = product.name;
+      starsEl.textContent = sdStars(product.rating);
+      reviewCountEl.textContent = "(" + product.reviews + ")";
+      monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
+      descriptionEl.textContent = product.description;
+      storageInfoEl.textContent = product.storageInfo;
+      deliveryEl.textContent = product.delivery;
+      warrantyEl.textContent = product.warranty;
+      returnsEl.textContent = product.returns;
+
+      featuresEl.innerHTML = "";
+      product.features.forEach(function (feature) {
+        var li = document.createElement("li");
+        li.textContent = feature;
+        featuresEl.appendChild(li);
+      });
+
+      sdState.imageIndex = 0;
+      sdState.selectedSize = null;
+      sdState.quantity = 1;
+      qtyValueEl.textContent = "1";
+      messageEl.textContent = "";
+      messageEl.classList.remove("is-error");
+
+      currentProduct = product;
+      renderGallery(product);
+      renderSizeOptions(product);
+      renderPrice(product);
+      renderDimensions(product);
+      renderRelated(product);
+    }
+
+    function showCategory() {
+      categoryView.hidden = false;
+      detailView.hidden = true;
+      notFoundView.hidden = true;
+      document.title = "Storage Beds With Drawers | Practical Bedroom Storage | Rabbora Living";
+      var descTag = document.getElementById("pageDescription");
+      if (descTag) descTag.setAttribute("content", "Shop storage beds with drawers at Rabbora Living. Handmade bed frames with built-in drawer storage, available in multiple UK sizes with a 24-month warranty.");
+      var canonicalTag = document.getElementById("pageCanonical");
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/storage-drawers");
+    }
+
+    function showNotFound() {
+      categoryView.hidden = true;
+      detailView.hidden = true;
+      notFoundView.hidden = false;
+      document.title = "Bed Not Found | Rabbora Living";
+    }
+
+    function showDetail(product) {
+      categoryView.hidden = true;
+      notFoundView.hidden = true;
+      detailView.hidden = false;
+      renderDetail(product);
+      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    }
+
+    function handleRoute() {
+      var hash = window.location.hash;
+      if (!hash || hash === "#") { showCategory(); return; }
+      var slug = hash.replace(/^#\/?/, "");
+      if (!slug) { showCategory(); return; }
+      var product = SD_PRODUCTS[slug];
+      if (product) { showDetail(product); } else { showNotFound(); }
+    }
+
+    window.addEventListener("hashchange", handleRoute);
+    handleRoute();
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        if (!currentProduct) return;
+        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        sdState.imageIndex = (sdState.imageIndex - 1 + images.length) % images.length;
+        renderGallery(currentProduct);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        if (!currentProduct) return;
+        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        sdState.imageIndex = (sdState.imageIndex + 1) % images.length;
+        renderGallery(currentProduct);
+      });
+    }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener("click", function () {
+        lightboxImage.src = mainImage.src;
+        lightboxImage.alt = mainImage.alt;
+        lightbox.hidden = false;
+      });
+    }
+    if (lightboxClose) lightboxClose.addEventListener("click", function () { lightbox.hidden = true; });
+    if (lightbox) {
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.hidden = true;
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) lightbox.hidden = true;
+    });
+
+    if (qtyMinus) {
+      qtyMinus.addEventListener("click", function () {
+        if (sdState.quantity > 1) {
+          sdState.quantity -= 1;
+          qtyValueEl.textContent = String(sdState.quantity);
+        }
+      });
+    }
+    if (qtyPlus) {
+      qtyPlus.addEventListener("click", function () {
+        sdState.quantity += 1;
+        qtyValueEl.textContent = String(sdState.quantity);
+      });
+    }
+
+    if (addBtn) {
+      addBtn.addEventListener("click", function () {
+        if (!currentProduct) return;
+        if (!sdState.selectedSize) {
+          messageEl.textContent = "Please select a size.";
+          messageEl.classList.add("is-error");
+          return;
+        }
+        var cartCountEl = document.getElementById("cartCount");
+        if (cartCountEl) {
+          var current = parseInt(cartCountEl.textContent, 10) || 0;
+          cartCountEl.textContent = String(current + sdState.quantity);
+        }
+        messageEl.classList.remove("is-error");
+        messageEl.textContent =
+          "Added " + sdState.quantity + " \u00d7 " + currentProduct.name + " (" + sdState.selectedSize +
+          ") to your basket \u2014 " + sdMoney(currentPrice(currentProduct) * sdState.quantity) + ".";
+      });
+    }
+  }
+
   /* =========================================================
      INIT
      ========================================================= */
@@ -12612,6 +13461,8 @@
     initOttomanFilters();
     initOttomanViewToggle();
     initOttomanDetail();
+    initStorageDrawersFaq();
+    initStorageDrawersDetail();
     initSofaReviewCarousel();
   });
 })();

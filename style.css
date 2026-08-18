@@ -2397,20 +2397,20 @@ h1, h2, h3, h4 {
 
 .fabric-swatch__check {
   position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 26px;
-  height: 26px;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
-  background-color: var(--color-forest);
-  color: var(--color-ivory-soft);
+  background-color: rgba(18, 40, 31, 0.72);
+  color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transform: scale(0.5);
+  transform: translate(-50%, -50%) scale(0.6);
   transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
-  box-shadow: 0 0 0 2px var(--color-white);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
 }
 
 .fabric-swatch[aria-pressed="true"] .fabric-swatch__ring {
@@ -2420,7 +2420,7 @@ h1, h2, h3, h4 {
 
 .fabric-swatch[aria-pressed="true"] .fabric-swatch__check {
   opacity: 1;
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .fabric-swatch[aria-pressed="true"] .fabric-swatch__image {
@@ -5185,4 +5185,403 @@ body.sf-drawer-open {
 /* ---- Complete Your Bedroom (related products) ---- */
 .ob-related {
   background-color: var(--color-ivory);
+}
+
+/* =========================================================
+   BED FRAMES CATEGORY PLACEHOLDER + HUB PAGES
+   ========================================================= */
+
+/* ---- Placeholder page (categories not yet launched) ---- */
+.bf-placeholder {
+  padding-block: 2rem 5rem;
+}
+
+.bf-placeholder__inner {
+  max-width: 44rem;
+}
+
+.bf-placeholder__breadcrumb {
+  padding-block: 0 1rem;
+}
+
+.bf-placeholder__desc {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(35, 35, 32, 0.7);
+  max-width: 38rem;
+}
+
+.bf-placeholder__notice {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.bf-placeholder__notice-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-forest-dark);
+}
+
+.bf-placeholder__notice p:not(.bf-placeholder__notice-title) {
+  margin-top: 0.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(35, 35, 32, 0.68);
+  max-width: 34rem;
+}
+
+.bf-placeholder__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 480px) {
+  .bf-placeholder__ctas {
+    flex-direction: row;
+  }
+}
+
+.bf-placeholder__cross-links {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.bf-placeholder__link-grid {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.bf-placeholder__link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.bf-placeholder__link:hover {
+  color: var(--color-brass);
+}
+
+/* ---- Bed Frames hub page ---- */
+.bf-hub {
+  padding-block: 3rem 5rem;
+}
+
+.bf-hub__grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .bf-hub__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bf-hub__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bf-hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.75rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
+}
+
+.bf-hub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(164, 123, 76, 0.3);
+}
+
+.bf-hub-card__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-forest-dark);
+}
+
+.bf-hub-card__desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.bf-hub-card .link-arrow {
+  margin-top: 0.5rem;
+}
+
+/* =========================================================
+   STORAGE BEDS WITH DRAWERS PAGE — new rules only, scoped to
+   this page's own class names. Reuses existing shared
+   components (.product-card, .grid--products, .bb-modal__*,
+   .mt-detail__*, .mt-option-pill, .rd2-dimensions__table)
+   rather than duplicating them.
+   ========================================================= */
+
+/* ---- Hero ---- */
+.sd-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(360px, 48vh, 480px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-forest-dark);
+}
+
+.sd-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: fabricHeroZoom 24s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sd-hero__image {
+    animation: none;
+  }
+}
+
+.sd-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 40, 31, 0.52) 0%, rgba(18, 40, 31, 0.4) 45%, rgba(18, 40, 31, 0.6) 100%);
+  z-index: 1;
+}
+
+.sd-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 3.5rem;
+}
+
+.sd-hero__content {
+  max-width: 34rem;
+  color: var(--color-ivory-soft);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sd-hero__heading {
+  font-size: 2.5rem;
+  line-height: 1.05;
+  color: var(--color-ivory-soft);
+}
+
+@media (min-width: 768px) {
+  .sd-hero__heading {
+    font-size: 3.5rem;
+  }
+}
+
+.sd-hero__body {
+  margin-top: 1rem;
+  max-width: 30rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(248, 244, 235, 0.9);
+}
+
+.sd-hero__content .btn {
+  margin-top: 1.75rem;
+}
+
+/* ---- Breadcrumb ---- */
+.sd-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 1.1rem;
+  font-size: 0.8rem;
+  color: rgba(35, 35, 32, 0.55);
+}
+
+.sd-breadcrumb a {
+  color: var(--color-forest);
+  font-weight: 600;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.sd-breadcrumb a:hover {
+  color: var(--color-brass);
+}
+
+/* ---- Introduction ---- */
+.sd-intro {
+  padding-block: 2.5rem;
+}
+
+.sd-intro__inner {
+  max-width: 42rem;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.sd-intro__inner p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(35, 35, 32, 0.72);
+}
+
+/* ---- Product grid: 3 per row desktop ---- */
+.sd-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .sd-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sd-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- Product card hover: image zoom + card lift (subtle, professional) ---- */
+.sd-product-card {
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.sd-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.sd-product-card .product-card__image-wrap {
+  overflow: hidden;
+}
+
+.sd-product-card .product-card__image-wrap img {
+  transition: transform 0.5s var(--ease);
+}
+
+.sd-product-card:hover .product-card__image-wrap img {
+  transform: scale(1.06);
+}
+
+.sd-product-card__cta {
+  margin-top: 0.85rem;
+  width: 100%;
+  height: 42px;
+  font-size: 0.8125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--dur-fast) var(--ease), transform 0.2s var(--ease);
+}
+
+.sd-product-card__cta:hover {
+  transform: translateY(-2px);
+}
+
+/* ---- Storage / drawer info block on detail page ---- */
+.sd-storage-info {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: var(--color-ivory-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.sd-storage-info p:last-child {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(35, 35, 32, 0.7);
+}
+
+/* ---- FAQ accordion (page + detail-page instance) ---- */
+.sd-faq__inner {
+  max-width: 42rem;
+}
+
+.sd-faq-list {
+  margin-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.sd-faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sd-faq-item__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: 1.1rem;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+}
+
+.sd-faq-item__toggle svg {
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.sd-faq-item__toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.sd-faq-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows var(--dur-med) var(--ease);
+}
+
+.sd-faq-item.is-open .sd-faq-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.sd-faq-item__panel p {
+  overflow: hidden;
+  padding-bottom: 1.1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(35, 35, 32, 0.68);
+}
+
+.sd-detail-faq {
+  background-color: var(--color-ivory);
+}
+
+/* ---- Gallery image transition (subtle crossfade on switch) ---- */
+#sdGalleryMainImage {
+  transition: opacity 0.25s var(--ease);
 }
