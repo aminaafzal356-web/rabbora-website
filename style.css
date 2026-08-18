@@ -2399,6 +2399,7 @@ h1, h2, h3, h4 {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 5;
   width: 32px;
   height: 32px;
   border-radius: 999px;
@@ -2411,6 +2412,7 @@ h1, h2, h3, h4 {
   transform: translate(-50%, -50%) scale(0.6);
   transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+  pointer-events: none;
 }
 
 .fabric-swatch[aria-pressed="true"] .fabric-swatch__ring {
