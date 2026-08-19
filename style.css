@@ -541,6 +541,17 @@ h1, h2, h3, h4 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
+}
+
+.search-suggestion__category {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(35, 35, 32, 0.5);
 }
 
 .search-suggestion__price {

@@ -1308,7 +1308,12 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         btn.setAttribute("aria-pressed", String(rd2State.selectedFabricIndex === index));
         btn.setAttribute("aria-label", "Select " + fabric.name);
         btn.innerHTML =
-          '<span class="rd2-fabric-swatch__ring"><img src="' + fabric.image + '" alt="' + fabric.name + '" loading="lazy" /></span>' +
+          '<span class="rd2-fabric-swatch__ring">' +
+            '<img src="' + fabric.image + '" alt="' + fabric.name + '" loading="lazy" />' +
+            '<span class="rd2-fabric-swatch__check" aria-hidden="true">' +
+              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</span>' +
+          '</span>' +
           '<span class="rd2-fabric-swatch__name">' + fabric.name + '</span>';
         btn.addEventListener("click", function () {
           rd2State.selectedFabricIndex = index;
@@ -1376,7 +1381,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
       }
       var canonicalTag = document.getElementById("pageCanonical");
       if (canonicalTag) {
-        canonicalTag.setAttribute("href", "https://www.rabboraliving.com/rapid-delivery/" + product.slug);
+        canonicalTag.setAttribute("href", "https://rabbora.co.uk/rapid-delivery/" + product.slug);
       }
 
       breadcrumbName.textContent = product.name;
@@ -1425,7 +1430,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         descTag.setAttribute("content", "Shop Rapid Delivery bed frames at Rabbora Living. Handmade beds selected for faster dispatch, available in multiple UK sizes and fabrics with a 24-month warranty.");
       }
       var canonicalTag = document.getElementById("pageCanonical");
-      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/rapid-delivery");
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://rabbora.co.uk/rapid-delivery");
     }
 
     function showNotFound() {

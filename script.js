@@ -590,12 +590,16 @@
     }
   ];
 
+  // Site-wide search now reads from GLOBAL_SEARCH_INDEX (see
+  // search-index.js, loaded before this file on every page) — a real
+  // index of every actual product/category across the whole site,
+  // not just the home page's demo bed-frame cards.
   function buildSearchIndex() {
-    return [].concat(PRODUCTS.popular, PRODUCTS.bestSellers, SEARCH_EXTRA_DEMO_PRODUCTS);
+    return (typeof GLOBAL_SEARCH_INDEX !== "undefined") ? GLOBAL_SEARCH_INDEX : [];
   }
 
   var SEARCH_INDEX = buildSearchIndex();
-  var SEARCH_RESULTS_LIMIT = 6;
+  var SEARCH_RESULTS_LIMIT = 8;
 
   function formatPrice(value) {
     return "\u00A3" + value;
@@ -605,25 +609,31 @@
     var normalized = query.trim().toLowerCase();
     if (!normalized) return [];
 
-    return SEARCH_INDEX.filter(function (product) {
-      return product.name.toLowerCase().indexOf(normalized) !== -1;
+    return SEARCH_INDEX.filter(function (item) {
+      var haystack = (item.name + " " + item.category + " " + (item.keywords || "")).toLowerCase();
+      return haystack.indexOf(normalized) !== -1;
     }).slice(0, SEARCH_RESULTS_LIMIT);
   }
 
-  function createSuggestionItem(product) {
-    var item = document.createElement("a");
-    item.className = "search-suggestion";
-    item.href = "product.html?slug=" + product.slug;
-    item.setAttribute("role", "option");
-    item.innerHTML =
-      '<span class="search-suggestion__image">' +
-        '<img src="' + product.image + '" alt="" loading="lazy" width="48" height="48" />' +
-      "</span>" +
+  function createSuggestionItem(item) {
+    var suggestion = document.createElement("a");
+    suggestion.className = "search-suggestion";
+    suggestion.href = item.url;
+    suggestion.setAttribute("role", "option");
+    var imageHtml = item.image
+      ? '<img src="' + item.image + '" alt="" loading="lazy" width="48" height="48" />'
+      : "";
+    var priceHtml = (item.price !== null && item.price !== undefined)
+      ? '<span class="search-suggestion__price">' + formatPrice(item.price) + "</span>"
+      : "";
+    suggestion.innerHTML =
+      '<span class="search-suggestion__image">' + imageHtml + "</span>" +
       '<span class="search-suggestion__body">' +
-        '<span class="search-suggestion__name">' + product.name + "</span>" +
-        '<span class="search-suggestion__price">' + formatPrice(product.price) + "</span>" +
+        '<span class="search-suggestion__name">' + item.name + "</span>" +
+        '<span class="search-suggestion__category">' + item.category + "</span>" +
+        priceHtml +
       "</span>";
-    return item;
+    return suggestion;
   }
 
   function initHeaderSearch() {
@@ -3661,7 +3671,7 @@
       }
       var canonicalTag = document.getElementById("pageCanonical");
       if (canonicalTag) {
-        canonicalTag.setAttribute("href", "https://www.rabboraliving.com/mattresses/" + product.slug);
+        canonicalTag.setAttribute("href", "https://rabbora.co.uk/mattresses/" + product.slug);
       }
 
       breadcrumbName.textContent = product.name;
@@ -3716,7 +3726,7 @@
         );
       }
       var canonicalTag = document.getElementById("pageCanonical");
-      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/mattresses");
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://rabbora.co.uk/mattresses");
     }
 
     function showNotFound() {
@@ -12380,7 +12390,7 @@
       }
       var canonicalTag = document.getElementById("pageCanonical");
       if (canonicalTag) {
-        canonicalTag.setAttribute("href", "https://www.rabboraliving.com/slatted-ottoman-beds/product/" + product.slug);
+        canonicalTag.setAttribute("href", "https://rabbora.co.uk/slatted-ottoman-beds/product/" + product.slug);
       }
 
       breadcrumbName.textContent = product.name;
@@ -12453,7 +12463,7 @@
         );
       }
       var canonicalTag = document.getElementById("pageCanonical");
-      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/slatted-ottoman-beds");
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://rabbora.co.uk/slatted-ottoman-beds");
     }
 
     function showNotFound() {
@@ -13284,7 +13294,7 @@
       var descTag = document.getElementById("pageDescription");
       if (descTag) descTag.setAttribute("content", product.name + " \u2014 " + product.shortInfo);
       var canonicalTag = document.getElementById("pageCanonical");
-      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/storage-drawers/" + product.slug);
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://rabbora.co.uk/storage-drawers/" + product.slug);
 
       breadcrumbName.textContent = product.name;
       drawerCountEl.textContent = product.drawerCount + " Drawers";
@@ -13328,7 +13338,7 @@
       var descTag = document.getElementById("pageDescription");
       if (descTag) descTag.setAttribute("content", "Shop storage beds with drawers at Rabbora Living. Handmade bed frames with built-in drawer storage, available in multiple UK sizes with a 24-month warranty.");
       var canonicalTag = document.getElementById("pageCanonical");
-      if (canonicalTag) canonicalTag.setAttribute("href", "https://www.rabboraliving.com/storage-drawers");
+      if (canonicalTag) canonicalTag.setAttribute("href", "https://rabbora.co.uk/storage-drawers");
     }
 
     function showNotFound() {
