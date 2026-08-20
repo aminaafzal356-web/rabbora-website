@@ -303,30 +303,6 @@ var KIDS_BED_SIZE_DELTAS = {
     });
   }
 
-  /* ---- 4 / 5 columns per row toggle ---- */
-  function initColumnsToggle() {
-    var grid = document.getElementById("kbProductGrid");
-    var cols4Btn = document.getElementById("kbCols4Btn");
-    var cols5Btn = document.getElementById("kbCols5Btn");
-    if (!grid || !cols4Btn || !cols5Btn) return;
-
-    cols4Btn.addEventListener("click", function () {
-      grid.classList.remove("kb-grid--cols-5");
-      cols4Btn.classList.add("is-active");
-      cols4Btn.setAttribute("aria-pressed", "true");
-      cols5Btn.classList.remove("is-active");
-      cols5Btn.setAttribute("aria-pressed", "false");
-    });
-
-    cols5Btn.addEventListener("click", function () {
-      grid.classList.add("kb-grid--cols-5");
-      cols5Btn.classList.add("is-active");
-      cols5Btn.setAttribute("aria-pressed", "true");
-      cols4Btn.classList.remove("is-active");
-      cols4Btn.setAttribute("aria-pressed", "false");
-    });
-  }
-
   /* ---- FAQ accordion ---- */
   function initFaq() {
     qsa(".kb-faq-item").forEach(function (item) {
@@ -639,7 +615,6 @@ var KIDS_BED_SIZE_DELTAS = {
     populateGridImages();
     initToolbar();
     initViewToggle();
-    initColumnsToggle();
     initFaq();
     initDetail();
   });

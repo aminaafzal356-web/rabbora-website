@@ -1285,7 +1285,7 @@ var GLOBAL_SEARCH_INDEX = [
   {
     "name": "Solid Base Ottomans",
     "category": "Bed Frames",
-    "url": "solid-base-ottomans.html",
+    "url": "solid-ottoman-beds.html",
     "image": "",
     "price": null,
     "keywords": "solid base ottoman storage"
@@ -1293,7 +1293,7 @@ var GLOBAL_SEARCH_INDEX = [
   {
     "name": "Drawer Beds",
     "category": "Bed Frames",
-    "url": "drawer-beds.html",
+    "url": "storage-drawers.html",
     "image": "",
     "price": null,
     "keywords": "drawer bed storage"
@@ -1321,5 +1321,477 @@ var GLOBAL_SEARCH_INDEX = [
     "image": "",
     "price": null,
     "keywords": "fabric samples colour swatch material"
+  },
+  {
+    "name": "Chelsea High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-1",
+    "image": "images/high-headboard-beds/img-1.png",
+    "price": 449,
+    "keywords": "high headboard statement bed chelsea high headboard bed"
+  },
+  {
+    "name": "Hampton High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-2",
+    "image": "images/high-headboard-beds/img-2.png",
+    "price": 480,
+    "keywords": "high headboard statement bed hampton high headboard bed"
+  },
+  {
+    "name": "Windsor High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-3",
+    "image": "images/high-headboard-beds/img-3.png",
+    "price": 511,
+    "keywords": "high headboard statement bed windsor high headboard bed"
+  },
+  {
+    "name": "Kensington High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-4",
+    "image": "images/high-headboard-beds/img-4.png",
+    "price": 542,
+    "keywords": "high headboard statement bed kensington high headboard bed"
+  },
+  {
+    "name": "Mayfair High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-5",
+    "image": "images/high-headboard-beds/img-5.png",
+    "price": 573,
+    "keywords": "high headboard statement bed mayfair high headboard bed"
+  },
+  {
+    "name": "Richmond High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-6",
+    "image": "images/high-headboard-beds/img-6.png",
+    "price": 604,
+    "keywords": "high headboard statement bed richmond high headboard bed"
+  },
+  {
+    "name": "Cambridge High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-7",
+    "image": "images/high-headboard-beds/img-7.png",
+    "price": 635,
+    "keywords": "high headboard statement bed cambridge high headboard bed"
+  },
+  {
+    "name": "Victoria High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-8",
+    "image": "images/high-headboard-beds/img-8.png",
+    "price": 666,
+    "keywords": "high headboard statement bed victoria high headboard bed"
+  },
+  {
+    "name": "Oxford High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-9",
+    "image": "images/high-headboard-beds/img-9.png",
+    "price": 697,
+    "keywords": "high headboard statement bed oxford high headboard bed"
+  },
+  {
+    "name": "Chester High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-10",
+    "image": "images/high-headboard-beds/img-10.png",
+    "price": 728,
+    "keywords": "high headboard statement bed chester high headboard bed"
+  },
+  {
+    "name": "Kingston High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-11",
+    "image": "images/high-headboard-beds/img-11.png",
+    "price": 759,
+    "keywords": "high headboard statement bed kingston high headboard bed"
+  },
+  {
+    "name": "Brighton High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-12",
+    "image": "images/high-headboard-beds/img-12.png",
+    "price": 790,
+    "keywords": "high headboard statement bed brighton high headboard bed"
+  },
+  {
+    "name": "Lancaster High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-13",
+    "image": "images/high-headboard-beds/img-13.png",
+    "price": 821,
+    "keywords": "high headboard statement bed lancaster high headboard bed"
+  },
+  {
+    "name": "Bristol High Headboard Bed",
+    "category": "High Headboard Beds",
+    "url": "high-headboard-beds.html#/high-headboard-bed-14",
+    "image": "images/high-headboard-beds/img-14.png",
+    "price": 472,
+    "keywords": "high headboard statement bed bristol high headboard bed"
+  },
+  {
+    "name": "Chelsea Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-1",
+    "image": "",
+    "price": 429,
+    "keywords": "solid ottoman bed reinforced storage single 3ft chelsea solid ottoman bed"
+  },
+  {
+    "name": "Hampton Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-2",
+    "image": "",
+    "price": 446,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft hampton solid ottoman bed"
+  },
+  {
+    "name": "Windsor Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-3",
+    "image": "",
+    "price": 463,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft windsor solid ottoman bed"
+  },
+  {
+    "name": "Kensington Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-4",
+    "image": "",
+    "price": 480,
+    "keywords": "solid ottoman bed reinforced storage king 5ft kensington solid ottoman bed"
+  },
+  {
+    "name": "Mayfair Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-5",
+    "image": "",
+    "price": 497,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft mayfair solid ottoman bed"
+  },
+  {
+    "name": "Richmond Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-6",
+    "image": "",
+    "price": 514,
+    "keywords": "solid ottoman bed reinforced storage single 3ft richmond solid ottoman bed"
+  },
+  {
+    "name": "Cambridge Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-7",
+    "image": "",
+    "price": 531,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft cambridge solid ottoman bed"
+  },
+  {
+    "name": "Victoria Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-8",
+    "image": "",
+    "price": 548,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft victoria solid ottoman bed"
+  },
+  {
+    "name": "Oxford Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-9",
+    "image": "",
+    "price": 565,
+    "keywords": "solid ottoman bed reinforced storage king 5ft oxford solid ottoman bed"
+  },
+  {
+    "name": "Chester Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-10",
+    "image": "",
+    "price": 582,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft chester solid ottoman bed"
+  },
+  {
+    "name": "Kingston Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-11",
+    "image": "",
+    "price": 599,
+    "keywords": "solid ottoman bed reinforced storage single 3ft kingston solid ottoman bed"
+  },
+  {
+    "name": "Brighton Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-12",
+    "image": "",
+    "price": 616,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft brighton solid ottoman bed"
+  },
+  {
+    "name": "Lancaster Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-13",
+    "image": "",
+    "price": 633,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft lancaster solid ottoman bed"
+  },
+  {
+    "name": "Bristol Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-14",
+    "image": "",
+    "price": 650,
+    "keywords": "solid ottoman bed reinforced storage king 5ft bristol solid ottoman bed"
+  },
+  {
+    "name": "Soho Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-15",
+    "image": "",
+    "price": 667,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft soho solid ottoman bed"
+  },
+  {
+    "name": "Belgravia Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-16",
+    "image": "",
+    "price": 684,
+    "keywords": "solid ottoman bed reinforced storage single 3ft belgravia solid ottoman bed"
+  },
+  {
+    "name": "Fulham Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-17",
+    "image": "",
+    "price": 701,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft fulham solid ottoman bed"
+  },
+  {
+    "name": "Chiswick Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-18",
+    "image": "",
+    "price": 718,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft chiswick solid ottoman bed"
+  },
+  {
+    "name": "Greenwich Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-19",
+    "image": "",
+    "price": 735,
+    "keywords": "solid ottoman bed reinforced storage king 5ft greenwich solid ottoman bed"
+  },
+  {
+    "name": "Camden Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-20",
+    "image": "",
+    "price": 752,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft camden solid ottoman bed"
+  },
+  {
+    "name": "Notting Hill Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-21",
+    "image": "",
+    "price": 429,
+    "keywords": "solid ottoman bed reinforced storage single 3ft notting hill solid ottoman bed"
+  },
+  {
+    "name": "Marylebone Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-22",
+    "image": "",
+    "price": 446,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft marylebone solid ottoman bed"
+  },
+  {
+    "name": "Highgate Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-23",
+    "image": "",
+    "price": 463,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft highgate solid ottoman bed"
+  },
+  {
+    "name": "Hampstead Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-24",
+    "image": "",
+    "price": 480,
+    "keywords": "solid ottoman bed reinforced storage king 5ft hampstead solid ottoman bed"
+  },
+  {
+    "name": "Clapham Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-25",
+    "image": "",
+    "price": 497,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft clapham solid ottoman bed"
+  },
+  {
+    "name": "Islington Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-26",
+    "image": "",
+    "price": 514,
+    "keywords": "solid ottoman bed reinforced storage single 3ft islington solid ottoman bed"
+  },
+  {
+    "name": "Shoreditch Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-27",
+    "image": "",
+    "price": 531,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft shoreditch solid ottoman bed"
+  },
+  {
+    "name": "Southbank Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-28",
+    "image": "",
+    "price": 548,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft southbank solid ottoman bed"
+  },
+  {
+    "name": "Kew Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-29",
+    "image": "",
+    "price": 565,
+    "keywords": "solid ottoman bed reinforced storage king 5ft kew solid ottoman bed"
+  },
+  {
+    "name": "Putney Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-30",
+    "image": "",
+    "price": 582,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft putney solid ottoman bed"
+  },
+  {
+    "name": "Wimbledon Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-31",
+    "image": "",
+    "price": 599,
+    "keywords": "solid ottoman bed reinforced storage single 3ft wimbledon solid ottoman bed"
+  },
+  {
+    "name": "Dulwich Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-32",
+    "image": "",
+    "price": 616,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft dulwich solid ottoman bed"
+  },
+  {
+    "name": "Ealing Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-33",
+    "image": "",
+    "price": 633,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft ealing solid ottoman bed"
+  },
+  {
+    "name": "Harrow Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-34",
+    "image": "",
+    "price": 650,
+    "keywords": "solid ottoman bed reinforced storage king 5ft harrow solid ottoman bed"
+  },
+  {
+    "name": "Barnet Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-35",
+    "image": "",
+    "price": 667,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft barnet solid ottoman bed"
+  },
+  {
+    "name": "Enfield Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-36",
+    "image": "",
+    "price": 684,
+    "keywords": "solid ottoman bed reinforced storage single 3ft enfield solid ottoman bed"
+  },
+  {
+    "name": "Bromley Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-37",
+    "image": "",
+    "price": 701,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft bromley solid ottoman bed"
+  },
+  {
+    "name": "Croydon Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-38",
+    "image": "",
+    "price": 718,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft croydon solid ottoman bed"
+  },
+  {
+    "name": "Sutton Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-39",
+    "image": "",
+    "price": 735,
+    "keywords": "solid ottoman bed reinforced storage king 5ft sutton solid ottoman bed"
+  },
+  {
+    "name": "Merton Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-40",
+    "image": "",
+    "price": 752,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft merton solid ottoman bed"
+  },
+  {
+    "name": "Lewisham Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-41",
+    "image": "",
+    "price": 429,
+    "keywords": "solid ottoman bed reinforced storage single 3ft lewisham solid ottoman bed"
+  },
+  {
+    "name": "Hackney Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-42",
+    "image": "",
+    "price": 446,
+    "keywords": "solid ottoman bed reinforced storage small double 4ft hackney solid ottoman bed"
+  },
+  {
+    "name": "Canary Wharf Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-43",
+    "image": "",
+    "price": 463,
+    "keywords": "solid ottoman bed reinforced storage double 4'6ft canary wharf solid ottoman bed"
+  },
+  {
+    "name": "Bermondsey Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-44",
+    "image": "",
+    "price": 480,
+    "keywords": "solid ottoman bed reinforced storage king 5ft bermondsey solid ottoman bed"
+  },
+  {
+    "name": "Peckham Solid Ottoman Bed",
+    "category": "Solid Ottoman Beds",
+    "url": "solid-ottoman-beds.html#/solid-ottoman-bed-45",
+    "image": "",
+    "price": 497,
+    "keywords": "solid ottoman bed reinforced storage super king 6ft peckham solid ottoman bed"
   }
 ];

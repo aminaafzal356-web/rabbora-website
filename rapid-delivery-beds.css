@@ -603,6 +603,7 @@
 }
 
 .rd2-fabric-swatch__ring {
+  position: relative;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -613,6 +614,29 @@
 .rd2-fabric-swatch[aria-pressed="true"] .rd2-fabric-swatch__ring {
   border-color: var(--color-brass);
   box-shadow: 0 0 0 2px rgba(164, 123, 76, 0.2);
+}
+
+.rd2-fabric-swatch__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background-color: rgba(18, 40, 31, 0.72);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.rd2-fabric-swatch[aria-pressed="true"] .rd2-fabric-swatch__check {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .rd2-fabric-swatch img {

@@ -636,6 +636,86 @@
     return suggestion;
   }
 
+  /* ---- Category dropdown menu inside the search bar: real clickable
+     links only, opens/closes independently of the sticky search bar
+     itself ---- */
+  /* ---- Main navigation: visible on initial load and whenever the
+     page is scrolled to the very top. Hides only once the user has
+     actually scrolled down, and reappears either by scrolling back
+     to the top or by moving the mouse to the very top edge of the
+     viewport. Desktop only (nav is display:none below 1024px via
+     CSS already). The sticky search bar (.header-main) is a fully
+     separate system, untouched by any of this. ---- */
+  function initMainNavReveal() {
+    var nav = document.querySelector(".main-nav");
+    if (!nav) return;
+
+    var TOP_HOTSPOT_PX = 30;
+    var desktopQuery = window.matchMedia("(min-width: 1024px)");
+    var isNavHidden = false;
+
+    function show() {
+      isNavHidden = false;
+      nav.classList.remove("is-nav-hidden");
+    }
+
+    function hide() {
+      if (!desktopQuery.matches) return;
+      isNavHidden = true;
+      nav.classList.add("is-nav-hidden");
+    }
+
+    function handleScroll() {
+      if (window.scrollY <= 0) {
+        // Back at the very top: always visible, and stays visible.
+        show();
+      } else {
+        hide();
+      }
+    }
+
+    document.addEventListener("mousemove", function (event) {
+      if (event.clientY <= TOP_HOTSPOT_PX) show();
+    });
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    function handleViewportChange(event) {
+      if (!event.matches) show();
+    }
+    desktopQuery.addEventListener
+      ? desktopQuery.addEventListener("change", handleViewportChange)
+      : desktopQuery.addListener(handleViewportChange);
+  }
+
+  function initSearchCategoryMenu() {
+    var toggle = document.getElementById("searchCategoryToggle");
+    var list = document.getElementById("searchCategoryList");
+    if (!toggle || !list) return;
+
+    function close() {
+      list.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      list.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (list.classList.contains("is-open")) { close(); } else { open(); }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!list.contains(event.target) && event.target !== toggle) close();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") close();
+    });
+  }
+
   function initHeaderSearch() {
     var form = document.getElementById("searchForm");
     var input = document.getElementById("search-input");
@@ -13443,10 +13523,12 @@
      INIT
      ========================================================= */
   document.addEventListener("DOMContentLoaded", function () {
+    initMainNavReveal();
     initProductGrids();
     initWishlist();
     initCart();
     initDesktopDropdown();
+    initSearchCategoryMenu();
     initHeaderSearch();
     initMobileNav();
     initMobileAccordion();

@@ -689,32 +689,6 @@ var TV_BED_SIZE_DELTAS = {
     });
   }
 
-  /* ---- 4 / 5 columns per row toggle (desktop); CSS handles the
-     responsive step-down to fewer columns on tablet/mobile
-     automatically for either setting. ---- */
-  function initColumnsToggle() {
-    var grid = document.getElementById("tvProductGrid");
-    var cols4Btn = document.getElementById("tvCols4Btn");
-    var cols5Btn = document.getElementById("tvCols5Btn");
-    if (!grid || !cols4Btn || !cols5Btn) return;
-
-    cols4Btn.addEventListener("click", function () {
-      grid.classList.remove("tv-grid--cols-5");
-      cols4Btn.classList.add("is-active");
-      cols4Btn.setAttribute("aria-pressed", "true");
-      cols5Btn.classList.remove("is-active");
-      cols5Btn.setAttribute("aria-pressed", "false");
-    });
-
-    cols5Btn.addEventListener("click", function () {
-      grid.classList.add("tv-grid--cols-5");
-      cols5Btn.classList.add("is-active");
-      cols5Btn.setAttribute("aria-pressed", "true");
-      cols4Btn.classList.remove("is-active");
-      cols4Btn.setAttribute("aria-pressed", "false");
-    });
-  }
-
   /* ---- FAQ accordion (category + detail page instances) ---- */
   function initFaq() {
     qsa(".tv-faq-item").forEach(function (item) {
@@ -1004,7 +978,6 @@ var TV_BED_SIZE_DELTAS = {
   document.addEventListener("DOMContentLoaded", function () {
     initToolbar();
     initViewToggle();
-    initColumnsToggle();
     initFaq();
     initDetail();
   });

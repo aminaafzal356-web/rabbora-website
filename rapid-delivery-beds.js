@@ -1,7 +1,7 @@
 /* =========================================================
    RABBORA LIVING — RAPID DELIVERY BEDS
    ---------------------------------------------------------
-   Self-contained data + page logic for rapid-delivery.html.
+   Self-contained data + page logic for rapid-delivery-beds.html.
    Loaded AFTER script.js (which still runs the shared header,
    mobile nav, search, dropdown, etc. — none of that is
    touched or duplicated here).
@@ -1355,12 +1355,12 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         card.className = "product-card";
         card.innerHTML =
           '<div class="product-card__image-wrap">' +
-            '<a class="product-card__image-link" href="rapid-delivery.html#/' + p.slug + '">' +
+            '<a class="product-card__image-link" href="rapid-delivery-beds.html#/' + p.slug + '">' +
               '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
             '</a>' + badgeHtml +
           '</div>' +
           '<div class="product-card__body">' +
-            '<a href="rapid-delivery.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
+            '<a href="rapid-delivery-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
             '<div class="product-card__rating">' +
               '<span class="product-card__stars" aria-hidden="true">' + stars(p.rating) + '</span>' +
               '<span class="product-card__review-count">(' + p.reviews + ')</span>' +

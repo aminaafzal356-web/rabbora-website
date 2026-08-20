@@ -169,43 +169,20 @@
   min-width: 160px;
 }
 
-/* ---- Product grid: default 4/row desktop, switchable to 5/row,
-   with list view — fully responsive at every breakpoint ---- */
+/* ---- Product grid: 1 col mobile, 2 col tablet, 3 col desktop ---- */
 .tv-grid {
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 768px) {
   .tv-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 768px) {
-  .tv-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (min-width: 1024px) {
   .tv-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.tv-grid.tv-grid--cols-5 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (min-width: 768px) {
-  .tv-grid.tv-grid--cols-5 {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .tv-grid.tv-grid--cols-5 {
-    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -229,14 +206,12 @@
   aspect-ratio: 1 / 1;
 }
 
-.tv-view-toggle,
-.tv-columns-toggle {
+.tv-view-toggle {
   display: none;
 }
 
 @media (min-width: 640px) {
-  .tv-view-toggle,
-  .tv-columns-toggle {
+  .tv-view-toggle {
     display: flex;
   }
 }
