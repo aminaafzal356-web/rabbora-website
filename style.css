@@ -512,13 +512,12 @@ h1, h2, h3, h4 {
    state does to the class, an explicit data-state="closed" always wins
    and forces the dropdown shut. This is a second, independent source of
    truth on top of the class toggle above. */
-
-.search-category-menu__list {
-  position: absolute;
-  top: calc(100% + 0.6rem);
-  left: 0;
-  z-index: 999999;
+.search-category-menu__list[data-state="closed"] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-6px) !important;
 }
+
 .search-category-menu__list a,
 .search-category-menu__soon {
   display: block;
@@ -581,30 +580,7 @@ h1, h2, h3, h4 {
   background-color: var(--color-forest);
   color: var(--color-white);
 }
-.site-header,
-.header-main,
-.header-main__inner,
-.search-bar,
-.search-category-menu {
-  overflow: visible !important;
-}
 
-.site-header {
-  position: relative;
-  z-index: 9999;
-}
-
-.search-category-menu {
-  position: relative;
-  z-index: 10000;
-}
-
-.search-category-menu__list.is-open {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
-  pointer-events: auto;
-}
 /* Search suggestions dropdown */
 .search-suggestions {
   position: absolute;
