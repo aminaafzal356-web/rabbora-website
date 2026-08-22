@@ -687,57 +687,53 @@
       ? desktopQuery.addEventListener("change", handleViewportChange)
       : desktopQuery.addListener(handleViewportChange);
   }
+function initSearchCategoryMenu() {
+  const toggle = document.getElementById("searchCategoryToggle");
+  const list = document.getElementById("searchCategoryList");
 
-  function initSearchCategoryMenu() {
-    var toggle = document.getElementById("searchCategoryToggle");
-    var list = document.getElementById("searchCategoryList");
-    if (!toggle || !list) return;
+  if (!toggle || !list) return;
 
-    // Guard against this running twice (e.g. if some other script also
-    // calls it, or DOMContentLoaded fires more than once) — without this,
-    // a second run would bind duplicate click/outside-click listeners,
-    // which makes the dropdown open on one click and instantly re-close
-    // itself, or need two clicks to respond.
-    if (toggle.dataset.navMenuInitialized === "true") return;
-    toggle.dataset.navMenuInitialized = "true";
-
-    function close() {
-      list.classList.remove("is-open");
-      list.setAttribute("data-state", "closed");
-      toggle.setAttribute("aria-expanded", "false");
-    }
-    function open() {
-      list.classList.add("is-open");
-      list.setAttribute("data-state", "open");
-      toggle.setAttribute("aria-expanded", "true");
-    }
-
-    // Force a clean closed state the moment this runs, regardless of
-    // whatever class the element already had — covers the browser
-    // restoring a page from back/forward cache mid-open, or any other
-    // script having touched this element before this one runs.
-    close();
-
-    toggle.addEventListener("click", function (event) {
-      event.stopPropagation();
-      if (list.classList.contains("is-open")) { close(); } else { open(); }
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!list.contains(event.target) && event.target !== toggle) close();
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") close();
-    });
-
-    // Belt-and-suspenders: if the page is restored from bfcache (e.g. via
-    // the browser's back button), force it closed again rather than trust
-    // whatever state the cached DOM snapshot happened to be in.
-    window.addEventListener("pageshow", function (event) {
-      if (event.persisted) close();
-    });
+  function close() {
+    list.classList.remove("is-open");
+    list.setAttribute("data-state", "closed");
+    toggle.setAttribute("aria-expanded", "false");
   }
+
+  function open() {
+    list.classList.add("is-open");
+    list.setAttribute("data-state", "open");
+    toggle.setAttribute("aria-expanded", "true");
+  }
+
+  close();
+
+  toggle.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (list.classList.contains("is-open")) {
+      close();
+    } else {
+      open();
+    }
+  });
+
+  list.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!list.contains(event.target) && !toggle.contains(event.target)) {
+      close();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      close();
+    }
+  });
+}
 
   function initHeaderSearch() {
     var form = document.getElementById("searchForm");

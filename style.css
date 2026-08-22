@@ -512,11 +512,6 @@ h1, h2, h3, h4 {
    state does to the class, an explicit data-state="closed" always wins
    and forces the dropdown shut. This is a second, independent source of
    truth on top of the class toggle above. */
-.search-category-menu__list[data-state="closed"] {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transform: translateY(-6px) !important;
-}
 
 .search-category-menu__list a,
 .search-category-menu__soon {
