@@ -1233,4 +1233,4 @@
     initStorageDrawersFaq();
     initSofaReviewCarousel();
   });
-})();
+})(); 
