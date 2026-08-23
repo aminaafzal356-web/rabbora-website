@@ -1,117 +1,6 @@
 (function () {
   "use strict";
 
-  var PRODUCTS = {
-    popular: [
-      {
-        id: "demo-p1",
-        slug: "ottoman-bed",
-        name: "2026 Empire Bed Frame with Optional Ottoman Storage",
-        image: "images/img-18.jfif",
-        alt: "Demo product: Harrow ottoman bed frame in sage fabric",
-        rating: 5,
-        reviewCount: 128,
-        price: 290.00,
-        previousPrice: 421.00,
-        monthlyPrice: 25,
-        badge: "Best Seller"
-      },
-      {
-        id: "demo-p2",
-        slug: "2026 Manhattan Bed Frame with Lines ®",
-        name: "2026 Manhattan Bed Frame with Lines ®",
-        image: "images/img-20.jfif",
-        alt: "Demo product: Kensworth drawer bed in ivory boucle",
-        rating: 5,
-        reviewCount: 94,
-        price: 249.00,
-        previousPrice: 429.00,
-        monthlyPrice: 21,
-        badge: null
-      },
-      {
-        id: "demo-p3",
-        slug: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        name: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        image: "images/img-4.jfif",
-        alt: "Demo product: Aldermoor high headboard bed in forest velvet",
-        rating: 5,
-        reviewCount: 201,
-        price: 729,
-        previousPrice: 899,
-        monthlyPrice: 30,
-        badge: "New"
-      },
-      {
-        id: "demo-p4",
-        slug: "wren-tv-bed",
-        name: "Wren TV Bed Frame",
-        image: "images/img-29.jfif",
-        alt: "Demo product: Wren TV bed frame with lift mechanism",
-        rating: 4,
-        reviewCount: 67,
-        price: 1399.00,
-        previousPrice: 999.00,
-        monthlyPrice: 84,
-        badge: null
-      }
-    ],
-    bestSellers: [
-      {
-        id: "demo-b1",
-        slug: "The 2026 Art Deco Bed Style",
-        name: "The 2026 Art Deco Bed Style",
-        image: "images/img-1.jfif",
-        alt: "Demo product: Art Deco Bed Style",
-        rating: 5,
-        reviewCount: 156,
-        price: 253.00,
-        previousPrice: 430.00,
-        monthlyPrice: 21,
-        badge: "Best Seller"
-      },
-      {
-        id: "demo-b2",
-        slug: "2026 Kendal Butterfly Wingback Bed",
-        name: "2026 Kendal Butterfly Wingback Bed",
-        image: "images/img-31.png",
-        alt: "Demo product:  Kendal Butterfly Wingback Bed",
-        rating: 5,
-        reviewCount: 88,
-        price: 299.00,
-        previousPrice: 444.00,
-        monthlyPrice: 25,
-        badge: null
-      },
-      {
-        id: "demo-b3",
-        slug: " Frame with Optional Ottoman Storage",
-        name: "2026 Empire Bed Frame with Optional Ottoman Storage",
-        image: "images/img-8.jfif",
-        alt: "Demo product: Brindley solid base ottoman bed",
-        rating: 5,
-        reviewCount: 172,
-        price: 290.00,
-        previousPrice: 420.00,
-        monthlyPrice: 26,
-        badge: null
-      },
-      {
-        id: "demo-b4",
-        slug: " Bed frame (Optional Ottoman Storage)",
-        name: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        image: "images/img-3.jfif",
-        alt: "Demo product: 2026 Orlando Bed frame (Optional Ottoman Storage)",
-        rating: 5,
-        reviewCount: 307.59,
-        price: 329,
-        previousPrice: 421.00,
-        monthlyPrice: 26,
-        badge: "New"
-      }
-    ]
-  };
-
   var state = {
     wishlist: new Set(),
     cartCount: 0
@@ -123,73 +12,6 @@
 
   function qsa(selector, scope) {
     return Array.prototype.slice.call((scope || document).querySelectorAll(selector));
-  }
-
-  function buildStars(rating) {
-    var full = "\u2605".repeat(rating);
-    var empty = "\u2606".repeat(5 - rating);
-    return full + empty;
-  }
-
-  function createProductCard(product) {
-    var card = document.createElement("article");
-    card.className = "product-card";
-    card.dataset.productId = product.id;
-
-    var badgeHtml = product.badge
-      ? '<span class="product-card__badge">' + product.badge + "</span>"
-      : "";
-
-    var prevPriceHtml = product.previousPrice
-      ? '<span class="product-card__price-prev">\u00A3' + product.previousPrice + "</span>"
-      : "";
-
-    var monthlyHtml = product.monthlyPrice
-      ? '<p class="product-card__monthly">or from \u00A3' + product.monthlyPrice + "/mo</p>"
-      : "";
-
-    card.innerHTML =
-      '<div class="product-card__image-wrap">' +
-        '<a class="product-card__image-link" href="product.html?slug=' + product.slug + '">' +
-          '<img src="' + product.image + '" alt="' + product.alt + '" loading="lazy" width="900" height="900" />' +
-        "</a>" +
-        badgeHtml +
-        '<button type="button" class="product-card__wishlist" aria-label="Add to wishlist" aria-pressed="false">' +
-          '<svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true">' +
-            '<path d="M10 17s-6.5-3.9-8.2-8.1C.6 6 2 3 5.1 3c1.9 0 3.4 1.1 4.9 3 1.5-1.9 3-3 4.9-3 3.1 0 4.5 3 3.3 5.9C16.5 13.1 10 17 10 17z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />' +
-          "</svg>" +
-        "</button>" +
-      "</div>" +
-      '<div class="product-card__body">' +
-        '<a href="product.html?slug=' + product.slug + '" class="product-card__name">' + product.name + "</a>" +
-        '<div class="product-card__rating">' +
-          '<span class="product-card__stars" aria-hidden="true">' + buildStars(product.rating) + "</span>" +
-          '<span class="product-card__review-count">(' + product.reviewCount + ")</span>" +
-        "</div>" +
-        '<div class="product-card__price-row">' +
-          '<span class="product-card__price">\u00A3' + product.price + "</span>" +
-          prevPriceHtml +
-        "</div>" +
-        monthlyHtml +
-        '<span class="product-card__demo-tag">Demo product</span>' +
-      "</div>";
-
-    return card;
-  }
-
-  function renderProductGrid(gridId, products) {
-    var grid = document.getElementById(gridId);
-    if (!grid) return;
-    var fragment = document.createDocumentFragment();
-    products.forEach(function (product) {
-      fragment.appendChild(createProductCard(product));
-    });
-    grid.appendChild(fragment);
-  }
-
-  function initProductGrids() {
-    renderProductGrid("popularProductsGrid", PRODUCTS.popular);
-    renderProductGrid("bestSellerProductsGrid", PRODUCTS.bestSellers);
   }
 
   function updateWishlistCount() {
@@ -353,148 +175,6 @@
         toggleBtn.setAttribute("aria-expanded", String(!isOpen));
         toggleBtn.setAttribute("aria-label", (!isOpen ? "Collapse" : "Expand") + " Bed Frames");
       });
-    });
-  }
-
-  function initNewsletterForm() {
-    var form = document.getElementById("newsletterForm");
-    var messageEl = document.getElementById("newsletterMessage");
-    if (!form || !messageEl) return;
-
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      var emailInput = document.getElementById("newsletter-email");
-      var email = emailInput ? emailInput.value.trim() : "";
-
-      messageEl.classList.remove("is-error", "is-success");
-
-      if (!emailPattern.test(email)) {
-        messageEl.textContent = "Please enter a valid email address.";
-        messageEl.classList.add("is-error");
-        if (emailInput) emailInput.setAttribute("aria-invalid", "true");
-        return;
-      }
-
-      if (emailInput) emailInput.removeAttribute("aria-invalid");
-
-      // Placeholder submission handler.
-      // Replace with a real API call once the newsletter backend
-      // is connected, e.g.:
-      //   fetch("/api/newsletter", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify({ email: email })
-      //   });
-
-      messageEl.textContent = "Thanks \u2014 you're on the list.";
-      messageEl.classList.add("is-success");
-      form.reset();
-    });
-  }
-
-  function initHeroSlideshow() {
-    var slideshow = document.getElementById("heroSlideshow");
-    if (!slideshow) return;
-
-    var slides = slideshow.querySelectorAll(".hero__slide");
-    if (slides.length < 2) return;
-
-    var CROSSFADE_MS = 1300;
-
-    // The first slide is forced to opacity:1 with transitions disabled
-    // inline (see HTML) so it is guaranteed to be visible the instant the
-    // page paints, with no fade-in and no blank moment beforehand. Once
-    // that first paint has happened, hand it back to the normal CSS
-    // transition so every later crossfade still animates exactly as
-    // before.
-    var firstSlide = slides[0];
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () {
-        firstSlide.style.transition = "";
-      });
-    });
-
-    // Warm the browser cache for every slide right away so each one is
-    // already downloaded by the time its turn in the rotation comes.
-    slides.forEach(function (img) {
-      if (img.complete) return;
-      var warm = new Image();
-      warm.src = img.currentSrc || img.src;
-    });
-
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduceMotion.matches) return;
-
-    var currentIndex = 0;
-    var intervalId = null;
-
-    function isLoaded(img) {
-      return img.complete && img.naturalWidth > 0;
-    }
-
-    // True crossfade: the incoming slide is raised above the outgoing
-    // one (z-index) and fades in on top of it. The outgoing slide is
-    // only hidden again once the fade-in has fully finished, so the
-    // hero area is always covered by a fully opaque image — there is
-    // never a moment where both are transparent and the background
-    // colour underneath could show through.
-    function activateSlide(nextIndex) {
-      var outgoing = slides[currentIndex];
-      var incoming = slides[nextIndex];
-
-      incoming.style.zIndex = "2";
-      outgoing.style.zIndex = "1";
-      incoming.classList.add("is-active");
-
-      window.setTimeout(function () {
-        outgoing.classList.remove("is-active");
-        outgoing.style.zIndex = "";
-      }, CROSSFADE_MS);
-
-      currentIndex = nextIndex;
-    }
-
-    function goToNextSlide() {
-      var nextIndex = (currentIndex + 1) % slides.length;
-      var nextImg = slides[nextIndex];
-
-      if (isLoaded(nextImg)) {
-        activateSlide(nextIndex);
-        return;
-      }
-
-      // Rare case: the next slide hasn't finished loading yet. Wait for
-      // it rather than starting the transition early, so the current
-      // image never disappears before the next one is actually ready.
-      var onReady = function () {
-        nextImg.removeEventListener("load", onReady);
-        activateSlide(nextIndex);
-      };
-      nextImg.addEventListener("load", onReady);
-    }
-
-    function start() {
-      if (intervalId) return;
-      intervalId = window.setInterval(goToNextSlide, 6500);
-    }
-
-    function stop() {
-      if (!intervalId) return;
-      window.clearInterval(intervalId);
-      intervalId = null;
-    }
-
-    start();
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        stop();
-      } else {
-        start();
-      }
     });
   }
 
@@ -734,6 +414,154 @@
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   }
 
+  var FABRIC_MAX_SELECTION = 4;
+
+  function initFabricSwatches() {
+    var grid = document.getElementById("fabricGrid");
+    if (!grid) return;
+
+    var statusEl = document.getElementById("fabricSelectionStatus");
+    var limitMessageEl = document.getElementById("fabricLimitMessage");
+    var swatches = qsa(".fabric-swatch", grid);
+    var selected = [];
+    var limitTimer = null;
+
+    // If a swatch is already marked as selected in the HTML (the
+    // default fabric shown when the page loads), reflect that in the
+    // selection state so the counter/form list match what's on screen.
+    swatches.forEach(function (btn) {
+      if (btn.getAttribute("aria-pressed") === "true") {
+        selected.push(btn.dataset.fabric);
+      }
+    });
+
+    function updateStatus() {
+      if (statusEl) {
+        statusEl.textContent = selected.length + " / " + FABRIC_MAX_SELECTION + " Samples Selected";
+      }
+    }
+
+    function showLimitMessage() {
+      if (!limitMessageEl) return;
+      limitMessageEl.hidden = false;
+      if (limitTimer) clearTimeout(limitTimer);
+      limitTimer = setTimeout(function () {
+        limitMessageEl.hidden = true;
+      }, 2800);
+    }
+
+    function syncFormFields() {
+      var listEl = document.getElementById("fabricFormSelectedList");
+      var inputEl = document.getElementById("fabric-samples");
+
+      if (listEl) {
+        listEl.innerHTML = "";
+        if (selected.length === 0) {
+          var empty = document.createElement("li");
+          empty.className = "fabric-form__selected-empty";
+          empty.textContent = "No samples selected yet — choose up to 4 above.";
+          listEl.appendChild(empty);
+        } else {
+          selected.forEach(function (name) {
+            var item = document.createElement("li");
+            item.textContent = "\u2713 " + name;
+            listEl.appendChild(item);
+          });
+        }
+      }
+
+      if (inputEl) {
+        inputEl.value = selected.join(", ");
+      }
+    }
+
+    function selectSwatch(btn, name) {
+      // True multi-select: up to FABRIC_MAX_SELECTION (4) fabrics can be
+      // selected at once. Selecting a new one never clears existing
+      // selections — it's only blocked once the limit is reached.
+      if (selected.length >= FABRIC_MAX_SELECTION) {
+        showLimitMessage();
+        return;
+      }
+      selected.push(name);
+      btn.setAttribute("aria-pressed", "true");
+      updateStatus();
+      syncFormFields();
+    }
+
+    function deselectSwatch(btn, name) {
+      var index = selected.indexOf(name);
+      if (index !== -1) selected.splice(index, 1);
+      btn.setAttribute("aria-pressed", "false");
+      updateStatus();
+      syncFormFields();
+    }
+
+    swatches.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var name = btn.dataset.fabric;
+        var isSelected = btn.getAttribute("aria-pressed") === "true";
+        if (isSelected) {
+          deselectSwatch(btn, name);
+        } else {
+          selectSwatch(btn, name);
+        }
+      });
+    });
+
+    updateStatus();
+    syncFormFields();
+  }
+
+  function initFabricForm() {
+    var form = document.getElementById("fabricSamplesForm");
+    var messageEl = document.getElementById("fabricFormMessage");
+    if (!form || !messageEl) return;
+
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      messageEl.classList.remove("is-error", "is-success");
+
+      var samplesInput = document.getElementById("fabric-samples");
+      var requiredFields = qsa("[required]", form);
+      var firstInvalid = null;
+
+      requiredFields.forEach(function (field) {
+        var valid = field.value.trim() !== "";
+        if (field.type === "email" && valid) {
+          valid = emailPattern.test(field.value.trim());
+        }
+        field.setAttribute("aria-invalid", valid ? "false" : "true");
+        if (!valid && !firstInvalid) firstInvalid = field;
+      });
+
+      if (firstInvalid) {
+        if (firstInvalid === samplesInput) {
+          messageEl.textContent = "Please select at least one fabric sample above.";
+        } else {
+          messageEl.textContent = "Please complete all required fields correctly.";
+        }
+        messageEl.classList.add("is-error");
+        firstInvalid.focus();
+        return;
+      }
+
+      // Placeholder submission handler.
+      // Replace with a real API call once the sample-request backend
+      // is connected, e.g.:
+      //   fetch("/api/fabric-samples", {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      //   });
+
+      messageEl.textContent = "Thanks \u2014 your free sample request has been received.";
+      messageEl.classList.add("is-success");
+    });
+  }
+
   function initScrollReveal() {
     var targets = qsa(".reveal");
     if (targets.length === 0) return;
@@ -761,6 +589,93 @@
       observer.observe(el);
     });
   }
+
+  function initFabricReviewCarousel() {
+    var carousel = document.getElementById("fabricReviewCarousel");
+    var track = document.getElementById("fabricReviewTrack");
+    var dotsWrap = document.getElementById("fabricReviewDots");
+    var prevBtn = document.getElementById("fabricReviewPrev");
+    var nextBtn = document.getElementById("fabricReviewNext");
+    if (!carousel || !track || !dotsWrap) return;
+
+    var slides = qsa(".fabric-review-carousel__slide", track);
+    if (slides.length === 0) return;
+
+    var current = 0;
+    var dots = [];
+
+    slides.forEach(function (slide, index) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "fabric-review-carousel__dot";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", "Show review " + (index + 1));
+      dot.addEventListener("click", function () {
+        goTo(index);
+      });
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    });
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === current);
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === current);
+      });
+
+      // Mobile/narrow layout: slide the track horizontally.
+      track.style.transform = "translateX(-" + current * 100 + "%)";
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goTo(current - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goTo(current + 1);
+      });
+    }
+
+    goTo(0);
+  }
+
+  var FABRIC_CATALOG = [
+    { slug: "plush-grey", name: "Plush Grey" },
+    { slug: "plush-silver", name: "Plush Silver" },
+    { slug: "plush-steel", name: "Plush Steel" },
+    { slug: "coniston-charcoal", name: "Coniston Charcoal" },
+    { slug: "coniston-almond", name: "Coniston Almond" },
+    { slug: "plush-cream", name: "Plush Cream" },
+    { slug: "naples-silver", name: "Naples Silver" },
+    { slug: "naples-steel", name: "Naples Steel" },
+    { slug: "coniston-armour", name: "Coniston Armour" },
+    { slug: "plush-beige", name: "Plush Beige" },
+    { slug: "plush-black", name: "Plush Black" },
+    { slug: "plush-pink", name: "Plush Pink" },
+    { slug: "coniston-emerald", name: "Coniston Emerald" },
+    { slug: "coniston-pink", name: "Coniston Pink" },
+    { slug: "naples-black", name: "Naples Black" },
+    { slug: "naples-ivory", name: "Naples Ivory" },
+    { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver" },
+    { slug: "crushed-velvet-black", name: "Crushed Velvet Black" },
+    { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream" },
+    { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink" },
+    { slug: "plush-mustard", name: "Plush Mustard" },
+    { slug: "plush-green", name: "Plush Green" },
+    { slug: "plush-turquoise", name: "Plush Turquoise" },
+    { slug: "coniston-blue", name: "Coniston Blue" },
+    { slug: "cream-boucle", name: "Cream Boucle" },
+    { slug: "pink-boucle", name: "Pink Boucle" },
+    { slug: "marble-oatmeal", name: "Marble Oatmeal" },
+    { slug: "marble-platinum", name: "Marble Platinum" },
+    { slug: "marble-silver", name: "Marble Silver" }
+  ];
 
   function bbMoney(v) {
     return "\u00A3" + v.toFixed(2);
@@ -835,7 +750,6 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initMainNavReveal();
-    initProductGrids();
     initWishlist();
     initCart();
     initDesktopDropdown();
@@ -843,11 +757,12 @@
     initHeaderSearch();
     initMobileNav();
     initMobileAccordion();
-    initNewsletterForm();
-    initHeroSlideshow();
     initFooterYear();
     updateWishlistCount();
+    initFabricSwatches();
+    initFabricForm();
     initScrollReveal();
+    initFabricReviewCarousel();
     initMattressHelp();
     initStorageDrawersFaq();
   });
