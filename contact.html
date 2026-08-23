@@ -56,8 +56,35 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How quickly will I hear back?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We aim to reply to every message as quickly as we can. For anything urgent, WhatsApp or calling us directly is usually the fastest way to reach us." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I request fabric samples before ordering?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can request free fabric samples so you can feel the exact colour and texture before choosing your bed." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's your warranty and returns policy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every bed comes with our standard 24-month warranty, plus 30-day easy returns on unused, unassembled beds." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you deliver across the UK?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we offer free UK delivery on all bed frames. Each piece is handmade to order." }
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
 <body>
 
   <a href="#main-content" class="skip-link">Skip to content</a>
@@ -323,6 +350,10 @@
           <p class="eyebrow">Get In Touch</p>
           <h1 class="contact-hero__heading">We&rsquo;re Here to Help</h1>
           <p class="contact-hero__body">Have a question about one of our handmade beds, an existing order, or just want some advice? We&rsquo;d love to hear from you.</p>
+          <a href="#contact-form-heading" class="contact-hero__cta">
+            Send Us a Message
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
         <div class="contact-hero__image-wrap reveal reveal--image">
           <img src="images/rapid-beds/brighton-bed-lifestyle.svg" alt="A bedroom styled with one of our handmade beds" class="contact-hero__image" width="800" height="500" loading="eager" fetchpriority="high" />
@@ -422,6 +453,55 @@
           <button type="submit" class="btn btn--forest contact-form__submit">Send Message</button>
           <p class="contact-form__message" id="contactFormMessage" role="status" aria-live="polite"></p>
         </form>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT FAQ ============ -->
+    <section class="section contact-faq" aria-labelledby="contact-faq-heading">
+      <div class="container contact-faq__inner">
+        <div class="section-head">
+          <p class="eyebrow">FAQs</p>
+          <h2 id="contact-faq-heading">A Few Common Questions</h2>
+        </div>
+
+        <div class="contact-faq-list">
+          <div class="contact-faq-item">
+            <button type="button" class="contact-faq-item__toggle" aria-expanded="false">
+              <span>How quickly will I hear back?</span>
+              <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <div class="contact-faq-item__panel">
+              <p>We aim to reply to every message as quickly as we can. For anything urgent, WhatsApp or calling us directly is usually the fastest way to reach us.</p>
+            </div>
+          </div>
+          <div class="contact-faq-item">
+            <button type="button" class="contact-faq-item__toggle" aria-expanded="false">
+              <span>Can I request fabric samples before ordering?</span>
+              <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <div class="contact-faq-item__panel">
+              <p>Yes &mdash; you can request free fabric samples so you can feel the exact colour and texture before choosing your bed.</p>
+            </div>
+          </div>
+          <div class="contact-faq-item">
+            <button type="button" class="contact-faq-item__toggle" aria-expanded="false">
+              <span>What's your warranty and returns policy?</span>
+              <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <div class="contact-faq-item__panel">
+              <p>Every bed comes with our standard 24-month warranty, plus 30-day easy returns on unused, unassembled beds. Get in touch and we're happy to talk you through it.</p>
+            </div>
+          </div>
+          <div class="contact-faq-item">
+            <button type="button" class="contact-faq-item__toggle" aria-expanded="false">
+              <span>Do you deliver across the UK?</span>
+              <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <div class="contact-faq-item__panel">
+              <p>Yes, we offer free UK delivery on all bed frames. Each piece is handmade to order, so if you need a delivery estimate for your area, just ask.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
