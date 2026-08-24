@@ -1452,3 +1452,25 @@ a.contact-card:hover .contact-card__icon {
    BASE BUTTON, SECTION-HEAD, MOBILE ACCORDION
    (restored — genuinely used by this page, were missing)
    ========================================================= */
+
+
+
+
+
+   /* FINAL CTA — force correct background */
+.contact-final-cta {
+  position: relative !important;
+  overflow: hidden !important;
+  background: linear-gradient(
+    135deg,
+    var(--color-forest) 0%,
+    var(--color-forest-dark) 100%
+  ) !important;
+  color: var(--color-ivory-soft);
+}
+
+.contact-final-cta__shape {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
