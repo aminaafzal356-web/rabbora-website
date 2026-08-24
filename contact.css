@@ -1383,7 +1383,6 @@ a.contact-card:hover .contact-card__icon {
     transparent 72%
   );
   border: 1.5px solid rgba(203, 168, 118, 0.4);
-  animation: cta-shape-drift 16s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -1474,3 +1473,4 @@ a.contact-card:hover .contact-card__icon {
   visibility: visible !important;
   opacity: 1 !important;
 }
+
