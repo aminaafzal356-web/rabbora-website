@@ -1351,7 +1351,14 @@ a.contact-card:hover .contact-card__icon {
 .contact-faq-item__panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s var(--ease);
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.3s var(--ease), opacity 0.3s var(--ease), visibility 0.3s;
+}
+
+.contact-faq-item.is-open .contact-faq-item__panel {
+  visibility: visible;
+  opacity: 1;
 }
 
 .contact-faq-item__panel p {
