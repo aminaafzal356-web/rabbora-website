@@ -599,37 +599,35 @@
     });
   }
 
-  /* =========================================================
-     CONTACT FAQ ACCORDION — guarded on the presence of the FAQ
-     list, so this is safely inert if reused elsewhere.
-     ========================================================= */
-  function initContactFaq() {
-    var items = document.querySelectorAll(".contact-faq-item");
-    if (items.length === 0) return;
+ function initContactFaq() {
+  var items = document.querySelectorAll(".contact-faq-item");
+  if (!items.length) return;
 
-    items.forEach(function (item) {
-      var toggle = item.querySelector(".contact-faq-item__toggle");
-      var panel = item.querySelector(".contact-faq-item__panel");
-      if (!toggle || !panel) return;
+  items.forEach(function (item) {
+    var toggle = item.querySelector(".contact-faq-item__toggle");
+    if (!toggle) return;
 
-      toggle.addEventListener("click", function () {
-        var isOpen = item.classList.contains("is-open");
+    toggle.addEventListener("click", function () {
+      var isOpen = item.classList.contains("is-open");
 
-        if (isOpen) {
-          item.classList.remove("is-open");
-          toggle.setAttribute("aria-expanded", "false");
-          panel.style.maxHeight = "0px";
-        } else {
-          item.classList.add("is-open");
-          toggle.setAttribute("aria-expanded", "true");
-          // Measure the panel's real content height instead of guessing a
-          // fixed value, so this works correctly regardless of answer
-          // length or viewport width (long answers, narrow mobile wrapping).
-          panel.style.maxHeight = panel.scrollHeight + "px";
+      // Close all other FAQ items
+      items.forEach(function (otherItem) {
+        otherItem.classList.remove("is-open");
+
+        var otherToggle = otherItem.querySelector(".contact-faq-item__toggle");
+        if (otherToggle) {
+          otherToggle.setAttribute("aria-expanded", "false");
         }
       });
+
+      // Open clicked item
+      if (!isOpen) {
+        item.classList.add("is-open");
+        toggle.setAttribute("aria-expanded", "true");
+      }
     });
-  }
+  });
+}
 
   document.addEventListener("DOMContentLoaded", function () {
     initMainNavReveal();
