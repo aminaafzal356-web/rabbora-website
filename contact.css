@@ -233,6 +233,128 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* Respect reduced-motion preference: skip the crossfade transition and
+   the slow zoom/drift, and simply show the active slide instantly and
+   statically instead. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -240,6 +362,26 @@
   background-color: var(--color-forest-dark);
   color: var(--color-ivory-soft);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -265,6 +407,232 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- Desktop: filter bar always visible, inline ---- */
+
+
+
+
+/* ---- Tablet & mobile: slide-in drawer ---- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ---- Rapid delivery banner on the detail view ---- */
 .rd-detail__rapid-banner {
   display: inline-flex;
@@ -279,6 +647,272 @@
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -671,69 +1305,107 @@ a.contact-card:hover .contact-card__icon {
   font-weight: 600;
 }
 
-/* ---- FAQ ---- */
-.contact-faq {
-  padding-block: 1rem 4rem;
+/* ---- Final CTA ---- */
+.contact-final-cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: 5rem;
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-dark) 100%);
+  text-align: center;
 }
 
-.contact-faq__inner {
-  max-width: 42rem;
+.contact-final-cta__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 36rem;
 }
 
-.contact-faq-list {
-  margin-top: 1rem;
-  border-top: 1px solid var(--color-border);
+.contact-final-cta .eyebrow--light {
+  color: var(--color-brass-light);
 }
 
-.contact-faq-item {
-  border-bottom: 1px solid var(--color-border);
+.contact-final-cta__heading {
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: var(--color-ivory-soft);
 }
 
-.contact-faq-item__toggle {
-  display: flex;
+@media (min-width: 768px) {
+  .contact-final-cta__heading {
+    font-size: 3rem;
+  }
+}
+
+.contact-final-cta__body {
+  margin-top: 1.1rem;
+  margin-inline: auto;
+  max-width: 30rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(248, 244, 235, 0.85);
+}
+
+.contact-final-cta__button {
+  margin-top: 2.25rem;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-block: 1.1rem;
-  text-align: left;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--color-forest-dark);
-  background: none;
-  border: none;
-  cursor: pointer;
+  gap: 0.55rem;
 }
 
-.contact-faq-item__toggle svg {
-  flex-shrink: 0;
-  margin-left: 1rem;
+.contact-final-cta__button svg {
   transition: transform 0.25s var(--ease);
 }
 
-.contact-faq-item__toggle[aria-expanded="true"] svg {
-  transform: rotate(180deg);
+.contact-final-cta__button:hover svg {
+  transform: translateX(3px);
 }
 
-
-.contact-faq-item__panel {
-  display: none;
+/* Tasteful decorative shape - a soft brass ring that drifts very slowly,
+   purely ambient, never distracting from the content in front of it. */
+.contact-final-cta__shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 32rem;
+  height: 32rem;
+  margin-top: -16rem;
+  margin-left: -16rem;
+  border-radius: 50%;
+  border: 1px solid rgba(203, 168, 118, 0.18);
+  animation: cta-shape-drift 16s ease-in-out infinite;
 }
 
-.contact-faq-item.is-open .contact-faq-item__panel {
-  display: block;
+.contact-final-cta__shape::after {
+  content: "";
+  position: absolute;
+  inset: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(203, 168, 118, 0.12);
 }
 
-.contact-faq-item__panel p {
-  padding-bottom: 1.1rem;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: rgba(35, 35, 32, 0.68);
+@keyframes cta-shape-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(1.25rem, -0.75rem) scale(1.04);
+  }
 }
-/* ---- Scroll reveal ---- */
-.reveal {
+
+/* ---- Fade-up entrance for the CTA content ---- */
+.reveal-fade-up {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -745,9 +1417,16 @@ a.contact-card:hover .contact-card__icon {
   .contact-hero__cta svg,
   .contact-hero__image-wrap,
   .contact-hero__image,
-  .contact-faq-item__toggle svg,
-  .contact-faq-item__panel {
+  .contact-final-cta__button svg,
+  .reveal-fade-up {
     transition: none;
+  }
+  .reveal-fade-up {
+    opacity: 1;
+    transform: none;
+  }
+  .contact-final-cta__shape {
+    animation: none;
   }
   a.contact-card:hover,
   .contact-hero__cta:hover,

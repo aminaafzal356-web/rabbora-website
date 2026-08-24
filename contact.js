@@ -373,8 +373,13 @@
   }
 
   function initScrollReveal() {
-    var targets = qsa(".reveal");
+    var targets = qsa(".reveal, .reveal-fade-up");
     if (targets.length === 0) return;
+
+    targets.forEach(function (el) {
+      var delay = el.getAttribute("data-delay");
+      if (delay) el.style.setProperty("--reveal-delay", delay + "s");
+    });
 
     if (!("IntersectionObserver" in window)) {
       targets.forEach(function (el) {
@@ -599,26 +604,6 @@
     });
   }
 
-  /* =========================================================
-     CONTACT FAQ ACCORDION — guarded on the presence of the FAQ
-     list, so this is safely inert if reused elsewhere.
-     ========================================================= */
- function initContactFaq() {
-  var items = document.querySelectorAll(".contact-faq-item");
-
-  items.forEach(function (item) {
-    var toggle = item.querySelector(".contact-faq-item__toggle");
-
-    if (!toggle) return;
-
-    toggle.addEventListener("click", function () {
-      var isOpen = item.classList.contains("is-open");
-
-      item.classList.toggle("is-open", !isOpen);
-      toggle.setAttribute("aria-expanded", String(!isOpen));
-    });
-  });
-}
   document.addEventListener("DOMContentLoaded", function () {
     initMainNavReveal();
     initMobileNav();
@@ -632,6 +617,5 @@
     updateWishlistCount();
     initScrollReveal();
     initContactForm();
-    initContactFaq();
   });
 })();
