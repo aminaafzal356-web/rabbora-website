@@ -1362,28 +1362,37 @@ a.contact-card:hover .contact-card__icon {
   transform: translateX(3px);
 }
 
-/* Tasteful decorative shape - a soft brass ring that drifts very slowly,
-   purely ambient, never distracting from the content in front of it. */
+/* Tasteful decorative shape - a soft brass glow with a defined ring that
+   drifts very slowly. Sized and layered so it reads clearly against the
+   dark forest background on both desktop and mobile, without ever
+   overpowering the text in front of it. */
 .contact-final-cta__shape {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 1;
-  width: 32rem;
-  height: 32rem;
-  margin-top: -16rem;
-  margin-left: -16rem;
+  width: min(28rem, 85vw);
+  height: min(28rem, 85vw);
+  margin-top: min(-14rem, -42.5vw);
+  margin-left: min(-14rem, -42.5vw);
   border-radius: 50%;
-  border: 1px solid rgba(203, 168, 118, 0.18);
+  background: radial-gradient(
+    circle,
+    rgba(203, 168, 118, 0.16) 0%,
+    rgba(203, 168, 118, 0.06) 45%,
+    transparent 72%
+  );
+  border: 1.5px solid rgba(203, 168, 118, 0.4);
   animation: cta-shape-drift 16s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .contact-final-cta__shape::after {
   content: "";
   position: absolute;
-  inset: 2.5rem;
+  inset: 2.25rem;
   border-radius: 50%;
-  border: 1px solid rgba(203, 168, 118, 0.12);
+  border: 1px solid rgba(203, 168, 118, 0.28);
 }
 
 @keyframes cta-shape-drift {
