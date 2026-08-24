@@ -599,36 +599,26 @@
     });
   }
 
+  /* =========================================================
+     CONTACT FAQ ACCORDION — guarded on the presence of the FAQ
+     list, so this is safely inert if reused elsewhere.
+     ========================================================= */
  function initContactFaq() {
   var items = document.querySelectorAll(".contact-faq-item");
-  if (!items.length) return;
 
   items.forEach(function (item) {
     var toggle = item.querySelector(".contact-faq-item__toggle");
+
     if (!toggle) return;
 
     toggle.addEventListener("click", function () {
       var isOpen = item.classList.contains("is-open");
 
-      // Close all other FAQ items
-      items.forEach(function (otherItem) {
-        otherItem.classList.remove("is-open");
-
-        var otherToggle = otherItem.querySelector(".contact-faq-item__toggle");
-        if (otherToggle) {
-          otherToggle.setAttribute("aria-expanded", "false");
-        }
-      });
-
-      // Open clicked item
-      if (!isOpen) {
-        item.classList.add("is-open");
-        toggle.setAttribute("aria-expanded", "true");
-      }
+      item.classList.toggle("is-open", !isOpen);
+      toggle.setAttribute("aria-expanded", String(!isOpen));
     });
   });
 }
-
   document.addEventListener("DOMContentLoaded", function () {
     initMainNavReveal();
     initMobileNav();
