@@ -609,11 +609,24 @@
 
     items.forEach(function (item) {
       var toggle = item.querySelector(".contact-faq-item__toggle");
-      if (!toggle) return;
+      var panel = item.querySelector(".contact-faq-item__panel");
+      if (!toggle || !panel) return;
+
       toggle.addEventListener("click", function () {
         var isOpen = item.classList.contains("is-open");
-        item.classList.toggle("is-open", !isOpen);
-        toggle.setAttribute("aria-expanded", String(!isOpen));
+
+        if (isOpen) {
+          item.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+          panel.style.maxHeight = "0px";
+        } else {
+          item.classList.add("is-open");
+          toggle.setAttribute("aria-expanded", "true");
+          // Measure the panel's real content height instead of guessing a
+          // fixed value, so this works correctly regardless of answer
+          // length or viewport width (long answers, narrow mobile wrapping).
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
       });
     });
   }
