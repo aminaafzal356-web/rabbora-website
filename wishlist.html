@@ -4,17 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title id="pageTitle">Non-Storage Bed Frames | Classic Low-Profile Beds | Rabbora Living</title>
-  <meta id="pageDescription" name="description" content="Shop Non-Storage Bed Frames at Rabbora Living. Classic, low-profile bed frames handmade in Britain with a 24-month warranty." />
-  <link id="pageCanonical" rel="canonical" href="https://rabbora.co.uk/non-storage-bed-frames" />
+  <title>Your Wishlist | Rabbora Living</title>
+  <meta name="description" content="View and manage the Rabbora Living pieces you've saved to your wishlist. Keep your favourite beds and furniture close and come back whenever you're ready." />
+  <link rel="canonical" href="https://rabbora.co.uk/wishlist.html" />
+  <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
-  <meta id="pageOgTitle" property="og:title" content="Non-Storage Bed Frames | Classic Low-Profile Beds | Rabbora Living" />
-  <meta id="pageOgDescription" property="og:description" content="Shop Non-Storage Bed Frames at Rabbora Living. Classic, low-profile bed frames handmade in Britain with a 24-month warranty." />
-  <meta property="og:url" content="https://rabbora.co.uk/non-storage-bed-frames" />
+  <meta property="og:title" content="Your Wishlist | Rabbora Living" />
+  <meta property="og:description" content="View and manage the Rabbora Living pieces you've saved to your wishlist." />
+  <meta property="og:url" content="https://rabbora.co.uk/wishlist.html" />
   <meta property="og:site_name" content="Rabbora Living" />
 
   <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Your Wishlist | Rabbora Living" />
+  <meta name="twitter:description" content="View and manage the Rabbora Living pieces you've saved to your wishlist." />
 
   <link rel="icon" href="images/img-2.png" />
 
@@ -22,8 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="non-storage-bed-frames.css" />
+  <link rel="stylesheet" href="wishlist.css" />
 
   <script type="application/ld+json">
   {
@@ -31,13 +33,12 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rabbora.co.uk/" },
-      { "@type": "ListItem", "position": 2, "name": "Bed Frames", "item": "https://rabbora.co.uk/bed-frames" },
-      { "@type": "ListItem", "position": 3, "name": "Non-Storage Bed Frames", "item": "https://rabbora.co.uk/non-storage-bed-frames" }
+      { "@type": "ListItem", "position": 2, "name": "Wishlist", "item": "https://rabbora.co.uk/wishlist.html" }
     ]
   }
   </script>
 </head>
-<body>
+<body class="wishlist-page">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -127,7 +128,7 @@
             <span class="icon-label">Login</span>
           </a>
 
-          <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist, 0 items" aria-pressed="false">
+          <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist, 0 items" aria-pressed="false" aria-current="page">
             <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M10 17s-6.5-3.9-8.2-8.1C.6 6 2 3 5.1 3c1.9 0 3.4 1.1 4.9 3 1.5-1.9 3-3 4.9-3 3.1 0 4.5 3 3.3 5.9C16.5 13.1 10 17 10 17z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
             </svg>
@@ -155,7 +156,7 @@
         <ul class="main-nav__list">
           <li><a href="index.html">Home</a></li>
           <li class="has-dropdown">
-            <button class="main-nav__toggle" aria-haspopup="true" aria-expanded="false" id="bedFramesToggle" aria-current="page">
+            <button class="main-nav__toggle" aria-haspopup="true" aria-expanded="false" id="bedFramesToggle">
               Bed Frames
               <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                 <path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" />
@@ -268,9 +269,6 @@
           </span>
           <span class="trust-bar__label">
             Excellent customer reviews
-            <!-- If you connect a real Trustpilot (or equivalent) account with a
-                 genuine score, add a small "on Trustpilot" sublabel here. Do not
-                 display a Trustpilot reference until that integration is real. -->
           </span>
         </li>
         <li class="trust-bar__divider" aria-hidden="true"></li>
@@ -296,81 +294,57 @@
       </ul>
     </div>
   </div>
+
   <main id="main-content">
 
-    <!-- ============ HERO (text/gradient only — no images) ============ -->
-    <section class="ns-hero">
-      <div class="container ns-hero__inner">
-        <div class="ns-hero__content">
-          <p class="eyebrow eyebrow--light">Bed Frames</p>
-          <h1 class="ns-hero__heading">Non-Storage Bed Frames</h1>
-          <p class="ns-hero__body">Classic, low-profile bed frames handmade in Britain &mdash; timeless style without built-in storage, for a clean, simple silhouette.</p>
-          <a href="#ns-collection" class="btn btn--primary">Shop Non-Storage Bed Frames</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="container ns-breadcrumb">
+    <div class="container wishlist-breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="bed-frames.html">Bed Frames</a>
-      <span aria-hidden="true">/</span>
-      <span>Non-Storage Bed Frames</span>
+      <span aria-current="page">Wishlist</span>
     </div>
 
-    <!-- ============ INTRODUCTION ============ -->
-    <section class="section ns-intro" aria-labelledby="ns-intro-heading">
-      <div class="container ns-intro__inner">
-        <h2 id="ns-intro-heading">Classic Style, Simple Profile</h2>
-        <p>Our Non-Storage Bed Frames bring a clean, low-profile silhouette to the bedroom &mdash; handmade to the same standard as the rest of our range, without a built-in storage base. A straightforward, timeless choice for any room.</p>
+    <!-- ============ WISHLIST HERO ============ -->
+    <section class="section wishlist-hero">
+      <div class="container wishlist-hero__inner reveal">
+        <p class="eyebrow">Saved For Later</p>
+        <h1 id="wishlist-heading">Your Wishlist</h1>
+        <p class="wishlist-hero__body">Keep your favourite Rabbora pieces close and come back whenever you&rsquo;re ready.</p>
       </div>
     </section>
 
-    <!-- ============ PRODUCT COLLECTION (empty — ready for products) ============ -->
-    <section class="section ns-collection" id="ns-collection" aria-labelledby="ns-collection-heading">
+    <!-- ============ WISHLIST CONTENT ============ -->
+    <section class="section wishlist-content" aria-labelledby="wishlist-heading">
       <div class="container">
-        <h2 id="ns-collection-heading" class="sr-only">Our Non-Storage Bed Frame Collection</h2>
 
-        <div class="ns-toolbar-row">
-          <p class="ns-toolbar-row__count" id="nsProductCount">0 Beds</p>
+        <p class="wishlist-status sr-only" id="wishlistStatus" role="status" aria-live="polite"></p>
+
+        <div class="wishlist-toolbar reveal" id="wishlistToolbar" hidden>
+          <p class="wishlist-toolbar__count" id="wishlistToolbarCount"></p>
+          <button type="button" class="wishlist-toolbar__clear" id="wishlistClearAll">
+            Remove All
+          </button>
         </div>
 
-        <!--
-          PRODUCT CARDS GO HERE.
-          Add one .product-card article per bed, e.g.:
+        <div class="grid grid--products wishlist-grid" id="wishlistGrid"></div>
 
-          <article class="product-card ns-product-card" data-slug="your-bed-slug">
-            <div class="product-card__image-wrap">
-              <a class="product-card__image-link" href="non-storage-bed-frames.html#/your-bed-slug">
-                <img src="images/non-storage-bed-frames/img-1.png" alt="Bed name" loading="lazy" width="900" height="900" />
-              </a>
-            </div>
-            <div class="product-card__body">
-              <a href="non-storage-bed-frames.html#/your-bed-slug" class="product-card__name">Bed Name</a>
-              <div class="product-card__price-row">
-                <span class="product-card__price">£000.00</span>
-              </div>
-              <a href="non-storage-bed-frames.html#/your-bed-slug" class="btn btn--forest ns-product-card__cta">View Details</a>
-            </div>
-          </article>
-        -->
-        <div class="grid grid--products ns-grid" id="nsProductGrid">
-          <p class="ns-empty-state" id="nsEmptyState">Products coming soon &mdash; check back shortly.</p>
+        <!-- ============ EMPTY STATE ============ -->
+        <div class="wishlist-empty" id="wishlistEmpty" hidden>
+          <div class="wishlist-empty__icon" aria-hidden="true">
+            <svg width="52" height="52" viewBox="0 0 20 20">
+              <path d="M10 17s-6.5-3.9-8.2-8.1C.6 6 2 3 5.1 3c1.9 0 3.4 1.1 4.9 3 1.5-1.9 3-3 4.9-3 3.1 0 4.5 3 3.3 5.9C16.5 13.1 10 17 10 17z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h2>Your Wishlist is Waiting</h2>
+          <p>Save your favourite Rabbora pieces here and come back whenever you&rsquo;re ready.</p>
+          <a href="bed-frames.html" class="btn btn--forest">Continue Shopping</a>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ SEO CONTENT ============ -->
-    <section class="section bb-info ns-info" aria-labelledby="ns-info-heading">
-      <div class="container bb-info__inner">
-        <h2 id="ns-info-heading">Non-Storage Bed Frames, Handmade in Britain</h2>
-        <p>A non-storage bed frame offers a clean, classic profile without a built-in storage base &mdash; a simple, timeless choice for bedrooms that don't need the extra bulk of an ottoman or drawer base. Every frame is handmade to order on a solid, supportive base with a sprung slatted top for comfortable, breathable sleep.</p>
-        <p>Finished with the same premium fabrics and construction standards as the rest of our range, every Non-Storage Bed Frame comes with our standard 24-month warranty and easy returns.</p>
       </div>
     </section>
 
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer__grid">
 
@@ -484,5 +458,6 @@
   <script src="search-index.js"></script>
   <script src="wishlist-data.js"></script>
   <script src="script.js"></script>
+  <script src="wishlist.js"></script>
 </body>
 </html>

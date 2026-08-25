@@ -14,33 +14,53 @@
     return Array.prototype.slice.call((scope || document).querySelectorAll(selector));
   }
 
+  function hasWishlistStore() {
+    return !!(window.RabboraWishlist && typeof window.RabboraWishlist.toggle === "function");
+  }
+
   function updateWishlistCount() {
     var countEl = document.getElementById("wishlistCount");
-    if (countEl) countEl.textContent = String(state.wishlist.size);
+    var count = hasWishlistStore() ? window.RabboraWishlist.count() : state.wishlist.size;
+    if (countEl) countEl.textContent = String(count);
 
     var headerBtn = document.getElementById("wishlistBtn");
     if (headerBtn) {
-      headerBtn.setAttribute("aria-label", "Wishlist, " + state.wishlist.size + " items");
+      headerBtn.setAttribute("aria-label", "Wishlist, " + count + " items");
     }
   }
 
   function initWishlist() {
+    // Reflect any previously-saved wishlist state on every heart
+    // already rendered on this page (e.g. after a refresh).
+    if (hasWishlistStore()) {
+      window.RabboraWishlist.syncButtons(document);
+    }
+
     document.addEventListener("click", function (event) {
       var btn = event.target.closest(".product-card__wishlist");
       if (!btn) return;
 
       var card = btn.closest(".product-card");
-      var productId = card ? card.dataset.productId : null;
+      var productId = card ? (card.dataset.productId || card.dataset.slug) : null;
       var isPressed = btn.getAttribute("aria-pressed") === "true";
 
-      btn.setAttribute("aria-pressed", String(!isPressed));
-      btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
-
-      if (productId) {
-        if (isPressed) {
-          state.wishlist.delete(productId);
-        } else {
-          state.wishlist.add(productId);
+      if (hasWishlistStore() && productId) {
+        var product = window.RabboraWishlist.fromCard(card, productId);
+        var result = window.RabboraWishlist.toggle(product);
+        btn.setAttribute("aria-pressed", String(result.added));
+        btn.setAttribute("aria-label", result.added ? "Remove from wishlist" : "Add to wishlist");
+      } else {
+        // Defensive fallback so the heart still responds even if the
+        // shared wishlist store failed to load — state just won't
+        // persist in that case.
+        btn.setAttribute("aria-pressed", String(!isPressed));
+        btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
+        if (productId) {
+          if (isPressed) {
+            state.wishlist.delete(productId);
+          } else {
+            state.wishlist.add(productId);
+          }
         }
       }
 
@@ -50,8 +70,17 @@
     var headerWishlistBtn = document.getElementById("wishlistBtn");
     if (headerWishlistBtn) {
       headerWishlistBtn.addEventListener("click", function () {
-        // Placeholder: future behaviour could open a wishlist drawer/page.
         window.location.href = "wishlist.html";
+      });
+    }
+
+    // Keep the header count and any hearts on this page in sync when
+    // the wishlist changes elsewhere — another tab, or wishlist.html
+    // removing an item.
+    if (hasWishlistStore()) {
+      window.addEventListener(window.RabboraWishlist.EVENT_NAME, function () {
+        updateWishlistCount();
+        window.RabboraWishlist.syncButtons(document);
       });
     }
   }
@@ -1697,7 +1726,8 @@
 
     function syncWishlistButton(product) {
       if (!wishlistBtn) return;
-      var isSaved = state.wishlist.has("mattress-" + product.slug);
+      var key = "mattress-" + product.slug;
+      var isSaved = hasWishlistStore() ? window.RabboraWishlist.has(key) : state.wishlist.has(key);
       wishlistBtn.setAttribute("aria-pressed", String(isSaved));
       wishlistBtn.setAttribute("aria-label", isSaved ? "Remove from wishlist" : "Add to wishlist");
     }
@@ -1931,20 +1961,42 @@
         var product = MATTRESS_PRODUCTS[currentSlugFromHash()];
         if (!product) return;
         var key = "mattress-" + product.slug;
-        var isSaved = state.wishlist.has(key);
+        var willAdd;
 
-        if (isSaved) {
-          state.wishlist.delete(key);
+        if (hasWishlistStore()) {
+          var snapshot = {
+            id: key,
+            slug: product.slug,
+            name: product.name,
+            url: "mattresses.html#/" + product.slug,
+            image: (product.images && product.images[0]) || "",
+            alt: product.name,
+            price: mtMoney(currentPrice(product)),
+            previousPrice: product.oldPrice ? mtMoney(product.oldPrice) : "",
+            monthly: product.monthlyPrice ? ("or from \u00A3" + product.monthlyPrice + "/mo") : "",
+            badge: product.badge || "",
+            stars: product.rating ? mtStars(product.rating) : "",
+            reviewCount: product.reviewCount || "",
+            category: "Luxury Mattresses"
+          };
+          willAdd = window.RabboraWishlist.toggle(snapshot).added;
         } else {
-          state.wishlist.add(key);
+          var isSaved = state.wishlist.has(key);
+          if (isSaved) {
+            state.wishlist.delete(key);
+          } else {
+            state.wishlist.add(key);
+          }
+          willAdd = !isSaved;
         }
+
         syncWishlistButton(product);
         updateWishlistCount();
 
         // Keep the matching grid card's heart in sync too.
         var gridBtn = document.querySelector('.mt-wishlist-btn[data-slug="' + product.slug + '"]');
         if (gridBtn) {
-          gridBtn.setAttribute("aria-pressed", String(!isSaved));
+          gridBtn.setAttribute("aria-pressed", String(willAdd));
         }
       });
     }

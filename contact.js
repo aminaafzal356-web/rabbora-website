@@ -14,33 +14,53 @@
     return Array.prototype.slice.call((scope || document).querySelectorAll(selector));
   }
 
+  function hasWishlistStore() {
+    return !!(window.RabboraWishlist && typeof window.RabboraWishlist.toggle === "function");
+  }
+
   function updateWishlistCount() {
     var countEl = document.getElementById("wishlistCount");
-    if (countEl) countEl.textContent = String(state.wishlist.size);
+    var count = hasWishlistStore() ? window.RabboraWishlist.count() : state.wishlist.size;
+    if (countEl) countEl.textContent = String(count);
 
     var headerBtn = document.getElementById("wishlistBtn");
     if (headerBtn) {
-      headerBtn.setAttribute("aria-label", "Wishlist, " + state.wishlist.size + " items");
+      headerBtn.setAttribute("aria-label", "Wishlist, " + count + " items");
     }
   }
 
   function initWishlist() {
+    // Reflect any previously-saved wishlist state on every heart
+    // already rendered on this page (e.g. after a refresh).
+    if (hasWishlistStore()) {
+      window.RabboraWishlist.syncButtons(document);
+    }
+
     document.addEventListener("click", function (event) {
       var btn = event.target.closest(".product-card__wishlist");
       if (!btn) return;
 
       var card = btn.closest(".product-card");
-      var productId = card ? card.dataset.productId : null;
+      var productId = card ? (card.dataset.productId || card.dataset.slug) : null;
       var isPressed = btn.getAttribute("aria-pressed") === "true";
 
-      btn.setAttribute("aria-pressed", String(!isPressed));
-      btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
-
-      if (productId) {
-        if (isPressed) {
-          state.wishlist.delete(productId);
-        } else {
-          state.wishlist.add(productId);
+      if (hasWishlistStore() && productId) {
+        var product = window.RabboraWishlist.fromCard(card, productId);
+        var result = window.RabboraWishlist.toggle(product);
+        btn.setAttribute("aria-pressed", String(result.added));
+        btn.setAttribute("aria-label", result.added ? "Remove from wishlist" : "Add to wishlist");
+      } else {
+        // Defensive fallback so the heart still responds even if the
+        // shared wishlist store failed to load — state just won't
+        // persist in that case.
+        btn.setAttribute("aria-pressed", String(!isPressed));
+        btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
+        if (productId) {
+          if (isPressed) {
+            state.wishlist.delete(productId);
+          } else {
+            state.wishlist.add(productId);
+          }
         }
       }
 
@@ -50,8 +70,17 @@
     var headerWishlistBtn = document.getElementById("wishlistBtn");
     if (headerWishlistBtn) {
       headerWishlistBtn.addEventListener("click", function () {
-        // Placeholder: future behaviour could open a wishlist drawer/page.
         window.location.href = "wishlist.html";
+      });
+    }
+
+    // Keep the header count and any hearts on this page in sync when
+    // the wishlist changes elsewhere — another tab, or wishlist.html
+    // removing an item.
+    if (hasWishlistStore()) {
+      window.addEventListener(window.RabboraWishlist.EVENT_NAME, function () {
+        updateWishlistCount();
+        window.RabboraWishlist.syncButtons(document);
       });
     }
   }
