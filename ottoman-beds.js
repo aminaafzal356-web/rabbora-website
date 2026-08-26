@@ -30,6 +30,20 @@
   }
 
   function initWishlist() {
+    // Loud, one-time diagnostic: if wishlist-data.js didn't load on
+    // this page, every wishlist click below silently falls back to an
+    // in-memory Set that never survives a refresh or shows up on
+    // wishlist.html. Say so clearly in the console right away instead
+    // of failing quietly.
+    if (!hasWishlistStore()) {
+      console.error(
+        "[Rabbora Wishlist] window.RabboraWishlist is not available on this page. " +
+        "Wishlist saves will NOT persist (in-memory fallback only) until this is fixed. " +
+        "Check that <script src=\"wishlist-data.js\"></script> is present on this page, " +
+        "loads before this script, and returns 200 (not 404) — open the Network tab and reload."
+      );
+    }
+
     // Reflect any previously-saved wishlist state on every one of the
     // 84 product cards already rendered on this page (e.g. after a
     // refresh, or when arriving here from another page).
@@ -53,7 +67,20 @@
       } else {
         // Defensive fallback so the heart still responds even if the
         // shared wishlist store failed to load — state just won't
-        // persist in that case.
+        // persist in that case. Warn loudly every time this path is
+        // actually used, so a save that silently didn't count is
+        // visible in the console right when it happens.
+        if (!hasWishlistStore()) {
+          console.warn(
+            "[Rabbora Wishlist] Heart clicked but window.RabboraWishlist is unavailable — " +
+            "this save will NOT persist to localStorage or appear on wishlist.html."
+          );
+        } else if (!productId) {
+          console.warn(
+            "[Rabbora Wishlist] Heart clicked but no data-product-id or data-slug was found " +
+            "on the closest .product-card — this save will NOT persist."
+          );
+        }
         btn.setAttribute("aria-pressed", String(!isPressed));
         btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
         if (productId) {

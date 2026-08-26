@@ -30,6 +30,20 @@
   }
 
   function initWishlist() {
+    // Loud, one-time diagnostic: if wishlist-data.js didn't load on
+    // this page, every wishlist click below silently falls back to an
+    // in-memory Set that never survives a refresh or shows up on
+    // wishlist.html. Say so clearly in the console right away instead
+    // of failing quietly.
+    if (!hasWishlistStore()) {
+      console.error(
+        "[Rabbora Wishlist] window.RabboraWishlist is not available on this page. " +
+        "Wishlist saves will NOT persist (in-memory fallback only) until this is fixed. " +
+        "Check that <script src=\"wishlist-data.js\"></script> is present on this page, " +
+        "loads before this script, and returns 200 (not 404) — open the Network tab and reload."
+      );
+    }
+
     // Reflect any previously-saved wishlist state on every heart
     // already rendered on this page (e.g. after a refresh).
     if (hasWishlistStore()) {
