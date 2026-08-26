@@ -135,6 +135,7 @@
     var card = document.createElement("article");
     card.className = "product-card";
     card.dataset.productId = product.id;
+    card.dataset.slug = product.slug;
 
     var badgeHtml = product.badge
       ? '<span class="product-card__badge">' + product.badge + "</span>"

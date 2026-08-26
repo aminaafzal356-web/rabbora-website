@@ -56,7 +56,7 @@
       if (!btn) return;
 
       var card = btn.closest(".product-card");
-      var productId = card ? (card.dataset.productId || card.dataset.slug) : null;
+      var productId = card ? (card.dataset.slug || card.dataset.productId) : null;
       var isPressed = btn.getAttribute("aria-pressed") === "true";
 
       if (hasWishlistStore() && productId) {
@@ -8365,6 +8365,9 @@
   var OTTOMAN_PRODUCTS_LIST = SLATTED_OTTOMAN_PRODUCTS;
 
   var OTTOMAN_PRODUCTS = {};
+  OTTOMAN_PRODUCTS_LIST.forEach(function (p) {
+    OTTOMAN_PRODUCTS[p.slug] = p;
+  });
 
   var OTTOMAN_SIZE_DELTAS = SLATTED_OTTOMAN_SIZE_DELTAS;
 
@@ -8835,7 +8838,7 @@
       });
       fabricOptionsEl.appendChild(defaultBtn);
 
-      product.fabrics.forEach(function (fabric, index) {
+      (product.fabrics || []).forEach(function (fabric, index) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "fabric-swatch";
@@ -8968,8 +8971,7 @@
 
     function syncWishlistButton(product) {
       if (!wishlistBtn) return;
-      var key = "ottoman-bed-" + product.slug;
-      var isSaved = hasWishlistStore() ? window.RabboraWishlist.has(key) : state.wishlist.has(key);
+      var isSaved = hasWishlistStore() ? window.RabboraWishlist.has(product.slug) : state.wishlist.has(product.slug);
       wishlistBtn.setAttribute("aria-pressed", String(isSaved));
       wishlistBtn.setAttribute("aria-label", isSaved ? "Remove from wishlist" : "Add to wishlist");
     }
@@ -9180,12 +9182,12 @@
     if (wishlistBtn) {
       wishlistBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var key = "ottoman-bed-" + currentProduct.slug;
+        var key = currentProduct.slug;
         var willAdd;
 
         if (hasWishlistStore()) {
           var snapshot = {
-            id: key,
+            id: currentProduct.slug,
             slug: currentProduct.slug,
             name: currentProduct.name,
             url: "ottoman-beds.html#/" + currentProduct.slug,
