@@ -238,6 +238,13 @@
         var result = window.RabboraWishlist.toggle(product);
         btn.setAttribute("aria-pressed", String(result.added));
         btn.setAttribute("aria-label", result.added ? "Remove from wishlist" : "Add to wishlist");
+
+        if (result.persisted === false) {
+          console.error(
+            "[Rabbora Wishlist] This click did not actually persist to localStorage. " +
+            "The heart/count you see may not survive a refresh or appear on wishlist.html."
+          );
+        }
       } else if (!hasWishlistStore()) {
         // No parallel in-memory store: if the real, persistent store
         // isn't available, do not pretend the click worked. Warn

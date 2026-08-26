@@ -24,16 +24,59 @@
     }
   }
 
-  function writeAll(items) {
+  function writeAllOnce(serialized) {
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      window.localStorage.setItem(STORAGE_KEY, serialized);
       return true;
     } catch (err) {
-      // Private browsing / storage disabled / quota exceeded — the
-      // wishlist simply won't persist this change, but the page
-      // should keep working rather than throw.
       return false;
     }
+  }
+
+  function writeAll(items) {
+    var serialized = JSON.stringify(items);
+
+    writeAllOnce(serialized);
+    var readBack = null;
+    try {
+      readBack = window.localStorage.getItem(STORAGE_KEY);
+    } catch (err) {
+      readBack = null;
+    }
+
+    if (readBack === serialized) {
+      return true;
+    }
+
+    // The write did not verifiably land — retry exactly once before
+    // giving up, in case this was a transient failure (e.g. a
+    // momentary quota condition, or another script racing to write
+    // the same key at the same instant).
+    writeAllOnce(serialized);
+    try {
+      readBack = window.localStorage.getItem(STORAGE_KEY);
+    } catch (err) {
+      readBack = null;
+    }
+
+    if (readBack === serialized) {
+      return true;
+    }
+
+    // Still doesn't match after a retry: the write is not actually
+    // persisting, even though no exception was thrown. Report this
+    // loudly rather than letting the UI show a saved state that
+    // localStorage doesn't actually contain.
+    console.error(
+      "[Rabbora Wishlist] localStorage write did not persist. " +
+      "Intended value: " + serialized + " | " +
+      "Actual value after write: " + readBack + " | " +
+      "This usually means another script is clearing/overwriting the " +
+      "\"" + STORAGE_KEY + "\" key, storage is full, or this page is " +
+      "running an older/cached copy of wishlist-data.js that doesn't " +
+      "match what was just deployed."
+    );
+    return false;
   }
 
   function notify() {
@@ -105,13 +148,32 @@
   }
 
   function toggle(product) {
-    if (!product || !product.id) return { added: false, items: getAll() };
-    if (has(product.id)) {
+    if (!product || !product.id) return { added: false, items: getAll(), persisted: true };
+    var wasSaved = has(product.id);
+    if (wasSaved) {
       remove(product.id);
-      return { added: false, items: getAll() };
+    } else {
+      add(product);
     }
-    add(product);
-    return { added: true, items: getAll() };
+
+    // Re-check the REAL, freshly-read persisted state — never assume
+    // the write succeeded just because we took the "add" branch. This
+    // is what a caller like script.js's click handler relies on to
+    // decide whether to show the heart as saved and increment the
+    // header count, so it must reflect what's actually in
+    // localStorage, not what we intended to write.
+    var isSavedNow = has(product.id);
+    var persisted = wasSaved ? !isSavedNow : isSavedNow;
+
+    if (!persisted) {
+      console.error(
+        "[Rabbora Wishlist] toggle() did not persist as expected for id \"" + product.id + "\". " +
+        "Intended: " + (wasSaved ? "remove" : "add") + " | " +
+        "Actual localStorage state now: " + (window.localStorage ? window.localStorage.getItem(STORAGE_KEY) : "(localStorage unavailable)")
+      );
+    }
+
+    return { added: isSavedNow, items: getAll(), persisted: persisted };
   }
 
   function clear() {
