@@ -112,11 +112,6 @@
     ]
   };
 
-  var state = {
-    wishlist: new Set(),
-    cartCount: 0
-  };
-
   function qs(selector, scope) {
     return (scope || document).querySelector(selector);
   }
@@ -199,7 +194,7 @@
 
   function updateWishlistCount() {
     var countEl = document.getElementById("wishlistCount");
-    var count = hasWishlistStore() ? window.RabboraWishlist.count() : state.wishlist.size;
+    var count = hasWishlistStore() ? window.RabboraWishlist.count() : 0;
     if (countEl) countEl.textContent = String(count);
 
     var headerBtn = document.getElementById("wishlistBtn");
@@ -237,39 +232,26 @@
 
       var card = btn.closest(".product-card");
       var productId = card ? (card.dataset.productId || card.dataset.slug) : null;
-      var isPressed = btn.getAttribute("aria-pressed") === "true";
 
       if (hasWishlistStore() && productId) {
         var product = window.RabboraWishlist.fromCard(card, productId);
         var result = window.RabboraWishlist.toggle(product);
         btn.setAttribute("aria-pressed", String(result.added));
         btn.setAttribute("aria-label", result.added ? "Remove from wishlist" : "Add to wishlist");
-      } else {
-        // Defensive fallback so the heart still responds even if the
-        // shared wishlist store failed to load — state just won't
-        // persist in that case. Warn loudly every time this path is
-        // actually used, so a save that silently didn't count is
-        // visible in the console right when it happens.
-        if (!hasWishlistStore()) {
-          console.warn(
-            "[Rabbora Wishlist] Heart clicked but window.RabboraWishlist is unavailable — " +
-            "this save will NOT persist to localStorage or appear on wishlist.html."
-          );
-        } else if (!productId) {
-          console.warn(
-            "[Rabbora Wishlist] Heart clicked but no data-product-id or data-slug was found " +
-            "on the closest .product-card — this save will NOT persist."
-          );
-        }
-        btn.setAttribute("aria-pressed", String(!isPressed));
-        btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
-        if (productId) {
-          if (isPressed) {
-            state.wishlist.delete(productId);
-          } else {
-            state.wishlist.add(productId);
-          }
-        }
+      } else if (!hasWishlistStore()) {
+        // No parallel in-memory store: if the real, persistent store
+        // isn't available, do not pretend the click worked. Warn
+        // loudly instead of silently tracking state that can never
+        // survive a refresh or appear on wishlist.html.
+        console.error(
+          "[Rabbora Wishlist] Heart clicked but window.RabboraWishlist is unavailable — " +
+          "this click was NOT saved. Check that wishlist-data.js is loaded on this page."
+        );
+      } else if (!productId) {
+        console.warn(
+          "[Rabbora Wishlist] Heart clicked but no data-product-id or data-slug was found " +
+          "on the closest .product-card — this click was NOT saved."
+        );
       }
 
       updateWishlistCount();
@@ -892,7 +874,7 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  function initPage() {
     initMainNavReveal();
     initProductGrids();
     initWishlist();
@@ -909,5 +891,31 @@
     initScrollReveal();
     initMattressHelp();
     initStorageDrawersFaq();
+  }
+
+  // Run as soon as the DOM is actually ready — but if this script
+  // happens to execute after that point has already passed, don't
+  // wait for an event that will never fire again. Initialize
+  // immediately in that case instead.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPage);
+  } else {
+    initPage();
+  }
+
+  // Guard against a stale header: if this page is restored from the
+  // browser's back/forward cache (bfcache), DOMContentLoaded does NOT
+  // fire again, so the wishlist heart states and count badge could
+  // still show whatever was true the moment the page was cached —
+  // e.g. the user removed an item on wishlist.html, then used the
+  // back button to return to a previously-cached category page.
+  // Re-sync from the current saved state whenever that happens.
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      updateWishlistCount();
+      if (window.RabboraWishlist) {
+        window.RabboraWishlist.syncButtons(document);
+      }
+    }
   });
 })();

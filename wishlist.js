@@ -105,12 +105,37 @@
     }
   }
 
+  /**
+   * Updates the header wishlist count badge directly from
+   * window.RabboraWishlist.count(). This page owns this update
+   * itself — it does not rely on script.js's own header-count logic
+   * running correctly, so the badge on wishlist.html is correct even
+   * if something else on the page fails.
+   */
+  function updateHeaderCount() {
+    if (!window.RabboraWishlist) return;
+    var count = window.RabboraWishlist.count();
+    var countEl = document.getElementById("wishlistCount");
+    if (countEl) countEl.textContent = String(count);
+
+    var headerBtn = document.getElementById("wishlistBtn");
+    if (headerBtn) {
+      headerBtn.setAttribute("aria-label", "Wishlist, " + count + " items");
+    }
+  }
+
   function renderWishlist() {
     var grid = document.getElementById("wishlistGrid");
     var emptyState = document.getElementById("wishlistEmpty");
     if (!grid || !emptyState) return;
 
-    var items = (window.RabboraWishlist ? window.RabboraWishlist.getAll() : []);
+    // Read directly from the shared store every time this runs — never
+    // from a cached/local variable — so the page always reflects
+    // whatever is actually in localStorage["rabboraWishlist"] at this
+    // exact moment, on every call site (initial load, custom event,
+    // native storage event, and bfcache restore all funnel through
+    // this same function).
+    var items = window.RabboraWishlist ? window.RabboraWishlist.getAll() : [];
 
     grid.innerHTML = "";
 
@@ -118,6 +143,7 @@
       grid.hidden = true;
       emptyState.hidden = false;
       updateToolbar(0);
+      updateHeaderCount();
       return;
     }
 
@@ -131,6 +157,7 @@
     grid.appendChild(fragment);
 
     updateToolbar(items.length);
+    updateHeaderCount();
   }
 
   function removeItem(id, card) {
@@ -217,7 +244,15 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  function initWishlistPage() {
+    // Safe initialization check: fail loudly and immediately if the
+    // shared wishlist store never loaded, rather than silently
+    // rendering an ambiguous "empty" wishlist that looks identical to
+    // a genuinely empty one.
+    if (!window.RabboraWishlist) {
+      console.error("Rabbora Wishlist store failed to load.");
+    }
+
     renderWishlist();
     initGridInteractions();
     initClearAll();
@@ -225,5 +260,41 @@
     if (window.RabboraWishlist) {
       window.addEventListener(window.RabboraWishlist.EVENT_NAME, renderWishlist);
     }
-  });
+
+    // Defense in depth: if localStorage changes in another tab/window
+    // (or is updated by a script that only fires the native "storage"
+    // event rather than going through RabboraWishlist's own custom
+    // event), re-render directly rather than relying solely on the
+    // custom event above.
+    window.addEventListener("storage", function (event) {
+      if (!window.RabboraWishlist) return;
+      if (event.key === window.RabboraWishlist.STORAGE_KEY) {
+        renderWishlist();
+      }
+    });
+
+    // Guard against a stale render: if this page is restored from the
+    // browser's back/forward cache (bfcache), DOMContentLoaded does
+    // NOT fire again — the page can reappear showing whatever was on
+    // screen the moment it was cached, even if the wishlist changed
+    // since then (e.g. the user added an item on Home, then used the
+    // back button to return to a previously-cached Wishlist tab).
+    // Re-render whenever the page is shown this way.
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted) {
+        renderWishlist();
+      }
+    });
+  }
+
+  // Run as soon as the DOM is actually ready — but if this script
+  // happens to execute after that point has already passed (a slow
+  // network load, or the page being in a state where the event has
+  // already fired), don't wait forever for an event that will never
+  // come again. Initialize immediately in that case instead.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWishlistPage);
+  } else {
+    initWishlistPage();
+  }
 })();
