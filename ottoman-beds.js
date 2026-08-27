@@ -113,10 +113,34 @@
     }
   }
 
+  function hasCartStore() {
+    return !!(window.RabboraCart && typeof window.RabboraCart.count === "function");
+  }
+
+  function updateCartCount() {
+    var countEl = document.getElementById("cartCount");
+    var count = hasCartStore() ? window.RabboraCart.count() : 0;
+    if (countEl) countEl.textContent = String(count);
+
+    var headerBtn = document.getElementById("cartBtn");
+    if (headerBtn) {
+      headerBtn.setAttribute("aria-label", "Shopping cart, " + count + " items");
+    }
+  }
+
   function initCart() {
     var cartBtn = document.getElementById("cartBtn");
     var cartCountEl = document.getElementById("cartCount");
     if (!cartBtn || !cartCountEl) return;
+
+    // Reflect whatever is actually in the shared cart store the
+    // moment this page loads, rather than leaving whatever static
+    // "0" is in the markup.
+    updateCartCount();
+
+    if (hasCartStore()) {
+      window.addEventListener(window.RabboraCart.EVENT_NAME, updateCartCount);
+    }
 
     cartBtn.addEventListener("click", function () {
       window.location.href = "cart.html";
@@ -9160,22 +9184,50 @@
           return;
         }
 
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + obState.quantity);
-        }
-
         var detailBits = [];
         if (obState.diamantes) detailBits.push("Diamantes");
         if (obState.buttons) detailBits.push("Matching Fabric Buttons");
         var detailText = detailBits.length ? " with " + detailBits.join(" & ") : "";
 
+        var fabricName = selectedFabricName();
+        var unitPrice = currentPrice(currentProduct);
+
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "ottoman-bed-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "ottoman-beds.html#/" + currentProduct.slug,
+              image: currentProduct.images && currentProduct.images.length ? currentProduct.images[0] : "",
+              alt: currentProduct.name,
+              price: unitPrice,
+              category: "Slatted Ottoman Beds",
+              variant: {
+                size: obState.selectedSize,
+                fabric: fabricName,
+                diamantes: obState.diamantes ? "Yes" : null,
+                buttons: obState.buttons ? "Yes" : null
+              }
+            },
+            obState.quantity
+          );
+        } else {
+          // Defensive fallback so the button still gives feedback even
+          // if the shared cart store failed to load — nothing is
+          // persisted in that case, matching how the wishlist button
+          // behaves under the same condition.
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
+        }
+
         purchaseMessage.classList.remove("is-error");
         purchaseMessage.textContent =
           "Added " + obState.quantity + " \u00d7 " + currentProduct.name + " (" + obState.selectedSize + ", " +
-          selectedFabricName() + detailText + ") to your basket \u2014 " +
-          obMoney(currentPrice(currentProduct) * obState.quantity) + ".";
+          fabricName + detailText + ") to your basket \u2014 " +
+          obMoney(unitPrice * obState.quantity) + ".";
       });
     }
 
