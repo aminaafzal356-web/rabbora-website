@@ -1221,15 +1221,36 @@ var HH_BED_SIZE_DELTAS = {
           messageEl.classList.add("is-error");
           return;
         }
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + hhState.quantity);
+        var unitPrice = currentPrice(currentProduct);
+
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "high-headboard-bed-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "high-headboard-beds.html#/" + currentProduct.slug,
+              image: currentProduct.image || "",
+              alt: currentProduct.name,
+              price: unitPrice,
+              category: "High Headboard Beds",
+              variant: {
+                size: hhState.selectedSize
+              }
+            },
+            hhState.quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
+
         messageEl.classList.remove("is-error");
         messageEl.textContent =
           "Added " + hhState.quantity + " \u00d7 " + currentProduct.name + " (" + hhState.selectedSize +
-          ") to your basket \u2014 " + money(currentPrice(currentProduct) * hhState.quantity) + ".";
+          ") to your basket \u2014 " + money(unitPrice * hhState.quantity) + ".";
       });
     }
 

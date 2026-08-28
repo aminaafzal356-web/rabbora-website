@@ -112,10 +112,31 @@
     }
   }
 
+  function hasCartStore() {
+    return !!(window.RabboraCart && typeof window.RabboraCart.count === "function");
+  }
+
+  function updateCartCount() {
+    var countEl = document.getElementById("cartCount");
+    var count = hasCartStore() ? window.RabboraCart.count() : 0;
+    if (countEl) countEl.textContent = String(count);
+
+    var headerBtn = document.getElementById("cartBtn");
+    if (headerBtn) {
+      headerBtn.setAttribute("aria-label", "Shopping cart, " + count + " items");
+    }
+  }
+
   function initCart() {
     var cartBtn = document.getElementById("cartBtn");
     var cartCountEl = document.getElementById("cartCount");
     if (!cartBtn || !cartCountEl) return;
+
+    updateCartCount();
+
+    if (hasCartStore()) {
+      window.addEventListener(window.RabboraCart.EVENT_NAME, updateCartCount);
+    }
 
     cartBtn.addEventListener("click", function () {
       window.location.href = "cart.html";
@@ -1231,6 +1252,9 @@
 ];
 
   var MATTRESS_PRODUCTS = {};
+  MATTRESS_PRODUCTS_LIST.forEach(function (p) {
+    MATTRESS_PRODUCTS[p.slug] = p;
+  });
 
   var MATTRESS_SIZE_DELTAS = {
     "Single": -80,
@@ -1948,17 +1972,37 @@
         }
         // Single-firmness products don't need an explicit choice.
         var firmness = mtState.selectedFirmness || product.firmness[0];
+        var unitPrice = currentPrice(product);
 
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + mtState.quantity);
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "mattress-" + product.slug,
+              slug: product.slug,
+              name: product.name,
+              url: "mattresses.html#/" + product.slug,
+              image: product.images && product.images.length ? product.images[0] : "",
+              alt: product.name,
+              price: unitPrice,
+              category: "Luxury Mattresses",
+              variant: {
+                size: mtState.selectedSize,
+                firmness: firmness
+              }
+            },
+            mtState.quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Cart clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
 
         purchaseMessage.classList.remove("is-error");
         purchaseMessage.textContent =
           "Added " + mtState.quantity + " \u00d7 " + product.name + " (" + mtState.selectedSize + ", " + firmness +
-          ") to your cart \u2014 " + mtMoney(currentPrice(product) * mtState.quantity) + ".";
+          ") to your cart \u2014 " + mtMoney(unitPrice * mtState.quantity) + ".";
       });
     }
 

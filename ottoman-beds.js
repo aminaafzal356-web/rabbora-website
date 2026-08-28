@@ -133,9 +133,6 @@
     var cartCountEl = document.getElementById("cartCount");
     if (!cartBtn || !cartCountEl) return;
 
-    // Reflect whatever is actually in the shared cart store the
-    // moment this page loads, rather than leaving whatever static
-    // "0" is in the markup.
     updateCartCount();
 
     if (hasCartStore()) {
@@ -9213,10 +9210,6 @@
             obState.quantity
           );
         } else {
-          // Defensive fallback so the button still gives feedback even
-          // if the shared cart store failed to load — nothing is
-          // persisted in that case, matching how the wishlist button
-          // behaves under the same condition.
           console.error(
             "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
             "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."

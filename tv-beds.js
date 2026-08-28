@@ -962,15 +962,36 @@ var TV_BED_SIZE_DELTAS = {
           messageEl.classList.add("is-error");
           return;
         }
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + tvState.quantity);
+        var unitPrice = currentPrice(currentProduct);
+
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "tv-bed-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "tv-beds.html#/" + currentProduct.slug,
+              image: currentProduct.image || "",
+              alt: currentProduct.name,
+              price: unitPrice,
+              category: "TV Beds",
+              variant: {
+                size: tvState.selectedSize
+              }
+            },
+            tvState.quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
+
         messageEl.classList.remove("is-error");
         messageEl.textContent =
           "Added " + tvState.quantity + " \u00d7 " + currentProduct.name + " (" + tvState.selectedSize +
-          ") to your basket \u2014 " + money(currentPrice(currentProduct) * tvState.quantity) + ".";
+          ") to your basket \u2014 " + money(unitPrice * tvState.quantity) + ".";
       });
     }
   }

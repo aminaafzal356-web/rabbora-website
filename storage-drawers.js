@@ -244,7 +244,7 @@
         card.dataset.slug = p.slug;
         card.innerHTML =
           '<div class="product-card__image-wrap">' +
-            '<a class="product-card__image-link" href="drawer-beds.html#/' + p.slug + '">' +
+            '<a class="product-card__image-link" href="storage-drawers.html#/' + p.slug + '">' +
               '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
             "</a>" + badgeHtml +
             '<button type="button" class="product-card__wishlist" data-slug="' + p.slug + '" aria-label="Add to wishlist" aria-pressed="false">' +
@@ -254,7 +254,7 @@
             "</button>" +
           "</div>" +
           '<div class="product-card__body">' +
-            '<a href="drawer-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + "</a>" +
+            '<a href="storage-drawers.html#/' + p.slug + '" class="product-card__name">' + p.name + "</a>" +
             '<div class="product-card__rating">' +
               '<span class="product-card__stars" aria-hidden="true">' + stars(p.rating) + "</span>" +
               '<span class="product-card__review-count">(' + p.reviews + ")</span>" +
@@ -404,10 +404,25 @@
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;
 
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + sdState.quantity);
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "storage-drawer-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "storage-drawers.html#/" + currentProduct.slug,
+              image: currentProduct.image || "",
+              alt: currentProduct.name,
+              price: currentProduct.price,
+              category: "Storage Beds With Drawers"
+            },
+            sdState.quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
 
         if (messageEl) {

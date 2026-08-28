@@ -1513,17 +1513,38 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
           return;
         }
 
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + rd2State.quantity);
+        var fabricName = RAPID_DELIVERY_FABRICS[rd2State.selectedFabricIndex].name;
+        var unitPrice = currentPrice(currentProduct);
+
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "rapid-delivery-bed-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "rapid-delivery-beds.html#/" + currentProduct.slug,
+              image: currentProduct.image || "",
+              alt: currentProduct.name,
+              price: unitPrice,
+              category: "Rapid Delivery Beds",
+              variant: {
+                size: rd2State.selectedSize,
+                fabric: fabricName
+              }
+            },
+            rd2State.quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
 
-        var fabricName = RAPID_DELIVERY_FABRICS[rd2State.selectedFabricIndex].name;
         messageEl.classList.remove("is-error");
         messageEl.textContent =
           "Added " + rd2State.quantity + " \u00d7 " + currentProduct.name + " (" + rd2State.selectedSize + ", " +
-          fabricName + ") to your basket \u2014 " + money(currentPrice(currentProduct) * rd2State.quantity) + ".";
+          fabricName + ") to your basket \u2014 " + money(unitPrice * rd2State.quantity) + ".";
       });
     }
   }

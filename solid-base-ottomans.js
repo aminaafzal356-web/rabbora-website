@@ -1339,6 +1339,12 @@ var SOLID_OTTOMAN_PRODUCTS =
   function qsa(sel, scope) {
     return Array.prototype.slice.call((scope || document).querySelectorAll(sel));
   }
+  function soMoney(v) {
+    return "\u00A3" + Number(v).toFixed(2);
+  }
+  function soStars(n) {
+    return "\u2605".repeat(n) + "\u2606".repeat(5 - n);
+  }
   var soState = { page: 1 };
 
   function initSizeCounts() {
@@ -1760,11 +1766,31 @@ var SOLID_OTTOMAN_PRODUCTS =
     if (addBtn) {
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + quantity);
+
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "solid-base-ottoman-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "solid-base-ottomans.html#/" + currentProduct.slug,
+              image: currentProduct.image || "",
+              alt: currentProduct.name,
+              price: currentProduct.price,
+              category: "Solid Base Ottomans",
+              variant: {
+                size: currentProduct.size || null
+              }
+            },
+            quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
+
         messageEl.classList.remove("is-error");
         messageEl.textContent =
           "Added " + quantity + " \u00d7 " + currentProduct.name + " (" + currentProduct.size +

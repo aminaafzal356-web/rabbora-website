@@ -304,9 +304,7 @@
 
     // Reflect whatever is actually in the shared cart store the
     // moment this page loads, rather than leaving whatever static
-    // "0" is in the markup — this is what makes the header count
-    // correct after navigating here from a page where items were
-    // added, or after a refresh.
+    // "0" is in the markup.
     updateCartCount();
 
     if (hasCartStore()) {

@@ -567,15 +567,36 @@ var KIDS_BED_SIZE_DELTAS = {
           messageEl.classList.add("is-error");
           return;
         }
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + kbState.quantity);
+        var unitPrice = currentPrice(currentProduct);
+
+        if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add(
+            {
+              id: "kids-bed-" + currentProduct.slug,
+              slug: currentProduct.slug,
+              name: currentProduct.name,
+              url: "kids-beds.html#/" + currentProduct.slug,
+              image: getKidsBedImage(currentProduct.imageName),
+              alt: currentProduct.name,
+              price: unitPrice,
+              category: "Kids Beds",
+              variant: {
+                size: kbState.selectedSize
+              }
+            },
+            kbState.quantity
+          );
+        } else {
+          console.error(
+            "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
+
         messageEl.classList.remove("is-error");
         messageEl.textContent =
           "Added " + kbState.quantity + " \u00d7 " + currentProduct.name + " (" + kbState.selectedSize +
-          ") to your basket \u2014 " + money(currentPrice(currentProduct) * kbState.quantity) + ".";
+          ") to your basket \u2014 " + money(unitPrice * kbState.quantity) + ".";
       });
     }
 

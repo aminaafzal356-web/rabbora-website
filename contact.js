@@ -99,10 +99,31 @@
     }
   }
 
+  function hasCartStore() {
+    return !!(window.RabboraCart && typeof window.RabboraCart.count === "function");
+  }
+
+  function updateCartCount() {
+    var countEl = document.getElementById("cartCount");
+    var count = hasCartStore() ? window.RabboraCart.count() : 0;
+    if (countEl) countEl.textContent = String(count);
+
+    var headerBtn = document.getElementById("cartBtn");
+    if (headerBtn) {
+      headerBtn.setAttribute("aria-label", "Shopping cart, " + count + " items");
+    }
+  }
+
   function initCart() {
     var cartBtn = document.getElementById("cartBtn");
     var cartCountEl = document.getElementById("cartCount");
     if (!cartBtn || !cartCountEl) return;
+
+    updateCartCount();
+
+    if (hasCartStore()) {
+      window.addEventListener(window.RabboraCart.EVENT_NAME, updateCartCount);
+    }
 
     cartBtn.addEventListener("click", function () {
       window.location.href = "cart.html";
