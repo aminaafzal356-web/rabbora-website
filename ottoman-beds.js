@@ -8390,6 +8390,22 @@
     OTTOMAN_PRODUCTS[p.slug] = p;
   });
 
+  // ---------------------------------------------------------------
+  // DEPLOYMENT SELF-CHECK — safe to leave in permanently.
+  // Prints the moment this file finishes loading, showing exactly
+  // how many products it actually found. If the live site is
+  // running an old/incomplete copy of this file, this number will
+  // be wrong or missing entirely — which is the fastest possible
+  // way to confirm, from the Console tab alone, whether the real
+  // file deployed correctly, with no need to check file sizes.
+  // ---------------------------------------------------------------
+  console.log(
+    "[Rabbora] ottoman-beds.js loaded \u2014 " +
+    OTTOMAN_PRODUCTS_LIST.length + " products found. " +
+    "Expected: 84. If this number is wrong, low, or this line " +
+    "never appears at all, the live server is not running this file."
+  );
+
   var OTTOMAN_SIZE_DELTAS = SLATTED_OTTOMAN_SIZE_DELTAS;
 
   function obMoney(v) {
