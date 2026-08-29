@@ -8,7 +8,7 @@
         slug: "ottoman-bed",
         name: "2026 Empire Bed Frame with Optional Ottoman Storage",
         image: "images/img-18.jfif",
-        alt: "Demo product: Harrow ottoman bed frame in sage fabric",
+        alt: "Harrow ottoman bed frame in sage fabric",
         rating: 5,
         reviewCount: 128,
         price: 290.00,
@@ -21,7 +21,7 @@
         slug: "2026 Manhattan Bed Frame with Lines ®",
         name: "2026 Manhattan Bed Frame with Lines ®",
         image: "images/img-20.jfif",
-        alt: "Demo product: Kensworth drawer bed in ivory boucle",
+        alt: "Kensworth drawer bed in ivory boucle",
         rating: 5,
         reviewCount: 94,
         price: 249.00,
@@ -34,7 +34,7 @@
         slug: "2026 Orlando Bed frame (Optional Ottoman Storage)",
         name: "2026 Orlando Bed frame (Optional Ottoman Storage)",
         image: "images/img-4.jfif",
-        alt: "Demo product: Aldermoor high headboard bed in forest velvet",
+        alt: "Aldermoor high headboard bed in forest velvet",
         rating: 5,
         reviewCount: 201,
         price: 729,
@@ -47,7 +47,7 @@
         slug: "wren-tv-bed",
         name: "Wren TV Bed Frame",
         image: "images/img-29.jfif",
-        alt: "Demo product: Wren TV bed frame with lift mechanism",
+        alt: "Wren TV bed frame with lift mechanism",
         rating: 4,
         reviewCount: 67,
         price: 1399.00,
@@ -62,7 +62,7 @@
         slug: "The 2026 Art Deco Bed Style",
         name: "The 2026 Art Deco Bed Style",
         image: "images/img-1.jfif",
-        alt: "Demo product: Art Deco Bed Style",
+        alt: "Art Deco Bed Style",
         rating: 5,
         reviewCount: 156,
         price: 253.00,
@@ -75,7 +75,7 @@
         slug: "2026 Kendal Butterfly Wingback Bed",
         name: "2026 Kendal Butterfly Wingback Bed",
         image: "images/img-31.png",
-        alt: "Demo product:  Kendal Butterfly Wingback Bed",
+        alt: "Kendal Butterfly Wingback Bed",
         rating: 5,
         reviewCount: 88,
         price: 299.00,
@@ -88,7 +88,7 @@
         slug: " Frame with Optional Ottoman Storage",
         name: "2026 Empire Bed Frame with Optional Ottoman Storage",
         image: "images/img-8.jfif",
-        alt: "Demo product: Brindley solid base ottoman bed",
+        alt: "Brindley solid base ottoman bed",
         rating: 5,
         reviewCount: 172,
         price: 290.00,
@@ -101,7 +101,7 @@
         slug: " Bed frame (Optional Ottoman Storage)",
         name: "2026 Orlando Bed frame (Optional Ottoman Storage)",
         image: "images/img-3.jfif",
-        alt: "Demo product: 2026 Orlando Bed frame (Optional Ottoman Storage)",
+        alt: "2026 Orlando Bed frame (Optional Ottoman Storage)",
         rating: 5,
         reviewCount: 307.59,
         price: 329,
@@ -167,7 +167,6 @@
           prevPriceHtml +
         "</div>" +
         monthlyHtml +
-        '<span class="product-card__demo-tag">Demo product</span>' +
       "</div>";
 
     return card;
