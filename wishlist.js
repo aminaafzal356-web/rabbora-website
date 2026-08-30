@@ -18,6 +18,20 @@
     if (statusEl) statusEl.textContent = message;
   }
 
+  /**
+   * Wishlist items store price as a display string (e.g. "£329.00"),
+   * captured directly from the page at the moment the item was saved.
+   * The cart store requires a plain number, so this strips everything
+   * except digits and a decimal point before parsing.
+   */
+  function parsePriceToNumber(priceString) {
+    if (typeof priceString === "number") return priceString;
+    if (!priceString) return 0;
+    var cleaned = String(priceString).replace(/[^0-9.]/g, "");
+    var n = parseFloat(cleaned);
+    return isFinite(n) ? n : 0;
+  }
+
   function buildCard(item, index) {
     var card = document.createElement("article");
     card.className = "product-card wishlist-card";
@@ -209,12 +223,30 @@
       var addBtn = event.target.closest("[data-add-to-cart-id]");
       if (addBtn) {
         event.preventDefault();
-        var cartCountEl = document.getElementById("cartCount");
-        if (cartCountEl) {
-          var current = parseInt(cartCountEl.textContent, 10) || 0;
-          cartCountEl.textContent = String(current + 1);
+        var itemId = addBtn.getAttribute("data-add-to-cart-id");
+        var item = window.RabboraWishlist
+          ? window.RabboraWishlist.getAll().find(function (w) { return w.id === itemId; })
+          : null;
+
+        if (item && window.RabboraCart && typeof window.RabboraCart.add === "function") {
+          window.RabboraCart.add({
+            id: item.id,
+            slug: item.slug,
+            name: item.name,
+            url: item.url,
+            image: item.image,
+            alt: item.alt,
+            price: parsePriceToNumber(item.price),
+            category: item.category
+          });
+        } else if (!window.RabboraCart || typeof window.RabboraCart.add !== "function") {
+          console.error(
+            "[Rabbora Cart] Add to Cart clicked on wishlist.html but window.RabboraCart is unavailable — " +
+            "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
+          );
         }
-        var msgEl = grid.querySelector('[data-added-msg-for="' + CSS.escape(addBtn.getAttribute("data-add-to-cart-id")) + '"]');
+
+        var msgEl = grid.querySelector('[data-added-msg-for="' + CSS.escape(itemId) + '"]');
         if (msgEl) {
           msgEl.textContent = "Added to your basket.";
           window.setTimeout(function () {

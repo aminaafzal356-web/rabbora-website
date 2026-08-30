@@ -268,4 +268,4 @@
     fromCard: fromCard,
     syncButtons: syncButtons
   };
-})(window);sss
+})(window);

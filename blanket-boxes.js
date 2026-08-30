@@ -542,8 +542,8 @@
 {
   "manhattan-style-blanket-box": {
     "name": "Manhattan Style Blanket Box",
-    "price": 129.0,
-    "prev": 179.0,
+    "price": 200.0,
+    "prev": 210.0,
     "monthly": 11,
     "rating": 5,
     "reviews": 86,
@@ -576,8 +576,8 @@
   },
   "chesterfield-blanket-box": {
     "name": "Chesterfield Blanket Box",
-    "price": 169.0,
-    "prev": 219.0,
+    "price": 329.0,
+    "prev": 405.0,
     "monthly": 14,
     "rating": 5,
     "reviews": 54,
@@ -609,7 +609,7 @@
   },
   "luxury-storage-blanket-box": {
     "name": "Luxury Storage Blanket Box",
-    "price": 199.0,
+    "price": 200.0,
     "prev": null,
     "monthly": 17,
     "rating": 5,
@@ -642,8 +642,8 @@
   },
   "ottoman-style-blanket-box": {
     "name": "Ottoman Style Blanket Box",
-    "price": 149.0,
-    "prev": 189.0,
+    "price": 200.0,
+    "prev": 220.0,
     "monthly": 13,
     "rating": 4,
     "reviews": 39,
@@ -675,7 +675,7 @@
   },
   "premium-fabric-blanket-box": {
     "name": "Premium Fabric Blanket Box",
-    "price": 159.0,
+    "price": 200.0,
     "prev": null,
     "monthly": 14,
     "rating": 5,
@@ -708,7 +708,7 @@
   },
   "classic-blanket-box": {
     "name": "Classic Blanket Box",
-    "price": 119.0,
+    "price": 200.0,
     "prev": null,
     "monthly": 10,
     "rating": 4,
@@ -741,7 +741,7 @@
   },
   "plush-storage-blanket-box": {
     "name": "Plush Storage Blanket Box",
-    "price": 139.0,
+    "price": 200.0,
     "prev": 175.0,
     "monthly": 12,
     "rating": 5,
