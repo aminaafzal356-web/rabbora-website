@@ -134,7 +134,7 @@
     var deliveryEl = document.getElementById("cartDeliveryValue");
     var totalEl = document.getElementById("cartTotalValue");
     if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
-    if (deliveryEl) deliveryEl.textContent = delivery === 0 ? "Free" : formatMoney(delivery);
+    if (deliveryEl) deliveryEl.textContent = delivery === 0 ? "Free (Mainland UK)" : formatMoney(delivery);
     if (totalEl) totalEl.textContent = formatMoney(total);
 
     var totalQty = hasCartStore() ? window.RabboraCart.count() : 0;

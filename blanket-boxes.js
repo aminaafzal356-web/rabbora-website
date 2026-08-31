@@ -507,35 +507,35 @@
   }
 
   var FABRIC_CATALOG = [
-    { slug: "plush-grey", name: "Plush Grey" },
-    { slug: "plush-silver", name: "Plush Silver" },
-    { slug: "plush-steel", name: "Plush Steel" },
-    { slug: "coniston-charcoal", name: "Coniston Charcoal" },
-    { slug: "coniston-almond", name: "Coniston Almond" },
-    { slug: "plush-cream", name: "Plush Cream" },
-    { slug: "naples-silver", name: "Naples Silver" },
-    { slug: "naples-steel", name: "Naples Steel" },
-    { slug: "coniston-armour", name: "Coniston Armour" },
-    { slug: "plush-beige", name: "Plush Beige" },
-    { slug: "plush-black", name: "Plush Black" },
-    { slug: "plush-pink", name: "Plush Pink" },
-    { slug: "coniston-emerald", name: "Coniston Emerald" },
-    { slug: "coniston-pink", name: "Coniston Pink" },
-    { slug: "naples-black", name: "Naples Black" },
-    { slug: "naples-ivory", name: "Naples Ivory" },
-    { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver" },
-    { slug: "crushed-velvet-black", name: "Crushed Velvet Black" },
-    { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream" },
-    { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink" },
-    { slug: "plush-mustard", name: "Plush Mustard" },
-    { slug: "plush-green", name: "Plush Green" },
-    { slug: "plush-turquoise", name: "Plush Turquoise" },
-    { slug: "coniston-blue", name: "Coniston Blue" },
-    { slug: "cream-boucle", name: "Cream Boucle" },
-    { slug: "pink-boucle", name: "Pink Boucle" },
-    { slug: "marble-oatmeal", name: "Marble Oatmeal" },
-    { slug: "marble-platinum", name: "Marble Platinum" },
-    { slug: "marble-silver", name: "Marble Silver" }
+    { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
+    { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
+    { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
+    { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
+    { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
+    { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
+    { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
+    { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
+    { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
+    { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
+    { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
+    { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
+    { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
+    { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
+    { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
+    { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
+    { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
+    { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
+    { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
+    { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
+    { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
+    { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
+    { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
+    { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
+    { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
+    { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
+    { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
+    { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
+    { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
   ];
 
   var BB_PRODUCTS = 
@@ -926,6 +926,8 @@
           isSelected = true;
         }
 
+        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
+
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "fabric-swatch";
@@ -933,7 +935,7 @@
         btn.setAttribute("aria-label", "Select " + fabric.name);
         btn.innerHTML =
           '<span class="fabric-swatch__ring">' +
-            '<img src="images/fabrics/' + fabric.slug + '.svg" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+            '<img src="' + swatchImagePath + '" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
             '<span class="fabric-swatch__check" aria-hidden="true">' +
               '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
@@ -941,11 +943,19 @@
           '<span class="fabric-swatch__name">' + fabric.name + '</span>';
 
         btn.addEventListener("click", function () {
-          bbModalState.selectedFabric = fabric.name;
+          var alreadySelected = bbModalState.selectedFabric === fabric.name;
+
           qsa(".fabric-swatch", fabricsEl).forEach(function (el) {
             el.setAttribute("aria-pressed", "false");
           });
-          btn.setAttribute("aria-pressed", "true");
+
+          if (alreadySelected) {
+            // Clicking the already-selected swatch again deselects it.
+            bbModalState.selectedFabric = null;
+          } else {
+            bbModalState.selectedFabric = fabric.name;
+            btn.setAttribute("aria-pressed", "true");
+          }
         });
 
         fabricsEl.appendChild(btn);
