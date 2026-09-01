@@ -576,11 +576,13 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/mattresses/bedzone-hybrid-memory-pocket-spring-main.svg",
-      "images/mattresses/bedzone-hybrid-memory-pocket-spring-lifestyle.svg",
-      "images/mattresses/bedzone-hybrid-memory-pocket-spring-profile.svg",
-      "images/mattresses/bedzone-hybrid-memory-pocket-spring-closeup.svg"
+      "images/img-26.png",
+      "images/img-26.png",
+      "images/img-26.png",
+      "images/img-26.png",
+      "images/img-26.png"
     ]
+   
   },
   {
     "id": 2,
@@ -620,10 +622,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/mattresses/orthopaedic-zero-gravity-main.svg",
-      "images/mattresses/orthopaedic-zero-gravity-lifestyle.svg",
-      "images/mattresses/orthopaedic-zero-gravity-profile.svg",
-      "images/mattresses/orthopaedic-zero-gravity-closeup.svg"
+      "images/img-70.png",
+      "images/img-70.png",
+      "images/img-70.png",
+      "images/img-70.png",
+      "images/img-70.png"
     ]
   },
   {
@@ -665,10 +668,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/mattresses/pillowtop-2000-main.svg",
-      "images/mattresses/pillowtop-2000-lifestyle.svg",
-      "images/mattresses/pillowtop-2000-profile.svg",
-      "images/mattresses/pillowtop-2000-closeup.svg"
+      "images/img-71.png",
+      "images/img-71.png",
+      "images/img-71.png",
+      "images/img-71.png",
+      "images/img-71.png"
     ]
   },
   {
@@ -710,10 +714,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/mattresses/luxury-pocket-spring-main.svg",
-      "images/mattresses/luxury-pocket-spring-lifestyle.svg",
-      "images/mattresses/luxury-pocket-spring-profile.svg",
-      "images/mattresses/luxury-pocket-spring-closeup.svg"
+      "images/img-72.png",
+      "images/img-72.png",
+      "images/img-72.png",
+      "images/img-72.png",
+      "images/img-72.png"
     ]
   },
   {
@@ -754,10 +759,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/mattresses/cloudrest-memory-foam-main.svg",
-      "images/mattresses/cloudrest-memory-foam-lifestyle.svg",
-      "images/mattresses/cloudrest-memory-foam-profile.svg",
-      "images/mattresses/cloudrest-memory-foam-closeup.svg"
+      "images/img-73.png",
+      "images/img-73.png",
+      "images/img-73.png",
+      "images/img-73.png",
+      "images/img-73.png"
     ]
   },
   {
@@ -798,10 +804,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/mattresses/harmony-hybrid-deluxe-main.svg",
-      "images/mattresses/harmony-hybrid-deluxe-lifestyle.svg",
-      "images/mattresses/harmony-hybrid-deluxe-profile.svg",
-      "images/mattresses/harmony-hybrid-deluxe-closeup.svg"
+      "images/img-74.png",
+      "images/img-74.png",
+      "images/img-74.png",
+      "images/img-74.png",
+      "images/img-74.png"
     ]
   },
   {
@@ -842,10 +849,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/mattresses/firmsupport-orthopaedic-pro-main.svg",
-      "images/mattresses/firmsupport-orthopaedic-pro-lifestyle.svg",
-      "images/mattresses/firmsupport-orthopaedic-pro-profile.svg",
-      "images/mattresses/firmsupport-orthopaedic-pro-closeup.svg"
+      "images/img-75.png",
+      "images/img-75.png",
+      "images/img-75.png",
+      "images/img-75.png",
+      "images/img-75.png"
     ]
   },
   {
@@ -887,10 +895,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/mattresses/serenity-pocket-1000-main.svg",
-      "images/mattresses/serenity-pocket-1000-lifestyle.svg",
-      "images/mattresses/serenity-pocket-1000-profile.svg",
-      "images/mattresses/serenity-pocket-1000-closeup.svg"
+      "images/img-76.png",
+      "images/img-76.png",
+      "images/img-76.png",
+      "images/img-76.png",
+      "images/img-76.png"
     ]
   },
   {
@@ -932,10 +941,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/mattresses/dreamsoft-memory-foam-main.svg",
-      "images/mattresses/dreamsoft-memory-foam-lifestyle.svg",
-      "images/mattresses/dreamsoft-memory-foam-profile.svg",
-      "images/mattresses/dreamsoft-memory-foam-closeup.svg"
+      "images/img-77.png",
+      "images/img-77.png",
+      "images/img-77.png",
+      "images/img-77.png",
+      "images/img-77.png"
     ]
   },
   {
@@ -977,10 +987,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/mattresses/everest-hybrid-support-main.svg",
-      "images/mattresses/everest-hybrid-support-lifestyle.svg",
-      "images/mattresses/everest-hybrid-support-profile.svg",
-      "images/mattresses/everest-hybrid-support-closeup.svg"
+      "images/img-78.png",
+      "images/img-78.png",
+      "images/img-78.png",
+      "images/img-78.png",
+      "images/img-78.png"
     ]
   },
   {
@@ -1021,10 +1032,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/mattresses/royaltouch-pocket-spring-main.svg",
-      "images/mattresses/royaltouch-pocket-spring-lifestyle.svg",
-      "images/mattresses/royaltouch-pocket-spring-profile.svg",
-      "images/mattresses/royaltouch-pocket-spring-closeup.svg"
+      "images/img-79.png",
+      "images/img-79.png",
+      "images/img-79.png",
+      "images/img-79.png",
+      "images/img-79.png"
     ]
   },
   {
@@ -1065,10 +1077,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/mattresses/restwell-orthopaedic-classic-main.svg",
-      "images/mattresses/restwell-orthopaedic-classic-lifestyle.svg",
-      "images/mattresses/restwell-orthopaedic-classic-profile.svg",
-      "images/mattresses/restwell-orthopaedic-classic-closeup.svg"
+      "images/img-80.png",
+      "images/img-80.png",
+      "images/img-80.png",
+      "images/img-80.png",
+      "images/img-80.png"
     ]
   },
   {
@@ -1789,7 +1802,7 @@
       if (descTag) {
         descTag.setAttribute(
           "content",
-          product.name + " — " + product.description.split(". ")[0] + ". Shop now at Rabbora Living with free delivery and a 24 month warranty."
+          product.name + " — " + product.description.split(". ")[0] + ". Shop now at Rabbora Living with free Mainland UK delivery and a 24 month warranty."
         );
       }
       var canonicalTag = document.getElementById("pageCanonical");

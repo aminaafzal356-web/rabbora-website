@@ -1090,30 +1090,35 @@ var RAPID_DELIVERY_PRODUCTS =
    one, edit its "image" path the same way as above. */
 var RAPID_DELIVERY_FABRICS = 
 [
-  {
-    "name": "Grey",
-    "image": "images/rapid-delivery/fabric-1.png"
-  },
-  {
-    "name": "Silver",
-    "image": "images/rapid-delivery/fabric-2.png"
-  },
-  {
-    "name": "Charcoal",
-    "image": "images/rapid-delivery/fabric-3.png"
-  },
-  {
-    "name": "Beige",
-    "image": "images/rapid-delivery/fabric-4.png"
-  },
-  {
-    "name": "Navy",
-    "image": "images/rapid-delivery/fabric-5.png"
-  },
-  {
-    "name": "Green",
-    "image": "images/rapid-delivery/fabric-6.png"
-  }
+  { "slug": "plush-grey", "name": "Plush Grey", "image": "img-34.jfif" },
+  { "slug": "plush-silver", "name": "Plush Silver", "image": "img-35.jfif" },
+  { "slug": "plush-steel", "name": "Plush Steel", "image": "img-36.jfif" },
+  { "slug": "coniston-charcoal", "name": "Coniston Charcoal", "image": "img-37.jfif" },
+  { "slug": "coniston-almond", "name": "Coniston Almond", "image": "img-105.jfif" },
+  { "slug": "plush-cream", "name": "Plush Cream", "image": "img-38.jfif" },
+  { "slug": "naples-silver", "name": "Naples Silver", "image": "img-39.jfif" },
+  { "slug": "naples-steel", "name": "Naples Steel", "image": "img-40.jfif" },
+  { "slug": "coniston-armour", "name": "Coniston Armour", "image": "img-101.jfif" },
+  { "slug": "plush-beige", "name": "Plush Beige", "image": "img-102.jfif" },
+  { "slug": "plush-black", "name": "Plush Black", "image": "img-104.jfif" },
+  { "slug": "plush-pink", "name": "Plush Pink", "image": "img-106.jfif" },
+  { "slug": "coniston-emerald", "name": "Coniston Emerald", "image": "img-107.jfif" },
+  { "slug": "coniston-pink", "name": "Coniston Pink", "image": "img-108.jfif" },
+  { "slug": "naples-black", "name": "Naples Black", "image": "img-109.jfif" },
+  { "slug": "naples-ivory", "name": "Naples Ivory", "image": "img-110.jfif" },
+  { "slug": "crushed-velvet-silver", "name": "Crushed Velvet Silver", "image": "img-111.jfif" },
+  { "slug": "crushed-velvet-black", "name": "Crushed Velvet Black", "image": "img-112.jfif" },
+  { "slug": "crushed-velvet-cream", "name": "Crushed Velvet Cream", "image": "img-113.jfif" },
+  { "slug": "crushed-velvet-mink", "name": "Crushed Velvet Mink", "image": "img-114.jfif" },
+  { "slug": "plush-mustard", "name": "Plush Mustard", "image": "img-115.jfif" },
+  { "slug": "plush-green", "name": "Plush Green", "image": "img-116.jfif" },
+  { "slug": "plush-turquoise", "name": "Plush Turquoise", "image": "img-117.jfif" },
+  { "slug": "coniston-blue", "name": "Coniston Blue", "image": "img-118.jfif" },
+  { "slug": "cream-boucle", "name": "Cream Boucle", "image": "img-119.jfif" },
+  { "slug": "pink-boucle", "name": "Pink Boucle", "image": "img-120.jfif" },
+  { "slug": "marble-oatmeal", "name": "Marble Oatmeal", "image": "img-121.jfif" },
+  { "slug": "marble-platinum", "name": "Marble Platinum", "image": "img-122.jfif" },
+  { "slug": "marble-silver", "name": "Marble Silver", "image": "img-123.jfif" }
 ];
 
 var RAPID_DELIVERY_SIZE_DELTAS = {
@@ -1302,6 +1307,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     function renderFabricOptions() {
       fabricOptionsEl.innerHTML = "";
       RAPID_DELIVERY_FABRICS.forEach(function (fabric, index) {
+        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.name.toLowerCase() + ".svg";
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "rd2-fabric-swatch";
@@ -1309,7 +1315,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         btn.setAttribute("aria-label", "Select " + fabric.name);
         btn.innerHTML =
           '<span class="rd2-fabric-swatch__ring">' +
-            '<img src="' + fabric.image + '" alt="' + fabric.name + '" loading="lazy" />' +
+            '<img src="' + swatchImagePath + '" alt="' + fabric.name + '" loading="lazy" />' +
             '<span class="rd2-fabric-swatch__check" aria-hidden="true">' +
               '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
