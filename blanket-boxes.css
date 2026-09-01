@@ -5373,3 +5373,91 @@ body.sf-drawer-open {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* =========================================================
+   FULL-PAGE PRODUCT DETAIL VIEW (converted from modal)
+   Reuses the existing .bb-modal__* component styles for all
+   inner content (gallery, price, fabrics, purchase, delivery
+   info) — only the outer wrapper/layout is new, matching the
+   .mt-detail__* pattern already used on other product pages.
+   ========================================================= */
+
+.mt-detail__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 1.25rem;
+  font-size: 0.8rem;
+  color: rgba(35, 35, 32, 0.55);
+}
+
+
+
+.mt-detail__breadcrumb a {
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+
+
+.mt-detail__breadcrumb a:hover {
+  color: var(--color-brass);
+}
+
+
+
+.mt-detail__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+
+
+@media (min-width: 900px) {
+  .mt-detail__grid {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+
+
+.mt-detail__main-wrap {
+  aspect-ratio: 4 / 3;
+}
+
+
+
+.mt-detail__title {
+  margin-top: 0.4rem;
+}
+
+
+
+.mt-not-found {
+  padding-block: 6rem;
+  text-align: center;
+  max-width: 30rem;
+  margin-inline: auto;
+}
+
+
+
+.mt-not-found h1 {
+  margin-top: 0.5rem;
+  font-size: 2.25rem;
+}
+
+
+
+.mt-not-found p {
+  margin-top: 0.75rem;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+
+
+.mt-not-found .btn {
+  margin-top: 1.75rem;
+}

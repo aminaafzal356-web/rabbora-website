@@ -861,11 +861,12 @@
 
   function initBlanketModal() {
     var grid = document.getElementById("bbProductGrid");
-    var modal = document.getElementById("bbModal");
-    var overlay = document.getElementById("bbModalOverlay");
-    if (!grid || !modal || !overlay) return;
+    var categoryView = document.getElementById("bbCategoryView");
+    var detailView = document.getElementById("bbDetailView");
+    var notFoundView = document.getElementById("bbNotFoundView");
+    if (!grid || !categoryView || !detailView || !notFoundView) return;
 
-    var closeBtn = document.getElementById("bbModalClose");
+    var breadcrumbName = document.getElementById("bbDetailBreadcrumbName");
     var mainImage = document.getElementById("bbModalMainImage");
     var thumbsWrap = document.getElementById("bbModalThumbs");
     var prevBtn = document.getElementById("bbGalleryPrev");
@@ -890,6 +891,10 @@
     var lightbox = document.getElementById("bbLightbox");
     var lightboxImage = document.getElementById("bbLightboxImage");
     var lightboxClose = document.getElementById("bbLightboxClose");
+
+    function currentSlugFromHash() {
+      return window.location.hash.replace(/^#\/?/, "");
+    }
 
     function renderGallery() {
       var product = BB_PRODUCTS[bbModalState.slug];
@@ -973,24 +978,19 @@
 
       otherSlugs.slice(0, 5).forEach(function (slug) {
         var related = BB_PRODUCTS[slug];
-        var item = document.createElement("button");
-        item.type = "button";
+        var item = document.createElement("a");
+        item.href = "blanket-boxes.html#/" + slug;
         item.className = "bb-modal__related-item";
         item.innerHTML =
           '<img src="' + related.images[0] + '" alt="' + related.name + '" loading="lazy" />' +
           '<span>' + related.name + '</span>';
-        item.addEventListener("click", function () {
-          openProductModal(slug);
-        });
         relatedEl.appendChild(item);
       });
     }
 
-    function renderModal() {
-      var product = BB_PRODUCTS[bbModalState.slug];
-      if (!product) return;
-
+    function renderDetail(product) {
       titleEl.textContent = product.name;
+      if (breadcrumbName) breadcrumbName.textContent = product.name;
       starsEl.textContent = bbStars(product.rating);
       reviewCountEl.textContent = "(" + product.reviews + ")";
       priceEl.textContent = bbMoney(product.price);
@@ -1013,68 +1013,53 @@
       purchaseMessage.textContent = "";
     }
 
-    function openProductModal(slug) {
-      if (!BB_PRODUCTS[slug]) return;
+    function showCategory() {
+      categoryView.hidden = false;
+      detailView.hidden = true;
+      notFoundView.hidden = true;
+    }
+
+    function showNotFound() {
+      categoryView.hidden = true;
+      detailView.hidden = true;
+      notFoundView.hidden = false;
+    }
+
+    function showDetail(product) {
+      categoryView.hidden = true;
+      notFoundView.hidden = true;
+      detailView.hidden = false;
+      renderDetail(product);
+      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    }
+
+    function handleRoute() {
+      var slug = currentSlugFromHash();
+      if (!slug) {
+        bbModalState.slug = null;
+        showCategory();
+        return;
+      }
+
+      var product = BB_PRODUCTS[slug];
+      if (!product) {
+        showNotFound();
+        return;
+      }
+
       bbModalState.slug = slug;
       bbModalState.imageIndex = 0;
       bbModalState.quantity = 1;
       bbModalState.selectedFabric = null;
-
-      renderModal();
-
-      overlay.hidden = false;
-      requestAnimationFrame(function () {
-        overlay.classList.add("is-visible");
-        modal.classList.add("is-visible");
-      });
-      modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("bb-modal-open");
-      closeBtn.focus();
-
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, "", "#" + slug);
-      }
+      showDetail(product);
     }
 
-    function closeProductModal() {
-      overlay.classList.remove("is-visible");
-      modal.classList.remove("is-visible");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("bb-modal-open");
-      window.setTimeout(function () {
-        overlay.hidden = true;
-      }, 250);
-
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, "", window.location.pathname);
-      }
-    }
-
-    qsa(".bb-product-open", grid).forEach(function (trigger) {
-      trigger.addEventListener("click", function () {
-        openProductModal(trigger.dataset.slug);
-      });
-    });
-
-    // Support a shareable-ish URL: /blanket-boxes.html#manhattan-style-blanket-box
-    // opens straight into that product's detail view on load — the same
-    // pattern already used on sofas.html, added here so a saved Wishlist
-    // item's "View Product" link can actually reopen the right product.
-    var initialSlug = window.location.hash ? window.location.hash.slice(1) : "";
-    if (initialSlug && BB_PRODUCTS[initialSlug]) {
-      openProductModal(initialSlug);
-    }
-
-    if (closeBtn) closeBtn.addEventListener("click", closeProductModal);
-    if (overlay) overlay.addEventListener("click", closeProductModal);
+    window.addEventListener("hashchange", handleRoute);
+    handleRoute();
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        if (!lightbox.hidden) {
-          lightbox.hidden = true;
-          return;
-        }
-        if (modal.classList.contains("is-visible")) closeProductModal();
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) {
+        lightbox.hidden = true;
       }
     });
 
