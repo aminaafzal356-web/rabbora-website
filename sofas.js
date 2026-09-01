@@ -895,11 +895,12 @@
 
   function initSofaModal() {
     var grid = document.getElementById("sfProductGrid");
-    var modal = document.getElementById("sfModal");
-    var overlay = document.getElementById("sfModalOverlay");
-    if (!grid || !modal || !overlay) return;
+    var categoryView = document.getElementById("sfCategoryView");
+    var detailView = document.getElementById("sfDetailView");
+    var notFoundView = document.getElementById("sfNotFoundView");
+    if (!grid || !categoryView || !detailView || !notFoundView) return;
 
-    var closeBtn = document.getElementById("sfModalClose");
+    var breadcrumbName = document.getElementById("sfDetailBreadcrumbName");
     var mainImage = document.getElementById("sfModalMainImage");
     var thumbsWrap = document.getElementById("sfModalThumbs");
     var prevBtn = document.getElementById("sfGalleryPrev");
@@ -925,6 +926,10 @@
     var lightbox = document.getElementById("sfLightbox");
     var lightboxImage = document.getElementById("sfLightboxImage");
     var lightboxClose = document.getElementById("sfLightboxClose");
+
+    function currentSlugFromHash() {
+      return window.location.hash.replace(/^#\/?/, "");
+    }
 
     function renderGallery() {
       var product = SF_PRODUCTS[sfModalState.slug];
@@ -981,11 +986,18 @@
           '<span class="fabric-swatch__name">' + fabric.name + '</span>';
 
         btn.addEventListener("click", function () {
-          sfModalState.selectedFabric = fabric.name;
+          var alreadySelected = sfModalState.selectedFabric === fabric.name;
+
           qsa(".fabric-swatch", fabricsEl).forEach(function (el) {
             el.setAttribute("aria-pressed", "false");
           });
-          btn.setAttribute("aria-pressed", "true");
+
+          if (alreadySelected) {
+            sfModalState.selectedFabric = null;
+          } else {
+            sfModalState.selectedFabric = fabric.name;
+            btn.setAttribute("aria-pressed", "true");
+          }
         });
 
         fabricsEl.appendChild(btn);
@@ -1003,24 +1015,19 @@
 
       otherSlugs.forEach(function (slug) {
         var related = SF_PRODUCTS[slug];
-        var item = document.createElement("button");
-        item.type = "button";
+        var item = document.createElement("a");
+        item.href = "sofas.html#/" + slug;
         item.className = "bb-modal__related-item";
         item.innerHTML =
           '<img src="' + related.images[0] + '" alt="' + related.name + '" loading="lazy" />' +
           '<span>' + related.name + '</span>';
-        item.addEventListener("click", function () {
-          openProductModal(slug);
-        });
         relatedEl.appendChild(item);
       });
     }
 
-    function renderModal() {
-      var product = SF_PRODUCTS[sfModalState.slug];
-      if (!product) return;
-
+    function renderDetail(product) {
       titleEl.textContent = product.name;
+      if (breadcrumbName) breadcrumbName.textContent = product.name;
       starsEl.textContent = sfStars(product.rating);
       reviewCountEl.textContent = "(" + product.reviews + ")";
       priceEl.textContent = sfMoney(product.price);
@@ -1044,66 +1051,53 @@
       purchaseMessage.textContent = "";
     }
 
-    function openProductModal(slug) {
-      if (!SF_PRODUCTS[slug]) return;
+    function showCategory() {
+      categoryView.hidden = false;
+      detailView.hidden = true;
+      notFoundView.hidden = true;
+    }
+
+    function showNotFound() {
+      categoryView.hidden = true;
+      detailView.hidden = true;
+      notFoundView.hidden = false;
+    }
+
+    function showDetail(product) {
+      categoryView.hidden = true;
+      notFoundView.hidden = true;
+      detailView.hidden = false;
+      renderDetail(product);
+      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    }
+
+    function handleRoute() {
+      var slug = currentSlugFromHash();
+      if (!slug) {
+        sfModalState.slug = null;
+        showCategory();
+        return;
+      }
+
+      var product = SF_PRODUCTS[slug];
+      if (!product) {
+        showNotFound();
+        return;
+      }
+
       sfModalState.slug = slug;
       sfModalState.imageIndex = 0;
       sfModalState.quantity = 1;
       sfModalState.selectedFabric = null;
-
-      renderModal();
-
-      overlay.hidden = false;
-      requestAnimationFrame(function () {
-        overlay.classList.add("is-visible");
-        modal.classList.add("is-visible");
-      });
-      modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("bb-modal-open");
-      closeBtn.focus();
-
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, "", "#" + slug);
-      }
+      showDetail(product);
     }
 
-    function closeProductModal() {
-      overlay.classList.remove("is-visible");
-      modal.classList.remove("is-visible");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("bb-modal-open");
-      window.setTimeout(function () {
-        overlay.hidden = true;
-      }, 250);
-
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, "", window.location.pathname);
-      }
-    }
-
-    qsa(".sf-product-open", grid).forEach(function (trigger) {
-      trigger.addEventListener("click", function () {
-        openProductModal(trigger.dataset.slug);
-      });
-    });
-
-    // Support a shareable-ish URL: /sofas.html#chesterfield-3-seater-sofa
-    // opens straight into that product's detail view on load.
-    var initialSlug = window.location.hash ? window.location.hash.slice(1) : "";
-    if (initialSlug && SF_PRODUCTS[initialSlug]) {
-      openProductModal(initialSlug);
-    }
-
-    if (closeBtn) closeBtn.addEventListener("click", closeProductModal);
-    if (overlay) overlay.addEventListener("click", closeProductModal);
+    window.addEventListener("hashchange", handleRoute);
+    handleRoute();
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        if (!lightbox.hidden) {
-          lightbox.hidden = true;
-          return;
-        }
-        if (modal.classList.contains("is-visible")) closeProductModal();
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) {
+        lightbox.hidden = true;
       }
     });
 
