@@ -1,3 +1,4 @@
+/* RABBORA VERSION MARKER: sofas.css full-page-detail-view v2 */
 /* =========================================================
    RABBORA LIVING — DESIGN TOKENS
    ========================================================= */
@@ -2735,6 +2736,8 @@ button.product-card__name.bb-product-open {
 
 .bb-modal__main-image-wrap {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -3617,14 +3620,6 @@ body.bb-modal-open {
 }
 
 
-
-/* ---- Modal dimensions line (sofa-specific addition) ---- */
-.bb-modal__dimensions {
-  margin-top: 0.6rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: rgba(35, 35, 32, 0.55);
-}
 
 
 
@@ -5516,6 +5511,14 @@ body.sf-drawer-open {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  min-width: 0;
+}
+
+
+
+.mt-detail__gallery,
+.mt-detail__info {
+  min-width: 0;
 }
 
 
@@ -5557,4 +5560,9 @@ body.sf-drawer-open {
 
 .mt-not-found .btn {
   margin-top: 1.75rem;
+}
+
+
+.fabric-swatch__ring--fallback {
+  background-color: var(--color-sage);
 }

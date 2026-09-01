@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  console.log(
+    "[Rabbora] sofas.js loaded \u2014 FULL-PAGE detail view version (v2). " +
+    "If clicking a sofa still opens a popup/modal instead of a full page, " +
+    "or this line does not appear at all, the browser is running an old " +
+    "cached copy of this file \u2014 not the one just uploaded."
+  );
+
   var state = {
     wishlist: new Set(),
     cartCount: 0
@@ -913,7 +920,6 @@
     var prevPriceEl = document.getElementById("sfModalPrevPrice");
     var monthlyEl = document.getElementById("sfModalMonthly");
     var descriptionEl = document.getElementById("sfModalDescription");
-    var dimensionsEl = document.getElementById("sfModalDimensions");
     var featuresEl = document.getElementById("sfModalFeatures");
     var fabricsEl = document.getElementById("sfModalFabrics");
     var relatedEl = document.getElementById("sfModalRelated");
@@ -978,7 +984,7 @@
         btn.setAttribute("aria-label", "Select " + fabric.name);
         btn.innerHTML =
           '<span class="fabric-swatch__ring">' +
-            '<img src="' + fabric.image + '" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+            '<img src="' + fabric.image + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
             '<span class="fabric-swatch__check" aria-hidden="true">' +
               '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
@@ -1034,7 +1040,6 @@
       prevPriceEl.textContent = product.prev ? sfMoney(product.prev) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
-      dimensionsEl.textContent = product.dimensions || "";
 
       featuresEl.innerHTML = "";
       product.features.forEach(function (feature) {

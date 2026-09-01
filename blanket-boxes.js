@@ -569,9 +569,9 @@
       }
     ],
     "images": [
-      "images/img-84.png",
-      "images/img-91.png",
-      "images/img-92.png"
+      "blanket/img-90.png",
+        "blanket/img-98.png",
+    
     ]
   },
   "chesterfield-blanket-box": {
@@ -603,8 +603,8 @@
       }
     ],
     "images": [
-      "images/img-86.png",
-      "images/img-93.png"
+        "blanket/img-89.png",
+        "blanket/img-97.png"
     ]
   },
   "luxury-storage-blanket-box": {
@@ -636,8 +636,8 @@
       }
     ],
     "images": [
-      "images/img-87.png",
-      "images/img-94.png"
+       "blanket/img-88.png",
+        "blanket/img-95.png"
     ]
   },
   "ottoman-style-blanket-box": {
@@ -669,8 +669,8 @@
       }
     ],
     "images": [
-      "images/img-88.png",
-      "images/img-95.png"
+        "blanket/img-86.png",
+        "blanket/img-93.png"
     ]
   },
   "premium-fabric-blanket-box": {
@@ -702,8 +702,8 @@
       }
     ],
     "images": [
-      "images/img-85.png",
-      "images/img-95.png"
+        "blanket/img-85.png",
+        "blanket/img-96.png"
     ]
   },
   "classic-blanket-box": {
@@ -735,8 +735,8 @@
       }
     ],
     "images": [
-      "images/img-89.png",
-      "images/img-97.png"
+        "blanket/img-84.png",
+        "blanket/img-92.png"
     ]
   },
   "plush-storage-blanket-box": {
@@ -768,8 +768,8 @@
       }
     ],
     "images": [
-      "images/img-90.png",
-      "images/img-98.png"
+        "blanket/img-87.png",
+        "blanket/img-94.png"
     ]
   }
 };
