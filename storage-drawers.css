@@ -262,6 +262,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  min-width: 0;
 }
 
 @media (min-width: 900px) {
@@ -273,6 +274,8 @@
 
 .mt-detail__main-wrap {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -313,6 +316,8 @@
 
 .bb-modal__main-image-wrap {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -633,8 +638,13 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  min-width: 0;
 }
 
+.mt-detail__gallery,
+.mt-detail__info {
+  min-width: 0;
+}
 .mt-detail__main-wrap {
   aspect-ratio: 4 / 3;
 }
@@ -647,6 +657,28 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+}
+
+.mt-option-pill {
+  height: 42px;
+  padding-inline: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  background-color: var(--color-white);
+  transition: border-color var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.mt-option-pill:hover {
+  border-color: var(--color-brass-light);
+}
+
+.mt-option-pill[aria-pressed="true"] {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-ivory-soft);
 }
 
 .mt-not-found {
@@ -718,4 +750,22 @@
 .rd2-dimensions__table--compact {
   min-width: 0;
   font-size: 0.8rem;
+}
+
+.mt-detail__back-row {
+  padding-top: 1.25rem;
+}
+
+.mt-detail__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.mt-detail__back-link:hover {
+  color: var(--color-brass);
 }

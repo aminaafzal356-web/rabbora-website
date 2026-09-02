@@ -610,38 +610,35 @@
 };
 
   var SOFA_FABRIC_OPTIONS = [
-    {
-      "name": "Grey",
-      "image": "images/fabrics/img-1.png"
-    },
-    {
-      "name": "Silver",
-      "image": "images/fabrics/img-2.png"
-    },
-    {
-      "name": "Black",
-      "image": "images/fabrics/img-3.png"
-    },
-    {
-      "name": "Emerald",
-      "image": "images/fabrics/img-4.png"
-    },
-    {
-      "name": "Turquoise",
-      "image": "images/fabrics/img-5.png"
-    },
-    {
-      "name": "Blue",
-      "image": "images/fabrics/img-6.png"
-    },
-    {
-      "name": "Beige",
-      "image": "images/fabrics/img-7.png"
-    },
-    {
-      "name": "Mink",
-      "image": "images/fabrics/img-8.png"
-    }
+    { "slug": "plush-grey", "name": "Plush Grey", "image": "images/img-34.jfif" },
+    { "slug": "plush-silver", "name": "Plush Silver", "image": "images/img-35.jfif" },
+    { "slug": "plush-steel", "name": "Plush Steel", "image": "images/img-36.jfif" },
+    { "slug": "coniston-charcoal", "name": "Coniston Charcoal", "image": "images/img-37.jfif" },
+    { "slug": "coniston-almond", "name": "Coniston Almond", "image": "images/img-105.jfif" },
+    { "slug": "plush-cream", "name": "Plush Cream", "image": "images/img-38.jfif" },
+    { "slug": "naples-silver", "name": "Naples Silver", "image": "images/img-39.jfif" },
+    { "slug": "naples-steel", "name": "Naples Steel", "image": "images/img-40.jfif" },
+    { "slug": "coniston-armour", "name": "Coniston Armour", "image": "images/img-101.jfif" },
+    { "slug": "plush-beige", "name": "Plush Beige", "image": "images/img-102.jfif" },
+    { "slug": "plush-black", "name": "Plush Black", "image": "images/img-104.jfif" },
+    { "slug": "plush-pink", "name": "Plush Pink", "image": "images/img-106.jfif" },
+    { "slug": "coniston-emerald", "name": "Coniston Emerald", "image": "images/img-107.jfif" },
+    { "slug": "coniston-pink", "name": "Coniston Pink", "image": "images/img-108.jfif" },
+    { "slug": "naples-black", "name": "Naples Black", "image": "images/img-109.jfif" },
+    { "slug": "naples-ivory", "name": "Naples Ivory", "image": "images/img-110.jfif" },
+    { "slug": "crushed-velvet-silver", "name": "Crushed Velvet Silver", "image": "images/img-111.jfif" },
+    { "slug": "crushed-velvet-black", "name": "Crushed Velvet Black", "image": "images/img-112.jfif" },
+    { "slug": "crushed-velvet-cream", "name": "Crushed Velvet Cream", "image": "images/img-113.jfif" },
+    { "slug": "crushed-velvet-mink", "name": "Crushed Velvet Mink", "image": "images/img-114.jfif" },
+    { "slug": "plush-mustard", "name": "Plush Mustard", "image": "images/img-115.jfif" },
+    { "slug": "plush-green", "name": "Plush Green", "image": "images/img-116.jfif" },
+    { "slug": "plush-turquoise", "name": "Plush Turquoise", "image": "images/img-117.jfif" },
+    { "slug": "coniston-blue", "name": "Coniston Blue", "image": "images/img-118.jfif" },
+    { "slug": "cream-boucle", "name": "Cream Boucle", "image": "images/img-119.jfif" },
+    { "slug": "pink-boucle", "name": "Pink Boucle", "image": "images/img-120.jfif" },
+    { "slug": "marble-oatmeal", "name": "Marble Oatmeal", "image": "images/img-121.jfif" },
+    { "slug": "marble-platinum", "name": "Marble Platinum", "image": "images/img-122.jfif" },
+    { "slug": "marble-silver", "name": "Marble Silver", "image": "images/img-123.jfif" }
   ];
 
   function sfMoney(v) {
