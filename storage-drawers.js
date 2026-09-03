@@ -147,6 +147,38 @@
     SD_PRODUCTS[p.slug] = p;
   });
 
+  var SD_FABRIC_CATALOG = [
+    { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
+    { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
+    { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
+    { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
+    { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
+    { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
+    { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
+    { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
+    { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
+    { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
+    { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
+    { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
+    { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
+    { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
+    { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
+    { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
+    { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
+    { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
+    { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
+    { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
+    { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
+    { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
+    { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
+    { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
+    { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
+    { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
+    { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
+    { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
+    { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
+  ];
+
   function money(v) {
     return "\u00A3" + v.toFixed(2);
   }
@@ -158,7 +190,8 @@
 
   var sdState = {
     imageIndex: 0,
-    quantity: 1
+    quantity: 1,
+    selectedFabric: null
   };
 
   function initDetail() {
@@ -179,9 +212,11 @@
     var priceEl = document.getElementById("sdDetailPrice");
     var prevPriceEl = document.getElementById("sdDetailPrevPrice");
     var monthlyEl = document.getElementById("sdDetailMonthly");
+    var badgeBannerEl = document.getElementById("sdDetailBadgeBanner");
     var descriptionEl = document.getElementById("sdDetailDescription");
     var storageInfoEl = document.getElementById("sdDetailStorageInfo");
-    var sizeOptionsBlock = document.getElementById("sdSizeOptions") ? document.getElementById("sdSizeOptions").closest(".bb-modal__features") : null;
+    var sizeOptionsBlock = document.getElementById("sdSizeOptions") ? document.getElementById("sdSizeOptions").closest(".bb-modal__fabrics") : null;
+    var fabricsEl = document.getElementById("sdModalFabrics");
     var featuresBlock = document.getElementById("sdDetailFeatures") ? document.getElementById("sdDetailFeatures").closest(".bb-modal__features") : null;
     var dimensionsBlock = document.getElementById("sdDetailDimensions") ? document.getElementById("sdDetailDimensions").closest(".bb-modal__features") : null;
     var deliveryEl = document.getElementById("sdDetailDelivery");
@@ -192,6 +227,7 @@
     var qtyMinus = document.getElementById("sdQtyMinus");
     var qtyPlus = document.getElementById("sdQtyPlus");
     var addBtn = document.getElementById("sdAddToCart");
+    var buyNowBtn = document.getElementById("sdBuyNow");
     var messageEl = document.getElementById("sdPurchaseMessage");
 
     var currentProduct = null;
@@ -273,6 +309,52 @@
       }
     }
 
+    function renderFabrics() {
+      if (!fabricsEl) return;
+      fabricsEl.innerHTML = "";
+
+      SD_FABRIC_CATALOG.forEach(function (fabric, index) {
+        var isSelected = sdState.selectedFabric === fabric.name;
+        if (sdState.selectedFabric === null && index === 0) {
+          sdState.selectedFabric = fabric.name;
+          isSelected = true;
+        }
+
+        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "fabric-swatch";
+        btn.setAttribute("aria-pressed", String(isSelected));
+        btn.setAttribute("aria-label", "Select " + fabric.name);
+        btn.innerHTML =
+          '<span class="fabric-swatch__ring">' +
+            '<img src="' + swatchImagePath + '" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+            '<span class="fabric-swatch__check" aria-hidden="true">' +
+              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</span>' +
+          '</span>' +
+          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+
+        btn.addEventListener("click", function () {
+          var alreadySelected = sdState.selectedFabric === fabric.name;
+
+          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
+            el.setAttribute("aria-pressed", "false");
+          });
+
+          if (alreadySelected) {
+            sdState.selectedFabric = null;
+          } else {
+            sdState.selectedFabric = fabric.name;
+            btn.setAttribute("aria-pressed", "true");
+          }
+        });
+
+        fabricsEl.appendChild(btn);
+      });
+    }
+
     function renderDetail(product) {
       document.title = product.name + " | Rabbora Living";
       var descTag = document.getElementById("pageDescription");
@@ -292,6 +374,14 @@
       priceEl.textContent = money(product.price);
       prevPriceEl.textContent = product.oldPrice ? money(product.oldPrice) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
+      if (badgeBannerEl) {
+        if (product.badge) {
+          badgeBannerEl.textContent = "\u26A1 " + product.badge;
+          badgeBannerEl.hidden = false;
+        } else {
+          badgeBannerEl.hidden = true;
+        }
+      }
       descriptionEl.textContent = product.shortInfo;
       if (storageInfoEl) {
         storageInfoEl.textContent = product.drawers + " drawers built into the sides of the frame, giving side-access storage without disturbing the mattress.";
@@ -310,6 +400,8 @@
 
       sdState.imageIndex = 0;
       sdState.quantity = 1;
+      sdState.selectedFabric = null;
+      renderFabrics();
       if (qtyValueEl) qtyValueEl.textContent = "1";
       if (messageEl) {
         messageEl.textContent = "";
@@ -430,6 +522,15 @@
           messageEl.textContent =
             "Added " + sdState.quantity + " \u00d7 " + currentProduct.name + " to your basket \u2014 " +
             money(currentProduct.price * sdState.quantity) + ".";
+        }
+      });
+    }
+
+    if (buyNowBtn) {
+      buyNowBtn.addEventListener("click", function () {
+        if (messageEl) {
+          messageEl.classList.remove("is-error");
+          messageEl.textContent = "Taking you to checkout for " + sdState.quantity + " item(s)...";
         }
       });
     }

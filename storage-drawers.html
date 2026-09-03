@@ -698,7 +698,7 @@
       <section class="section mt-detail" aria-labelledby="sdDetailTitle">
         <div class="container mt-detail__grid">
 
-          <div class="mt-detail__gallery">
+          <div class="bb-modal__gallery mt-detail__gallery">
             <div class="bb-modal__main-image-wrap mt-detail__main-wrap" id="sdGalleryMainWrap">
               <button type="button" class="bb-modal__nav bb-modal__nav--prev" id="sdGalleryPrev" aria-label="Previous image" hidden>
                 <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2.5L4.5 8l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -714,8 +714,8 @@
             <div class="bb-modal__thumbs mt-detail__thumbs" id="sdGalleryThumbs"></div>
           </div>
 
-          <div class="mt-detail__info">
-            <p class="eyebrow" id="sdDetailDrawerCount"></p>
+          <div class="bb-modal__info mt-detail__info">
+            <p class="eyebrow">Storage Bed</p>
             <h1 class="bb-modal__title mt-detail__title" id="sdDetailTitle"></h1>
 
             <div class="product-card__rating bb-modal__rating">
@@ -729,21 +729,23 @@
             </div>
             <p class="product-card__monthly bb-modal__monthly" id="sdDetailMonthly"></p>
 
+            <p class="sd-detail__badge-banner" id="sdDetailBadgeBanner" hidden></p>
+
             <p class="bb-modal__description" id="sdDetailDescription"></p>
-
-            <div class="sd-storage-info">
-              <p class="bb-modal__section-label">Storage / Drawer Information</p>
-              <p id="sdDetailStorageInfo"></p>
-            </div>
-
-            <div class="bb-modal__features">
-              <p class="bb-modal__section-label">Size</p>
-              <div class="mt-option-pills" id="sdSizeOptions"></div>
-            </div>
 
             <div class="bb-modal__features">
               <p class="bb-modal__section-label">Key Features</p>
               <ul id="sdDetailFeatures"></ul>
+            </div>
+
+            <div class="bb-modal__fabrics">
+              <p class="bb-modal__section-label">Size</p>
+              <div class="mt-option-pills" id="sdSizeOptions"></div>
+            </div>
+
+            <div class="bb-modal__fabrics">
+              <p class="bb-modal__section-label">Choose Your Fabric</p>
+              <div class="bb-modal__fabric-grid" id="sdModalFabrics"></div>
             </div>
 
             <div class="bb-modal__purchase">
@@ -756,21 +758,26 @@
                 </div>
               </div>
 
-              <button type="button" class="btn btn--forest bb-modal__add-cart" id="sdAddToCart">Add to Basket</button>
+              <div class="bb-modal__purchase-buttons">
+                <button type="button" class="btn btn--forest bb-modal__add-cart" id="sdAddToCart">Add to Basket</button>
+                <button type="button" class="btn btn--primary bb-modal__buy-now" id="sdBuyNow">Buy Now</button>
+              </div>
               <p class="bb-modal__purchase-message" id="sdPurchaseMessage" role="status" aria-live="polite"></p>
             </div>
 
-            <div class="bb-modal__features">
-              <p class="bb-modal__section-label">Dimensions</p>
-              <div class="rd2-dimensions__table-wrap">
-                <table class="rd2-dimensions__table rd2-dimensions__table--compact" id="sdDetailDimensions"></table>
-              </div>
-            </div>
-
             <ul class="bb-modal__delivery-info">
-              <li><span id="sdDetailDelivery"></span></li>
-              <li><span id="sdDetailWarranty"></span></li>
-              <li><span id="sdDetailReturns"></span></li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h10v8H3zM13 10h4l3 3v2h-7zM7 19a2 2 0 100-4 2 2 0 000 4zM17 19a2 2 0 100-4 2 2 0 000 4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" /></svg>
+                <span id="sdDetailDelivery"></span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 5.8v4.4l3 1.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span id="sdDetailWarranty"></span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 0 1 10.2-4.2M16 10a6 6 0 0 1-10.2 4.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M14.6 3.4v3h-3M5.4 16.6v-3h3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span id="sdDetailReturns"></span>
+              </li>
             </ul>
 
             <div class="bb-modal__related">
