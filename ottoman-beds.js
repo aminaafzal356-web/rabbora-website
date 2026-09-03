@@ -8432,10 +8432,10 @@
   // file deployed correctly, with no need to check file sizes.
   // ---------------------------------------------------------------
   console.log(
-    "[Rabbora] ottoman-beds.js loaded \u2014 " +
+    "[Rabbora] ottoman-beds.js loaded \u2014 fabric-fallback-v2 \u2014 " +
     OTTOMAN_PRODUCTS_LIST.length + " products found. " +
-    "Expected: 84. If this number is wrong, low, or this line " +
-    "never appears at all, the live server is not running this file."
+    "Expected: 84. If this number is wrong, missing 'fabric-fallback-v2', " +
+    "or this line never appears at all, the live server is not running this file."
   );
 
   var OTTOMAN_SIZE_DELTAS = SLATTED_OTTOMAN_SIZE_DELTAS;
