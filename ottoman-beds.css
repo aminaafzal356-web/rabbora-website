@@ -2194,6 +2194,9 @@ h1, h2, h3, h4 {
 
 @media (min-width: 768px) {
   .fabric-swatch__ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 156px;
     height: 156px;
   }
@@ -2203,6 +2206,9 @@ h1, h2, h3, h4 {
 
 @media (min-width: 1024px) {
   .fabric-swatch__ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 184px;
     height: 184px;
   }
@@ -2718,17 +2724,15 @@ button.product-card__name.bb-product-open {
   display: flex;
   flex-wrap: wrap;
   gap: 1.1rem;
-  max-height: 260px;
-  overflow-y: auto;
-  padding: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background-color: var(--color-ivory-soft);
 }
 
 
 
 .bb-modal__fabric-grid .fabric-swatch__ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 52px;
   height: 52px;
 }
@@ -2744,6 +2748,49 @@ button.product-card__name.bb-product-open {
 .bb-modal__fabric-grid .fabric-swatch__name {
   font-size: 0.66rem;
   line-height: 1.25;
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__ring {
+  border-color: var(--color-brass);
+  box-shadow: 0 0 0 2px rgba(164, 123, 76, 0.2);
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background-color: rgba(18, 40, 31, 0.72);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__check {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 
@@ -5721,4 +5768,8 @@ body.sf-drawer-open {
   .ns-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.fabric-swatch__ring--fallback {
+  background-color: var(--color-sage);
 }

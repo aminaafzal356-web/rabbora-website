@@ -8383,6 +8383,38 @@
     "Super King": 190
   };
 
+  var OTTOMAN_FABRIC_CATALOG = [
+    { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
+    { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
+    { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
+    { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
+    { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
+    { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
+    { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
+    { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
+    { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
+    { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
+    { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
+    { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
+    { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
+    { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
+    { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
+    { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
+    { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
+    { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
+    { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
+    { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
+    { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
+    { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
+    { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
+    { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
+    { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
+    { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
+    { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
+    { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
+    { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
+  ];
+
   var OTTOMAN_PRODUCTS_LIST = SLATTED_OTTOMAN_PRODUCTS;
 
   var OTTOMAN_PRODUCTS = {};
@@ -8800,7 +8832,8 @@
 
     function selectedFabricName() {
       if (obState.selectedFabricIndex === -1 || !currentProduct) return "Same as main display picture";
-      return currentProduct.fabrics[obState.selectedFabricIndex].name;
+      var fabric = OTTOMAN_FABRIC_CATALOG[obState.selectedFabricIndex];
+      return fabric ? fabric.name : "Same as main display picture";
     }
 
     function currentPrice(product) {
@@ -8864,7 +8897,7 @@
       defaultBtn.setAttribute("aria-label", "Same as main display picture");
       defaultBtn.innerHTML =
         '<span class="fabric-swatch__ring">' +
-          '<img src="' + product.images[0] + '" alt="Same as main display picture" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+          '<img src="' + product.images[0] + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
           '<span class="fabric-swatch__check" aria-hidden="true">' +
             '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
           '</span>' +
@@ -8875,22 +8908,26 @@
       });
       fabricOptionsEl.appendChild(defaultBtn);
 
-      (product.fabrics || []).forEach(function (fabric, index) {
+      OTTOMAN_FABRIC_CATALOG.forEach(function (fabric, index) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "fabric-swatch";
         btn.setAttribute("aria-pressed", String(obState.selectedFabricIndex === index));
         btn.setAttribute("aria-label", "Select " + fabric.name);
+        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
         btn.innerHTML =
           '<span class="fabric-swatch__ring">' +
-            '<img src="images/fabrics/' + fabric.slug + '.svg" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
             '<span class="fabric-swatch__check" aria-hidden="true">' +
               '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
           '</span>' +
           '<span class="fabric-swatch__name">' + fabric.name + '</span>';
         btn.addEventListener("click", function () {
-          selectFabric(index);
+          // Clicking the already-selected swatch again reverts to the
+          // "Default" option (-1) rather than leaving nothing selected,
+          // since this page always needs some fabric state resolved.
+          selectFabric(obState.selectedFabricIndex === index ? -1 : index);
         });
         fabricOptionsEl.appendChild(btn);
       });
