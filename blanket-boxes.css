@@ -5444,3 +5444,22 @@ body.sf-drawer-open {
 .mt-not-found .btn {
   margin-top: 1.75rem;
 }
+
+
+.mt-detail__back-row {
+  padding-top: 1.25rem;
+}
+
+.mt-detail__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.mt-detail__back-link:hover {
+  color: var(--color-brass);
+}
