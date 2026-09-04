@@ -569,9 +569,9 @@
       }
     ],
     "images": [
-      "blanket/img-90.png",
-        "blanket/img-98.png",
-    
+      "images/img-84.png",
+      "images/img-91.png",
+      "images/img-92.png"
     ]
   },
   "chesterfield-blanket-box": {
@@ -603,8 +603,8 @@
       }
     ],
     "images": [
-        "blanket/img-89.png",
-        "blanket/img-97.png"
+      "images/img-86.png",
+      "images/img-93.png"
     ]
   },
   "luxury-storage-blanket-box": {
@@ -636,8 +636,8 @@
       }
     ],
     "images": [
-       "blanket/img-88.png",
-        "blanket/img-95.png"
+      "images/img-87.png",
+      "images/img-94.png"
     ]
   },
   "ottoman-style-blanket-box": {
@@ -669,8 +669,8 @@
       }
     ],
     "images": [
-        "blanket/img-86.png",
-        "blanket/img-93.png"
+      "images/img-88.png",
+      "images/img-95.png"
     ]
   },
   "premium-fabric-blanket-box": {
@@ -702,8 +702,8 @@
       }
     ],
     "images": [
-        "blanket/img-85.png",
-        "blanket/img-96.png"
+      "images/img-85.png",
+      "images/img-95.png"
     ]
   },
   "classic-blanket-box": {
@@ -735,8 +735,8 @@
       }
     ],
     "images": [
-        "blanket/img-84.png",
-        "blanket/img-92.png"
+      "images/img-89.png",
+      "images/img-97.png"
     ]
   },
   "plush-storage-blanket-box": {
@@ -768,8 +768,8 @@
       }
     ],
     "images": [
-        "blanket/img-87.png",
-        "blanket/img-94.png"
+      "images/img-90.png",
+      "images/img-98.png"
     ]
   }
 };
@@ -1034,6 +1034,24 @@
     }
 
     function handleRoute() {
+      // Defensive: always release the mobile-menu scroll lock and close
+      // the drawer on every route change. Without this, if the mobile
+      // menu happens to be open when the page navigates between the
+      // category and detail views (a hash change, with no full page
+      // reload), the drawer's own close handler is never triggered —
+      // leaving document.body.style.overflow stuck at "hidden" and the
+      // page unable to scroll on mobile.
+      document.body.style.overflow = "";
+      var mobileDrawer = document.getElementById("mobileNav");
+      var mobileOverlay = document.getElementById("mobileNavOverlay");
+      var hamburgerBtn = document.getElementById("hamburgerBtn");
+      if (mobileDrawer && mobileDrawer.classList.contains("is-open")) {
+        mobileDrawer.classList.remove("is-open");
+        mobileDrawer.setAttribute("aria-hidden", "true");
+        if (mobileOverlay) mobileOverlay.classList.remove("is-visible");
+        if (hamburgerBtn) hamburgerBtn.setAttribute("aria-expanded", "false");
+      }
+
       var slug = currentSlugFromHash();
       if (!slug) {
         bbModalState.slug = null;

@@ -1074,6 +1074,20 @@
     }
 
     function handleRoute() {
+      // Defensive: always release the mobile-menu scroll lock and close
+      // the drawer on every route change (see blanket-boxes.js for full
+      // explanation of why this is needed).
+      document.body.style.overflow = "";
+      var mobileDrawer = document.getElementById("mobileNav");
+      var mobileOverlay = document.getElementById("mobileNavOverlay");
+      var hamburgerBtn = document.getElementById("hamburgerBtn");
+      if (mobileDrawer && mobileDrawer.classList.contains("is-open")) {
+        mobileDrawer.classList.remove("is-open");
+        mobileDrawer.setAttribute("aria-hidden", "true");
+        if (mobileOverlay) mobileOverlay.classList.remove("is-visible");
+        if (hamburgerBtn) hamburgerBtn.setAttribute("aria-expanded", "false");
+      }
+
       var slug = currentSlugFromHash();
       if (!slug) {
         sfModalState.slug = null;

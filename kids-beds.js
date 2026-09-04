@@ -225,6 +225,38 @@ var KIDS_BED_PRODUCTS =
   }
 ];
 
+var KIDS_FABRIC_CATALOG = [
+  { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
+  { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
+  { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
+  { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
+  { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
+  { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
+  { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
+  { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
+  { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
+  { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
+  { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
+  { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
+  { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
+  { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
+  { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
+  { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
+  { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
+  { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
+  { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
+  { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
+  { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
+  { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
+  { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
+  { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
+  { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
+  { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
+  { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
+  { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
+  { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
+];
+
 var KIDS_BED_SIZE_DELTAS = {
   "Single": 0,
   "Small Double": 40
@@ -254,7 +286,8 @@ var KIDS_BED_SIZE_DELTAS = {
   var kbState = {
     selectedSize: null,
     quantity: 1,
-    imageIndex: 0
+    imageIndex: 0,
+    selectedFabric: null
   };
 
   var kbWishlist = new Set();
@@ -329,6 +362,7 @@ var KIDS_BED_SIZE_DELTAS = {
     var breadcrumbName = document.getElementById("kbDetailBreadcrumbName");
     var mainImage = document.getElementById("kbGalleryMainImage");
     var thumbsWrap = document.getElementById("kbGalleryThumbs");
+    var fabricsEl = document.getElementById("kbModalFabrics");
     var titleEl = document.getElementById("kbDetailTitle");
     var starsEl = document.getElementById("kbDetailStars");
     var reviewCountEl = document.getElementById("kbDetailReviewCount");
@@ -373,25 +407,30 @@ var KIDS_BED_SIZE_DELTAS = {
       mainImage.src = getKidsBedImage(names[kbState.imageIndex] || names[0]);
       mainImage.alt = product.name;
 
+      // When only one real photo exists for this product, show it
+      // repeated across a few thumbnail slots so the gallery strip has
+      // its normal shape — using only the real, existing image.
+      var thumbNames = names.length > 1 ? names : [names[0], names[0], names[0]];
+
       thumbsWrap.innerHTML = "";
-      if (names.length > 1) {
-        names.forEach(function (name, index) {
-          var thumb = document.createElement("button");
-          thumb.type = "button";
-          thumb.className = index === kbState.imageIndex ? "is-active" : "";
-          thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
-          var img = document.createElement("img");
-          img.src = getKidsBedImage(name);
-          img.alt = "";
-          img.loading = "lazy";
-          thumb.appendChild(img);
-          thumb.addEventListener("click", function () {
+      thumbNames.forEach(function (name, index) {
+        var thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className = (index === kbState.imageIndex || (names.length <= 1 && index === 0)) ? "is-active" : "";
+        thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
+        var img = document.createElement("img");
+        img.src = getKidsBedImage(name);
+        img.alt = "";
+        img.loading = "lazy";
+        thumb.appendChild(img);
+        thumb.addEventListener("click", function () {
+          if (names.length > 1) {
             kbState.imageIndex = index;
             renderGallery(product);
-          });
-          thumbsWrap.appendChild(thumb);
+          }
         });
-      }
+        thumbsWrap.appendChild(thumb);
+      });
     }
 
     function syncWishlistButton(product) {
@@ -524,11 +563,59 @@ var KIDS_BED_SIZE_DELTAS = {
       document.title = "Bed Not Found | Rabbora Living";
     }
 
+    function renderFabrics() {
+      if (!fabricsEl) return;
+      fabricsEl.innerHTML = "";
+
+      KIDS_FABRIC_CATALOG.forEach(function (fabric, index) {
+        var isSelected = kbState.selectedFabric === fabric.name;
+        if (kbState.selectedFabric === null && index === 0) {
+          kbState.selectedFabric = fabric.name;
+          isSelected = true;
+        }
+
+        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "fabric-swatch";
+        btn.setAttribute("aria-pressed", String(isSelected));
+        btn.setAttribute("aria-label", "Select " + fabric.name);
+        btn.innerHTML =
+          '<span class="fabric-swatch__ring">' +
+            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
+            '<span class="fabric-swatch__check" aria-hidden="true">' +
+              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</span>' +
+          '</span>' +
+          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+
+        btn.addEventListener("click", function () {
+          var alreadySelected = kbState.selectedFabric === fabric.name;
+
+          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
+            el.setAttribute("aria-pressed", "false");
+          });
+
+          if (alreadySelected) {
+            kbState.selectedFabric = null;
+          } else {
+            kbState.selectedFabric = fabric.name;
+            btn.setAttribute("aria-pressed", "true");
+          }
+        });
+
+        fabricsEl.appendChild(btn);
+      });
+    }
+
     function showDetail(product) {
       categoryView.hidden = true;
       notFoundView.hidden = true;
       detailView.hidden = false;
+      kbState.selectedFabric = null;
       renderDetail(product);
+      renderFabrics();
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
