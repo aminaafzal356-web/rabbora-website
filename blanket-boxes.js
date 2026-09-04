@@ -1210,7 +1210,15 @@
       dots.forEach(function (dot, i) {
         dot.classList.toggle("is-active", i === current);
       });
-      track.style.transform = "translateX(-" + current * 100 + "%)";
+      // The translateX slide is only needed for the mobile layout, where
+      // slides sit side-by-side in a flex row. At desktop widths the CSS
+      // switches to a stacked grid with opacity-based switching — applying
+      // this transform there pushes the correctly-visible slide off-screen.
+      if (window.innerWidth < 768) {
+        track.style.transform = "translateX(-" + current * 100 + "%)";
+      } else {
+        track.style.transform = "";
+      }
     }
 
     if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); });
