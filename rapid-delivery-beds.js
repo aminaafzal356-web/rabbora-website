@@ -1264,21 +1264,27 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
       mainImage.src = images[rd2State.imageIndex] || images[0];
       mainImage.alt = product.name;
 
+      // When only one real photo exists for this product, show it
+      // repeated across a few thumbnail slots so the gallery strip has
+      // its normal shape — using only the real, existing image, not an
+      // invented one.
+      var thumbImages = images.length > 1 ? images : [images[0], images[0], images[0]];
+
       thumbsWrap.innerHTML = "";
-      if (images.length > 1) {
-        images.forEach(function (src, index) {
-          var img = document.createElement("img");
-          img.src = src;
-          img.alt = "";
-          img.loading = "lazy";
-          if (index === rd2State.imageIndex) img.classList.add("is-active");
-          img.addEventListener("click", function () {
+      thumbImages.forEach(function (src, index) {
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = "";
+        img.loading = "lazy";
+        if (index === rd2State.imageIndex || (images.length <= 1 && index === 0)) img.classList.add("is-active");
+        img.addEventListener("click", function () {
+          if (images.length > 1) {
             rd2State.imageIndex = index;
             renderGallery(product);
-          });
-          thumbsWrap.appendChild(img);
+          }
         });
-      }
+        thumbsWrap.appendChild(img);
+      });
       prevBtn.hidden = images.length < 2;
       nextBtn.hidden = images.length < 2;
     }

@@ -1330,6 +1330,38 @@ var SOLID_OTTOMAN_PRODUCTS =
   }
 ];
 
+var SO_FABRIC_CATALOG = [
+  { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
+  { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
+  { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
+  { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
+  { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
+  { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
+  { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
+  { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
+  { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
+  { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
+  { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
+  { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
+  { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
+  { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
+  { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
+  { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
+  { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
+  { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
+  { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
+  { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
+  { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
+  { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
+  { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
+  { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
+  { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
+  { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
+  { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
+  { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
+  { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
+];
+
 (function () {
   "use strict";
 
@@ -1353,16 +1385,16 @@ var SOLID_OTTOMAN_PRODUCTS =
       if (counts.hasOwnProperty(p.sizeKey)) counts[p.sizeKey]++;
     });
     var map = {
-      soCountAll: SOLID_OTTOMAN_PRODUCTS.length,
-      soCountSingle: counts.Single,
-      soCountSmallDouble: counts["Small Double"],
-      soCountDouble: counts.Double,
-      soCountKing: counts.King,
-      soCountSuperKing: counts["Super King"]
+      soCountAll: { label: "All Sizes", count: SOLID_OTTOMAN_PRODUCTS.length },
+      soCountSingle: { label: "Single 3ft", count: counts.Single },
+      soCountSmallDouble: { label: "Small Double 4ft", count: counts["Small Double"] },
+      soCountDouble: { label: "Double 4'6ft", count: counts.Double },
+      soCountKing: { label: "King 5ft", count: counts.King },
+      soCountSuperKing: { label: "Super King 6ft", count: counts["Super King"] }
     };
     Object.keys(map).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) el.textContent = map[id];
+      var option = document.querySelector('option[data-count-id="' + id + '"]');
+      if (option) option.textContent = map[id].label + " (" + map[id].count + ")";
     });
   }
 
@@ -1605,6 +1637,10 @@ var SOLID_OTTOMAN_PRODUCTS =
     var breadcrumbName = document.getElementById("soDetailBreadcrumbName");
     var mainImage = document.getElementById("soGalleryMainImage");
     var imagePlaceholder = document.getElementById("soDetailImagePlaceholder");
+    var galleryPrev = document.getElementById("soGalleryPrev");
+    var galleryNext = document.getElementById("soGalleryNext");
+    var galleryZoom = document.getElementById("soGalleryZoom");
+    var galleryThumbs = document.getElementById("soGalleryThumbs");
     var sizeEl = document.getElementById("soDetailSize");
     var titleEl = document.getElementById("soDetailTitle");
     var starsEl = document.getElementById("soDetailStars");
@@ -1614,6 +1650,7 @@ var SOLID_OTTOMAN_PRODUCTS =
     var monthlyEl = document.getElementById("soDetailMonthly");
     var descriptionEl = document.getElementById("soDetailDescription");
     var featuresEl = document.getElementById("soDetailFeatures");
+    var sizeOptionsEl = document.getElementById("soSizeOptions");
     var dimensionsEl = document.getElementById("soDetailDimensions");
     var deliveryEl = document.getElementById("soDetailDelivery");
     var warrantyEl = document.getElementById("soDetailWarranty");
@@ -1623,23 +1660,130 @@ var SOLID_OTTOMAN_PRODUCTS =
     var qtyMinus = document.getElementById("soQtyMinus");
     var qtyPlus = document.getElementById("soQtyPlus");
     var addBtn = document.getElementById("soAddToCart");
+    var buyNowBtn = document.getElementById("soBuyNow");
     var messageEl = document.getElementById("soPurchaseMessage");
+    var fabricsEl = document.getElementById("soModalFabrics");
 
     var currentProduct = null;
     var quantity = 1;
+    var selectedFabric = null;
+    var imageIndex = 0;
+
+    function getProductImages(product) {
+      // Products currently only carry a single "image" field. Treat it as
+      // a one-item image list so the same gallery code path (used here and
+      // on every other product page) works correctly today, and will just
+      // as correctly show multiple thumbnails once real, additional photos
+      // are added to a product's data as an array.
+      if (Array.isArray(product.images) && product.images.length) return product.images;
+      return product.image ? [product.image] : [];
+    }
+
+    function renderThumbs(product) {
+      if (!galleryThumbs) return;
+      var images = getProductImages(product).filter(function (src) {
+        return src && src.indexOf("PUT-IMAGE-HERE") === -1;
+      });
+      galleryThumbs.innerHTML = "";
+
+      if (images.length === 0) {
+        // No real photos yet for this product — show a row of small
+        // placeholder thumbnail slots so the gallery's shape is visible,
+        // instead of inventing fake image content.
+        if (galleryPrev) galleryPrev.hidden = true;
+        if (galleryNext) galleryNext.hidden = true;
+        for (var i = 0; i < 3; i++) {
+          var placeholderThumb = document.createElement("span");
+          placeholderThumb.className = "bb-modal__thumb so-image-placeholder";
+          placeholderThumb.setAttribute("aria-hidden", "true");
+          galleryThumbs.appendChild(placeholderThumb);
+        }
+        return;
+      }
+
+      if (images.length < 2) {
+        if (galleryPrev) galleryPrev.hidden = true;
+        if (galleryNext) galleryNext.hidden = true;
+        return;
+      }
+      if (galleryPrev) galleryPrev.hidden = false;
+      if (galleryNext) galleryNext.hidden = false;
+      images.forEach(function (src, index) {
+        var thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className = "bb-modal__thumb" + (index === imageIndex ? " is-active" : "");
+        thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
+        thumb.innerHTML = '<img src="' + src + '" alt="" loading="lazy" />';
+        thumb.addEventListener("click", function () {
+          imageIndex = index;
+          renderImage(product);
+        });
+        galleryThumbs.appendChild(thumb);
+      });
+    }
 
     function renderImage(product) {
-      mainImage.src = product.image;
-      mainImage.alt = product.name;
-      mainImage.hidden = false;
-      imagePlaceholder.hidden = true;
+      var images = getProductImages(product).filter(function (src) {
+        return src && src.indexOf("PUT-IMAGE-HERE") === -1;
+      });
+      var hasRealImage = images.length > 0;
+      if (hasRealImage) {
+        var src = images[imageIndex] || images[0];
+        mainImage.src = src;
+        mainImage.alt = product.name;
+        mainImage.hidden = false;
+        imagePlaceholder.hidden = true;
+        if (galleryZoom) galleryZoom.hidden = false;
+      } else {
+        mainImage.hidden = true;
+        mainImage.src = "";
+        imagePlaceholder.hidden = false;
+        if (galleryZoom) galleryZoom.hidden = true;
+      }
+      renderThumbs(product);
+    }
+
+    function renderSizeOption(product) {
+      if (!sizeOptionsEl) return;
+      sizeOptionsEl.innerHTML = "";
+
+      // Products are catalogued in fixed groups of 5 consecutive ids,
+      // each group always following Single -> Small Double -> Double ->
+      // King -> Super King in that order. This lets the size pills
+      // navigate to the correct sibling product for each size, using
+      // the real, existing catalog structure (not invented data).
+      var groupStart = Math.floor((product.id - 1) / 5) * 5;
+      var group = SOLID_OTTOMAN_PRODUCTS.slice(groupStart, groupStart + 5);
+
+      group.forEach(function (p) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mt-option-pill";
+        btn.setAttribute("aria-pressed", String(p.slug === product.slug));
+        btn.textContent = p.size;
+        btn.addEventListener("click", function () {
+          if (p.slug !== product.slug) {
+            window.location.hash = "#/" + p.slug;
+          }
+        });
+        sizeOptionsEl.appendChild(btn);
+      });
     }
 
     function renderDimensions(product) {
-      var d = product.dimensions;
+      var groupStart = Math.floor((product.id - 1) / 5) * 5;
+      var group = SOLID_OTTOMAN_PRODUCTS.slice(groupStart, groupStart + 5);
+
+      var rows = group.map(function (p) {
+        var isCurrent = p.slug === product.slug;
+        return "<tr" + (isCurrent ? ' class="rd2-dimensions__table-row--current"' : "") + ">" +
+          "<td>" + p.sizeKey + "</td><td>" + p.dimensions.width + "</td><td>" + p.dimensions.length + "</td>" +
+          "</tr>";
+      }).join("");
+
       dimensionsEl.innerHTML =
         "<thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Width (cm)</th><th scope=\"col\">Length (cm)</th></tr></thead><tbody>" +
-        "<tr><td>" + product.size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr></tbody>";
+        rows + "</tbody>";
     }
 
     function renderRelated(product) {
@@ -1652,7 +1796,7 @@ var SOLID_OTTOMAN_PRODUCTS =
       related.forEach(function (p) {
         var badgeHtml = p.badge ? '<span class="product-card__badge">' + p.badge + '</span>' : "";
         var prevHtml = p.oldPrice ? '<span class="product-card__price-prev">' + soMoney(p.oldPrice) + '</span>' : "";
-        var imageHtml = '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />';
+        var imageHtml = '<img src="' + p.image + '" alt="" loading="lazy" width="900" height="900" onerror="this.style.display=&#39;none&#39;;" />';
         var card = document.createElement("article");
         card.className = "product-card";
         card.innerHTML =
@@ -1673,6 +1817,52 @@ var SOLID_OTTOMAN_PRODUCTS =
       });
     }
 
+    function renderFabrics() {
+      if (!fabricsEl) return;
+      fabricsEl.innerHTML = "";
+
+      SO_FABRIC_CATALOG.forEach(function (fabric, index) {
+        var isSelected = selectedFabric === fabric.name;
+        if (selectedFabric === null && index === 0) {
+          selectedFabric = fabric.name;
+          isSelected = true;
+        }
+
+        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "fabric-swatch";
+        btn.setAttribute("aria-pressed", String(isSelected));
+        btn.setAttribute("aria-label", "Select " + fabric.name);
+        btn.innerHTML =
+          '<span class="fabric-swatch__ring">' +
+            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
+            '<span class="fabric-swatch__check" aria-hidden="true">' +
+              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</span>' +
+          '</span>' +
+          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+
+        btn.addEventListener("click", function () {
+          var alreadySelected = selectedFabric === fabric.name;
+
+          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
+            el.setAttribute("aria-pressed", "false");
+          });
+
+          if (alreadySelected) {
+            selectedFabric = null;
+          } else {
+            selectedFabric = fabric.name;
+            btn.setAttribute("aria-pressed", "true");
+          }
+        });
+
+        fabricsEl.appendChild(btn);
+      });
+    }
+
     function renderDetail(product) {
       document.title = product.name + " | Rabbora Living";
       var descTag = document.getElementById("pageDescription");
@@ -1688,17 +1878,19 @@ var SOLID_OTTOMAN_PRODUCTS =
       priceEl.textContent = soMoney(product.price);
       prevPriceEl.textContent = product.oldPrice ? soMoney(product.oldPrice) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
-      descriptionEl.textContent = product.description;
+      descriptionEl.textContent = product.description ? product.description.split(". ")[0] + "." : "";
       deliveryEl.textContent = product.delivery;
       warrantyEl.textContent = product.warranty;
       returnsEl.textContent = product.returns;
 
-      featuresEl.innerHTML = "";
-      product.features.forEach(function (feature) {
-        var li = document.createElement("li");
-        li.textContent = feature;
-        featuresEl.appendChild(li);
-      });
+      if (featuresEl) {
+        featuresEl.innerHTML = "";
+        product.features.forEach(function (feature) {
+          var li = document.createElement("li");
+          li.textContent = feature;
+          featuresEl.appendChild(li);
+        });
+      }
 
       quantity = 1;
       qtyValueEl.textContent = "1";
@@ -1733,7 +1925,11 @@ var SOLID_OTTOMAN_PRODUCTS =
       categoryView.hidden = true;
       notFoundView.hidden = true;
       detailView.hidden = false;
+      selectedFabric = null;
+      imageIndex = 0;
       renderDetail(product);
+      renderSizeOption(product);
+      renderFabrics();
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
@@ -1795,6 +1991,38 @@ var SOLID_OTTOMAN_PRODUCTS =
         messageEl.textContent =
           "Added " + quantity + " \u00d7 " + currentProduct.name + " (" + currentProduct.size +
           ") to your basket \u2014 " + soMoney(currentProduct.price * quantity) + ".";
+      });
+    }
+
+    if (buyNowBtn) {
+      buyNowBtn.addEventListener("click", function () {
+        if (!currentProduct) return;
+        messageEl.classList.remove("is-error");
+        messageEl.textContent = "Taking you to checkout for " + quantity + " item(s)...";
+      });
+    }
+
+    if (galleryPrev) {
+      galleryPrev.addEventListener("click", function () {
+        if (!currentProduct) return;
+        var images = getProductImages(currentProduct).filter(function (src) {
+          return src && src.indexOf("PUT-IMAGE-HERE") === -1;
+        });
+        if (images.length < 2) return;
+        imageIndex = (imageIndex - 1 + images.length) % images.length;
+        renderImage(currentProduct);
+      });
+    }
+
+    if (galleryNext) {
+      galleryNext.addEventListener("click", function () {
+        if (!currentProduct) return;
+        var images = getProductImages(currentProduct).filter(function (src) {
+          return src && src.indexOf("PUT-IMAGE-HERE") === -1;
+        });
+        if (images.length < 2) return;
+        imageIndex = (imageIndex + 1) % images.length;
+        renderImage(currentProduct);
       });
     }
   }
