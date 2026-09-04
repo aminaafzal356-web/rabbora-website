@@ -100,12 +100,6 @@
       href: "contact.html"
     },
     {
-      icon: "truck",
-      title: "Track My Order",
-      body: "Check in on your order once it's on its way.",
-      href: "contact.html"
-    },
-    {
       icon: "help",
       title: "Delivery Questions",
       body: "Browse common questions about how delivery works.",
@@ -135,10 +129,6 @@
       answer: "If you know your home has tricky access — narrow stairs, a tight turn, limited parking — let us know ahead of time so we can plan accordingly."
     },
     {
-      question: "Can I track my delivery?",
-      answer: "We're continuing to build out order tracking. In the meantime, our team can give you an update on your delivery directly."
-    },
-    {
       question: "What happens if I miss my delivery?",
       answer: "If you're not available to receive your delivery, please get in touch with us as soon as possible so we can help arrange next steps."
     },
@@ -156,12 +146,6 @@
    * are kept as clearly separated, easy-to-replace functions
    * rather than being faked inline.
    */
-
-  // Replace with a real call to an order-tracking API once one
-  // exists, e.g. fetch("/api/orders/" + orderId + "/tracking").
-  function trackOrder(orderReference) {
-    return Promise.reject(new Error("Order tracking isn't connected yet — please contact us for an update on your delivery."));
-  }
 
   // Replace with a real postcode/coverage-check API once one
   // exists, e.g. fetch("/api/delivery/coverage?postcode=" + postcode).
