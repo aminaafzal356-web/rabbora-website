@@ -2300,37 +2300,15 @@ h1, h2, h3, h4 {
 
 
 .fabric-review-carousel__track {
-  display: flex;
-  transition: transform 0.5s var(--ease);
+  position: relative;
 }
-
-
 
 .fabric-review-carousel__slide {
-  flex: 0 0 100%;
-  max-width: 100%;
+  display: none;
 }
 
-
-
-@media (min-width: 768px) {
-  .fabric-review-carousel__track {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .fabric-review-carousel__slide {
-    grid-column: 1;
-    grid-row: 1;
-    opacity: 0;
-    transition: opacity 0.5s var(--ease);
-    pointer-events: none;
-  }
-
-  .fabric-review-carousel__slide.is-active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+.fabric-review-carousel__slide.is-active {
+  display: block;
 }
 
 
