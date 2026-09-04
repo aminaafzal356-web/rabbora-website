@@ -2294,6 +2294,7 @@ h1, h2, h3, h4 {
 /* ---- Review carousel ---- */
 .fabric-review-carousel {
   margin-top: 1rem;
+  overflow: hidden;
 }
 
 
