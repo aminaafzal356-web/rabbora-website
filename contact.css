@@ -119,10 +119,33 @@
 
 
 
+@media (min-width: 860px) {
+  .search-bar {
+    display: flex;
+  }
+}
+
 /* Mobile search: the same search-bar form is repositioned into a
    full-width overlay panel beneath the header when the mobile search
    toggle button is pressed, instead of duplicating the search markup. */
-
+@media (max-width: 859px) {
+  .search-bar.is-mobile-active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-width: none;
+    margin: 0;
+    height: 56px;
+    padding-inline: 1rem;
+    border-radius: 0;
+    border-inline: none;
+    border-top: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    z-index: 300;
+  }
+}
 
 
 
@@ -208,6 +231,26 @@
   display: none;
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-white);
+}
+
+@media (min-width: 1024px) {
+  .main-nav {
+    display: block;
+    position: sticky;
+    top: 113px;
+    z-index: 490;
+    box-shadow: var(--shadow-md);
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: transform 300ms var(--ease), opacity 300ms var(--ease);
+  }
+
+  .main-nav.is-nav-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 
@@ -1304,5 +1347,3 @@ a.contact-card:hover .contact-card__icon {
   color: var(--color-forest);
   font-weight: 600;
 }
-
-
