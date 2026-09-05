@@ -21,7 +21,6 @@ var BF_PRODUCTS = [
     slug: "bed-frame-1",
     name: "Bed Name 1",
     price: 0,
-    oldPrice: null,
     rating: 5,
     reviewCount: 0,
     image: "images/PUT-IMAGE-HERE.jpg",
@@ -33,7 +32,6 @@ var BF_PRODUCTS = [
     slug: "bed-frame-2",
     name: "Bed Name 2",
     price: 0,
-    oldPrice: null,
     rating: 5,
     reviewCount: 0,
     image: "images/PUT-IMAGE-HERE.jpg",
@@ -45,7 +43,303 @@ var BF_PRODUCTS = [
     slug: "bed-frame-3",
     name: "Bed Name 3",
     price: 0,
-    oldPrice: null,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-4",
+    name: "Bed Name 4",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-5",
+    name: "Bed Name 5",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-6",
+    name: "Bed Name 6",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-7",
+    name: "Bed Name 7",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-8",
+    name: "Bed Name 8",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-9",
+    name: "Bed Name 9",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-10",
+    name: "Bed Name 10",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-11",
+    name: "Bed Name 11",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-12",
+    name: "Bed Name 12",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-13",
+    name: "Bed Name 13",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-14",
+    name: "Bed Name 14",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-15",
+    name: "Bed Name 15",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-16",
+    name: "Bed Name 16",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-17",
+    name: "Bed Name 17",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-18",
+    name: "Bed Name 18",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-19",
+    name: "Bed Name 19",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-20",
+    name: "Bed Name 20",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-21",
+    name: "Bed Name 21",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-22",
+    name: "Bed Name 22",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-23",
+    name: "Bed Name 23",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-24",
+    name: "Bed Name 24",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-25",
+    name: "Bed Name 25",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-26",
+    name: "Bed Name 26",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-27",
+    name: "Bed Name 27",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-28",
+    name: "Bed Name 28",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-29",
+    name: "Bed Name 29",
+    price: 0,
+    rating: 5,
+    reviewCount: 0,
+    image: "images/PUT-IMAGE-HERE.jpg",
+    description: "Add a short product description here once real product details are available.",
+    features: [],
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+  },
+  {
+    slug: "bed-frame-30",
+    name: "Bed Name 30",
+    price: 0,
     rating: 5,
     reviewCount: 0,
     image: "images/PUT-IMAGE-HERE.jpg",
@@ -190,9 +484,13 @@ var BF_FABRIC_CATALOG = [
       var hasRealImage = images.length > 0;
       if (hasRealImage) {
         mainImage.src = images[imageIndex] || images[0];
-        mainImage.alt = product.name;
+        mainImage.alt = "";
         mainImage.hidden = false;
         imagePlaceholder.hidden = true;
+        mainImage.onerror = function () {
+          mainImage.hidden = true;
+          imagePlaceholder.hidden = false;
+        };
       } else {
         mainImage.hidden = true;
         mainImage.src = "";
