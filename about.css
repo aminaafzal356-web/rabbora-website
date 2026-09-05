@@ -1,0 +1,639 @@
+/* =========================================================
+   RABBORA LIVING — ABOUT PAGE
+   Uses design tokens (colors, fonts, spacing, shadows) from
+   the shared style.css. This file only adds About-page-
+   specific layout and premium scroll/hover motion.
+   ========================================================= */
+
+/* ---- Shared reveal-on-scroll base classes ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--image {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+  overflow: hidden;
+}
+
+.reveal--image.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fade-up,
+  .reveal--image {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+
+/* =========================================================
+   ABOUT HERO
+   ========================================================= */
+
+.about-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--color-forest-dark);
+}
+
+.about-hero__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.about-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 40, 31, 0.35) 0%, rgba(18, 40, 31, 0.55) 55%, rgba(18, 40, 31, 0.82) 100%);
+}
+/* ---- Premium champagne-dust particle layer ----
+   Sits between the dark overlay and the hero content: visually part
+   of the background, never intercepts clicks (pointer-events: none),
+   and only animates transform/opacity for performance. Depth is
+   simulated with three size/speed/brightness tiers rather than any
+   per-frame JS work — the tiny amount of JS involved only generates
+   the particles once on load and applies a very subtle mouse-driven
+   parallax to the whole layer (not per-particle). */
+.about-hero__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate3d(var(--particle-parallax-x, 0px), var(--particle-parallax-y, 0px), 0);
+  transition: transform 0.6s var(--ease);
+}
+
+.about-hero__particle {
+  position: absolute;
+  bottom: -5%;
+  left: var(--x, 50%);
+  width: var(--size, 3px);
+  height: var(--size, 3px);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(247, 217, 163, 0.95) 0%, rgba(199, 160, 107, 0.5) 55%, rgba(199, 160, 107, 0) 100%);
+  opacity: 0;
+  animation-name: about-particle-drift, about-particle-fade;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-duration: var(--dur, 14s), var(--dur, 14s);
+  animation-delay: var(--delay, 0s), var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+.about-hero__particle--glow {
+  box-shadow: 0 0 6px 1px rgba(199, 160, 107, 0.35);
+}
+
+@keyframes about-particle-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--sway, 10px), calc(var(--rise, -140px) * 0.5), 0);
+  }
+  100% {
+    transform: translate3d(0, var(--rise, -140px), 0);
+  }
+}
+
+@keyframes about-particle-fade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--max-opacity, 0.6);
+  }
+  85% {
+    opacity: var(--max-opacity, 0.6);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero__particle {
+    animation: none;
+    opacity: var(--max-opacity, 0.4);
+    bottom: 50%;
+  }
+
+  .about-hero__particles {
+    transform: none !important;
+    transition: none;
+  }
+}
+
+.about-hero__content {
+  position: relative;
+  z-index: 2;
+  padding-block: 3.5rem 4rem;
+  color: var(--color-ivory-soft);
+  max-width: 40rem;
+}
+
+.about-hero__eyebrow {
+  color: var(--color-brass-light);
+}
+
+.about-hero__title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 1.12;
+  margin: 0;
+  font-weight: 400;
+  color: var(--color-ivory-soft);
+}
+
+.about-hero__subtitle {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(248, 244, 235, 0.85);
+  max-width: 30rem;
+}
+
+.about-hero__cta {
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .about-hero {
+    min-height: 86vh;
+  }
+
+  .about-hero__content {
+    padding-block: 5rem 5.5rem;
+  }
+
+  .about-hero__title {
+    font-size: 3.6rem;
+  }
+
+  .about-hero__subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-hero__title {
+    font-size: 4.4rem;
+  }
+}
+
+
+
+/* =========================================================
+   BRAND STORY
+   ========================================================= */
+
+.about-story {
+  padding-block: 4rem;
+}
+
+.about-story__grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.about-story__text h2 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  margin: 0.4rem 0 1.25rem;
+  color: var(--color-forest-dark);
+}
+
+.about-story__text p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgba(35, 35, 32, 0.75);
+  margin-bottom: 1rem;
+}
+
+.about-story__image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.about-story__image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.about-story__image-wrap:hover img {
+  transform: scale(1.04);
+}
+
+@media (min-width: 900px) {
+  .about-story {
+    padding-block: 6rem;
+  }
+
+  .about-story__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .about-story__text h2 {
+    font-size: 2.4rem;
+  }
+}
+
+
+
+/* =========================================================
+   SHARED SECTION HEAD (timeline / why rabbora)
+   ========================================================= */
+
+.about-section-head {
+  max-width: 32rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-section-head h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin: 0.4rem 0 0;
+  color: var(--color-forest-dark);
+}
+
+@media (min-width: 768px) {
+  .about-section-head h2 {
+    font-size: 2.2rem;
+  }
+}
+
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.about-timeline {
+  padding-block: 4rem;
+  background-color: var(--color-ivory);
+}
+
+.about-timeline__list {
+  --timeline-progress: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  padding-left: 2.5rem;
+}
+
+.about-timeline__list::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background-color: rgba(27, 58, 47, 0.14);
+}
+
+.about-timeline__list::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 0.4rem;
+  width: 2px;
+  height: calc((100% - 0.8rem) * var(--timeline-progress));
+  background-color: var(--color-brass);
+  transition: height 0.2s linear;
+}
+
+.about-timeline__item {
+  position: relative;
+}
+
+.about-timeline__number {
+  position: absolute;
+  left: -2.5rem;
+  top: -0.15rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  background-color: var(--color-ivory);
+  border: 2px solid var(--color-brass);
+  color: var(--color-forest-dark);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-timeline__body h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0 0 0.4rem;
+  color: var(--color-forest-dark);
+}
+
+.about-timeline__body p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(35, 35, 32, 0.72);
+  max-width: 34rem;
+}
+
+@media (min-width: 768px) {
+  .about-timeline {
+    padding-block: 6rem;
+  }
+
+  .about-timeline__list {
+    padding-left: 3rem;
+  }
+
+  .about-timeline__number {
+    left: -3rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.75rem;
+  }
+}
+
+
+
+/* =========================================================
+   WHY RABBORA CARDS
+   ========================================================= */
+
+.about-why {
+  padding-block: 4rem;
+}
+
+.about-why__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+.about-why__card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
+.about-why__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.about-why__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background-color: var(--color-ivory);
+  color: var(--color-brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 0.35s var(--ease);
+}
+
+.about-why__card:hover .about-why__icon {
+  transform: scale(1.08);
+}
+
+.about-why__card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+  color: var(--color-forest-dark);
+}
+
+.about-why__card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(35, 35, 32, 0.72);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .about-why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-why {
+    padding-block: 6rem;
+  }
+
+  .about-why__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+/* =========================================================
+   CRAFTSMANSHIP
+   ========================================================= */
+
+.about-craft {
+  position: relative;
+  padding-block: 4rem;
+  background-color: var(--color-forest-dark);
+  overflow: hidden;
+}
+
+.about-craft__image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.about-craft__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.about-craft__content {
+  position: relative;
+  z-index: 1;
+}
+
+.about-craft__text {
+  max-width: 30rem;
+  color: var(--color-ivory-soft);
+}
+
+.about-craft__text .eyebrow {
+  color: var(--color-brass-light);
+}
+
+.about-craft__text h2 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  margin: 0.4rem 0 1.1rem;
+  color: var(--color-ivory-soft);
+}
+
+.about-craft__text p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgba(248, 244, 235, 0.82);
+  margin-bottom: 1.75rem;
+}
+
+.about-craft__text .btn--outline-forest {
+  border-color: rgba(248, 244, 235, 0.4);
+  color: var(--color-ivory-soft);
+}
+
+.about-craft__text .btn--outline-forest:hover {
+  border-color: var(--color-ivory-soft);
+  background-color: rgba(248, 244, 235, 0.08);
+}
+
+@media (min-width: 768px) {
+  .about-craft {
+    padding-block: 7rem;
+  }
+
+  .about-craft__text h2 {
+    font-size: 2.4rem;
+  }
+}
+
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.about-cta {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about-cta__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.about-cta__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.about-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 40, 31, 0.6);
+}
+
+.about-cta__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-ivory-soft);
+  max-width: 34rem;
+}
+
+.about-cta__content h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-ivory-soft);
+}
+
+.about-cta__content p {
+  margin-top: 0.85rem;
+  font-size: 1rem;
+  color: rgba(248, 244, 235, 0.85);
+}
+
+.about-cta__content .btn {
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .about-cta__content h2 {
+    font-size: 2.6rem;
+  }
+}
+
+
+
+/* =========================================================
+   RESPONSIVE SAFETY
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .about-hero__title {
+    font-size: 2rem;
+  }
+}
