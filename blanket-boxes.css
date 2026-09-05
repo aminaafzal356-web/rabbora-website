@@ -1880,6 +1880,11 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 
@@ -2295,16 +2300,19 @@ h1, h2, h3, h4 {
 .fabric-review-carousel {
   margin-top: 1rem;
   overflow: hidden;
+  max-width: 100%;
 }
 
 
 
 .fabric-review-carousel__track {
   position: relative;
+  max-width: 100%;
 }
 
 .fabric-review-carousel__slide {
   display: none;
+  max-width: 100%;
 }
 
 .fabric-review-carousel__slide.is-active {
