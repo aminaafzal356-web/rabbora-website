@@ -727,7 +727,7 @@ var BF_FABRIC_CATALOG = [
         name: currentProduct.name,
         image: currentProduct.image,
         price: currentProduct.price,
-        variant: (selectedSize || "") + (selectedFabric ? " / " + selectedFabric : ""),
+        variant: { size: selectedSize || "", fabric: selectedFabric || "" },
         url: "bed-frames.html#/" + currentProduct.slug
       }, quantity);
 
