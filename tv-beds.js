@@ -22,13 +22,13 @@ var TV_BED_PRODUCTS =
   {
     "id": 1,
     "slug": "tv-bed-1",
-    "name": "Chelsea TV Bed",
-    "price": 599,
-    "oldPrice": 689,
-    "monthly": 50,
-    "rating": 4,
-    "reviews": 18,
-    "badge": "New",
+    "name": "2026 Bedflix Duke TV Bed Frame (3 Piece Headboard)",
+    "price": 999,
+    "oldPrice": 1399,
+    "monthly": 84,
+    "rating": 5,
+    "reviews": 0,
+    "badge": "29% Off",
     "maxScreenSize": "Up to 32\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "The Chelsea TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
@@ -72,13 +72,13 @@ var TV_BED_PRODUCTS =
   {
     "id": 2,
     "slug": "tv-bed-2",
-    "name": "Hampton TV Bed",
-    "price": 633,
-    "oldPrice": null,
-    "monthly": 53,
+    "name": "2026 Bedflix Manhattan TV Bed Frame (27 to 43)",
+    "price": 990,
+    "oldPrice": 1399,
+    "monthly": 83,
     "rating": 5,
-    "reviews": 29,
-    "badge": "Best Seller",
+    "reviews": 0,
+    "badge": "29% Off",
     "maxScreenSize": "Up to 40\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Hampton TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
@@ -122,13 +122,13 @@ var TV_BED_PRODUCTS =
   {
     "id": 3,
     "slug": "tv-bed-3",
-    "name": "Windsor TV Bed",
-    "price": 667,
-    "oldPrice": null,
-    "monthly": 56,
+    "name": "2026 Bedflix TV Bed Frame (27 to 43)",
+    "price": 1099,
+    "oldPrice": 1399,
+    "monthly": 92,
     "rating": 5,
-    "reviews": 40,
-    "badge": null,
+    "reviews": 0,
+    "badge": "21% Off",
     "maxScreenSize": "Up to 43\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "The Windsor TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
@@ -172,13 +172,13 @@ var TV_BED_PRODUCTS =
   {
     "id": 4,
     "slug": "tv-bed-4",
-    "name": "Kensington TV Bed",
-    "price": 701,
-    "oldPrice": 791,
-    "monthly": 58,
-    "rating": 5,
-    "reviews": 51,
-    "badge": null,
+    "name": "2026 Bedflix Davinci TV Bed Frame (2 Piece Headboard)",
+    "price": 999,
+    "oldPrice": 1399,
+    "monthly": 84,
+    "rating": 0,
+    "reviews": 0,
+    "badge": "29% Off",
     "maxScreenSize": "Up to 50\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "The Kensington TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
@@ -621,38 +621,6 @@ var TV_BED_PRODUCTS =
   }
 ];
 
-var TV_FABRIC_CATALOG = [
-  { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
-  { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
-  { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
-  { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
-  { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
-  { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
-  { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
-  { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
-  { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
-  { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
-  { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
-  { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
-  { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
-  { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
-  { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
-  { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
-  { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
-  { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
-  { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
-  { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
-  { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
-  { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
-  { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
-  { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
-  { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
-  { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
-  { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
-  { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
-  { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
-];
-
 var TV_BED_SIZE_DELTAS = {
   "Small Double": -50,
   "Double": 0,
@@ -684,8 +652,7 @@ var TV_BED_SIZE_DELTAS = {
   var tvState = {
     selectedSize: null,
     quantity: 1,
-    imageIndex: 0,
-    selectedFabric: null
+    imageIndex: 0
   };
 
   /* ---- Product count (sort/filter dropdowns removed) ---- */
@@ -745,7 +712,6 @@ var TV_BED_SIZE_DELTAS = {
     var breadcrumbName = document.getElementById("tvDetailBreadcrumbName");
     var mainImage = document.getElementById("tvGalleryMainImage");
     var thumbsWrap = document.getElementById("tvGalleryThumbs");
-    var fabricsEl = document.getElementById("tvModalFabrics");
     var prevBtn = document.getElementById("tvGalleryPrev");
     var nextBtn = document.getElementById("tvGalleryNext");
     var screenSizeEl = document.getElementById("tvDetailScreenSize");
@@ -786,31 +752,26 @@ var TV_BED_SIZE_DELTAS = {
       mainImage.src = images[tvState.imageIndex] || images[0];
       mainImage.alt = product.name;
 
-      // When only one real photo exists for this product, show it
-      // repeated across a few thumbnail slots so the gallery strip has
-      // its normal shape — using only the real, existing image.
-      var thumbImages = images.length > 1 ? images : [images[0], images[0], images[0]];
-
       thumbsWrap.innerHTML = "";
-      thumbImages.forEach(function (src, index) {
-        var thumb = document.createElement("button");
-        thumb.type = "button";
-        thumb.className = "";
-        thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
-        var img = document.createElement("img");
-        img.src = src;
-        img.alt = "";
-        img.loading = "lazy";
-        if (index === tvState.imageIndex || (images.length <= 1 && index === 0)) img.classList.add("is-active");
-        thumb.appendChild(img);
-        thumb.addEventListener("click", function () {
-          if (images.length > 1) {
+      if (images.length > 1) {
+        images.forEach(function (src, index) {
+          var thumb = document.createElement("button");
+          thumb.type = "button";
+          thumb.className = "";
+          thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
+          var img = document.createElement("img");
+          img.src = src;
+          img.alt = "";
+          img.loading = "lazy";
+          if (index === tvState.imageIndex) img.classList.add("is-active");
+          thumb.appendChild(img);
+          thumb.addEventListener("click", function () {
             tvState.imageIndex = index;
             renderGallery(product);
-          }
+          });
+          thumbsWrap.appendChild(thumb);
         });
-        thumbsWrap.appendChild(thumb);
-      });
+      }
       prevBtn.hidden = images.length < 2;
       nextBtn.hidden = images.length < 2;
     }
@@ -892,7 +853,7 @@ var TV_BED_SIZE_DELTAS = {
       screenSizeEl.textContent = "Fits TVs " + product.maxScreenSize.toLowerCase();
       titleEl.textContent = product.name;
       starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviews + ")";
+      reviewCountEl.textContent = product.reviews > 0 ? "(" + product.reviews + ")" : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
       tvInfoEl.textContent = product.tvInfo;
@@ -940,59 +901,11 @@ var TV_BED_SIZE_DELTAS = {
       document.title = "Bed Not Found | Rabbora Living";
     }
 
-    function renderFabrics() {
-      if (!fabricsEl) return;
-      fabricsEl.innerHTML = "";
-
-      TV_FABRIC_CATALOG.forEach(function (fabric, index) {
-        var isSelected = tvState.selectedFabric === fabric.name;
-        if (tvState.selectedFabric === null && index === 0) {
-          tvState.selectedFabric = fabric.name;
-          isSelected = true;
-        }
-
-        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
-
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "fabric-swatch";
-        btn.setAttribute("aria-pressed", String(isSelected));
-        btn.setAttribute("aria-label", "Select " + fabric.name);
-        btn.innerHTML =
-          '<span class="fabric-swatch__ring">' +
-            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
-            '<span class="fabric-swatch__check" aria-hidden="true">' +
-              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-            '</span>' +
-          '</span>' +
-          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
-
-        btn.addEventListener("click", function () {
-          var alreadySelected = tvState.selectedFabric === fabric.name;
-
-          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
-            el.setAttribute("aria-pressed", "false");
-          });
-
-          if (alreadySelected) {
-            tvState.selectedFabric = null;
-          } else {
-            tvState.selectedFabric = fabric.name;
-            btn.setAttribute("aria-pressed", "true");
-          }
-        });
-
-        fabricsEl.appendChild(btn);
-      });
-    }
-
     function showDetail(product) {
       categoryView.hidden = true;
       notFoundView.hidden = true;
       detailView.hidden = false;
-      tvState.selectedFabric = null;
       renderDetail(product);
-      renderFabrics();
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
@@ -1049,6 +962,7 @@ var TV_BED_SIZE_DELTAS = {
           messageEl.classList.add("is-error");
           return;
         }
+
         var unitPrice = currentPrice(currentProduct);
 
         if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
@@ -1073,6 +987,9 @@ var TV_BED_SIZE_DELTAS = {
             "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
             "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
           );
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, something went wrong adding this to your cart. Please refresh and try again.";
+          return;
         }
 
         messageEl.classList.remove("is-error");

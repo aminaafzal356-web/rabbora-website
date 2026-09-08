@@ -16,11 +16,11 @@
 // guessed anywhere else. Both the product listing and the
 // product detail page read from this exact array.
 const KIDS_BED_IMAGES = [
-  { name: "Kids Bed 1", image: "images/kids-bed/img-1.png" },
-  { name: "Kids Bed 2", image: "images/kids-bed/img-2.png" },
-  { name: "Kids Bed 3", image: "images/kids-bed/img-3.png" },
-  { name: "Kids Bed 4", image: "images/kids-bed/img-4.png" },
-  { name: "Kids Bed 5", image: "images/kids-bed/img-5.png" }
+  { name: "Kids Bed 1", image: "tv/img-6.jfif" },
+  { name: "Kids Bed 2", image: "tv/img-7.jfif" },
+  { name: "Kids Bed 3", image: "tv/img-8.jfif" },
+  { name: "Kids Bed 4", image: "tv/img-10.jfif" },
+  { name: "Kids Bed 5", image: "tv/img-11.jfif" }
 ];
 
 function getKidsBedImage(imageName) {
@@ -41,14 +41,14 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 1,
     "slug": "kids-bed-1",
-    "name": "Chelsea Kids Bed",
+    "name": "2026 Harper Kids Day Bed",
     "imageName": "Kids Bed 1",
-    "price": 269,
-    "oldPrice": 309,
-    "monthly": 22,
-    "rating": 4,
-    "reviews": 15,
-    "badge": "Best Seller",
+    "price": 449,
+    "oldPrice": 599,
+    "monthly": 38,
+    "rating": 5,
+    "reviews": 0,
+    "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
     "description": "The Chelsea Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
     "sizes": [
@@ -78,14 +78,14 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 2,
     "slug": "kids-bed-2",
-    "name": "Hampton Kids Bed",
+    "name": "2026 PSCL Rio-Pink Kids Bed (Built in Safety Sides)",
     "imageName": "Kids Bed 2",
-    "price": 297,
-    "oldPrice": null,
-    "monthly": 25,
-    "rating": 5,
-    "reviews": 23,
-    "badge": null,
+    "price": 449,
+    "oldPrice": 599,
+    "monthly": 38,
+    "rating": 0,
+    "reviews": 0,
+    "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
     "description": "The Hampton Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
     "sizes": [
@@ -115,14 +115,14 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 3,
     "slug": "kids-bed-3",
-    "name": "Windsor Kids Bed",
+    "name": "2026 PSCL SnugSpace Kids Bed (Built in Safety Sides)",
     "imageName": "Kids Bed 3",
-    "price": 325,
-    "oldPrice": 365,
-    "monthly": 27,
+    "price": 449,
+    "oldPrice": 599,
+    "monthly": 38,
     "rating": 5,
-    "reviews": 31,
-    "badge": null,
+    "reviews": 0,
+    "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
     "description": "The Windsor Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
     "sizes": [
@@ -152,14 +152,14 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 4,
     "slug": "kids-bed-4",
-    "name": "Kensington Kids Bed",
+    "name": "2026 PSCL Rio-Blue Kids Bed (Built in Safety Sides)",
     "imageName": "Kids Bed 4",
-    "price": 353,
-    "oldPrice": null,
-    "monthly": 29,
-    "rating": 4,
-    "reviews": 39,
-    "badge": "New",
+    "price": 449,
+    "oldPrice": 599,
+    "monthly": 38,
+    "rating": 0,
+    "reviews": 0,
+    "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
     "description": "The Kensington Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
     "sizes": [
@@ -189,14 +189,14 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 5,
     "slug": "kids-bed-5",
-    "name": "Mayfair Kids Bed",
+    "name": "2026 PSCL Little Castle Upholstered Kids Bed Frame",
     "imageName": "Kids Bed 5",
-    "price": 381,
-    "oldPrice": 421,
-    "monthly": 32,
+    "price": 499,
+    "oldPrice": 599,
+    "monthly": 42,
     "rating": 5,
-    "reviews": 47,
-    "badge": null,
+    "reviews": 0,
+    "badge": "17% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
     "description": "The Mayfair Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
     "sizes": [
@@ -223,38 +223,6 @@ var KIDS_BED_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds."
   }
-];
-
-var KIDS_FABRIC_CATALOG = [
-  { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
-  { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
-  { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
-  { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
-  { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
-  { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
-  { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
-  { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
-  { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
-  { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
-  { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
-  { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
-  { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
-  { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
-  { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
-  { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
-  { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
-  { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
-  { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
-  { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
-  { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
-  { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
-  { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
-  { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
-  { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
-  { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
-  { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
-  { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
-  { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
 ];
 
 var KIDS_BED_SIZE_DELTAS = {
@@ -286,8 +254,7 @@ var KIDS_BED_SIZE_DELTAS = {
   var kbState = {
     selectedSize: null,
     quantity: 1,
-    imageIndex: 0,
-    selectedFabric: null
+    imageIndex: 0
   };
 
   var kbWishlist = new Set();
@@ -362,7 +329,6 @@ var KIDS_BED_SIZE_DELTAS = {
     var breadcrumbName = document.getElementById("kbDetailBreadcrumbName");
     var mainImage = document.getElementById("kbGalleryMainImage");
     var thumbsWrap = document.getElementById("kbGalleryThumbs");
-    var fabricsEl = document.getElementById("kbModalFabrics");
     var titleEl = document.getElementById("kbDetailTitle");
     var starsEl = document.getElementById("kbDetailStars");
     var reviewCountEl = document.getElementById("kbDetailReviewCount");
@@ -407,30 +373,25 @@ var KIDS_BED_SIZE_DELTAS = {
       mainImage.src = getKidsBedImage(names[kbState.imageIndex] || names[0]);
       mainImage.alt = product.name;
 
-      // When only one real photo exists for this product, show it
-      // repeated across a few thumbnail slots so the gallery strip has
-      // its normal shape — using only the real, existing image.
-      var thumbNames = names.length > 1 ? names : [names[0], names[0], names[0]];
-
       thumbsWrap.innerHTML = "";
-      thumbNames.forEach(function (name, index) {
-        var thumb = document.createElement("button");
-        thumb.type = "button";
-        thumb.className = (index === kbState.imageIndex || (names.length <= 1 && index === 0)) ? "is-active" : "";
-        thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
-        var img = document.createElement("img");
-        img.src = getKidsBedImage(name);
-        img.alt = "";
-        img.loading = "lazy";
-        thumb.appendChild(img);
-        thumb.addEventListener("click", function () {
-          if (names.length > 1) {
+      if (names.length > 1) {
+        names.forEach(function (name, index) {
+          var thumb = document.createElement("button");
+          thumb.type = "button";
+          thumb.className = index === kbState.imageIndex ? "is-active" : "";
+          thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
+          var img = document.createElement("img");
+          img.src = getKidsBedImage(name);
+          img.alt = "";
+          img.loading = "lazy";
+          thumb.appendChild(img);
+          thumb.addEventListener("click", function () {
             kbState.imageIndex = index;
             renderGallery(product);
-          }
+          });
+          thumbsWrap.appendChild(thumb);
         });
-        thumbsWrap.appendChild(thumb);
-      });
+      }
     }
 
     function syncWishlistButton(product) {
@@ -515,7 +476,7 @@ var KIDS_BED_SIZE_DELTAS = {
       breadcrumbName.textContent = product.name;
       titleEl.textContent = product.name;
       starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviews + ")";
+      reviewCountEl.textContent = product.reviews > 0 ? "(" + product.reviews + ")" : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -563,59 +524,11 @@ var KIDS_BED_SIZE_DELTAS = {
       document.title = "Bed Not Found | Rabbora Living";
     }
 
-    function renderFabrics() {
-      if (!fabricsEl) return;
-      fabricsEl.innerHTML = "";
-
-      KIDS_FABRIC_CATALOG.forEach(function (fabric, index) {
-        var isSelected = kbState.selectedFabric === fabric.name;
-        if (kbState.selectedFabric === null && index === 0) {
-          kbState.selectedFabric = fabric.name;
-          isSelected = true;
-        }
-
-        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
-
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "fabric-swatch";
-        btn.setAttribute("aria-pressed", String(isSelected));
-        btn.setAttribute("aria-label", "Select " + fabric.name);
-        btn.innerHTML =
-          '<span class="fabric-swatch__ring">' +
-            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
-            '<span class="fabric-swatch__check" aria-hidden="true">' +
-              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-            '</span>' +
-          '</span>' +
-          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
-
-        btn.addEventListener("click", function () {
-          var alreadySelected = kbState.selectedFabric === fabric.name;
-
-          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
-            el.setAttribute("aria-pressed", "false");
-          });
-
-          if (alreadySelected) {
-            kbState.selectedFabric = null;
-          } else {
-            kbState.selectedFabric = fabric.name;
-            btn.setAttribute("aria-pressed", "true");
-          }
-        });
-
-        fabricsEl.appendChild(btn);
-      });
-    }
-
     function showDetail(product) {
       categoryView.hidden = true;
       notFoundView.hidden = true;
       detailView.hidden = false;
-      kbState.selectedFabric = null;
       renderDetail(product);
-      renderFabrics();
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
@@ -654,7 +567,9 @@ var KIDS_BED_SIZE_DELTAS = {
           messageEl.classList.add("is-error");
           return;
         }
+
         var unitPrice = currentPrice(currentProduct);
+        var resolvedImage = getKidsBedImage(currentProduct.imageName);
 
         if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
           window.RabboraCart.add(
@@ -663,10 +578,10 @@ var KIDS_BED_SIZE_DELTAS = {
               slug: currentProduct.slug,
               name: currentProduct.name,
               url: "kids-beds.html#/" + currentProduct.slug,
-              image: getKidsBedImage(currentProduct.imageName),
+              image: resolvedImage || "",
               alt: currentProduct.name,
               price: unitPrice,
-              category: "Kids Beds",
+              category: "Kids\u2019 Beds",
               variant: {
                 size: kbState.selectedSize
               }
@@ -678,6 +593,9 @@ var KIDS_BED_SIZE_DELTAS = {
             "[Rabbora Cart] Add to Basket clicked but window.RabboraCart is unavailable — " +
             "this item was NOT added to the cart. Check that cart-data.js is loaded on this page."
           );
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, something went wrong adding this to your cart. Please refresh and try again.";
+          return;
         }
 
         messageEl.classList.remove("is-error");

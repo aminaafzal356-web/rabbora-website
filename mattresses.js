@@ -540,15 +540,15 @@
   {
     "id": 1,
     "slug": "bedzone-hybrid-memory-pocket-spring",
-    "name": "Bedzone Hybrid Memory Pocket Spring",
+    "name": "Bedzone Hybrid Memory Pocket Spring Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 449,
-    "oldPrice": 599,
-    "monthlyPrice": 37,
+    "price": 279,
+    "oldPrice": null,
+    "monthlyPrice": 24,
     "rating": 5,
-    "reviewCount": 201,
-    "badge": "Best Seller",
+    "reviewCount": 0,
+    "badge": null,
     "firmness": [
       "Medium",
       "Firm"
@@ -576,10 +576,6 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/img-26.png",
-      "images/img-26.png",
-      "images/img-26.png",
-      "images/img-26.png",
       "images/img-26.png"
     ]
    
@@ -587,15 +583,15 @@
   {
     "id": 2,
     "slug": "orthopaedic-zero-gravity",
-    "name": "Orthopaedic Zero Gravity",
+    "name": "Healthopaedic Zero Gravity Orthoflex Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 399,
+    "price": 299,
     "oldPrice": 499,
-    "monthlyPrice": 33,
+    "monthlyPrice": 25,
     "rating": 5,
-    "reviewCount": 88,
-    "badge": "New",
+    "reviewCount": 0,
+    "badge": "40% Off",
     "firmness": [
       "Firm"
     ],
@@ -622,24 +618,20 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/img-70.png",
-      "images/img-70.png",
-      "images/img-70.png",
-      "images/img-70.png",
       "images/img-70.png"
     ]
   },
   {
     "id": 3,
     "slug": "pillowtop-2000",
-    "name": "Pillowtop 2000",
+    "name": "Chicago 3000 Pocket Sprung Ultimate Luxury Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 349,
+    "price": 549,
     "oldPrice": null,
-    "monthlyPrice": 29,
-    "rating": 4,
-    "reviewCount": 52,
+    "monthlyPrice": 46,
+    "rating": 5,
+    "reviewCount": 0,
     "badge": null,
     "firmness": [
       "Soft",
@@ -668,25 +660,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/img-71.png",
-      "images/img-71.png",
-      "images/img-71.png",
-      "images/img-71.png",
       "images/img-71.png"
     ]
   },
   {
     "id": 4,
     "slug": "luxury-pocket-spring",
-    "name": "Luxury Pocket Spring",
+    "name": "Healthopaedic Pillowtop 3000 Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 529,
-    "oldPrice": 649,
-    "monthlyPrice": 44,
-    "rating": 5,
-    "reviewCount": 134,
-    "badge": "Great Choice",
+    "price": 499,
+    "oldPrice": 699,
+    "monthlyPrice": 42,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "29% Off",
     "firmness": [
       "Medium",
       "Firm"
@@ -714,25 +702,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/img-72.png",
-      "images/img-72.png",
-      "images/img-72.png",
-      "images/img-72.png",
       "images/img-72.png"
     ]
   },
   {
     "id": 5,
     "slug": "cloudrest-memory-foam",
-    "name": "CloudRest Memory Foam",
+    "name": "Healthopedic Zero Gravity ZenFloat 1000 Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 299,
-    "oldPrice": 379,
-    "monthlyPrice": 25,
-    "rating": 4,
-    "reviewCount": 66,
-    "badge": "Sale",
+    "price": 399,
+    "oldPrice": 549,
+    "monthlyPrice": 34,
+    "rating": 5,
+    "reviewCount": 0,
+    "badge": "27% Off",
     "firmness": [
       "Soft"
     ],
@@ -759,25 +743,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/img-73.png",
-      "images/img-73.png",
-      "images/img-73.png",
-      "images/img-73.png",
       "images/img-73.png"
     ]
   },
   {
     "id": 6,
     "slug": "harmony-hybrid-deluxe",
-    "name": "Harmony Hybrid Deluxe",
+    "name": "Backcare Luxury 2000 Pocket Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 599,
-    "oldPrice": 729,
-    "monthlyPrice": 50,
-    "rating": 5,
-    "reviewCount": 97,
-    "badge": "Best Seller",
+    "price": 299,
+    "oldPrice": null,
+    "monthlyPrice": 25,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": null,
     "firmness": [
       "Medium"
     ],
@@ -804,24 +784,20 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/img-74.png",
-      "images/img-74.png",
-      "images/img-74.png",
-      "images/img-74.png",
       "images/img-74.png"
     ]
   },
   {
     "id": 7,
     "slug": "firmsupport-orthopaedic-pro",
-    "name": "FirmSupport Orthopaedic Pro",
+    "name": "1000 CoolGel Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 459,
+    "price": 299,
     "oldPrice": null,
-    "monthlyPrice": 38,
-    "rating": 4,
-    "reviewCount": 41,
+    "monthlyPrice": 25,
+    "rating": 0,
+    "reviewCount": 0,
     "badge": null,
     "firmness": [
       "Firm"
@@ -849,24 +825,20 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/img-75.png",
-      "images/img-75.png",
-      "images/img-75.png",
-      "images/img-75.png",
       "images/img-75.png"
     ]
   },
   {
     "id": 8,
     "slug": "serenity-pocket-1000",
-    "name": "Serenity Pocket 1000",
+    "name": "California Pillow Top Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 329,
+    "price": 299,
     "oldPrice": null,
-    "monthlyPrice": 27,
-    "rating": 4,
-    "reviewCount": 73,
+    "monthlyPrice": 25,
+    "rating": 0,
+    "reviewCount": 0,
     "badge": null,
     "firmness": [
       "Medium",
@@ -895,25 +867,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/img-76.png",
-      "images/img-76.png",
-      "images/img-76.png",
-      "images/img-76.png",
       "images/img-76.png"
     ]
   },
   {
     "id": 9,
     "slug": "dreamsoft-memory-foam",
-    "name": "DreamSoft Memory Foam",
+    "name": "Orion 1000 Pocket Sprung Luxury Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 279,
-    "oldPrice": 349,
-    "monthlyPrice": 23,
-    "rating": 5,
-    "reviewCount": 58,
-    "badge": "Sale",
+    "price": 229,
+    "oldPrice": null,
+    "monthlyPrice": 20,
+    "rating": 4,
+    "reviewCount": 0,
+    "badge": null,
     "firmness": [
       "Soft",
       "Medium"
@@ -941,25 +909,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/img-77.png",
-      "images/img-77.png",
-      "images/img-77.png",
-      "images/img-77.png",
       "images/img-77.png"
     ]
   },
   {
     "id": 10,
     "slug": "everest-hybrid-support",
-    "name": "Everest Hybrid Support",
+    "name": "MTRS Comfort Dynamics 1000 Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 499,
-    "oldPrice": null,
-    "monthlyPrice": 42,
-    "rating": 5,
-    "reviewCount": 112,
-    "badge": "New",
+    "price": 380,
+    "oldPrice": 699,
+    "monthlyPrice": 32,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "46% Off",
     "firmness": [
       "Medium",
       "Firm"
@@ -987,25 +951,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/img-78.png",
-      "images/img-78.png",
-      "images/img-78.png",
-      "images/img-78.png",
       "images/img-78.png"
     ]
   },
   {
     "id": 11,
     "slug": "royaltouch-pocket-spring",
-    "name": "RoyalTouch Pocket Spring",
+    "name": "Bedzone Titanium Ortho 12.5 Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 649,
-    "oldPrice": 799,
-    "monthlyPrice": 54,
-    "rating": 5,
-    "reviewCount": 156,
-    "badge": "Best Seller",
+    "price": 145,
+    "oldPrice": 175,
+    "monthlyPrice": 13,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "17% Off",
     "firmness": [
       "Medium"
     ],
@@ -1032,24 +992,20 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/img-79.png",
-      "images/img-79.png",
-      "images/img-79.png",
-      "images/img-79.png",
       "images/img-79.png"
     ]
   },
   {
     "id": 12,
     "slug": "restwell-orthopaedic-classic",
-    "name": "RestWell Orthopaedic Classic",
+    "name": "Orion 2000 Pocket Sprung Luxury Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 379,
+    "price": 249,
     "oldPrice": null,
-    "monthlyPrice": 32,
-    "rating": 4,
-    "reviewCount": 39,
+    "monthlyPrice": 21,
+    "rating": 0,
+    "reviewCount": 0,
     "badge": null,
     "firmness": [
       "Firm"
@@ -1077,25 +1033,21 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/img-80.png",
-      "images/img-80.png",
-      "images/img-80.png",
-      "images/img-80.png",
       "images/img-80.png"
     ]
   },
   {
     "id": 13,
     "slug": "nightcloud-memory-foam-plus",
-    "name": "NightCloud Memory Foam Plus",
+    "name": "MTRS Atomic Comfort 5000 Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 319,
-    "oldPrice": 399,
-    "monthlyPrice": 27,
-    "rating": 4,
-    "reviewCount": 47,
-    "badge": "Great Choice",
+    "price": 799,
+    "oldPrice": 1199,
+    "monthlyPrice": 67,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "33% Off",
     "firmness": [
       "Soft",
       "Medium"
@@ -1132,15 +1084,15 @@
   {
     "id": 14,
     "slug": "coastal-hybrid-breeze",
-    "name": "Coastal Hybrid Breeze",
+    "name": "MTRS Comfort Dynamics 2000 Pocket Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 549,
-    "oldPrice": null,
-    "monthlyPrice": 46,
-    "rating": 5,
-    "reviewCount": 82,
-    "badge": null,
+    "price": 499,
+    "oldPrice": 699,
+    "monthlyPrice": 42,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "29% Off",
     "firmness": [
       "Medium"
     ],
@@ -1176,15 +1128,15 @@
   {
     "id": 15,
     "slug": "pureposture-orthopaedic",
-    "name": "PurePosture Orthopaedic",
+    "name": "MTRS Atomic Comfort 3000 Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 419,
-    "oldPrice": 489,
-    "monthlyPrice": 35,
-    "rating": 4,
-    "reviewCount": 28,
-    "badge": "Sale",
+    "price": 549,
+    "oldPrice": 999,
+    "monthlyPrice": 46,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "45% Off",
     "firmness": [
       "Firm"
     ],
@@ -1220,15 +1172,15 @@
   {
     "id": 16,
     "slug": "signature-pocket-2000",
-    "name": "Signature Pocket 2000",
+    "name": "MTRS Lux Comfort 9000 Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 699,
-    "oldPrice": null,
-    "monthlyPrice": 58,
-    "rating": 5,
-    "reviewCount": 164,
-    "badge": "Best Seller",
+    "price": 1200,
+    "oldPrice": 1800,
+    "monthlyPrice": 100,
+    "rating": 0,
+    "reviewCount": 0,
+    "badge": "33% Off",
     "firmness": [
       "Medium",
       "Firm"
@@ -1814,7 +1766,7 @@
       typeEl.textContent = product.mattressTypeLabel;
       titleEl.textContent = product.name;
       starsEl.textContent = mtStars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviewCount + ")";
+      reviewCountEl.textContent = product.reviewCount > 0 ? "(" + product.reviewCount + ")" : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthlyPrice + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;

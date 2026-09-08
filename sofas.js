@@ -525,9 +525,9 @@
 {
   "chesterfield-3-seater-sofa": {
     "name": "Chesterfield 3-Seater Sofa",
-    "price": 899.0,
+    "price": 999.00,
     "prev": 1099.0,
-    "monthly": 75,
+    "monthly": 84,
     "rating": 5,
     "reviews": 143,
     "description": "The Chesterfield 3-Seater Sofa brings timeless character to any living room. Deep-button detailing and rolled arms pair with a solid hardwood frame, giving you a statement seating piece built to be lived with for years.",
@@ -546,9 +546,9 @@
   },
   "chelsea-corner-sofa": {
     "name": "Chelsea Corner Sofa",
-    "price": 1399.0,
+    "price": 799.00,
     "prev": null,
-    "monthly": 117,
+    "monthly": 67,
     "rating": 5,
     "reviews": 88,
     "description": "The Chelsea Corner Sofa is built for relaxed, everyday family living. Its generous corner layout and deep, plush cushioning create a comfortable spot to unwind, finished in a hardwearing woven fabric.",
@@ -567,9 +567,9 @@
   },
   "hampton-2-seater-sofa": {
     "name": "Hampton 2-Seater Sofa",
-    "price": 649.0,
-    "prev": 799.0,
-    "monthly": 54,
+    "price": 799.00,
+    "prev": 899.0,
+    "monthly": 67,
     "rating": 4,
     "reviews": 52,
     "description": "The Hampton 2-Seater Sofa brings a soft, contemporary look to compact living spaces. Its tailored linen-look fabric and neat tapered legs make it equally suited to a city flat or a smaller snug.",
@@ -588,9 +588,9 @@
   },
   "harlow-modular-sofa": {
     "name": "Harlow Modular Sofa",
-    "price": 1599.0,
+    "price": 999.00,
     "prev": null,
-    "monthly": 133,
+    "monthly": 84,
     "rating": 5,
     "reviews": 67,
     "description": "The Harlow Modular Sofa is designed to move with you. Its modular sections can be arranged to suit your room, finished in a rich, plush velvet-style fabric that feels as good as it looks.",
