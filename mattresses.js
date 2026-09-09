@@ -576,7 +576,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/img-26.png"
+      "images/img-23.webp",
+        "images/img-142.webp",
+      "images/img-143.png"
     ]
    
   },
@@ -618,7 +620,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/img-70.png"
+      "images/img-144.webp",
+        "images/img-145.webp",
+          "images/img-146.png"
     ]
   },
   {
@@ -660,7 +664,11 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/img-71.png"
+      "images/img-73.png",
+      "images/img-147.webp",
+       "images/img-148.jpg"
+      
+
     ]
   },
   {
@@ -702,7 +710,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/img-72.png"
+      "images/img-72.png",
+      "images/img-149.png",
+      "images/img-150.webp"
     ]
   },
   {
@@ -743,7 +753,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/img-73.png"
+      "images/img-74.png",
+      "images/img-151.jpg",
+      "images/img-152.png"
     ]
   },
   {
@@ -784,7 +796,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/img-74.png"
+      "images/img-99.png",
+          "images/img-153.jpg",
+              "images/img-154.jpg"
     ]
   },
   {
@@ -825,7 +839,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/img-75.png"
+      "images/img-78.png",
+        "images/img-155.jpg",
+          "images/img-156.webp"
     ]
   },
   {
@@ -867,7 +883,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/img-76.png"
+      "images/img-157.webp",
+      "images/img-158.webp",
+      "images/img-159.webp"
     ]
   },
   {
@@ -909,7 +927,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/img-77.png"
+      "images/img-128.jpg",
+      "images/img-160.png",
+      "images/img-161.png"
     ]
   },
   {
@@ -951,7 +971,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/img-78.png"
+      "images/img-126.jfif",
+      "images/img-162.png",
+      "images/img-163.jpg"
     ]
   },
   {
@@ -992,7 +1014,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/img-79.png"
+      "images/img-165.png",
+      "images/img-166.png",
+      "images/img-167.png"
     ]
   },
   {
@@ -1033,7 +1057,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/img-80.png"
+      "images/img-129.jpg",
+       "images/img-168.jpg",
+        "images/img-169.jpg"
     ]
   },
   {
@@ -1075,10 +1101,10 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#7d7690",
     "images": [
-      "images/mattresses/nightcloud-memory-foam-plus-main.svg",
-      "images/mattresses/nightcloud-memory-foam-plus-lifestyle.svg",
-      "images/mattresses/nightcloud-memory-foam-plus-profile.svg",
-      "images/mattresses/nightcloud-memory-foam-plus-closeup.svg"
+      "images/img-124.jfif",
+      "images/img-170.png",
+      "images/img-171.png"
+   
     ]
   },
   {
@@ -1119,10 +1145,9 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#3f6b5e",
     "images": [
-      "images/mattresses/coastal-hybrid-breeze-main.svg",
-      "images/mattresses/coastal-hybrid-breeze-lifestyle.svg",
-      "images/mattresses/coastal-hybrid-breeze-profile.svg",
-      "images/mattresses/coastal-hybrid-breeze-closeup.svg"
+      "images/img-130.webp",
+      "images/img-172.png",
+      "images/img-173.png"
     ]
   },
   {
@@ -1163,10 +1188,10 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#4a6b82",
     "images": [
-      "images/mattresses/pureposture-orthopaedic-main.svg",
-      "images/mattresses/pureposture-orthopaedic-lifestyle.svg",
-      "images/mattresses/pureposture-orthopaedic-profile.svg",
-      "images/mattresses/pureposture-orthopaedic-closeup.svg"
+      "images/img-131.webp",
+      "images/img-150.webp",
+      "images/img-162.png"
+    
     ]
   },
   {
@@ -1208,10 +1233,10 @@
     "delivery": "Free UK delivery, rolled and boxed for easy access",
     "colour": "#a48a6a",
     "images": [
-      "images/mattresses/signature-pocket-2000-main.svg",
-      "images/mattresses/signature-pocket-2000-lifestyle.svg",
-      "images/mattresses/signature-pocket-2000-profile.svg",
-      "images/mattresses/signature-pocket-2000-closeup.svg"
+      "images/img-79.png",
+      "images/img-174.png",
+      "images/img-163.jpg"
+      
     ]
   }
 ];
