@@ -71,7 +71,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-1.png"
+    "image": "rapid/1.jfif",
+    "images": [
+      "images/rapid-delivery-beds/chelsea-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/chelsea-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/chelsea-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 2,
@@ -124,7 +129,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-2.png"
+    "image": "images/rapid-delivery/img-2.png",
+    "images": [
+      "images/rapid-delivery-beds/hampton-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/hampton-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/hampton-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 3,
@@ -177,7 +187,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-3.png"
+    "image": "images/rapid-delivery/img-3.png",
+    "images": [
+      "images/rapid-delivery-beds/windsor-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/windsor-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/windsor-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 4,
@@ -230,7 +245,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-4.png"
+    "image": "images/rapid-delivery/img-4.png",
+    "images": [
+      "images/rapid-delivery-beds/kensington-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/kensington-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/kensington-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 5,
@@ -283,7 +303,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-5.png"
+    "image": "images/rapid-delivery/img-5.png",
+    "images": [
+      "images/rapid-delivery-beds/mayfair-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/mayfair-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/mayfair-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 6,
@@ -336,7 +361,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-6.png"
+    "image": "images/rapid-delivery/img-6.png",
+    "images": [
+      "images/rapid-delivery-beds/richmond-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/richmond-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/richmond-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 7,
@@ -389,7 +419,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-7.png"
+    "image": "images/rapid-delivery/img-7.png",
+    "images": [
+      "images/rapid-delivery-beds/cambridge-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/cambridge-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/cambridge-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 8,
@@ -442,7 +477,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-8.png"
+    "image": "images/rapid-delivery/img-8.png",
+    "images": [
+      "images/rapid-delivery-beds/victoria-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/victoria-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/victoria-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 9,
@@ -495,7 +535,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-9.png"
+    "image": "images/rapid-delivery/img-9.png",
+    "images": [
+      "images/rapid-delivery-beds/oxford-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/oxford-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/oxford-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 10,
@@ -548,7 +593,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-10.png"
+    "image": "images/rapid-delivery/img-10.png",
+    "images": [
+      "images/rapid-delivery-beds/chester-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/chester-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/chester-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 11,
@@ -601,7 +651,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-11.png"
+    "image": "images/rapid-delivery/img-11.png",
+    "images": [
+      "images/rapid-delivery-beds/kingston-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/kingston-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/kingston-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 12,
@@ -654,7 +709,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-12.png"
+    "image": "images/rapid-delivery/img-12.png",
+    "images": [
+      "images/rapid-delivery-beds/brighton-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/brighton-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/brighton-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 13,
@@ -707,7 +767,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-13.png"
+    "image": "images/rapid-delivery/img-13.png",
+    "images": [
+      "images/rapid-delivery-beds/lancaster-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/lancaster-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/lancaster-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 14,
@@ -760,7 +825,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-14.png"
+    "image": "images/rapid-delivery/img-14.png",
+    "images": [
+      "images/rapid-delivery-beds/bristol-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/bristol-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/bristol-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 15,
@@ -813,7 +883,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-15.png"
+    "image": "images/rapid-delivery/img-15.png",
+    "images": [
+      "images/rapid-delivery-beds/soho-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/soho-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/soho-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 16,
@@ -866,7 +941,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-16.png"
+    "image": "images/rapid-delivery/img-16.png",
+    "images": [
+      "images/rapid-delivery-beds/belgravia-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/belgravia-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/belgravia-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 17,
@@ -919,7 +999,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-17.png"
+    "image": "images/rapid-delivery/img-17.png",
+    "images": [
+      "images/rapid-delivery-beds/fulham-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/fulham-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/fulham-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 18,
@@ -972,7 +1057,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-18.png"
+    "image": "images/rapid-delivery/img-18.png",
+    "images": [
+      "images/rapid-delivery-beds/greenwich-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/greenwich-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/greenwich-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 19,
@@ -1025,7 +1115,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-19.png"
+    "image": "images/rapid-delivery/img-19.png",
+    "images": [
+      "images/rapid-delivery-beds/camden-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/camden-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/camden-rapid-bed-closeup.svg"
+    ]
   },
   {
     "id": 20,
@@ -1078,7 +1173,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-20.png"
+    "image": "images/rapid-delivery/img-20.png",
+    "images": [
+      "images/rapid-delivery-beds/putney-rapid-bed-main.svg",
+      "images/rapid-delivery-beds/putney-rapid-bed-angle.svg",
+      "images/rapid-delivery-beds/putney-rapid-bed-closeup.svg"
+    ]
   }
 ];
 
@@ -1218,9 +1318,14 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
 
     var breadcrumbName = document.getElementById("rd2DetailBreadcrumbName");
     var mainImage = document.getElementById("rd2GalleryMainImage");
+    var imagePlaceholder = document.getElementById("rd2DetailImagePlaceholder");
     var thumbsWrap = document.getElementById("rd2GalleryThumbs");
     var prevBtn = document.getElementById("rd2GalleryPrev");
     var nextBtn = document.getElementById("rd2GalleryNext");
+    var zoomBtn = document.getElementById("rd2GalleryZoom");
+    var lightbox = document.getElementById("rd2Lightbox");
+    var lightboxImage = document.getElementById("rd2LightboxImage");
+    var lightboxClose = document.getElementById("rd2LightboxClose");
     var typeEl = document.getElementById("rd2DetailType");
     var titleEl = document.getElementById("rd2DetailTitle");
     var starsEl = document.getElementById("rd2DetailStars");
@@ -1256,13 +1361,19 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     }
 
     function renderGallery(product) {
-      // Only one image path is required per product (product.image).
-      // If you'd like more angles later, add extra <img> filenames of
-      // your choosing to a "gallery" array on the product — this code
-      // already supports that, falling back to the single image.
-      var images = product.gallery && product.gallery.length ? product.gallery : [product.image];
+      var images = (product.images && product.images.length) ? product.images :
+                   (product.gallery && product.gallery.length) ? product.gallery :
+                   [product.image];
       mainImage.src = images[rd2State.imageIndex] || images[0];
-      mainImage.alt = product.name;
+      mainImage.alt = "";
+      mainImage.onerror = function () {
+        mainImage.hidden = true;
+        if (imagePlaceholder) imagePlaceholder.hidden = false;
+      };
+      mainImage.onload = function () {
+        mainImage.hidden = false;
+        if (imagePlaceholder) imagePlaceholder.hidden = true;
+      };
 
       // When only one real photo exists for this product, show it
       // repeated across a few thumbnail slots so the gallery strip has
@@ -1276,12 +1387,11 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         img.src = src;
         img.alt = "";
         img.loading = "lazy";
-        if (index === rd2State.imageIndex || (images.length <= 1 && index === 0)) img.classList.add("is-active");
+        img.onerror = function () { img.style.visibility = "hidden"; };
+        if (index === rd2State.imageIndex) img.classList.add("is-active");
         img.addEventListener("click", function () {
-          if (images.length > 1) {
-            rd2State.imageIndex = index;
-            renderGallery(product);
-          }
+          rd2State.imageIndex = index;
+          renderGallery(product);
         });
         thumbsWrap.appendChild(img);
       });
@@ -1399,8 +1509,8 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
       breadcrumbName.textContent = product.name;
       typeEl.textContent = product.type;
       titleEl.textContent = product.name;
-      starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviews + ")";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -1485,7 +1595,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        var images = (currentProduct.images && currentProduct.images.length) ? currentProduct.images : (currentProduct.gallery && currentProduct.gallery.length) ? currentProduct.gallery : [currentProduct.image];
         rd2State.imageIndex = (rd2State.imageIndex - 1 + images.length) % images.length;
         renderGallery(currentProduct);
       });
@@ -1494,11 +1604,29 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        var images = (currentProduct.images && currentProduct.images.length) ? currentProduct.images : (currentProduct.gallery && currentProduct.gallery.length) ? currentProduct.gallery : [currentProduct.image];
         rd2State.imageIndex = (rd2State.imageIndex + 1) % images.length;
         renderGallery(currentProduct);
       });
     }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener("click", function () {
+        lightboxImage.src = mainImage.src;
+        lightboxImage.alt = mainImage.alt;
+        lightbox.hidden = false;
+      });
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener("click", function () { lightbox.hidden = true; });
+    if (lightbox) {
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.hidden = true;
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) lightbox.hidden = true;
+    });
 
     if (qtyMinus) {
       qtyMinus.addEventListener("click", function () {
@@ -1561,7 +1689,20 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     }
   }
 
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.rd2-detail__rating), which is
+     populated separately by renderDetail() once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.rd2-detail__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initToolbar();
     initFaq();
     initDetail();

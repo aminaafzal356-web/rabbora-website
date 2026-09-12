@@ -159,8 +159,7 @@
       '<div class="product-card__body">' +
         '<a href="product.html?slug=' + product.slug + '" class="product-card__name">' + product.name + "</a>" +
         '<div class="product-card__rating">' +
-          '<span class="product-card__stars" aria-hidden="true">' + buildStars(product.rating) + "</span>" +
-          '<span class="product-card__review-count">(' + product.reviewCount + ")</span>" +
+          '<span class="product-card__no-reviews">No reviews yet</span>' +
         "</div>" +
         '<div class="product-card__price-row">' +
           '<span class="product-card__price">\u00A3' + product.price + "</span>" +

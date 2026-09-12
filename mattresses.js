@@ -1790,8 +1790,8 @@
       breadcrumbName.textContent = product.name;
       typeEl.textContent = product.mattressTypeLabel;
       titleEl.textContent = product.name;
-      starsEl.textContent = mtStars(product.rating);
-      reviewCountEl.textContent = product.reviewCount > 0 ? "(" + product.reviewCount + ")" : "";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       monthlyEl.textContent = "or from \u00A3" + product.monthlyPrice + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -2094,7 +2094,20 @@
     });
   }
 
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.bb-modal__rating), which is populated
+     separately by renderDetail() once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.bb-modal__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initMainNavReveal();
     initWishlist();
     initCart();

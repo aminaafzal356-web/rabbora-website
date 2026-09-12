@@ -202,6 +202,7 @@
 
     var breadcrumbName = document.getElementById("sdDetailBreadcrumbName");
     var mainImage = document.getElementById("sdGalleryMainImage");
+    var imagePlaceholder = document.getElementById("sdDetailImagePlaceholder");
     var thumbsWrap = document.getElementById("sdGalleryThumbs");
     var prevBtn = document.getElementById("sdGalleryPrev");
     var nextBtn = document.getElementById("sdGalleryNext");
@@ -243,7 +244,15 @@
       // to the single image with prev/next and thumbs hidden.
       var images = product.gallery && product.gallery.length ? product.gallery : [product.image];
       mainImage.src = images[sdState.imageIndex] || images[0];
-      mainImage.alt = product.name;
+      mainImage.alt = "";
+      mainImage.onerror = function () {
+        mainImage.hidden = true;
+        if (imagePlaceholder) imagePlaceholder.hidden = false;
+      };
+      mainImage.onload = function () {
+        mainImage.hidden = false;
+        if (imagePlaceholder) imagePlaceholder.hidden = true;
+      };
 
       thumbsWrap.innerHTML = "";
       if (images.length > 1) {
@@ -252,6 +261,7 @@
           img.src = src;
           img.alt = "";
           img.loading = "lazy";
+          img.onerror = function () { img.style.visibility = "hidden"; };
           if (index === sdState.imageIndex) img.classList.add("is-active");
           img.addEventListener("click", function () {
             sdState.imageIndex = index;
@@ -369,8 +379,8 @@
       breadcrumbName.textContent = product.name;
       if (drawerCountEl) drawerCountEl.textContent = product.drawers + (product.drawers === 1 ? " Drawer" : " Drawers");
       titleEl.textContent = product.name;
-      starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviews + ")";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       priceEl.textContent = money(product.price);
       prevPriceEl.textContent = product.oldPrice ? money(product.oldPrice) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
@@ -557,9 +567,25 @@
         if (event.target === lightbox) lightbox.hidden = true;
       });
     }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) lightbox.hidden = true;
+    });
+  }
+
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.bb-modal__rating), which is populated
+     separately by renderDetail() once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.bb-modal__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initDetail();
   });
 })();

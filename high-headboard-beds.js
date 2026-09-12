@@ -849,8 +849,8 @@ var HH_BED_PRODUCTS =
       "images/high-headboard-beds/img-14.png",
       "images/high-headboard-beds/img-14-b.png",
       "images/high-headboard-beds/img-14-c.png",
-      "images/high-headboard-beds/img-14-d.png",
-      "images/high-headboard-beds/img-14-e.png"
+      "tv/img-13.jfif",
+      "tv/img-12.jfif"
     ]
   }
 ];

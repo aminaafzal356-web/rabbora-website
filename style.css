@@ -4936,3 +4936,32 @@ body.sf-drawer-open {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ---- Honest "no reviews yet" empty state (replaces fake testimonials) ---- */
+.reviews-empty-state {
+  max-width: 28rem;
+  margin-inline: auto;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.reviews-empty-state__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-forest-dark);
+}
+
+.reviews-empty-state__body {
+  margin-top: 0.5rem;
+  color: rgba(35, 35, 32, 0.6);
+  font-size: 0.9375rem;
+}
+
+.product-card__no-reviews {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(35, 35, 32, 0.4);
+}

@@ -5476,3 +5476,10 @@ body.sf-drawer-open {
 .mt-detail__back-link:hover {
   color: var(--color-brass);
 }
+
+/* ---- Honest "no reviews yet" label for product card grids ---- */
+.product-card__no-reviews {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(35, 35, 32, 0.4);
+}

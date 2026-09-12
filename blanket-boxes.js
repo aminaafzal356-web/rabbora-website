@@ -991,8 +991,8 @@
     function renderDetail(product) {
       titleEl.textContent = product.name;
       if (breadcrumbName) breadcrumbName.textContent = product.name;
-      starsEl.textContent = bbStars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviews + ")";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       priceEl.textContent = bbMoney(product.price);
       prevPriceEl.textContent = product.prev ? bbMoney(product.prev) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
@@ -1175,48 +1175,6 @@
     }
   }
 
-  function initBlanketReviewCarousel() {
-    var carousel = document.getElementById("bbReviewCarousel");
-    var track = document.getElementById("bbReviewTrack");
-    var dotsWrap = document.getElementById("bbReviewDots");
-    var prevBtn = document.getElementById("bbReviewPrev");
-    var nextBtn = document.getElementById("bbReviewNext");
-    if (!carousel || !track || !dotsWrap) return;
-
-    var slides = qsa(".fabric-review-carousel__slide", track);
-    if (slides.length === 0) return;
-
-    var current = 0;
-    var dots = [];
-
-    slides.forEach(function (slide, index) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "fabric-review-carousel__dot";
-      dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", "Show review " + (index + 1));
-      dot.addEventListener("click", function () {
-        goTo(index);
-      });
-      dotsWrap.appendChild(dot);
-      dots.push(dot);
-    });
-
-    function goTo(index) {
-      current = (index + slides.length) % slides.length;
-      slides.forEach(function (slide, i) {
-        slide.classList.toggle("is-active", i === current);
-      });
-      dots.forEach(function (dot, i) {
-        dot.classList.toggle("is-active", i === current);
-      });
-    }
-
-    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); });
-
-    goTo(0);
-  }
 
   function sfMoney(v) {
     return "\u00A3" + v.toFixed(2);
@@ -1281,7 +1239,18 @@
     });
   }
 
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.bb-modal__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initMainNavReveal();
     initWishlist();
     initCart();
@@ -1295,7 +1264,6 @@
     initScrollReveal();
     initBlanketToolbar();
     initBlanketModal();
-    initBlanketReviewCarousel();
     initMattressHelp();
     initStorageDrawersFaq();
   });

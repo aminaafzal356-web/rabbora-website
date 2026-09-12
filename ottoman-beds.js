@@ -649,9 +649,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/chelsea-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/chelsea-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/chelsea-slatted-ottoman-bed-closeup.svg"
+      "slatted/img-1.jfif",
+    "slatted/img-6.jfif" ,
+     "slatted/img-5.jfif" ,
+     "slatted/img-4.jfif" ,
+     "slatted/img-2.jfif" 
     ]
   },
   {
@@ -742,9 +744,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/hampton-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/hampton-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/hampton-slatted-ottoman-bed-closeup.svg"
+  "slatted/img-7.jfif",
+    "slatted/img-8.jfif" ,
+     "slatted/img-9.jfif" ,
+     "slatted/img-10.jfif" ,
+     "slatted/img-3.jfif"  
     ]
   },
   {
@@ -835,9 +839,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/monaco-ottoman-bed-main.svg",
-      "images/ottoman-beds/monaco-ottoman-bed-angle.svg",
-      "images/ottoman-beds/monaco-ottoman-bed-closeup.svg"
+         "slatted/img-12.jfif" ,
+             "slatted/img-15.jfif" ,
+                 "slatted/img-13.jfif" ,
+                     "slatted/img-11.jfif" ,
+                         "slatted/img-14.jfif" 
     ]
   },
   {
@@ -928,9 +934,12 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/windsor-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/windsor-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/windsor-slatted-ottoman-bed-closeup.svg"
+           "slatted/img-17.jfif" ,
+           "slatted/img-19.jfif", 
+          "slatted/img-.jfif" ,
+          "slatted/img-18.jfif" ,
+           "slatted/img-12.jfif" ,
+             
     ]
   },
   {
@@ -1021,9 +1030,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/kensington-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/kensington-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/kensington-slatted-ottoman-bed-closeup.svg"
+           "slatted/img-22.jfif" ,
+           "slatted/img-24.jfif", 
+          "slatted/img-25.jfif" ,
+          "slatted/img-26.jfif" ,
+           "slatted/img-23.jfif" ,
     ]
   },
   {
@@ -1114,9 +1125,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/mayfair-ottoman-bed-main.svg",
-      "images/ottoman-beds/mayfair-ottoman-bed-angle.svg",
-      "images/ottoman-beds/mayfair-ottoman-bed-closeup.svg"
+       "slatted/img-30.png" ,
+           "slatted/img-28.png", 
+          "slatted/img-29.png" ,
+          "slatted/img-31.png" ,
+           "slatted/img-27.png" 
     ]
   },
   {
@@ -1207,9 +1220,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/richmond-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/richmond-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/richmond-slatted-ottoman-bed-closeup.svg"
+       "slatted/img-35.png" ,
+        "slatted/img-34.png" ,
+         "slatted/img-33.png" ,
+         "slatted/img-32.png" ,
+           "slatted/img-36.png" ,
     ]
   },
   {
@@ -1300,9 +1315,10 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/cambridge-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/cambridge-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/cambridge-slatted-ottoman-bed-closeup.svg"
+        "slatted/34.png" ,
+        "slatted/35.png" ,
+        "slatted/36.png" ,
+        "slatted/37.png" 
     ]
   },
   {
@@ -1393,9 +1409,10 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/victoria-ottoman-bed-main.svg",
-      "images/ottoman-beds/victoria-ottoman-bed-angle.svg",
-      "images/ottoman-beds/victoria-ottoman-bed-closeup.svg"
+        "slatted/38.png" ,
+        "slatted/39.png" ,
+        "slatted/img-37.png" ,
+        "slatted/img-39.png" 
     ]
   },
   {
@@ -1486,9 +1503,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/oxford-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/oxford-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/oxford-slatted-ottoman-bed-closeup.svg"
+         "slatted/40.png" ,
+        "slatted/41.png" ,
+        "slatted/43.png" ,
+        "slatted/42.png" 
+
     ]
   },
   {
@@ -1579,9 +1598,10 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/chester-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/chester-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/chester-slatted-ottoman-bed-closeup.svg"
+     "slatted/45.png" ,
+        "slatted/47.png" ,
+        "slatted/46.png" ,
+        "slatted/44.png"
     ]
   },
   {
@@ -1672,9 +1692,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/kingston-ottoman-bed-main.svg",
-      "images/ottoman-beds/kingston-ottoman-bed-angle.svg",
-      "images/ottoman-beds/kingston-ottoman-bed-closeup.svg"
+        "slatted/48.png" ,
+        "slatted/50.png" ,
+        "slatted/49.png"
     ]
   },
   {
@@ -1765,9 +1785,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/manhattan-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/manhattan-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/manhattan-slatted-ottoman-bed-closeup.svg"
+     "slatted/84.png" ,
+        "slatted/85.jfif" ,
+        "slatted/86.png"
     ]
   },
   {
@@ -1858,9 +1878,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/brighton-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/brighton-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/brighton-slatted-ottoman-bed-closeup.svg"
+      "slatted/87.png" ,
+        "slatted/88.jfif" ,
+        "slatted/89.png"
     ]
   },
   {
@@ -1951,9 +1971,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/lancaster-ottoman-bed-main.svg",
-      "images/ottoman-beds/lancaster-ottoman-bed-angle.svg",
-      "images/ottoman-beds/lancaster-ottoman-bed-closeup.svg"
+       "slatted/90.png" ,
+        "slatted/91.jfif" ,
+        "slatted/92.jfif"
     ]
   },
   {
@@ -2044,9 +2064,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/bristol-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/bristol-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/bristol-slatted-ottoman-bed-closeup.svg"
+      "slatted/93.png" ,
+        "slatted/95.jfif" ,
+        "slatted/94.jfif"
     ]
   },
   {
@@ -2137,9 +2157,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/soho-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/soho-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/soho-slatted-ottoman-bed-closeup.svg"
+      "slatted/96.jfif" ,
+       "slatted/97.jfif" ,
+        "slatted/98.jfif" 
     ]
   },
   {
@@ -2230,9 +2250,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/belgravia-ottoman-bed-main.svg",
-      "images/ottoman-beds/belgravia-ottoman-bed-angle.svg",
-      "images/ottoman-beds/belgravia-ottoman-bed-closeup.svg"
+     "slatted/99.jfif" ,
+       "slatted/101.png" ,
+        "slatted/100.png" 
     ]
   },
   {
@@ -2323,9 +2343,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/fulham-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/fulham-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/fulham-slatted-ottoman-bed-closeup.svg"
+     "slatted/102.png" ,
+       "slatted/103.png" ,
+        "slatted/104.png"
     ]
   },
   {
@@ -2416,9 +2436,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/chiswick-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/chiswick-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/chiswick-slatted-ottoman-bed-closeup.svg"
+      "slatted/105.jfif",
+      "slatted/106.jfif",
+      "slatted/107.jfif"
     ]
   },
   {
@@ -2509,9 +2529,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/greenwich-ottoman-bed-main.svg",
-      "images/ottoman-beds/greenwich-ottoman-bed-angle.svg",
-      "images/ottoman-beds/greenwich-ottoman-bed-closeup.svg"
+      "slatted/108.jfif",
+      "slatted/109.jfif",
+      "slatted/110.jfif"
     ]
   },
   {
@@ -2602,9 +2622,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/camden-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/camden-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/camden-slatted-ottoman-bed-closeup.svg"
+       "slatted/111.png",
+      "slatted/112.jfif",
+      "slatted/113.jfif"
     ]
   },
   {
@@ -2695,9 +2715,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/notting-hill-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/notting-hill-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/notting-hill-slatted-ottoman-bed-closeup.svg"
+    "slatted/114.png",
+    "slatted/116.png",
+    "slatted/115.png"
     ]
   },
   {
@@ -2788,9 +2808,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/marylebone-ottoman-bed-main.svg",
-      "images/ottoman-beds/marylebone-ottoman-bed-angle.svg",
-      "images/ottoman-beds/marylebone-ottoman-bed-closeup.svg"
+      "slatted/118.png",
+    "slatted/117.png",
+    "slatted/119.png"
     ]
   },
   {

@@ -3376,7 +3376,7 @@ body.bb-modal-open {
 
 /* ---- Product grid: exactly 4 per row on desktop ---- */
 .sf-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   transition: opacity 0.2s var(--ease);
 }
 
@@ -3392,7 +3392,7 @@ body.bb-modal-open {
 
 @media (min-width: 1024px) {
   .sf-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -5555,4 +5555,11 @@ body.sf-drawer-open {
 
 .mt-detail__back-link:hover {
   color: var(--color-brass);
+}
+
+/* ---- Honest "no reviews yet" label for product card grids ---- */
+.product-card__no-reviews {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(35, 35, 32, 0.4);
 }
