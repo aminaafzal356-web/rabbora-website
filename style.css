@@ -1526,7 +1526,13 @@ h1, h2, h3, h4 {
 
 .hero__slide.is-active {
   opacity: 1;
-  transform: scale(1.03) translateX(-0.6%);
+  transform: scale(1) translateX(0);
+}
+
+@media (min-width: 768px) {
+  .hero__slide.is-active {
+    transform: scale(1.03) translateX(-0.6%);
+  }
 }
 
 
@@ -1554,10 +1560,10 @@ h1, h2, h3, h4 {
 .hero__inner {
   position: relative;
   z-index: 10;
-  min-height: clamp(280px, 45vw, 380px);
+  min-height: clamp(220px, 32vw, 300px);
   display: flex;
   align-items: flex-end;
-  padding-block: 2.75rem;
+  padding-block: 1.75rem;
 }
 
 
