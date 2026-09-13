@@ -8,14 +8,18 @@
    ===============================
    EDIT YOUR PRODUCTS HERE
    ===============================
-   To change a product's name, price, description or image,
-   edit the matching field below. To replace an image, just
-   change the "image" path, e.g.:
-     "image": "images/tv-beds/img-1.png"
+   To change a product's name, price, description or images,
+   edit the matching field below. Each product has an "images"
+   array — the first entry is used as the card-grid photo and
+   the gallery's main image. To replace an image, edit the
+   matching path in the array, e.g.:
+     "images/tv-beds/img-1.png"
    becomes:
-     "image": "images/tv-beds/my-new-photo.jpg"
+     "images/tv-beds/my-new-photo.jpg"
    No slugs, no auto-generated filenames.
    ========================================================= */
+
+console.log("[Rabbora] tv-beds.js loaded — real-images-v1 — 12 products, each with 3 real images (tv/img-1.png through tv/img-36.png). If this line does not appear in your browser console, or says something different, the live server is NOT running this file — re-upload it.");
 
 var TV_BED_PRODUCTS = 
 [
@@ -25,14 +29,20 @@ var TV_BED_PRODUCTS =
     "name": "2026 Bedflix Duke TV Bed Frame (3 Piece Headboard)",
     "price": 999,
     "oldPrice": 1399,
-    "monthly": 84,
+    "monthlyPrice": 84,
     "rating": 5,
-    "reviews": 0,
+    "reviewCount": 0,
     "badge": "29% Off",
     "maxScreenSize": "Up to 32\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "The Chelsea TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -67,7 +77,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-1.png"
+    "images": [
+      "tv/img-1.png",
+      "tv/img-2.png",
+      "tv/img-3.png"
+    ]
   },
   {
     "id": 2,
@@ -75,14 +89,20 @@ var TV_BED_PRODUCTS =
     "name": "2026 Bedflix Manhattan TV Bed Frame (27 to 43)",
     "price": 990,
     "oldPrice": 1399,
-    "monthly": 83,
+    "monthlyPrice": 83,
     "rating": 5,
-    "reviews": 0,
+    "reviewCount": 0,
     "badge": "29% Off",
     "maxScreenSize": "Up to 40\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Hampton TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -117,7 +137,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-2.png"
+    "images": [
+      "tv/img-4.png",
+      "tv/img-5.png",
+      "tv/img-6.png"
+    ]
   },
   {
     "id": 3,
@@ -125,14 +149,20 @@ var TV_BED_PRODUCTS =
     "name": "2026 Bedflix TV Bed Frame (27 to 43)",
     "price": 1099,
     "oldPrice": 1399,
-    "monthly": 92,
+    "monthlyPrice": 92,
     "rating": 5,
-    "reviews": 0,
+    "reviewCount": 0,
     "badge": "21% Off",
     "maxScreenSize": "Up to 43\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "The Windsor TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -167,7 +197,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-3.png"
+    "images": [
+      "tv/img-7.png",
+      "tv/img-8.png",
+      "tv/img-9.png"
+    ]
   },
   {
     "id": 4,
@@ -175,14 +209,20 @@ var TV_BED_PRODUCTS =
     "name": "2026 Bedflix Davinci TV Bed Frame (2 Piece Headboard)",
     "price": 999,
     "oldPrice": 1399,
-    "monthly": 84,
+    "monthlyPrice": 84,
     "rating": 0,
-    "reviews": 0,
+    "reviewCount": 0,
     "badge": "29% Off",
     "maxScreenSize": "Up to 50\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "The Kensington TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -217,7 +257,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-4.png"
+    "images": [
+      "tv/img-10.png",
+      "tv/img-11.png",
+      "tv/img-12.png"
+    ]
   },
   {
     "id": 5,
@@ -225,14 +269,20 @@ var TV_BED_PRODUCTS =
     "name": "Mayfair TV Bed",
     "price": 735,
     "oldPrice": null,
-    "monthly": 61,
+    "monthlyPrice": 61,
     "rating": 4,
-    "reviews": 62,
+    "reviewCount": 62,
     "badge": "Best Seller",
     "maxScreenSize": "Up to 32\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "The Mayfair TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -267,7 +317,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-5.png"
+    "images": [
+      "tv/img-13.png",
+      "tv/img-14.png",
+      "tv/img-15.png"
+    ]
   },
   {
     "id": 6,
@@ -275,14 +329,20 @@ var TV_BED_PRODUCTS =
     "name": "Richmond TV Bed",
     "price": 769,
     "oldPrice": null,
-    "monthly": 64,
+    "monthlyPrice": 64,
     "rating": 5,
-    "reviews": 73,
+    "reviewCount": 73,
     "badge": "New",
     "maxScreenSize": "Up to 40\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Richmond TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -317,7 +377,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-6.png"
+    "images": [
+      "tv/img-16.png",
+      "tv/img-17.png",
+      "tv/img-18.png"
+    ]
   },
   {
     "id": 7,
@@ -325,14 +389,20 @@ var TV_BED_PRODUCTS =
     "name": "Cambridge TV Bed",
     "price": 803,
     "oldPrice": 893,
-    "monthly": 67,
+    "monthlyPrice": 67,
     "rating": 5,
-    "reviews": 84,
+    "reviewCount": 84,
     "badge": null,
     "maxScreenSize": "Up to 43\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "The Cambridge TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -367,7 +437,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-7.png"
+    "images": [
+      "tv/img-19.png",
+      "tv/img-20.png",
+      "tv/img-21.png"
+    ]
   },
   {
     "id": 8,
@@ -375,14 +449,20 @@ var TV_BED_PRODUCTS =
     "name": "Victoria TV Bed",
     "price": 837,
     "oldPrice": null,
-    "monthly": 70,
+    "monthlyPrice": 70,
     "rating": 5,
-    "reviews": 95,
+    "reviewCount": 95,
     "badge": "Best Seller",
     "maxScreenSize": "Up to 50\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "The Victoria TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -417,7 +497,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-8.png"
+    "images": [
+      "tv/img-22.png",
+      "tv/img-23.png",
+      "tv/img-24.png"
+    ]
   },
   {
     "id": 9,
@@ -425,14 +509,20 @@ var TV_BED_PRODUCTS =
     "name": "Oxford TV Bed",
     "price": 871,
     "oldPrice": null,
-    "monthly": 73,
+    "monthlyPrice": 73,
     "rating": 4,
-    "reviews": 106,
+    "reviewCount": 106,
     "badge": null,
     "maxScreenSize": "Up to 32\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "The Oxford TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -467,7 +557,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-9.png"
+    "images": [
+      "tv/img-25.png",
+      "tv/img-26.png",
+      "tv/img-27.png"
+    ]
   },
   {
     "id": 10,
@@ -475,14 +569,20 @@ var TV_BED_PRODUCTS =
     "name": "Chester TV Bed",
     "price": 905,
     "oldPrice": 995,
-    "monthly": 75,
+    "monthlyPrice": 75,
     "rating": 5,
-    "reviews": 117,
+    "reviewCount": 117,
     "badge": null,
     "maxScreenSize": "Up to 40\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Chester TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -517,7 +617,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-10.png"
+    "images": [
+      "tv/img-28.png",
+      "tv/img-29.png",
+      "tv/img-30.png"
+    ]
   },
   {
     "id": 11,
@@ -525,14 +629,20 @@ var TV_BED_PRODUCTS =
     "name": "Kingston TV Bed",
     "price": 939,
     "oldPrice": null,
-    "monthly": 78,
+    "monthlyPrice": 78,
     "rating": 5,
-    "reviews": 128,
+    "reviewCount": 128,
     "badge": "Best Seller",
     "maxScreenSize": "Up to 43\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "The Kingston TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -567,7 +677,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-11.png"
+    "images": [
+      "tv/img-31.png",
+      "tv/img-32.png",
+      "tv/img-33.png"
+    ]
   },
   {
     "id": 12,
@@ -575,14 +689,20 @@ var TV_BED_PRODUCTS =
     "name": "Brighton TV Bed",
     "price": 973,
     "oldPrice": null,
-    "monthly": 81,
+    "monthlyPrice": 81,
     "rating": 5,
-    "reviews": 139,
+    "reviewCount": 139,
     "badge": null,
     "maxScreenSize": "Up to 50\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "The Brighton TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Small Double",
       "Double",
       "King",
@@ -617,7 +737,11 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/tv-beds/img-12.png"
+    "images": [
+      "tv/img-34.png",
+      "tv/img-35.png",
+      "tv/img-36.png"
+    ]
   }
 ];
 
@@ -711,9 +835,14 @@ var TV_BED_SIZE_DELTAS = {
 
     var breadcrumbName = document.getElementById("tvDetailBreadcrumbName");
     var mainImage = document.getElementById("tvGalleryMainImage");
+    var imagePlaceholder = document.getElementById("tvDetailImagePlaceholder");
     var thumbsWrap = document.getElementById("tvGalleryThumbs");
     var prevBtn = document.getElementById("tvGalleryPrev");
     var nextBtn = document.getElementById("tvGalleryNext");
+    var zoomBtn = document.getElementById("tvGalleryZoom");
+    var lightbox = document.getElementById("tvLightbox");
+    var lightboxImage = document.getElementById("tvLightboxImage");
+    var lightboxClose = document.getElementById("tvLightboxClose");
     var screenSizeEl = document.getElementById("tvDetailScreenSize");
     var titleEl = document.getElementById("tvDetailTitle");
     var starsEl = document.getElementById("tvDetailStars");
@@ -748,9 +877,32 @@ var TV_BED_SIZE_DELTAS = {
     }
 
     function renderGallery(product) {
-      var images = product.gallery && product.gallery.length ? product.gallery : [product.image];
+      var images = (product.images && product.images.length) ? product.images : [];
+
+      if (images.length === 0) {
+        mainImage.hidden = true;
+        mainImage.removeAttribute("src");
+        if (imagePlaceholder) imagePlaceholder.hidden = false;
+        thumbsWrap.innerHTML = "";
+        prevBtn.hidden = true;
+        nextBtn.hidden = true;
+        if (zoomBtn) zoomBtn.hidden = true;
+        return;
+      }
+
+      if (zoomBtn) zoomBtn.hidden = false;
+      mainImage.hidden = false;
+      if (imagePlaceholder) imagePlaceholder.hidden = true;
       mainImage.src = images[tvState.imageIndex] || images[0];
-      mainImage.alt = product.name;
+      mainImage.alt = "";
+      mainImage.onerror = function () {
+        mainImage.hidden = true;
+        if (imagePlaceholder) imagePlaceholder.hidden = false;
+      };
+      mainImage.onload = function () {
+        mainImage.hidden = false;
+        if (imagePlaceholder) imagePlaceholder.hidden = true;
+      };
 
       thumbsWrap.innerHTML = "";
       if (images.length > 1) {
@@ -763,6 +915,7 @@ var TV_BED_SIZE_DELTAS = {
           img.src = src;
           img.alt = "";
           img.loading = "lazy";
+          img.onerror = function () { img.style.visibility = "hidden"; };
           if (index === tvState.imageIndex) img.classList.add("is-active");
           thumb.appendChild(img);
           thumb.addEventListener("click", function () {
@@ -778,7 +931,7 @@ var TV_BED_SIZE_DELTAS = {
 
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
-      product.sizes.forEach(function (size) {
+      product.availableSizes.forEach(function (size) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "tv-option-pill";
@@ -803,7 +956,7 @@ var TV_BED_SIZE_DELTAS = {
     }
 
     function renderDimensions(product) {
-      var rows = product.sizes.map(function (size) {
+      var rows = product.availableSizes.map(function (size) {
         var d = product.dimensions[size];
         return "<tr><td>" + size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
       }).join("");
@@ -825,14 +978,13 @@ var TV_BED_SIZE_DELTAS = {
         card.innerHTML =
           '<div class="product-card__image-wrap">' +
             '<a class="product-card__image-link" href="tv-beds.html#/' + p.slug + '">' +
-              '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
+              '<img src="' + p.images[0] + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
             '</a>' + badgeHtml +
           '</div>' +
           '<div class="product-card__body">' +
             '<a href="tv-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
             '<div class="product-card__rating">' +
-              '<span class="product-card__stars" aria-hidden="true">' + stars(p.rating) + '</span>' +
-              '<span class="product-card__review-count">(' + p.reviews + ')</span>' +
+              '<span class="product-card__no-reviews">No reviews yet</span>' +
             '</div>' +
             '<div class="product-card__price-row">' +
               '<span class="product-card__price">' + money(p.price) + '</span>' + prevHtml +
@@ -852,9 +1004,9 @@ var TV_BED_SIZE_DELTAS = {
       breadcrumbName.textContent = product.name;
       screenSizeEl.textContent = "Fits TVs " + product.maxScreenSize.toLowerCase();
       titleEl.textContent = product.name;
-      starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = product.reviews > 0 ? "(" + product.reviews + ")" : "";
-      monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
+      monthlyEl.textContent = "or from \u00A3" + product.monthlyPrice + "/month";
       descriptionEl.textContent = product.description;
       tvInfoEl.textContent = product.tvInfo;
       deliveryEl.textContent = product.delivery;
@@ -924,7 +1076,8 @@ var TV_BED_SIZE_DELTAS = {
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        var images = currentProduct.images && currentProduct.images.length ? currentProduct.images : [];
+        if (images.length === 0) return;
         tvState.imageIndex = (tvState.imageIndex - 1 + images.length) % images.length;
         renderGallery(currentProduct);
       });
@@ -933,11 +1086,31 @@ var TV_BED_SIZE_DELTAS = {
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        var images = currentProduct.images && currentProduct.images.length ? currentProduct.images : [];
+        if (images.length === 0) return;
         tvState.imageIndex = (tvState.imageIndex + 1) % images.length;
         renderGallery(currentProduct);
       });
     }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener("click", function () {
+        if (!currentProduct || !currentProduct.images || !currentProduct.images.length) return;
+        lightboxImage.src = mainImage.src;
+        lightboxImage.alt = mainImage.alt;
+        lightbox.hidden = false;
+      });
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener("click", function () { lightbox.hidden = true; });
+    if (lightbox) {
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.hidden = true;
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) lightbox.hidden = true;
+    });
 
     if (qtyMinus) {
       qtyMinus.addEventListener("click", function () {
@@ -972,7 +1145,7 @@ var TV_BED_SIZE_DELTAS = {
               slug: currentProduct.slug,
               name: currentProduct.name,
               url: "tv-beds.html#/" + currentProduct.slug,
-              image: currentProduct.image || "",
+              image: (currentProduct.images && currentProduct.images[0]) || "",
               alt: currentProduct.name,
               price: unitPrice,
               category: "TV Beds",
@@ -1000,7 +1173,20 @@ var TV_BED_SIZE_DELTAS = {
     }
   }
 
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.tv-detail__rating), which is
+     populated separately by renderDetail() once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.tv-detail__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initToolbar();
     initViewToggle();
     initFaq();

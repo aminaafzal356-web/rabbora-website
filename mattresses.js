@@ -511,7 +511,7 @@
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.01 }
     );
 
     targets.forEach(function (el) {

@@ -9,12 +9,14 @@
    ===============================
    EDIT YOUR PRODUCTS HERE
    ===============================
-   To change a product's name, price, description or image,
-   just edit the matching field below. To change an image,
-   replace the "image" path — e.g.:
-     "image": "images/rapid-delivery/img-1.png"
+   To change a product's name, price, description or images,
+   just edit the matching field below. Each product has an
+   "images" array — the first entry is used as the card-grid
+   photo and the gallery's main image. To replace an image,
+   edit the matching path in the array, e.g.:
+     "images/rapid-delivery/img-1.png"
    becomes:
-     "image": "images/rapid-delivery/my-new-photo.jpg"
+     "images/rapid-delivery/my-new-photo.jpg"
    No slugs, no auto-generated filenames, nothing else to update.
    ========================================================= */
 
@@ -27,13 +29,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 279,
     "oldPrice": 339,
-    "monthly": 23,
+    "monthlyPrice": 23,
     "rating": 4,
-    "reviews": 24,
+    "reviewCount": 24,
     "badge": "Rapid Delivery",
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Chelsea Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -71,11 +80,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "rapid/1.jfif",
     "images": [
-      "images/rapid-delivery-beds/chelsea-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/chelsea-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/chelsea-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-1.png",
+      "images/rapid-delivery-beds/img-2.png",
+      "images/rapid-delivery-beds/img-3.png"
     ]
   },
   {
@@ -85,13 +93,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 302,
     "oldPrice": null,
-    "monthly": 25,
+    "monthlyPrice": 25,
     "rating": 5,
-    "reviews": 31,
+    "reviewCount": 31,
     "badge": "Rapid Delivery",
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Hampton Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -129,11 +144,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-2.png",
     "images": [
-      "images/rapid-delivery-beds/hampton-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/hampton-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/hampton-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-4.png",
+      "images/rapid-delivery-beds/img-5.png",
+      "images/rapid-delivery-beds/img-6.png"
     ]
   },
   {
@@ -143,13 +157,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Divan",
     "price": 325,
     "oldPrice": null,
-    "monthly": 27,
+    "monthlyPrice": 27,
     "rating": 5,
-    "reviews": 38,
+    "reviewCount": 38,
     "badge": "Rapid Delivery",
     "shortInfo": "Divan bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Windsor Rapid Bed is a handmade divan bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -187,11 +208,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-3.png",
     "images": [
-      "images/rapid-delivery-beds/windsor-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/windsor-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/windsor-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-7.png",
+      "images/rapid-delivery-beds/img-8.png",
+      "images/rapid-delivery-beds/img-9.png"
     ]
   },
   {
@@ -201,13 +221,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 348,
     "oldPrice": 408,
-    "monthly": 29,
+    "monthlyPrice": 29,
     "rating": 5,
-    "reviews": 45,
+    "reviewCount": 45,
     "badge": null,
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Kensington Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -245,11 +272,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-4.png",
     "images": [
-      "images/rapid-delivery-beds/kensington-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/kensington-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/kensington-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-10.png",
+      "images/rapid-delivery-beds/img-11.png",
+      "images/rapid-delivery-beds/img-12.png"
     ]
   },
   {
@@ -259,13 +285,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 371,
     "oldPrice": null,
-    "monthly": 31,
+    "monthlyPrice": 31,
     "rating": 4,
-    "reviews": 52,
+    "reviewCount": 52,
     "badge": "Rapid Delivery",
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Mayfair Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -303,11 +336,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-5.png",
     "images": [
-      "images/rapid-delivery-beds/mayfair-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/mayfair-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/mayfair-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-13.png",
+      "images/rapid-delivery-beds/img-14.png",
+      "images/rapid-delivery-beds/img-15.png"
     ]
   },
   {
@@ -317,13 +349,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Divan",
     "price": 394,
     "oldPrice": null,
-    "monthly": 33,
+    "monthlyPrice": 33,
     "rating": 5,
-    "reviews": 59,
+    "reviewCount": 59,
     "badge": "Rapid Delivery",
     "shortInfo": "Divan bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Richmond Rapid Bed is a handmade divan bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -361,11 +400,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-6.png",
     "images": [
-      "images/rapid-delivery-beds/richmond-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/richmond-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/richmond-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-16.png",
+      "images/rapid-delivery-beds/img-17.png",
+      "images/rapid-delivery-beds/img-18.png"
     ]
   },
   {
@@ -375,13 +413,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 417,
     "oldPrice": 477,
-    "monthly": 35,
+    "monthlyPrice": 35,
     "rating": 5,
-    "reviews": 66,
+    "reviewCount": 66,
     "badge": "Rapid Delivery",
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Cambridge Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -419,11 +464,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-7.png",
     "images": [
-      "images/rapid-delivery-beds/cambridge-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/cambridge-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/cambridge-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-19.png",
+      "images/rapid-delivery-beds/img-20.png",
+      "images/rapid-delivery-beds/img-21.png"
     ]
   },
   {
@@ -433,13 +477,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 440,
     "oldPrice": null,
-    "monthly": 37,
+    "monthlyPrice": 37,
     "rating": 5,
-    "reviews": 73,
+    "reviewCount": 73,
     "badge": null,
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Victoria Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -477,11 +528,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-8.png",
     "images": [
-      "images/rapid-delivery-beds/victoria-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/victoria-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/victoria-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-22.png",
+      "images/rapid-delivery-beds/img-23.png",
+      "images/rapid-delivery-beds/img-24.png"
     ]
   },
   {
@@ -491,13 +541,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Divan",
     "price": 463,
     "oldPrice": null,
-    "monthly": 39,
+    "monthlyPrice": 39,
     "rating": 4,
-    "reviews": 80,
+    "reviewCount": 80,
     "badge": "Rapid Delivery",
     "shortInfo": "Divan bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Oxford Rapid Bed is a handmade divan bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -535,11 +592,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-9.png",
     "images": [
-      "images/rapid-delivery-beds/oxford-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/oxford-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/oxford-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-25.png",
+      "images/rapid-delivery-beds/img-26.png",
+      "images/rapid-delivery-beds/img-27.png"
     ]
   },
   {
@@ -549,13 +605,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 486,
     "oldPrice": 546,
-    "monthly": 40,
+    "monthlyPrice": 40,
     "rating": 5,
-    "reviews": 87,
+    "reviewCount": 87,
     "badge": "Rapid Delivery",
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Chester Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -593,11 +656,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-10.png",
     "images": [
-      "images/rapid-delivery-beds/chester-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/chester-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/chester-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-28.png",
+      "images/rapid-delivery-beds/img-29.png",
+      "images/rapid-delivery-beds/img-30.png"
     ]
   },
   {
@@ -607,13 +669,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 509,
     "oldPrice": null,
-    "monthly": 42,
+    "monthlyPrice": 42,
     "rating": 5,
-    "reviews": 94,
+    "reviewCount": 94,
     "badge": "Rapid Delivery",
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Kingston Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -651,11 +720,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-11.png",
     "images": [
-      "images/rapid-delivery-beds/kingston-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/kingston-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/kingston-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-31.png",
+      "images/rapid-delivery-beds/img-32.png",
+      "images/rapid-delivery-beds/img-33.png"
     ]
   },
   {
@@ -665,13 +733,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Divan",
     "price": 532,
     "oldPrice": null,
-    "monthly": 44,
+    "monthlyPrice": 44,
     "rating": 5,
-    "reviews": 101,
+    "reviewCount": 101,
     "badge": null,
     "shortInfo": "Divan bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Brighton Rapid Bed is a handmade divan bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -709,11 +784,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-12.png",
     "images": [
-      "images/rapid-delivery-beds/brighton-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/brighton-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/brighton-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-34.png",
+      "images/rapid-delivery-beds/img-35.png",
+      "images/rapid-delivery-beds/img-36.png"
     ]
   },
   {
@@ -723,13 +797,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 295,
     "oldPrice": 355,
-    "monthly": 25,
+    "monthlyPrice": 25,
     "rating": 4,
-    "reviews": 108,
+    "reviewCount": 108,
     "badge": "Rapid Delivery",
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Lancaster Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -767,11 +848,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-13.png",
     "images": [
-      "images/rapid-delivery-beds/lancaster-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/lancaster-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/lancaster-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-37.png",
+      "images/rapid-delivery-beds/img-38.png",
+      "images/rapid-delivery-beds/img-39.png"
     ]
   },
   {
@@ -781,13 +861,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 318,
     "oldPrice": null,
-    "monthly": 26,
+    "monthlyPrice": 26,
     "rating": 5,
-    "reviews": 115,
+    "reviewCount": 115,
     "badge": "Rapid Delivery",
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Bristol Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -825,11 +912,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-14.png",
     "images": [
-      "images/rapid-delivery-beds/bristol-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/bristol-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/bristol-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-40.png",
+      "images/rapid-delivery-beds/img-41.png",
+      "images/rapid-delivery-beds/img-42.png"
     ]
   },
   {
@@ -839,13 +925,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Divan",
     "price": 341,
     "oldPrice": null,
-    "monthly": 28,
+    "monthlyPrice": 28,
     "rating": 5,
-    "reviews": 122,
+    "reviewCount": 122,
     "badge": "Rapid Delivery",
     "shortInfo": "Divan bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Soho Rapid Bed is a handmade divan bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -883,11 +976,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-15.png",
     "images": [
-      "images/rapid-delivery-beds/soho-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/soho-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/soho-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-43.png",
+      "images/rapid-delivery-beds/img-44.png",
+      "images/rapid-delivery-beds/img-45.png"
     ]
   },
   {
@@ -897,13 +989,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 364,
     "oldPrice": 424,
-    "monthly": 30,
+    "monthlyPrice": 30,
     "rating": 5,
-    "reviews": 129,
+    "reviewCount": 129,
     "badge": null,
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Belgravia Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -941,11 +1040,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-16.png",
     "images": [
-      "images/rapid-delivery-beds/belgravia-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/belgravia-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/belgravia-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-46.png",
+      "images/rapid-delivery-beds/img-47.png",
+      "images/rapid-delivery-beds/img-48.png"
     ]
   },
   {
@@ -955,13 +1053,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 387,
     "oldPrice": null,
-    "monthly": 32,
+    "monthlyPrice": 32,
     "rating": 4,
-    "reviews": 136,
+    "reviewCount": 136,
     "badge": "Rapid Delivery",
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Fulham Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -999,11 +1104,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-17.png",
     "images": [
-      "images/rapid-delivery-beds/fulham-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/fulham-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/fulham-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-49.png",
+      "images/rapid-delivery-beds/img-50.png",
+      "images/rapid-delivery-beds/img-51.png"
     ]
   },
   {
@@ -1013,13 +1117,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Divan",
     "price": 410,
     "oldPrice": null,
-    "monthly": 34,
+    "monthlyPrice": 34,
     "rating": 5,
-    "reviews": 143,
+    "reviewCount": 143,
     "badge": "Rapid Delivery",
     "shortInfo": "Divan bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Greenwich Rapid Bed is a handmade divan bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -1057,11 +1168,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-18.png",
     "images": [
-      "images/rapid-delivery-beds/greenwich-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/greenwich-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/greenwich-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-52.png",
+      "images/rapid-delivery-beds/img-53.png",
+      "images/rapid-delivery-beds/img-54.png"
     ]
   },
   {
@@ -1071,13 +1181,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Upholstered",
     "price": 433,
     "oldPrice": 493,
-    "monthly": 36,
+    "monthlyPrice": 36,
     "rating": 5,
-    "reviews": 150,
+    "reviewCount": 150,
     "badge": "Rapid Delivery",
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Camden Rapid Bed is a handmade upholstered bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -1115,11 +1232,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-19.png",
     "images": [
-      "images/rapid-delivery-beds/camden-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/camden-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/camden-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-55.png",
+      "images/rapid-delivery-beds/img-56.png",
+      "images/rapid-delivery-beds/img-57.png"
     ]
   },
   {
@@ -1129,13 +1245,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "type": "Ottoman Storage",
     "price": 456,
     "oldPrice": null,
-    "monthly": 38,
+    "monthlyPrice": 38,
     "rating": 5,
-    "reviews": 157,
+    "reviewCount": 157,
     "badge": null,
     "shortInfo": "Ottoman Storage bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "The Putney Rapid Bed is a handmade ottoman storage bed frame selected for faster delivery. Built on a solid, supportive frame with a tailored fabric finish, it's designed to be a comfortable, lasting centrepiece for your bedroom, with dispatch times faster than our standard made-to-order range.",
-    "sizes": [
+    "availableSizeLabels": [
+      "Single 3ft",
+      "Small Double 4ft",
+      "Double 4ft 6\"",
+      "King 5ft",
+      "Super King 6ft"
+    ],
+    "availableSizes": [
       "Single",
       "Small Double",
       "Double",
@@ -1173,11 +1296,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "delivery": "Rapid Delivery on selected sizes and fabrics \u2014 see delivery process below.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "image": "images/rapid-delivery/img-20.png",
     "images": [
-      "images/rapid-delivery-beds/putney-rapid-bed-main.svg",
-      "images/rapid-delivery-beds/putney-rapid-bed-angle.svg",
-      "images/rapid-delivery-beds/putney-rapid-bed-closeup.svg"
+      "images/rapid-delivery-beds/img-58.png",
+      "images/rapid-delivery-beds/img-59.png",
+      "images/rapid-delivery-beds/img-60.png"
     ]
   }
 ];
@@ -1361,9 +1483,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     }
 
     function renderGallery(product) {
-      var images = (product.images && product.images.length) ? product.images :
-                   (product.gallery && product.gallery.length) ? product.gallery :
-                   [product.image];
+      var images = product.images;
       mainImage.src = images[rd2State.imageIndex] || images[0];
       mainImage.alt = "";
       mainImage.onerror = function () {
@@ -1377,31 +1497,29 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
 
       // When only one real photo exists for this product, show it
       // repeated across a few thumbnail slots so the gallery strip has
-      // its normal shape — using only the real, existing image, not an
-      // invented one.
-      var thumbImages = images.length > 1 ? images : [images[0], images[0], images[0]];
-
       thumbsWrap.innerHTML = "";
-      thumbImages.forEach(function (src, index) {
-        var img = document.createElement("img");
-        img.src = src;
-        img.alt = "";
-        img.loading = "lazy";
-        img.onerror = function () { img.style.visibility = "hidden"; };
-        if (index === rd2State.imageIndex) img.classList.add("is-active");
-        img.addEventListener("click", function () {
-          rd2State.imageIndex = index;
-          renderGallery(product);
+      if (images.length > 1) {
+        images.forEach(function (src, index) {
+          var img = document.createElement("img");
+          img.src = src;
+          img.alt = "";
+          img.loading = "lazy";
+          img.onerror = function () { img.style.visibility = "hidden"; };
+          if (index === rd2State.imageIndex) img.classList.add("is-active");
+          img.addEventListener("click", function () {
+            rd2State.imageIndex = index;
+            renderGallery(product);
+          });
+          thumbsWrap.appendChild(img);
         });
-        thumbsWrap.appendChild(img);
-      });
+      }
       prevBtn.hidden = images.length < 2;
       nextBtn.hidden = images.length < 2;
     }
 
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
-      product.sizes.forEach(function (size) {
+      product.availableSizes.forEach(function (size) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "rd2-option-pill";
@@ -1454,7 +1572,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     }
 
     function renderDimensions(product) {
-      var rows = product.sizes.map(function (size) {
+      var rows = product.availableSizes.map(function (size) {
         var d = product.dimensions[size];
         return "<tr><td>" + size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
       }).join("");
@@ -1478,14 +1596,13 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         card.innerHTML =
           '<div class="product-card__image-wrap">' +
             '<a class="product-card__image-link" href="rapid-delivery-beds.html#/' + p.slug + '">' +
-              '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
+              '<img src="' + p.images[0] + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
             '</a>' + badgeHtml +
           '</div>' +
           '<div class="product-card__body">' +
             '<a href="rapid-delivery-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
             '<div class="product-card__rating">' +
-              '<span class="product-card__stars" aria-hidden="true">' + stars(p.rating) + '</span>' +
-              '<span class="product-card__review-count">(' + p.reviews + ')</span>' +
+              '<span class="product-card__no-reviews">No reviews yet</span>' +
             '</div>' +
             '<div class="product-card__price-row">' +
               '<span class="product-card__price">' + money(p.price) + '</span>' + prevHtml +
@@ -1511,7 +1628,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
       titleEl.textContent = product.name;
       starsEl.textContent = "";
       reviewCountEl.textContent = "No reviews yet";
-      monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
+      monthlyEl.textContent = "or from \u00A3" + product.monthlyPrice + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
       warrantyEl.textContent = product.warranty;
@@ -1595,7 +1712,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = (currentProduct.images && currentProduct.images.length) ? currentProduct.images : (currentProduct.gallery && currentProduct.gallery.length) ? currentProduct.gallery : [currentProduct.image];
+        var images = currentProduct.images;
         rd2State.imageIndex = (rd2State.imageIndex - 1 + images.length) % images.length;
         renderGallery(currentProduct);
       });
@@ -1604,7 +1721,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = (currentProduct.images && currentProduct.images.length) ? currentProduct.images : (currentProduct.gallery && currentProduct.gallery.length) ? currentProduct.gallery : [currentProduct.image];
+        var images = currentProduct.images;
         rd2State.imageIndex = (rd2State.imageIndex + 1) % images.length;
         renderGallery(currentProduct);
       });
@@ -1663,7 +1780,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
               slug: currentProduct.slug,
               name: currentProduct.name,
               url: "rapid-delivery-beds.html#/" + currentProduct.slug,
-              image: currentProduct.image || "",
+              image: currentProduct.images[0] || "",
               alt: currentProduct.name,
               price: unitPrice,
               category: "Rapid Delivery Beds",

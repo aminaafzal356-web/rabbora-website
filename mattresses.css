@@ -3953,7 +3953,7 @@ body.sf-drawer-open {
 
 /* ---- Product grid: exactly 3 per row on desktop ---- */
 .mt-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   transition: opacity 0.2s var(--ease);
 }
 
