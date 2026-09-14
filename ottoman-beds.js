@@ -6998,9 +6998,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/bow-ottoman-bed-main.svg",
-      "images/ottoman-beds/bow-ottoman-bed-angle.svg",
-      "images/ottoman-beds/bow-ottoman-bed-closeup.svg"
+      "slatted/174.png",
+    "slatted/175.png",
+    "slatted/176.jfif"
     ]
   },
   {
@@ -7091,9 +7091,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/poplar-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/poplar-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/poplar-slatted-ottoman-bed-closeup.svg"
+      "slatted/171.jfif",
+    "slatted/172.png",
+    "slatted/173.jfif"
     ]
   },
   {
@@ -7184,9 +7184,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/limehouse-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/limehouse-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/limehouse-slatted-ottoman-bed-closeup.svg"
+    "slatted/168.jfif",
+    "slatted/169.png",
+    "slatted/170.jfif"
     ]
   },
   {
@@ -7277,9 +7277,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/rotherhithe-ottoman-bed-main.svg",
-      "images/ottoman-beds/rotherhithe-ottoman-bed-angle.svg",
-      "images/ottoman-beds/rotherhithe-ottoman-bed-closeup.svg"
+      "slatted/165.jfif",
+    "slatted/166.jfif",
+    "slatted/167.png"
     ]
   },
   {
@@ -7370,9 +7370,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/deptford-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/deptford-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/deptford-slatted-ottoman-bed-closeup.svg"
+      "slatted/160.jfif",
+    "slatted/161.jfif",
+    "slatted/162.jfif"
     ]
   },
   {
@@ -7463,9 +7463,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/new-cross-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/new-cross-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/new-cross-slatted-ottoman-bed-closeup.svg"
+     "slatted/157.jfif",
+    "slatted/158.jfif",
+    "slatted/159.png"
     ]
   },
   {
@@ -7556,9 +7556,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/catford-ottoman-bed-main.svg",
-      "images/ottoman-beds/catford-ottoman-bed-angle.svg",
-      "images/ottoman-beds/catford-ottoman-bed-closeup.svg"
+     "slatted/154.jfif",
+    "slatted/155.jfif",
+    "slatted/156.jfif"
     ]
   },
   {
@@ -7649,9 +7649,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/sydenham-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/sydenham-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/sydenham-slatted-ottoman-bed-closeup.svg"
+    "slatted/153.png",
+    "slatted/152.png",
+    "slatted/151.png"
     ]
   },
   {
@@ -7742,9 +7742,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/crystal-palace-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/crystal-palace-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/crystal-palace-slatted-ottoman-bed-closeup.svg"
+     "slatted/148.jfif",
+    "slatted/149.png",
+    "slatted/150.jfif"
     ]
   },
   {
@@ -7835,9 +7835,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/norwood-ottoman-bed-main.svg",
-      "images/ottoman-beds/norwood-ottoman-bed-angle.svg",
-      "images/ottoman-beds/norwood-ottoman-bed-closeup.svg"
+       "slatted/147.png",
+    "slatted/145.png",
+    "slatted/146.jfif"
     ]
   },
   {
@@ -7928,9 +7928,9 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/streatham-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/streatham-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/streatham-slatted-ottoman-bed-closeup.svg"
+     "slatted/142.jfif",
+    "slatted/143.jfif",
+    "slatted/144.jfif"
     ]
   },
   {
@@ -8021,11 +8021,11 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-        "slatted/140.jfif",
+    "slatted/140.jfif",
     "slatted/139.png",
     "slatted/141.jfif"
     ]
-  },
+  }, 
   {
     "id": 81,
     "slug": "tooting-ottoman-bed",

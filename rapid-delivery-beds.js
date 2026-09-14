@@ -81,9 +81,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-1.png",
-      "images/rapid-delivery-beds/img-2.png",
-      "images/rapid-delivery-beds/img-3.png"
+      "solid/1.jfif",
+      "solid/2.jfif",
+      "solid/3.jfif",
+      "solid/4.jfif",
+      "solid/5.jfif",
+      "solid/6.jfif"
     ]
   },
   {
@@ -145,9 +148,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-4.png",
-      "images/rapid-delivery-beds/img-5.png",
-      "images/rapid-delivery-beds/img-6.png"
+      "solid/7.jfif",
+      "solid/8.jfif",
+      "solid/9.jfif",
+      "solid/10.jfif",
+      "solid/11.jfif",
+      "solid/12.jfif"
     ]
   },
   {
@@ -209,9 +215,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-7.png",
-      "images/rapid-delivery-beds/img-8.png",
-      "images/rapid-delivery-beds/img-9.png"
+      "solid/13.jfif",
+      "solid/14.jfif",
+      "solid/15.jfif",
+      "solid/16.jfif",
+      "solid/17.jfif",
+      "solid/18.jfif"
     ]
   },
   {
@@ -273,9 +282,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-10.png",
-      "images/rapid-delivery-beds/img-11.png",
-      "images/rapid-delivery-beds/img-12.png"
+      "solid/19.jfif",
+      "solid/20.jfif",
+      "solid/21.jfif",
+      "solid/22.jfif",
+      "solid/23.jfif",
+      "solid/24.jfif"
     ]
   },
   {
@@ -337,9 +349,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-13.png",
-      "images/rapid-delivery-beds/img-14.png",
-      "images/rapid-delivery-beds/img-15.png"
+      "solid/25.jfif",
+      "solid/26.jfif",
+      "solid/27.jfif",
+      "solid/28.jfif",
+      "solid/29.jfif",
+      "solid/30.jfif"
     ]
   },
   {
@@ -401,9 +416,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-16.png",
-      "images/rapid-delivery-beds/img-17.png",
-      "images/rapid-delivery-beds/img-18.png"
+      "solid/31.jfif",
+      "solid/32.jfif",
+      "solid/33.jfif",
+      "solid/34.jfif",
+      "solid/35.jfif",
+      "solid/36.jfif"
     ]
   },
   {
@@ -465,9 +483,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-19.png",
-      "images/rapid-delivery-beds/img-20.png",
-      "images/rapid-delivery-beds/img-21.png"
+      "solid/37.jfif",
+      "solid/38.jfif",
+      "solid/39.jfif",
+      "solid/40.jfif",
+      "solid/41.jfif",
+      "solid/42.jfif"
     ]
   },
   {
@@ -529,9 +550,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-22.png",
-      "images/rapid-delivery-beds/img-23.png",
-      "images/rapid-delivery-beds/img-24.png"
+      "solid/43.jfif",
+      "solid/44.jfif",
+      "solid/45.jfif",
+      "solid/46.jfif",
+      "solid/47.jfif",
+      "solid/48.jfif"
     ]
   },
   {
@@ -593,9 +617,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-25.png",
-      "images/rapid-delivery-beds/img-26.png",
-      "images/rapid-delivery-beds/img-27.png"
+      "solid/49.jfif",
+      "solid/50.jfif",
+      "solid/51.jfif",
+      "solid/52.jfif",
+      "solid/53.jfif",
+      "solid/54.jfif"
     ]
   },
   {
@@ -657,9 +684,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-28.png",
-      "images/rapid-delivery-beds/img-29.png",
-      "images/rapid-delivery-beds/img-30.png"
+      "solid/55.jfif",
+      "solid/56.jfif",
+      "solid/57.jfif",
+      "solid/58.jfif",
+      "solid/59.jfif",
+      "solid/60.jfif"
     ]
   },
   {
@@ -721,9 +751,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-31.png",
-      "images/rapid-delivery-beds/img-32.png",
-      "images/rapid-delivery-beds/img-33.png"
+      "solid/61.jfif",
+      "solid/62.jfif",
+      "solid/63.jfif",
+      "solid/64.jfif",
+      "solid/65.jfif",
+      "solid/66.jfif"
     ]
   },
   {
@@ -785,9 +818,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-34.png",
-      "images/rapid-delivery-beds/img-35.png",
-      "images/rapid-delivery-beds/img-36.png"
+      "solid/67.jfif",
+      "solid/68.jfif",
+      "solid/69.jfif",
+      "solid/70.jfif",
+      "solid/71.jfif",
+      "solid/72.jfif"
     ]
   },
   {
@@ -849,9 +885,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-37.png",
-      "images/rapid-delivery-beds/img-38.png",
-      "images/rapid-delivery-beds/img-39.png"
+      "solid/73.jfif",
+      "solid/74.jfif",
+      "solid/75.jfif",
+      "solid/76.jfif",
+      "solid/77.jfif",
+      "solid/78.jfif"
     ]
   },
   {
@@ -913,9 +952,12 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-40.png",
-      "images/rapid-delivery-beds/img-41.png",
-      "images/rapid-delivery-beds/img-42.png"
+      "solid/79.jfif",
+      "solid/80.jfif",
+      "solid/81.jfif",
+      "solid/82.jfif",
+      "solid/83.jfif",
+      "solid/84.jfif"
     ]
   },
   {
@@ -977,9 +1019,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-43.png",
-      "images/rapid-delivery-beds/img-44.png",
-      "images/rapid-delivery-beds/img-45.png"
+      "solid/85.jfif",
+      "solid/86.jfif",
+      "solid/87.jfif",
+      "solid/88.jfif",
+      "solid/89.jfif"
     ]
   },
   {
@@ -1041,9 +1085,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-46.png",
-      "images/rapid-delivery-beds/img-47.png",
-      "images/rapid-delivery-beds/img-48.png"
+      "solid/90.jfif",
+      "solid/91.jfif",
+      "solid/92.jfif",
+      "solid/93.jfif",
+      "solid/94.jfif"
     ]
   },
   {
@@ -1105,9 +1151,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-49.png",
-      "images/rapid-delivery-beds/img-50.png",
-      "images/rapid-delivery-beds/img-51.png"
+      "solid/95.jfif",
+      "solid/96.jfif",
+      "solid/97.jfif",
+      "solid/98.jfif",
+      "solid/99.jfif"
     ]
   },
   {
@@ -1169,9 +1217,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-52.png",
-      "images/rapid-delivery-beds/img-53.png",
-      "images/rapid-delivery-beds/img-54.png"
+      "solid/100.jfif",
+      "solid/101.jfif",
+      "solid/102.jfif",
+      "solid/103.jfif",
+      "solid/104.jfif"
     ]
   },
   {
@@ -1233,9 +1283,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-55.png",
-      "images/rapid-delivery-beds/img-56.png",
-      "images/rapid-delivery-beds/img-57.png"
+      "solid/105.jfif",
+      "solid/106.jfif",
+      "solid/107.jfif",
+      "solid/108.jfif",
+      "solid/109.jfif"
     ]
   },
   {
@@ -1297,9 +1349,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "images/rapid-delivery-beds/img-58.png",
-      "images/rapid-delivery-beds/img-59.png",
-      "images/rapid-delivery-beds/img-60.png"
+      "solid/110.jfif",
+      "solid/111.jfif",
+      "solid/112.jfif",
+      "solid/113.jfif",
+      "solid/114.jfif"
     ]
   }
 ];

@@ -250,6 +250,14 @@
   background-color: var(--color-sage);
 }
 
+.bb-modal__main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .mt-option-pills {
   display: flex;
   flex-wrap: wrap;
@@ -1090,4 +1098,46 @@ body.sf-drawer-open {
   font-size: 0.55rem;
   padding: 0;
   border-style: dashed;
+}
+
+/* ---- Fullscreen image lightbox (matching Ottoman Beds) ---- */
+.bb-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background-color: rgba(18, 40, 31, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bb-lightbox[hidden] {
+  display: none;
+}
+
+.bb-lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.bb-lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-ivory-soft);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.bb-lightbox__close:hover {
+  background-color: rgba(255, 255, 255, 0.28);
 }

@@ -34,7 +34,9 @@
       "price": 329.0,
       "oldPrice": 379.0,
       "monthly": 27,
-      "drawers": 2
+      "drawers": 2,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-2",
@@ -47,7 +49,9 @@
       "price": 356.0,
       "oldPrice": null,
       "monthly": 30,
-      "drawers": 4
+      "drawers": 4,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-3",
@@ -60,7 +64,9 @@
       "price": 383.0,
       "oldPrice": null,
       "monthly": 32,
-      "drawers": 2
+      "drawers": 2,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-4",
@@ -73,7 +79,9 @@
       "price": 410.0,
       "oldPrice": 460.0,
       "monthly": 34,
-      "drawers": 4
+      "drawers": 4,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-5",
@@ -86,7 +94,9 @@
       "price": 437.0,
       "oldPrice": null,
       "monthly": 36,
-      "drawers": 2
+      "drawers": 2,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-6",
@@ -99,7 +109,9 @@
       "price": 464.0,
       "oldPrice": null,
       "monthly": 39,
-      "drawers": 4
+      "drawers": 4,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-7",
@@ -112,7 +124,9 @@
       "price": 491.0,
       "oldPrice": 541.0,
       "monthly": 41,
-      "drawers": 2
+      "drawers": 2,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-8",
@@ -125,7 +139,9 @@
       "price": 518.0,
       "oldPrice": null,
       "monthly": 43,
-      "drawers": 4
+      "drawers": 4,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     },
     {
       "slug": "storage-drawer-9",
@@ -138,7 +154,9 @@
       "price": 545.0,
       "oldPrice": null,
       "monthly": 45,
-      "drawers": 2
+      "drawers": 2,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
     }
   ];
 
@@ -404,8 +422,8 @@
       if (featuresBlock) featuresBlock.hidden = true;
       if (dimensionsBlock) dimensionsBlock.hidden = true;
 
-      if (deliveryEl) deliveryEl.textContent = "Handmade to order, delivered boxed for home assembly";
-      if (warrantyEl) warrantyEl.textContent = "24-month warranty";
+      if (deliveryEl) deliveryEl.textContent = product.delivery;
+      if (warrantyEl) warrantyEl.textContent = product.warranty;
       if (returnsEl) returnsEl.textContent = "30-day easy returns on unused, unassembled beds";
 
       sdState.imageIndex = 0;

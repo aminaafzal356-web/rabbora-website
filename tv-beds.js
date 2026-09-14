@@ -26,7 +26,7 @@ var TV_BED_PRODUCTS =
   {
     "id": 1,
     "slug": "tv-bed-1",
-    "name": "2026 Bedflix Duke TV Bed Frame (3 Piece Headboard)",
+    "name": "Rabbora Milano TV Bed",
     "price": 999,
     "oldPrice": 1399,
     "monthlyPrice": 84,
@@ -35,7 +35,7 @@ var TV_BED_PRODUCTS =
     "badge": "29% Off",
     "maxScreenSize": "Up to 32\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
-    "description": "The Chelsea TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
+    "description": "Bring modern luxury into your bedroom with the Rabbora Milano TV Bed, combining elegant design, relaxing comfort and a built-in TV experience.",
     "availableSizeLabels": [
       "Small Double 4ft",
       "Double 4ft 6\"",
@@ -78,15 +78,15 @@ var TV_BED_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "tv/img-1.png",
-      "tv/img-2.png",
-      "tv/img-3.png"
+      "tv/img-1.jfif",
+      "tv/img-22.png",
+      "tv/img-23.png"
     ]
   },
   {
     "id": 2,
     "slug": "tv-bed-2",
-    "name": "2026 Bedflix Manhattan TV Bed Frame (27 to 43)",
+    "name": "Rabbora Monaco TV Bed",
     "price": 990,
     "oldPrice": 1399,
     "monthlyPrice": 83,
@@ -95,7 +95,7 @@ var TV_BED_PRODUCTS =
     "badge": "29% Off",
     "maxScreenSize": "Up to 40\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
-    "description": "The Hampton TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
+    "description": "The Rabbora Monaco TV Bed creates a sophisticated bedroom retreat with its stylish finish, comfortable design and seamless entertainment experience.",
     "availableSizeLabels": [
       "Small Double 4ft",
       "Double 4ft 6\"",
@@ -138,15 +138,13 @@ var TV_BED_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "tv/img-4.png",
-      "tv/img-5.png",
-      "tv/img-6.png"
+      "tv/img-2.jfif"
     ]
   },
   {
     "id": 3,
     "slug": "tv-bed-3",
-    "name": "2026 Bedflix TV Bed Frame (27 to 43)",
+    "name": "Rabbora Windsor TV Bed",
     "price": 1099,
     "oldPrice": 1399,
     "monthlyPrice": 92,
@@ -155,7 +153,7 @@ var TV_BED_PRODUCTS =
     "badge": "21% Off",
     "maxScreenSize": "Up to 43\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
-    "description": "The Windsor TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
+    "description": "Designed for those who appreciate timeless elegance, the Rabbora Windsor TV Bed blends premium bedroom style with convenient built-in entertainment.",
     "availableSizeLabels": [
       "Small Double 4ft",
       "Double 4ft 6\"",
@@ -198,15 +196,13 @@ var TV_BED_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "tv/img-7.png",
-      "tv/img-8.png",
-      "tv/img-9.png"
+      "tv/img-3.jfif"
     ]
   },
   {
     "id": 4,
     "slug": "tv-bed-4",
-    "name": "2026 Bedflix Davinci TV Bed Frame (2 Piece Headboard)",
+    "name": "Rabbora Kensington TV Bed",
     "price": 999,
     "oldPrice": 1399,
     "monthlyPrice": 84,
@@ -215,7 +211,7 @@ var TV_BED_PRODUCTS =
     "badge": "29% Off",
     "maxScreenSize": "Up to 50\"",
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
-    "description": "The Kensington TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
+    "description": "Transform your bedroom with the Rabbora Kensington TV Bed, offering a luxurious statement design with comfort and entertainment beautifully combined.",
     "availableSizeLabels": [
       "Small Double 4ft",
       "Double 4ft 6\"",
@@ -258,9 +254,7 @@ var TV_BED_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "tv/img-10.png",
-      "tv/img-11.png",
-      "tv/img-12.png"
+      "tv/img-4.jfif"
     ]
   },
   {
@@ -317,11 +311,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-13.png",
-      "tv/img-14.png",
-      "tv/img-15.png"
-    ]
+    "images": []
   },
   {
     "id": 6,
@@ -377,11 +367,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-16.png",
-      "tv/img-17.png",
-      "tv/img-18.png"
-    ]
+    "images": []
   },
   {
     "id": 7,
@@ -437,11 +423,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-19.png",
-      "tv/img-20.png",
-      "tv/img-21.png"
-    ]
+    "images": []
   },
   {
     "id": 8,
@@ -497,11 +479,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-22.png",
-      "tv/img-23.png",
-      "tv/img-24.png"
-    ]
+    "images": []
   },
   {
     "id": 9,
@@ -557,11 +535,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-25.png",
-      "tv/img-26.png",
-      "tv/img-27.png"
-    ]
+    "images": []
   },
   {
     "id": 10,
@@ -617,11 +591,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-28.png",
-      "tv/img-29.png",
-      "tv/img-30.png"
-    ]
+    "images": []
   },
   {
     "id": 11,
@@ -677,11 +647,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-31.png",
-      "tv/img-32.png",
-      "tv/img-33.png"
-    ]
+    "images": []
   },
   {
     "id": 12,
@@ -737,11 +703,7 @@ var TV_BED_PRODUCTS =
     "delivery": "Handmade to order, with standard UK delivery included.",
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
-    "images": [
-      "tv/img-34.png",
-      "tv/img-35.png",
-      "tv/img-36.png"
-    ]
+    "images": []
   }
 ];
 

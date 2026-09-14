@@ -723,3 +723,95 @@
 .kb-info .bb-info__inner p {
   text-align: justify;
 }
+
+/* ---- Gallery Prev/Next arrows, zoom button, fullscreen lightbox
+   (exact copy of the Slatted Ottoman Beds gallery system) ---- */
+.tv-detail__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-forest-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.tv-detail__nav--prev {
+  left: 0.75rem;
+}
+
+.tv-detail__nav--next {
+  right: 0.75rem;
+}
+
+.bb-modal__zoom {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-forest-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.bb-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background-color: rgba(18, 40, 31, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bb-lightbox[hidden] {
+  display: none;
+}
+
+.bb-lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.bb-lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-ivory-soft);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.bb-lightbox__close:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+
+/* ---- Honest "no reviews yet" label for product card grids ---- */
+.product-card__no-reviews {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(35, 35, 32, 0.4);
+}

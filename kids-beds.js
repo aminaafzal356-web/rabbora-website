@@ -41,8 +41,12 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 1,
     "slug": "kids-bed-1",
-    "name": "2026 Harper Kids Day Bed",
-    "imageName": "Kids Bed 1",
+    "name": "Harper Kids Bed",
+    "images": [
+      "tv/img-6.jfif",
+       "tv/img-30.png",
+        "tv/img-12.png"
+    ],
     "price": 449,
     "oldPrice": 599,
     "monthly": 38,
@@ -50,7 +54,7 @@ var KIDS_BED_PRODUCTS =
     "reviews": 0,
     "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
-    "description": "The Chelsea Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
+    "description": "A stylish and comfortable kids bed designed to create a cosy space for relaxing, sleeping and enjoying everyday moments.",
     "sizes": [
       "Single",
       "Small Double"
@@ -78,8 +82,12 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 2,
     "slug": "kids-bed-2",
-    "name": "2026 PSCL Rio-Pink Kids Bed (Built in Safety Sides)",
-    "imageName": "Kids Bed 2",
+    "name": "Luna Kids Bed",
+    "images": [
+      "tv/img-7.jfif",
+       "tv/img-13.png",
+        "tv/img-15.png"
+    ],
     "price": 449,
     "oldPrice": 599,
     "monthly": 38,
@@ -87,7 +95,7 @@ var KIDS_BED_PRODUCTS =
     "reviews": 0,
     "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
-    "description": "The Hampton Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
+    "description": "Bring elegance and comfort to your child's bedroom with the Luna Kids Bed, designed with a beautiful look and a cosy feel.",
     "sizes": [
       "Single",
       "Small Double"
@@ -115,8 +123,12 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 3,
     "slug": "kids-bed-3",
-    "name": "2026 PSCL SnugSpace Kids Bed (Built in Safety Sides)",
-    "imageName": "Kids Bed 3",
+    "name": "Mia Kids Bed",
+    "images": [
+     "tv/img-8.jfif",
+       "tv/img-16.png",
+        "tv/img-17.png"
+    ],
     "price": 449,
     "oldPrice": 599,
     "monthly": 38,
@@ -124,7 +136,7 @@ var KIDS_BED_PRODUCTS =
     "reviews": 0,
     "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
-    "description": "The Windsor Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
+    "description": "The Mia Kids Bed combines a charming design with everyday comfort, making it a lovely choice for a modern children's bedroom.",
     "sizes": [
       "Single",
       "Small Double"
@@ -152,8 +164,12 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 4,
     "slug": "kids-bed-4",
-    "name": "2026 PSCL Rio-Blue Kids Bed (Built in Safety Sides)",
-    "imageName": "Kids Bed 4",
+    "name": "Oliver Kids Bed",
+    "images": [
+       "tv/img-10.jfif",
+       "tv/img-18.png",
+        "tv/img-19.png"
+    ],
     "price": 449,
     "oldPrice": 599,
     "monthly": 38,
@@ -161,7 +177,7 @@ var KIDS_BED_PRODUCTS =
     "reviews": 0,
     "badge": "25% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
-    "description": "The Kensington Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
+    "description": "Create a warm and inviting bedroom with the Oliver Kids Bed, offering a stylish design and a comfortable place to rest.",
     "sizes": [
       "Single",
       "Small Double"
@@ -189,8 +205,12 @@ var KIDS_BED_PRODUCTS =
   {
     "id": 5,
     "slug": "kids-bed-5",
-    "name": "2026 PSCL Little Castle Upholstered Kids Bed Frame",
-    "imageName": "Kids Bed 5",
+    "name": "Aria Kids Bed",
+    "images": [
+  "tv/img-11.jfif",
+       "tv/img-20.png",
+        "tv/img-21.png"
+    ],
     "price": 499,
     "oldPrice": 599,
     "monthly": 42,
@@ -198,7 +218,7 @@ var KIDS_BED_PRODUCTS =
     "reviews": 0,
     "badge": "17% Off",
     "shortInfo": "A safe, durable frame sized and finished for a growing child's room.",
-    "description": "The Mayfair Kids Bed brings a low, safe profile and durable, rounded construction to a child's bedroom. Handmade on a solid supportive frame and finished with a tailored, easy-to-clean upholstery, it's designed to be a comfortable, lasting first bed.",
+    "description": "The Aria Kids Bed adds a touch of luxury to your child's room with its elegant design, cosy finish and timeless appeal.",
     "sizes": [
       "Single",
       "Small Double"
@@ -329,6 +349,12 @@ var KIDS_BED_SIZE_DELTAS = {
     var breadcrumbName = document.getElementById("kbDetailBreadcrumbName");
     var mainImage = document.getElementById("kbGalleryMainImage");
     var thumbsWrap = document.getElementById("kbGalleryThumbs");
+    var prevBtn = document.getElementById("kbGalleryPrev");
+    var nextBtn = document.getElementById("kbGalleryNext");
+    var zoomBtn = document.getElementById("kbGalleryZoom");
+    var lightbox = document.getElementById("kbLightbox");
+    var lightboxImage = document.getElementById("kbLightboxImage");
+    var lightboxClose = document.getElementById("kbLightboxClose");
     var titleEl = document.getElementById("kbDetailTitle");
     var starsEl = document.getElementById("kbDetailStars");
     var reviewCountEl = document.getElementById("kbDetailReviewCount");
@@ -358,32 +384,38 @@ var KIDS_BED_SIZE_DELTAS = {
       return Math.max(0, product.price + delta);
     }
 
-    // Reads every image for this product from KIDS_BED_IMAGES via
-    // getKidsBedImage() — no image path is ever duplicated here.
-    // Products only have one photo today (product.imageName), so no
-    // fake extra images are invented; if you later add more photos
-    // to a product's "imageNames" array, thumbnails appear
-    // automatically with no other code changes required.
-    function productImageNames(product) {
-      return product.imageNames && product.imageNames.length ? product.imageNames : [product.imageName];
-    }
-
     function renderGallery(product) {
-      var names = productImageNames(product);
-      mainImage.src = getKidsBedImage(names[kbState.imageIndex] || names[0]);
-      mainImage.alt = product.name;
+      var images = (product.images && product.images.length) ? product.images : [];
+
+      if (images.length === 0) {
+        mainImage.hidden = true;
+        mainImage.removeAttribute("src");
+        thumbsWrap.innerHTML = "";
+        if (prevBtn) prevBtn.hidden = true;
+        if (nextBtn) nextBtn.hidden = true;
+        if (zoomBtn) zoomBtn.hidden = true;
+        return;
+      }
+
+      if (zoomBtn) zoomBtn.hidden = false;
+      mainImage.hidden = false;
+      mainImage.src = images[kbState.imageIndex] || images[0];
+      mainImage.alt = "";
+      mainImage.onerror = function () { mainImage.hidden = true; };
+      mainImage.onload = function () { mainImage.hidden = false; };
 
       thumbsWrap.innerHTML = "";
-      if (names.length > 1) {
-        names.forEach(function (name, index) {
+      if (images.length > 1) {
+        images.forEach(function (src, index) {
           var thumb = document.createElement("button");
           thumb.type = "button";
           thumb.className = index === kbState.imageIndex ? "is-active" : "";
           thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
           var img = document.createElement("img");
-          img.src = getKidsBedImage(name);
+          img.src = src;
           img.alt = "";
           img.loading = "lazy";
+          img.onerror = function () { img.style.visibility = "hidden"; };
           thumb.appendChild(img);
           thumb.addEventListener("click", function () {
             kbState.imageIndex = index;
@@ -392,6 +424,8 @@ var KIDS_BED_SIZE_DELTAS = {
           thumbsWrap.appendChild(thumb);
         });
       }
+      if (prevBtn) prevBtn.hidden = images.length < 2;
+      if (nextBtn) nextBtn.hidden = images.length < 2;
     }
 
     function syncWishlistButton(product) {
@@ -449,14 +483,13 @@ var KIDS_BED_SIZE_DELTAS = {
         card.innerHTML =
           '<div class="product-card__image-wrap">' +
             '<a class="product-card__image-link" href="kids-beds.html#/' + p.slug + '">' +
-              '<img src="' + getKidsBedImage(p.imageName) + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
+              '<img src="' + ((p.images && p.images[0]) || "") + '" alt="' + p.name + '" loading="lazy" width="900" height="900" />' +
             '</a>' + badgeHtml +
           '</div>' +
           '<div class="product-card__body">' +
             '<a href="kids-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
             '<div class="product-card__rating">' +
-              '<span class="product-card__stars" aria-hidden="true">' + stars(p.rating) + '</span>' +
-              '<span class="product-card__review-count">(' + p.reviews + ')</span>' +
+              '<span class="product-card__no-reviews">No reviews yet</span>' +
             '</div>' +
             '<div class="product-card__price-row">' +
               '<span class="product-card__price">' + money(p.price) + '</span>' + prevHtml +
@@ -475,8 +508,8 @@ var KIDS_BED_SIZE_DELTAS = {
 
       breadcrumbName.textContent = product.name;
       titleEl.textContent = product.name;
-      starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = product.reviews > 0 ? "(" + product.reviews + ")" : "";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -544,6 +577,45 @@ var KIDS_BED_SIZE_DELTAS = {
     window.addEventListener("hashchange", handleRoute);
     handleRoute();
 
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        if (!currentProduct) return;
+        var images = currentProduct.images && currentProduct.images.length ? currentProduct.images : [];
+        if (images.length === 0) return;
+        kbState.imageIndex = (kbState.imageIndex - 1 + images.length) % images.length;
+        renderGallery(currentProduct);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        if (!currentProduct) return;
+        var images = currentProduct.images && currentProduct.images.length ? currentProduct.images : [];
+        if (images.length === 0) return;
+        kbState.imageIndex = (kbState.imageIndex + 1) % images.length;
+        renderGallery(currentProduct);
+      });
+    }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener("click", function () {
+        if (!currentProduct || !currentProduct.images || !currentProduct.images.length) return;
+        lightboxImage.src = mainImage.src;
+        lightboxImage.alt = mainImage.alt;
+        lightbox.hidden = false;
+      });
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener("click", function () { lightbox.hidden = true; });
+    if (lightbox) {
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.hidden = true;
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) lightbox.hidden = true;
+    });
+
     if (qtyMinus) {
       qtyMinus.addEventListener("click", function () {
         if (kbState.quantity > 1) {
@@ -569,7 +641,7 @@ var KIDS_BED_SIZE_DELTAS = {
         }
 
         var unitPrice = currentPrice(currentProduct);
-        var resolvedImage = getKidsBedImage(currentProduct.imageName);
+        var resolvedImage = (currentProduct.images && currentProduct.images[0]) || "";
 
         if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
           window.RabboraCart.add(
@@ -637,7 +709,20 @@ var KIDS_BED_SIZE_DELTAS = {
     }
   }
 
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.kb-detail__rating), which is
+     populated separately once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.kb-detail__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     populateGridImages();
     initToolbar();
     initViewToggle();
