@@ -16,16 +16,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 1,
     "slug": "high-headboard-bed-1",
-    "name": "Chelsea High Headboard Bed",
-    "price": 449,
-    "oldPrice": 519,
-    "monthly": 37,
+    "name": "Rabbora Duke High & Wide Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 1000.0,
+    "monthly": 67,
     "rating": 5,
     "reviews": 20,
-    "badge": "New",
+    "badge": "20% off",
     "headboardHeight": "130cm",
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
-    "description": "The Chelsea High Headboard Bed is built around a statement upholstered headboard standing 130cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A luxurious statement bed designed around an impressive high and wide headboard, creating a sophisticated bedroom focal point with an elegant and refined presence.",
     "sizes": [
       "Single",
       "Small Double",
@@ -76,16 +76,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 2,
     "slug": "high-headboard-bed-2",
-    "name": "Hampton High Headboard Bed",
-    "price": 480,
-    "oldPrice": null,
-    "monthly": 40,
+    "name": "Rabbora Las Vegas High Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 1000.0,
+    "monthly": 63,
     "rating": 5,
     "reviews": 33,
-    "badge": "Best Seller",
+    "badge": "25% off",
     "headboardHeight": "140cm",
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
-    "description": "The Hampton High Headboard Bed is built around a statement upholstered headboard standing 140cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A striking high-headboard design created to bring a luxurious hotel-inspired atmosphere to the bedroom while offering an elegant and comfortable place to rest.",
     "sizes": [
       "Single",
       "Small Double",
@@ -136,16 +136,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 3,
     "slug": "high-headboard-bed-3",
-    "name": "Windsor High Headboard Bed",
-    "price": 511,
-    "oldPrice": null,
-    "monthly": 43,
+    "name": "Rabbora Athena High Headboard Bed",
+    "price": 699.0,
+    "oldPrice": 900.0,
+    "monthly": 59,
     "rating": 4,
     "reviews": 46,
-    "badge": null,
+    "badge": "22% off",
     "headboardHeight": "150cm",
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
-    "description": "The Windsor High Headboard Bed is built around a statement upholstered headboard standing 150cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "An elegant high-headboard bed designed to create a sophisticated bedroom centrepiece with graceful proportions, refined styling and comfortable sleeping space.",
     "sizes": [
       "Single",
       "Small Double",
@@ -196,16 +196,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 4,
     "slug": "high-headboard-bed-4",
-    "name": "Kensington High Headboard Bed",
-    "price": 542,
-    "oldPrice": 612,
-    "monthly": 45,
+    "name": "Rabbora Chicago High Headboard Bed",
+    "price": 349.0,
+    "oldPrice": 420.0,
+    "monthly": 30,
     "rating": 5,
     "reviews": 59,
-    "badge": null,
+    "badge": "17% off",
     "headboardHeight": "130cm",
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
-    "description": "The Kensington High Headboard Bed is built around a statement upholstered headboard standing 130cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A sophisticated high-headboard design that gives the bedroom a strong and elegant focal point while creating a comfortable and inviting sleeping environment.",
     "sizes": [
       "Single",
       "Small Double",
@@ -256,16 +256,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 5,
     "slug": "high-headboard-bed-5",
-    "name": "Mayfair High Headboard Bed",
-    "price": 573,
-    "oldPrice": null,
-    "monthly": 48,
+    "name": "Rabbora Model Square Hotel Bed",
+    "price": 649.0,
+    "oldPrice": 1000.0,
+    "monthly": 55,
     "rating": 5,
     "reviews": 72,
-    "badge": null,
+    "badge": "35% off",
     "headboardHeight": "140cm",
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
-    "description": "The Mayfair High Headboard Bed is built around a statement upholstered headboard standing 140cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A bold hotel-inspired bed featuring a distinctive structured profile, designed to bring a luxurious and sophisticated character to the modern bedroom.",
     "sizes": [
       "Single",
       "Small Double",
@@ -316,16 +316,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 6,
     "slug": "high-headboard-bed-6",
-    "name": "Richmond High Headboard Bed",
-    "price": 604,
-    "oldPrice": null,
+    "name": "Rabbora Starlight Luxury Bed",
+    "price": 599.0,
+    "oldPrice": 900.0,
     "monthly": 50,
     "rating": 4,
     "reviews": 85,
-    "badge": "Best Seller",
+    "badge": "33% off",
     "headboardHeight": "150cm",
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
-    "description": "The Richmond High Headboard Bed is built around a statement upholstered headboard standing 150cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A glamorous bedroom centrepiece designed to create an elegant and luxurious atmosphere, bringing refined character and sophisticated style to your bedroom.",
     "sizes": [
       "Single",
       "Small Double",
@@ -376,16 +376,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 7,
     "slug": "high-headboard-bed-7",
-    "name": "Cambridge High Headboard Bed",
-    "price": 635,
-    "oldPrice": 705,
-    "monthly": 53,
+    "name": "Rabbora DaVinci Tall Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 900.0,
+    "monthly": 63,
     "rating": 5,
     "reviews": 98,
-    "badge": null,
+    "badge": "17% off",
     "headboardHeight": "130cm",
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
-    "description": "The Cambridge High Headboard Bed is built around a statement upholstered headboard standing 130cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A grand tall-headboard design created to make an impressive statement in the bedroom while offering an elegant appearance and comfortable sleeping space.",
     "sizes": [
       "Single",
       "Small Double",
@@ -436,16 +436,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 8,
     "slug": "high-headboard-bed-8",
-    "name": "Victoria High Headboard Bed",
-    "price": 666,
-    "oldPrice": null,
-    "monthly": 56,
+    "name": "Rabbora Geneva High & Wide Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 1000.0,
+    "monthly": 63,
     "rating": 5,
     "reviews": 111,
-    "badge": null,
+    "badge": "25% off",
     "headboardHeight": "140cm",
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
-    "description": "The Victoria High Headboard Bed is built around a statement upholstered headboard standing 140cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A luxurious high and wide headboard design created to give the bedroom a dramatic focal point with sophisticated styling and an elegant, comfortable feel.",
     "sizes": [
       "Single",
       "Small Double",
@@ -496,16 +496,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 9,
     "slug": "high-headboard-bed-9",
-    "name": "Oxford High Headboard Bed",
-    "price": 697,
-    "oldPrice": null,
-    "monthly": 58,
+    "name": "Rabbora Bahamas Wide Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 1000.0,
+    "monthly": 63,
     "rating": 4,
     "reviews": 124,
-    "badge": null,
+    "badge": "25% off",
     "headboardHeight": "150cm",
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
-    "description": "The Oxford High Headboard Bed is built around a statement upholstered headboard standing 150cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A grand hotel-inspired design featuring a wide statement headboard, created to bring an impressive and luxurious character to the bedroom.",
     "sizes": [
       "Single",
       "Small Double",
@@ -556,16 +556,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 10,
     "slug": "high-headboard-bed-10",
-    "name": "Chester High Headboard Bed",
-    "price": 728,
-    "oldPrice": 798,
-    "monthly": 61,
+    "name": "Rabbora Riviera High Headboard Bed",
+    "price": 549.0,
+    "oldPrice": 900.0,
+    "monthly": 46,
     "rating": 5,
     "reviews": 137,
-    "badge": "Best Seller",
+    "badge": "39% off",
     "headboardHeight": "130cm",
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
-    "description": "The Chester High Headboard Bed is built around a statement upholstered headboard standing 130cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A refined high-headboard bed designed to create an elegant bedroom focal point while bringing a sophisticated and luxurious feel to the space.",
     "sizes": [
       "Single",
       "Small Double",
@@ -616,16 +616,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 11,
     "slug": "high-headboard-bed-11",
-    "name": "Kingston High Headboard Bed",
-    "price": 759,
-    "oldPrice": null,
-    "monthly": 63,
+    "name": "Rabbora New York Tall Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 900.0,
+    "monthly": 67,
     "rating": 5,
     "reviews": 150,
-    "badge": "New",
+    "badge": "11% off",
     "headboardHeight": "140cm",
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
-    "description": "The Kingston High Headboard Bed is built around a statement upholstered headboard standing 140cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A striking tall-headboard design created to give the bedroom a contemporary luxury appearance with an impressive presence and elegant proportions.",
     "sizes": [
       "Single",
       "Small Double",
@@ -676,16 +676,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 12,
     "slug": "high-headboard-bed-12",
-    "name": "Brighton High Headboard Bed",
-    "price": 790,
-    "oldPrice": null,
-    "monthly": 66,
+    "name": "Rabbora Grand Luxury Upholstered Bed",
+    "price": 1199.0,
+    "oldPrice": 1499.0,
+    "monthly": 100,
     "rating": 4,
     "reviews": 163,
-    "badge": null,
+    "badge": "20% off",
     "headboardHeight": "150cm",
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
-    "description": "The Brighton High Headboard Bed is built around a statement upholstered headboard standing 150cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A premium statement bed designed to bring a sophisticated and luxurious finish to the bedroom, combining an impressive profile with an elegant upholstered appearance.",
     "sizes": [
       "Single",
       "Small Double",
@@ -736,16 +736,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 13,
     "slug": "high-headboard-bed-13",
-    "name": "Lancaster High Headboard Bed",
-    "price": 821,
-    "oldPrice": 891,
-    "monthly": 68,
+    "name": "Rabbora Silver Fern High Headboard Bed",
+    "price": 549.0,
+    "oldPrice": 900.0,
+    "monthly": 46,
     "rating": 5,
     "reviews": 176,
-    "badge": null,
+    "badge": "39% off",
     "headboardHeight": "130cm",
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
-    "description": "The Lancaster High Headboard Bed is built around a statement upholstered headboard standing 130cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "An elegant high-headboard design created to add a refined and luxurious focal point to the bedroom while providing a comfortable and inviting sleeping space.",
     "sizes": [
       "Single",
       "Small Double",
@@ -796,16 +796,16 @@ var HH_BED_PRODUCTS =
   {
     "id": 14,
     "slug": "high-headboard-bed-14",
-    "name": "Bristol High Headboard Bed",
-    "price": 472,
-    "oldPrice": null,
-    "monthly": 39,
+    "name": "Rabbora Marble Bahamas Wide Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 1000.0,
+    "monthly": 67,
     "rating": 5,
     "reviews": 189,
-    "badge": "Best Seller",
+    "badge": "20% off",
     "headboardHeight": "140cm",
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
-    "description": "The Bristol High Headboard Bed is built around a statement upholstered headboard standing 140cm tall, bringing a bold, characterful centrepiece to any bedroom. Deep-buttoned detailing and a solid, supportive frame combine tailored craftsmanship with everyday comfort.",
+    "description": "A luxurious wide-headboard design created to give the bedroom a sophisticated hotel-inspired presence with an elegant and impressive overall appearance.",
     "sizes": [
       "Single",
       "Small Double",
@@ -849,42 +849,10 @@ var HH_BED_PRODUCTS =
       "images/high-headboard-beds/img-14.png",
       "images/high-headboard-beds/img-14-b.png",
       "images/high-headboard-beds/img-14-c.png",
-      "tv/img-13.jfif",
-      "tv/img-12.jfif"
+      "images/high-headboard-beds/img-14-d.png",
+      "images/high-headboard-beds/img-14-e.png"
     ]
   }
-];
-
-var HH_FABRIC_CATALOG = [
-  { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
-  { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
-  { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
-  { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
-  { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
-  { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
-  { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
-  { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
-  { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
-  { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
-  { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
-  { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
-  { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
-  { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
-  { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
-  { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
-  { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
-  { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
-  { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
-  { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
-  { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
-  { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
-  { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
-  { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
-  { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
-  { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
-  { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
-  { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
-  { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
 ];
 
 var HH_BED_SIZE_DELTAS = {
@@ -919,8 +887,7 @@ var HH_BED_SIZE_DELTAS = {
   var hhState = {
     selectedSize: null,
     quantity: 1,
-    imageIndex: 0,
-    selectedFabric: null
+    imageIndex: 0
   };
 
   /* ---- Product count ---- */
@@ -1003,7 +970,6 @@ var HH_BED_SIZE_DELTAS = {
     var breadcrumbName = document.getElementById("hhDetailBreadcrumbName");
     var mainImage = document.getElementById("hhGalleryMainImage");
     var thumbsWrap = document.getElementById("hhGalleryThumbs");
-    var fabricsEl = document.getElementById("hhModalFabrics");
     var prevBtn = document.getElementById("hhGalleryPrev");
     var nextBtn = document.getElementById("hhGalleryNext");
     var headboardHeightEl = document.getElementById("hhDetailHeadboardHeight");
@@ -1047,23 +1013,16 @@ var HH_BED_SIZE_DELTAS = {
       mainImage.src = images[hhState.imageIndex] || images[0];
       mainImage.alt = product.name;
 
-      // When only one real photo exists for this product, show it
-      // repeated across a few thumbnail slots so the gallery strip has
-      // its normal shape — using only the real, existing image.
-      var thumbImages = images.length > 1 ? images : [images[0], images[0], images[0]];
-
       thumbsWrap.innerHTML = "";
-      thumbImages.forEach(function (src, index) {
+      images.forEach(function (src, index) {
         var thumb = document.createElement("img");
         thumb.src = src;
         thumb.alt = "";
         thumb.loading = "lazy";
-        if (index === hhState.imageIndex || (images.length <= 1 && index === 0)) thumb.classList.add("is-active");
+        if (index === hhState.imageIndex) thumb.classList.add("is-active");
         thumb.addEventListener("click", function () {
-          if (images.length > 1) {
-            hhState.imageIndex = index;
-            renderGallery(product);
-          }
+          hhState.imageIndex = index;
+          renderGallery(product);
         });
         thumbsWrap.appendChild(thumb);
       });
@@ -1124,8 +1083,7 @@ var HH_BED_SIZE_DELTAS = {
           '<div class="product-card__body">' +
             '<a href="high-headboard-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
             '<div class="product-card__rating">' +
-              '<span class="product-card__stars" aria-hidden="true">' + stars(p.rating) + '</span>' +
-              '<span class="product-card__review-count">(' + p.reviews + ')</span>' +
+              '<span class="product-card__no-reviews">No reviews yet</span>' +
             '</div>' +
             '<div class="product-card__price-row">' +
               '<span class="product-card__price">' + money(p.price) + '</span>' + prevHtml +
@@ -1152,8 +1110,8 @@ var HH_BED_SIZE_DELTAS = {
       breadcrumbName.textContent = product.name;
       headboardHeightEl.textContent = "Headboard Height: " + product.headboardHeight;
       titleEl.textContent = product.name;
-      starsEl.textContent = stars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviews + ")";
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -1201,59 +1159,11 @@ var HH_BED_SIZE_DELTAS = {
       document.title = "Bed Not Found | Rabbora Living";
     }
 
-    function renderFabrics() {
-      if (!fabricsEl) return;
-      fabricsEl.innerHTML = "";
-
-      HH_FABRIC_CATALOG.forEach(function (fabric, index) {
-        var isSelected = hhState.selectedFabric === fabric.name;
-        if (hhState.selectedFabric === null && index === 0) {
-          hhState.selectedFabric = fabric.name;
-          isSelected = true;
-        }
-
-        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
-
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "fabric-swatch";
-        btn.setAttribute("aria-pressed", String(isSelected));
-        btn.setAttribute("aria-label", "Select " + fabric.name);
-        btn.innerHTML =
-          '<span class="fabric-swatch__ring">' +
-            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
-            '<span class="fabric-swatch__check" aria-hidden="true">' +
-              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-            '</span>' +
-          '</span>' +
-          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
-
-        btn.addEventListener("click", function () {
-          var alreadySelected = hhState.selectedFabric === fabric.name;
-
-          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
-            el.setAttribute("aria-pressed", "false");
-          });
-
-          if (alreadySelected) {
-            hhState.selectedFabric = null;
-          } else {
-            hhState.selectedFabric = fabric.name;
-            btn.setAttribute("aria-pressed", "true");
-          }
-        });
-
-        fabricsEl.appendChild(btn);
-      });
-    }
-
     function showDetail(product) {
       categoryView.hidden = true;
       notFoundView.hidden = true;
       detailView.hidden = false;
-      hhState.selectedFabric = null;
       renderDetail(product);
-      renderFabrics();
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
@@ -1368,7 +1278,20 @@ var HH_BED_SIZE_DELTAS = {
     }
   }
 
+
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.hh-detail__rating), which is
+     populated separately once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.hh-detail__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initToolbar();
     initViewToggle();
     initColumnsToggle();

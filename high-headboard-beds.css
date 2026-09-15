@@ -165,7 +165,7 @@
 /* ---- Product grid: default 4/row desktop, switchable to 5/row,
    with list view — fully responsive at every breakpoint ---- */
 .hh-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (min-width: 480px) {
@@ -182,7 +182,7 @@
 
 @media (min-width: 1024px) {
   .hh-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -691,65 +691,38 @@
   margin-top: 2rem;
 }
 
-.bb-modal__fabric-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.1rem;
+/* ---- Honest "no reviews yet" label for product card grids ---- */
+.product-card__no-reviews {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(35, 35, 32, 0.4);
 }
 
-.bb-modal__fabric-grid .fabric-swatch__ring {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
+/* ---- Bottom story/editorial section: centered, comfortable reading
+   width, elegant paragraph rhythm (matching the TV Beds / Kids Beds
+   editorial treatment) ---- */
+.hh-info .bb-info__inner {
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.bb-modal__fabric-grid .fabric-swatch {
-  width: 68px;
+.hh-info .bb-info__inner h2 {
+  margin-bottom: 1.5rem;
 }
 
-.bb-modal__fabric-grid .fabric-swatch__name {
-  font-size: 0.66rem;
-  line-height: 1.25;
+.hh-info .bb-info__inner p {
+  text-align: justify;
+  line-height: 1.75;
+  margin-top: 1.25rem;
 }
 
-.bb-modal__fabric-grid .fabric-swatch__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.hh-info .bb-info__inner p:first-of-type {
+  margin-top: 0;
 }
 
-.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__ring {
-  border-color: var(--color-brass);
-  box-shadow: 0 0 0 2px rgba(164, 123, 76, 0.2);
-}
-
-.bb-modal__fabric-grid .fabric-swatch__check {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background-color: rgba(18, 40, 31, 0.72);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.6);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
-}
-
-.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__check {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.fabric-swatch__ring--fallback {
-  background-color: var(--color-sage);
+@media (max-width: 639px) {
+  .hh-info .bb-info__inner {
+    padding-inline: 0.5rem;
+  }
 }

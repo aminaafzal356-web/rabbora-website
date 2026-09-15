@@ -1560,7 +1560,7 @@ h1, h2, h3, h4 {
 .hero__inner {
   position: relative;
   z-index: 10;
-  min-height: clamp(220px, 32vw, 300px);
+  min-height: clamp(320px, 85vw, 420px);
   display: flex;
   align-items: flex-end;
   padding-block: 1.75rem;

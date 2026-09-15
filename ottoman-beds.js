@@ -564,13 +564,13 @@
   {
     "id": 1,
     "slug": "chelsea-slatted-ottoman-bed",
-    "name": "Chelsea Slatted Ottoman Bed",
-    "price": 649,
-    "oldPrice": 749,
-    "monthlyPrice": 54,
+    "name": "Rabbora Manhattan Slatted Ottoman Bed",
+    "price": 249.0,
+    "oldPrice": 429.0,
+    "monthlyPrice": 21,
     "rating": 4,
     "reviewCount": 75,
-    "badge": "New",
+    "badge": "42% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -630,7 +630,7 @@
         "length": 211
       }
     },
-    "description": "The Chelsea Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A refined slatted ottoman bed designed to give your bedroom a sophisticated look while providing comfortable sleeping and practical hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -659,13 +659,13 @@
   {
     "id": 2,
     "slug": "hampton-slatted-ottoman-bed",
-    "name": "Hampton Slatted Ottoman Bed",
-    "price": 399,
-    "oldPrice": 479,
-    "monthlyPrice": 33,
+    "name": "Rabbora Milan Slatted Wingback Ottoman Bed",
+    "price": 259.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 22,
     "rating": 4,
     "reviewCount": 147,
-    "badge": null,
+    "badge": "38% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -725,7 +725,7 @@
         "length": 211
       }
     },
-    "description": "The Hampton Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A beautifully styled wingback design combining elegant bedroom character, comfortable support and convenient ottoman storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -754,13 +754,13 @@
   {
     "id": 3,
     "slug": "monaco-ottoman-bed",
-    "name": "Monaco Ottoman Bed",
-    "price": 579,
-    "oldPrice": null,
-    "monthlyPrice": 48,
+    "name": "Rabbora Athens Slatted Designer Ottoman Bed",
+    "price": 289.0,
+    "oldPrice": 400.0,
+    "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 58,
-    "badge": null,
+    "badge": "28% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -820,7 +820,7 @@
         "length": 211
       }
     },
-    "description": "The Monaco Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A contemporary designer bed created to bring clean styling, relaxing comfort and useful storage together in one elegant bedroom piece.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -849,13 +849,13 @@
   {
     "id": 4,
     "slug": "windsor-slatted-ottoman-bed",
-    "name": "Windsor Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": 529,
-    "monthlyPrice": 36,
+    "name": "Rabbora Empire Slatted Ottoman Bed",
+    "price": 289.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 172,
-    "badge": "Popular",
+    "badge": "31% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -915,7 +915,7 @@
         "length": 211
       }
     },
-    "description": "The Windsor Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A statement bedroom design featuring sophisticated detailing, comfortable sleeping space and practical under-bed storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -945,13 +945,13 @@
   {
     "id": 5,
     "slug": "kensington-slatted-ottoman-bed",
-    "name": "Kensington Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
+    "name": "Rabbora Art Deco Slatted Ottoman Bed",
+    "price": 252.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 21,
     "rating": 5,
     "reviewCount": 110,
-    "badge": null,
+    "badge": "40% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1011,7 +1011,7 @@
         "length": 211
       }
     },
-    "description": "The Kensington Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "Inspired by elegant Art Deco styling, this bed brings a luxurious character to the bedroom while offering practical ottoman storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1040,13 +1040,13 @@
   {
     "id": 6,
     "slug": "mayfair-ottoman-bed",
-    "name": "Mayfair Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
+    "name": "Rabbora Orlando Slatted Ottoman Bed",
+    "price": 306.59,
+    "oldPrice": 420.0,
+    "monthlyPrice": 26,
     "rating": 5,
     "reviewCount": 89,
-    "badge": null,
+    "badge": "27% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1106,7 +1106,7 @@
         "length": 211
       }
     },
-    "description": "The Mayfair Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A stylish and versatile bedroom centrepiece designed to provide everyday comfort together with convenient storage beneath the bed.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1135,13 +1135,13 @@
   {
     "id": 7,
     "slug": "richmond-slatted-ottoman-bed",
-    "name": "Richmond Slatted Ottoman Bed",
-    "price": 649,
-    "oldPrice": 709,
-    "monthlyPrice": 54,
+    "name": "Rabbora Kendal Slatted Wingback Bed",
+    "price": 299.0,
+    "oldPrice": 444.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 180,
-    "badge": "New",
+    "badge": "33% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1201,7 +1201,7 @@
         "length": 211
       }
     },
-    "description": "The Richmond Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A graceful wingback silhouette combined with comfortable design and practical storage, ideal for creating an inviting bedroom atmosphere.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1230,13 +1230,13 @@
   {
     "id": 8,
     "slug": "cambridge-slatted-ottoman-bed",
-    "name": "Cambridge Slatted Ottoman Bed",
-    "price": 649,
-    "oldPrice": null,
-    "monthlyPrice": 54,
+    "name": "Rabbora Teddy Orlando Slatted Ottoman Bed",
+    "price": 306.59,
+    "oldPrice": 420.0,
+    "monthlyPrice": 26,
     "rating": 4,
     "reviewCount": 193,
-    "badge": "Popular",
+    "badge": "27% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1296,7 +1296,7 @@
         "length": 211
       }
     },
-    "description": "The Cambridge Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A soft and inviting bedroom design that combines elegant styling, comfortable sleeping and useful hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1324,13 +1324,13 @@
   {
     "id": 9,
     "slug": "victoria-ottoman-bed",
-    "name": "Victoria Ottoman Bed",
-    "price": 489,
-    "oldPrice": 589,
-    "monthlyPrice": 41,
+    "name": "Rabbora Park Lane Ambassador Slatted Bed",
+    "price": 449.0,
+    "oldPrice": 600.0,
+    "monthlyPrice": 38,
     "rating": 4,
     "reviewCount": 185,
-    "badge": null,
+    "badge": "25% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1390,7 +1390,7 @@
         "length": 211
       }
     },
-    "description": "The Victoria Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A luxurious statement bed designed to add refined character, comfort and an impressive finish to a modern bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1418,13 +1418,13 @@
   {
     "id": 10,
     "slug": "oxford-slatted-ottoman-bed",
-    "name": "Oxford Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
+    "name": "Rabbora Brooklyn Slatted Bed",
+    "price": 299.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 85,
-    "badge": null,
+    "badge": "29% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1484,7 +1484,7 @@
         "length": 211
       }
     },
-    "description": "The Oxford Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A clean and contemporary slatted design offering a stylish bedroom appearance with comfortable sleeping and practical functionality.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1513,13 +1513,13 @@
   {
     "id": 11,
     "slug": "chester-slatted-ottoman-bed",
-    "name": "Chester Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
+    "name": "Rabbora Washington Slatted Bed",
+    "price": 349.0,
+    "oldPrice": 599.0,
+    "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 46,
-    "badge": "New",
+    "badge": "42% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1579,7 +1579,7 @@
         "length": 211
       }
     },
-    "description": "The Chester Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A distinctive bedroom design combining elegant upholstery with a sophisticated frame detail for a refined modern appearance.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1607,13 +1607,13 @@
   {
     "id": 12,
     "slug": "kingston-ottoman-bed",
-    "name": "Kingston Ottoman Bed",
-    "price": 549,
-    "oldPrice": null,
-    "monthlyPrice": 46,
+    "name": "Rabbora Nevada Slatted Ottoman Bed",
+    "price": 299.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 153,
-    "badge": "Popular",
+    "badge": "29% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1673,7 +1673,7 @@
         "length": 211
       }
     },
-    "description": "The Kingston Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A contemporary slatted bed designed to bring understated elegance, everyday comfort and practical bedroom storage together.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1700,13 +1700,13 @@
   {
     "id": 13,
     "slug": "manhattan-slatted-ottoman-bed",
-    "name": "Manhattan Slatted Ottoman Bed",
-    "price": 699,
-    "oldPrice": null,
-    "monthlyPrice": 58,
+    "name": "Rabbora Hawaii Cream Slatted Ottoman Bed",
+    "price": 239.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 20,
     "rating": 4,
     "reviewCount": 93,
-    "badge": null,
+    "badge": "43% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1766,7 +1766,7 @@
         "length": 211
       }
     },
-    "description": "The Manhattan Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A beautifully soft-looking bedroom centrepiece designed to create a calm and elegant setting with useful ottoman storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1793,13 +1793,13 @@
   {
     "id": 14,
     "slug": "brighton-slatted-ottoman-bed",
-    "name": "Brighton Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
+    "name": "Rabbora Ibiza Slatted Upholstered Bed",
+    "price": 389.0,
+    "oldPrice": 499.0,
+    "monthlyPrice": 33,
     "rating": 5,
     "reviewCount": 181,
-    "badge": null,
+    "badge": "22% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1859,7 +1859,7 @@
         "length": 211
       }
     },
-    "description": "The Brighton Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A sophisticated upholstered design with modern detailing, created to provide a stylish bedroom look and comfortable sleeping space.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1886,13 +1886,13 @@
   {
     "id": 15,
     "slug": "lancaster-ottoman-bed",
-    "name": "Lancaster Ottoman Bed",
-    "price": 629,
-    "oldPrice": 689,
-    "monthlyPrice": 52,
+    "name": "Rabbora Tokyo Sunrise Slatted Ottoman Bed",
+    "price": 289.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 110,
-    "badge": "Popular",
+    "badge": "31% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1952,7 +1952,7 @@
         "length": 211
       }
     },
-    "description": "The Lancaster Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A distinctive designer-inspired bed offering an elegant silhouette, comfortable sleeping area and convenient hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -1979,13 +1979,13 @@
   {
     "id": 16,
     "slug": "bristol-slatted-ottoman-bed",
-    "name": "Bristol Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
+    "name": "Rabbora Malaga Slatted Designer Bed",
+    "price": 275.0,
+    "oldPrice": 360.0,
+    "monthlyPrice": 23,
     "rating": 5,
     "reviewCount": 50,
-    "badge": "New",
+    "badge": "24% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2045,7 +2045,7 @@
         "length": 211
       }
     },
-    "description": "The Bristol Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A graceful designer bed created to add warmth and sophistication to your bedroom while keeping comfort at the centre.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2072,13 +2072,13 @@
   {
     "id": 17,
     "slug": "soho-slatted-ottoman-bed",
-    "name": "Soho Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
+    "name": "Rabbora Madrid Slatted Ottoman Bed",
+    "price": 349.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 200,
-    "badge": "Popular",
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2138,7 +2138,7 @@
         "length": 211
       }
     },
-    "description": "The Soho Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A contemporary lined design that combines modern bedroom styling with comfortable support and practical ottoman storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2165,13 +2165,13 @@
   {
     "id": 18,
     "slug": "belgravia-ottoman-bed",
-    "name": "Belgravia Ottoman Bed",
-    "price": 429,
-    "oldPrice": 489,
-    "monthlyPrice": 36,
+    "name": "Rabbora Lisbon Slatted Ottoman Bed",
+    "price": 349.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 30,
     "rating": 5,
     "reviewCount": 23,
-    "badge": null,
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2231,7 +2231,7 @@
         "length": 211
       }
     },
-    "description": "The Belgravia Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "An elegant bedroom design offering a balanced combination of stylish detailing, comfortable sleeping and useful storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2258,13 +2258,13 @@
   {
     "id": 19,
     "slug": "fulham-slatted-ottoman-bed",
-    "name": "Fulham Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
+    "name": "Rabbora Rome Slatted Wingback Bed",
+    "price": 389.0,
+    "oldPrice": 478.8,
+    "monthlyPrice": 33,
     "rating": 5,
     "reviewCount": 36,
-    "badge": null,
+    "badge": "19% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2324,7 +2324,7 @@
         "length": 211
       }
     },
-    "description": "The Fulham Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A sophisticated wingback design that creates an elegant focal point while offering a comfortable and welcoming place to rest.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2351,13 +2351,13 @@
   {
     "id": 20,
     "slug": "chiswick-slatted-ottoman-bed",
-    "name": "Chiswick Slatted Ottoman Bed",
-    "price": 679,
-    "oldPrice": null,
-    "monthlyPrice": 57,
+    "name": "Rabbora Mona Lisa Slatted Ottoman Bed",
+    "price": 299.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 165,
-    "badge": null,
+    "badge": "29% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2417,7 +2417,7 @@
         "length": 211
       }
     },
-    "description": "The Chiswick Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A graceful and elegant bed designed to add a refined presence to the bedroom with the practicality of hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2444,13 +2444,13 @@
   {
     "id": 21,
     "slug": "greenwich-ottoman-bed",
-    "name": "Greenwich Ottoman Bed",
-    "price": 649,
-    "oldPrice": null,
-    "monthlyPrice": 54,
+    "name": "Rabbora Barcelona Slatted Bed",
+    "price": 349.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 30,
     "rating": 5,
     "reviewCount": 123,
-    "badge": null,
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2510,7 +2510,7 @@
         "length": 211
       }
     },
-    "description": "The Greenwich Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A modern lined bed design created to bring clean sophistication, comfort and versatile bedroom styling into your home.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2537,13 +2537,13 @@
   {
     "id": 22,
     "slug": "camden-slatted-ottoman-bed",
-    "name": "Camden Slatted Ottoman Bed",
-    "price": 679,
-    "oldPrice": 739,
-    "monthlyPrice": 57,
+    "name": "Rabbora Florence Slatted Designer Bed",
+    "price": 399.0,
+    "oldPrice": 478.8,
+    "monthlyPrice": 34,
     "rating": 4,
     "reviewCount": 67,
-    "badge": "New",
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2603,7 +2603,7 @@
         "length": 211
       }
     },
-    "description": "The Camden Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A beautifully proportioned designer bed offering timeless bedroom appeal, comfortable support and a refined finish.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2630,13 +2630,13 @@
   {
     "id": 23,
     "slug": "notting-hill-slatted-ottoman-bed",
-    "name": "Notting Hill Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
+    "name": "Rabbora Duke Slatted Luxury Wide Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 67,
     "rating": 4,
     "reviewCount": 131,
-    "badge": null,
+    "badge": "20% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2696,7 +2696,7 @@
         "length": 211
       }
     },
-    "description": "The Notting Hill Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A grand bedroom statement featuring a wide headboard design that brings a luxurious hotel-inspired atmosphere to your space.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2723,13 +2723,13 @@
   {
     "id": 24,
     "slug": "marylebone-ottoman-bed",
-    "name": "Marylebone Ottoman Bed",
-    "price": 449,
-    "oldPrice": null,
-    "monthlyPrice": 37,
+    "name": "Rabbora Golden Crown Slatted Ottoman Bed",
+    "price": 349.0,
+    "oldPrice": 549.0,
+    "monthlyPrice": 30,
     "rating": 5,
     "reviewCount": 72,
-    "badge": null,
+    "badge": "36% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2789,7 +2789,7 @@
         "length": 211
       }
     },
-    "description": "The Marylebone Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "An elegant statement bed designed to bring a luxurious touch to the bedroom while providing practical hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2816,13 +2816,13 @@
   {
     "id": 25,
     "slug": "highgate-slatted-ottoman-bed",
-    "name": "Highgate Slatted Ottoman Bed",
-    "price": 699,
-    "oldPrice": null,
-    "monthlyPrice": 58,
+    "name": "Rabbora Avon Slatted Triple Panel Bed",
+    "price": 349.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 30,
     "rating": 5,
     "reviewCount": 126,
-    "badge": null,
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2882,7 +2882,7 @@
         "length": 211
       }
     },
-    "description": "The Highgate Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A stylish triple-panel design created to add structure and character to your bedroom while providing comfortable everyday use.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -2909,13 +2909,13 @@
   {
     "id": 26,
     "slug": "hampstead-slatted-ottoman-bed",
-    "name": "Hampstead Slatted Ottoman Bed",
-    "price": 489,
-    "oldPrice": 549,
-    "monthlyPrice": 41,
+    "name": "Rabbora Duchess Slatted La Rosa Bed",
+    "price": 299.0,
+    "oldPrice": 414.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 206,
-    "badge": null,
+    "badge": "28% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -2975,7 +2975,7 @@
         "length": 211
       }
     },
-    "description": "The Hampstead Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A graceful and sophisticated bedroom design offering elegant styling, comfortable support and a timeless decorative presence.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3002,13 +3002,13 @@
   {
     "id": 27,
     "slug": "clapham-ottoman-bed",
-    "name": "Clapham Ottoman Bed",
-    "price": 399,
-    "oldPrice": null,
+    "name": "Rabbora Osaka Slatted Upholstered Bed",
+    "price": 389.0,
+    "oldPrice": 499.0,
     "monthlyPrice": 33,
     "rating": 4,
     "reviewCount": 65,
-    "badge": "Best Seller",
+    "badge": "22% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3068,7 +3068,7 @@
         "length": 211
       }
     },
-    "description": "The Clapham Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A modern upholstered design with distinctive detailing, created for stylish bedrooms and comfortable everyday relaxation.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3095,13 +3095,13 @@
   {
     "id": 28,
     "slug": "islington-slatted-ottoman-bed",
-    "name": "Islington Slatted Ottoman Bed",
-    "price": 629,
-    "oldPrice": 689,
-    "monthlyPrice": 52,
+    "name": "Rabbora Jersey Slatted Ottoman Bed",
+    "price": 249.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 21,
     "rating": 5,
     "reviewCount": 38,
-    "badge": null,
+    "badge": "41% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3161,7 +3161,7 @@
         "length": 211
       }
     },
-    "description": "The Islington Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A versatile bedroom centrepiece combining comfortable sleeping with practical hidden storage and an elegant contemporary appearance.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3188,13 +3188,13 @@
   {
     "id": 29,
     "slug": "shoreditch-slatted-ottoman-bed",
-    "name": "Shoreditch Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": 549,
-    "monthlyPrice": 39,
+    "name": "Rabbora Victoria Slatted Designer Bed",
+    "price": 299.0,
+    "oldPrice": 360.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 135,
-    "badge": "Popular",
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3254,7 +3254,7 @@
         "length": 211
       }
     },
-    "description": "The Shoreditch Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A refined lined design that brings elegant proportions, comfortable support and sophisticated bedroom character together.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3281,13 +3281,13 @@
   {
     "id": 30,
     "slug": "southbank-ottoman-bed",
-    "name": "Southbank Ottoman Bed",
-    "price": 599,
-    "oldPrice": 699,
-    "monthlyPrice": 50,
+    "name": "Rabbora Thames Slatted Wingback Bed",
+    "price": 319.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 27,
     "rating": 4,
     "reviewCount": 107,
-    "badge": "Best Seller",
+    "badge": "24% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3347,7 +3347,7 @@
         "length": 211
       }
     },
-    "description": "The Southbank Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A striking wingback-inspired design created to provide a luxurious bedroom presence with comfortable everyday support.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3374,13 +3374,13 @@
   {
     "id": 31,
     "slug": "kew-slatted-ottoman-bed",
-    "name": "Kew Slatted Ottoman Bed",
-    "price": 629,
-    "oldPrice": null,
-    "monthlyPrice": 52,
+    "name": "Rabbora Cloud Slatted Boucle Bed",
+    "price": 789.0,
+    "oldPrice": 1399.0,
+    "monthlyPrice": 66,
     "rating": 5,
     "reviewCount": 20,
-    "badge": null,
+    "badge": "44% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3440,7 +3440,7 @@
         "length": 211
       }
     },
-    "description": "The Kew Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A soft and luxurious bedroom design with a welcoming appearance, created to bring comfort and modern elegance to your space.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3467,13 +3467,13 @@
   {
     "id": 32,
     "slug": "putney-slatted-ottoman-bed",
-    "name": "Putney Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
+    "name": "Rabbora Las Vegas Slatted Luxury High Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 63,
     "rating": 5,
     "reviewCount": 57,
-    "badge": "Popular",
+    "badge": "25% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3533,7 +3533,7 @@
         "length": 211
       }
     },
-    "description": "The Putney Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A dramatic high-headboard design inspired by luxury hotel interiors, creating an impressive focal point for the bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3564,13 +3564,13 @@
   {
     "id": 33,
     "slug": "wimbledon-ottoman-bed",
-    "name": "Wimbledon Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
+    "name": "Rabbora Paris Slatted Linear Bed",
+    "price": 349.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 41,
-    "badge": null,
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3630,7 +3630,7 @@
         "length": 211
       }
     },
-    "description": "The Wimbledon Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A clean linear design offering contemporary elegance, comfortable sleeping and a sophisticated foundation for modern bedrooms.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3658,13 +3658,13 @@
   {
     "id": 34,
     "slug": "dulwich-slatted-ottoman-bed",
-    "name": "Dulwich Slatted Ottoman Bed",
-    "price": 649,
-    "oldPrice": null,
-    "monthlyPrice": 54,
+    "name": "Rabbora Skyscraper Slatted Art Deco Bed",
+    "price": 299.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 207,
-    "badge": null,
+    "badge": "29% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3724,7 +3724,7 @@
         "length": 211
       }
     },
-    "description": "The Dulwich Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A distinctive Art Deco-inspired design created to give the bedroom a bold architectural feel with elegant styling.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3751,13 +3751,13 @@
   {
     "id": 35,
     "slug": "ealing-slatted-ottoman-bed",
-    "name": "Ealing Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": 699,
-    "monthlyPrice": 50,
+    "name": "Rabbora Torino Slatted Designer Bed",
+    "price": 290.0,
+    "oldPrice": 396.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 159,
-    "badge": "New",
+    "badge": "27% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3817,7 +3817,7 @@
         "length": 211
       }
     },
-    "description": "The Ealing Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A beautifully structured bedroom design offering a refined appearance, comfortable sleeping space and versatile styling.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3844,13 +3844,13 @@
   {
     "id": 36,
     "slug": "harrow-ottoman-bed",
-    "name": "Harrow Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
+    "name": "Rabbora Sheffield Slatted Studded Bed",
+    "price": 349.0,
+    "oldPrice": 456.0,
+    "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 108,
-    "badge": null,
+    "badge": "23% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -3910,7 +3910,7 @@
         "length": 211
       }
     },
-    "description": "The Harrow Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A sophisticated studded design that adds elegant detailing and character while maintaining a comfortable bedroom atmosphere.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -3937,13 +3937,13 @@
   {
     "id": 37,
     "slug": "barnet-slatted-ottoman-bed",
-    "name": "Barnet Slatted Ottoman Bed",
-    "price": 699,
-    "oldPrice": null,
-    "monthlyPrice": 58,
+    "name": "Rabbora Cannes Slatted Ottoman Bed",
+    "price": 399.0,
+    "oldPrice": 499.0,
+    "monthlyPrice": 34,
     "rating": 5,
     "reviewCount": 24,
-    "badge": "New",
+    "badge": "20% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -4003,7 +4003,7 @@
         "length": 211
       }
     },
-    "description": "The Barnet Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A stylish bedroom centrepiece designed to combine elegant detailing, comfortable support and practical storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -4029,2153 +4029,14 @@
   },
   {
     "id": 38,
-    "slug": "enfield-slatted-ottoman-bed",
-    "name": "Enfield Slatted Ottoman Bed",
-    "price": 699,
-    "oldPrice": null,
-    "monthlyPrice": 58,
-    "rating": 5,
-    "reviewCount": 27,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "White",
-      "Black",
-      "Beige"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "naples-steel",
-        "name": "Naples Steel"
-      },
-      {
-        "slug": "naples-silver",
-        "name": "Naples Silver"
-      },
-      {
-        "slug": "marble-oatmeal",
-        "name": "Marble Oatmeal"
-      },
-      {
-        "slug": "naples-black",
-        "name": "Naples Black"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Enfield Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/enfield-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/enfield-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/enfield-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 39,
-    "slug": "bromley-ottoman-bed",
-    "name": "Bromley Ottoman Bed",
-    "price": 469,
-    "oldPrice": 549,
-    "monthlyPrice": 39,
-    "rating": 5,
-    "reviewCount": 102,
-    "badge": "Popular",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "White",
-      "Blue",
-      "Brown"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "marble-platinum",
-        "name": "Marble Platinum"
-      },
-      {
-        "slug": "plush-steel",
-        "name": "Plush Steel"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      },
-      {
-        "slug": "coniston-armour",
-        "name": "Coniston Armour"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Bromley Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/bromley-ottoman-bed-main.svg",
-      "images/ottoman-beds/bromley-ottoman-bed-angle.svg",
-      "images/ottoman-beds/bromley-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 40,
-    "slug": "croydon-slatted-ottoman-bed",
-    "name": "Croydon Slatted Ottoman Bed",
-    "price": 649,
-    "oldPrice": null,
-    "monthlyPrice": 54,
-    "rating": 5,
-    "reviewCount": 102,
-    "badge": "Best Seller",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Pink",
-      "Black",
-      "Grey"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-charcoal",
-        "name": "Coniston Charcoal"
-      },
-      {
-        "slug": "marble-silver",
-        "name": "Marble Silver"
-      },
-      {
-        "slug": "coniston-armour",
-        "name": "Coniston Armour"
-      },
-      {
-        "slug": "plush-cream",
-        "name": "Plush Cream"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Croydon Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/croydon-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/croydon-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/croydon-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 41,
-    "slug": "sutton-slatted-ottoman-bed",
-    "name": "Sutton Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
-    "rating": 5,
-    "reviewCount": 204,
-    "badge": "Popular",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Brown",
-      "Beige",
-      "Black"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-pink",
-        "name": "Coniston Pink"
-      },
-      {
-        "slug": "crushed-velvet-mink",
-        "name": "Crushed Velvet Mink"
-      },
-      {
-        "slug": "crushed-velvet-silver",
-        "name": "Crushed Velvet Silver"
-      },
-      {
-        "slug": "coniston-charcoal",
-        "name": "Coniston Charcoal"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Sutton Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/sutton-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/sutton-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/sutton-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 42,
-    "slug": "merton-ottoman-bed",
-    "name": "Merton Ottoman Bed",
-    "price": 399,
-    "oldPrice": null,
-    "monthlyPrice": 33,
-    "rating": 4,
-    "reviewCount": 151,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Brown",
-      "Silver",
-      "White"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "coniston-blue",
-        "name": "Coniston Blue"
-      },
-      {
-        "slug": "naples-silver",
-        "name": "Naples Silver"
-      },
-      {
-        "slug": "plush-pink",
-        "name": "Plush Pink"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Merton Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/merton-ottoman-bed-main.svg",
-      "images/ottoman-beds/merton-ottoman-bed-angle.svg",
-      "images/ottoman-beds/merton-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 43,
-    "slug": "lewisham-slatted-ottoman-bed",
-    "name": "Lewisham Slatted Ottoman Bed",
-    "price": 629,
-    "oldPrice": 689,
-    "monthlyPrice": 52,
-    "rating": 5,
-    "reviewCount": 147,
-    "badge": "Popular",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Black",
-      "Blue",
-      "Cream"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "coniston-pink",
-        "name": "Coniston Pink"
-      },
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Lewisham Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/lewisham-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/lewisham-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/lewisham-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 44,
-    "slug": "hackney-slatted-ottoman-bed",
-    "name": "Hackney Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
-    "rating": 5,
-    "reviewCount": 191,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Black",
-      "Brown",
-      "Grey"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "marble-silver",
-        "name": "Marble Silver"
-      },
-      {
-        "slug": "plush-cream",
-        "name": "Plush Cream"
-      },
-      {
-        "slug": "crushed-velvet-mink",
-        "name": "Crushed Velvet Mink"
-      },
-      {
-        "slug": "crushed-velvet-cream",
-        "name": "Crushed Velvet Cream"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Hackney Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/hackney-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/hackney-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/hackney-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 45,
-    "slug": "tower-bridge-ottoman-bed",
-    "name": "Tower Bridge Ottoman Bed",
-    "price": 489,
-    "oldPrice": 609,
-    "monthlyPrice": 41,
-    "rating": 5,
-    "reviewCount": 173,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Blue",
-      "Green",
-      "Cream"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "naples-black",
-        "name": "Naples Black"
-      },
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "naples-silver",
-        "name": "Naples Silver"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Tower Bridge Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/tower-bridge-ottoman-bed-main.svg",
-      "images/ottoman-beds/tower-bridge-ottoman-bed-angle.svg",
-      "images/ottoman-beds/tower-bridge-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 46,
-    "slug": "canary-wharf-slatted-ottoman-bed",
-    "name": "Canary Wharf Slatted Ottoman Bed",
-    "price": 649,
-    "oldPrice": 749,
-    "monthlyPrice": 54,
-    "rating": 4,
-    "reviewCount": 210,
-    "badge": "New",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Beige",
-      "Cream",
-      "Grey"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "plush-beige",
-        "name": "Plush Beige"
-      },
-      {
-        "slug": "naples-steel",
-        "name": "Naples Steel"
-      },
-      {
-        "slug": "pink-boucle",
-        "name": "Pink Boucle"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Canary Wharf Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/canary-wharf-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/canary-wharf-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/canary-wharf-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 47,
-    "slug": "mile-end-slatted-ottoman-bed",
-    "name": "Mile End Slatted Ottoman Bed",
-    "price": 399,
-    "oldPrice": 519,
-    "monthlyPrice": 33,
-    "rating": 5,
-    "reviewCount": 36,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Beige",
-      "Brown",
-      "Green"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-pink",
-        "name": "Coniston Pink"
-      },
-      {
-        "slug": "marble-silver",
-        "name": "Marble Silver"
-      },
-      {
-        "slug": "plush-mustard",
-        "name": "Plush Mustard"
-      },
-      {
-        "slug": "crushed-velvet-cream",
-        "name": "Crushed Velvet Cream"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Mile End Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/mile-end-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/mile-end-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/mile-end-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 48,
-    "slug": "wapping-ottoman-bed",
-    "name": "Wapping Ottoman Bed",
-    "price": 549,
-    "oldPrice": 609,
-    "monthlyPrice": 46,
-    "rating": 4,
-    "reviewCount": 126,
-    "badge": "New",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Green",
-      "Grey",
-      "Beige"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-cream",
-        "name": "Plush Cream"
-      },
-      {
-        "slug": "pink-boucle",
-        "name": "Pink Boucle"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "crushed-velvet-silver",
-        "name": "Crushed Velvet Silver"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Wapping Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/wapping-ottoman-bed-main.svg",
-      "images/ottoman-beds/wapping-ottoman-bed-angle.svg",
-      "images/ottoman-beds/wapping-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 49,
-    "slug": "bermondsey-slatted-ottoman-bed",
-    "name": "Bermondsey Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
-    "rating": 5,
-    "reviewCount": 188,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Green",
-      "Blue",
-      "Brown"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "crushed-velvet-mink",
-        "name": "Crushed Velvet Mink"
-      },
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Bermondsey Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/bermondsey-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/bermondsey-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/bermondsey-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 50,
-    "slug": "peckham-slatted-ottoman-bed",
-    "name": "Peckham Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
-    "rating": 4,
-    "reviewCount": 208,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Black",
-      "Blue",
-      "Green"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "naples-black",
-        "name": "Naples Black"
-      },
-      {
-        "slug": "coniston-armour",
-        "name": "Coniston Armour"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      },
-      {
-        "slug": "naples-steel",
-        "name": "Naples Steel"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Peckham Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/peckham-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/peckham-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/peckham-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 51,
-    "slug": "brixton-ottoman-bed",
-    "name": "Brixton Ottoman Bed",
-    "price": 649,
-    "oldPrice": 769,
-    "monthlyPrice": 54,
-    "rating": 4,
-    "reviewCount": 200,
-    "badge": "Popular",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Blue",
-      "Silver",
-      "Cream"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "naples-steel",
-        "name": "Naples Steel"
-      },
-      {
-        "slug": "coniston-armour",
-        "name": "Coniston Armour"
-      },
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "marble-silver",
-        "name": "Marble Silver"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Brixton Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/brixton-ottoman-bed-main.svg",
-      "images/ottoman-beds/brixton-ottoman-bed-angle.svg",
-      "images/ottoman-beds/brixton-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 52,
-    "slug": "stockwell-slatted-ottoman-bed",
-    "name": "Stockwell Slatted Ottoman Bed",
-    "price": 449,
-    "oldPrice": 529,
-    "monthlyPrice": 37,
-    "rating": 4,
-    "reviewCount": 34,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Brown",
-      "Grey",
-      "Beige"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-pink",
-        "name": "Coniston Pink"
-      },
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "naples-black",
-        "name": "Naples Black"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Stockwell Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/stockwell-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/stockwell-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/stockwell-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 53,
-    "slug": "vauxhall-slatted-ottoman-bed",
-    "name": "Vauxhall Slatted Ottoman Bed",
-    "price": 549,
-    "oldPrice": 609,
-    "monthlyPrice": 46,
-    "rating": 5,
-    "reviewCount": 115,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Brown",
-      "Pink",
-      "Beige"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-grey",
-        "name": "Plush Grey"
-      },
-      {
-        "slug": "plush-pink",
-        "name": "Plush Pink"
-      },
-      {
-        "slug": "plush-beige",
-        "name": "Plush Beige"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Vauxhall Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/vauxhall-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/vauxhall-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/vauxhall-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 54,
-    "slug": "pimlico-ottoman-bed",
-    "name": "Pimlico Ottoman Bed",
-    "price": 579,
-    "oldPrice": 699,
-    "monthlyPrice": 48,
-    "rating": 5,
-    "reviewCount": 25,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Cream",
-      "Green",
-      "Pink"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "pink-boucle",
-        "name": "Pink Boucle"
-      },
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Pimlico Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/pimlico-ottoman-bed-main.svg",
-      "images/ottoman-beds/pimlico-ottoman-bed-angle.svg",
-      "images/ottoman-beds/pimlico-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 55,
-    "slug": "knightsbridge-slatted-ottoman-bed",
-    "name": "Knightsbridge Slatted Ottoman Bed",
-    "price": 629,
-    "oldPrice": null,
-    "monthlyPrice": 52,
-    "rating": 5,
-    "reviewCount": 169,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Brown",
-      "Cream",
-      "Green"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "plush-grey",
-        "name": "Plush Grey"
-      },
-      {
-        "slug": "plush-steel",
-        "name": "Plush Steel"
-      },
-      {
-        "slug": "plush-mustard",
-        "name": "Plush Mustard"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Knightsbridge Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/knightsbridge-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/knightsbridge-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/knightsbridge-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 56,
-    "slug": "chelsea-harbour-slatted-ottoman-bed",
-    "name": "Chelsea Harbour Slatted Ottoman Bed",
-    "price": 449,
-    "oldPrice": 569,
-    "monthlyPrice": 37,
-    "rating": 5,
-    "reviewCount": 72,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Black",
-      "Brown",
-      "Pink"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "plush-black",
-        "name": "Plush Black"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      },
-      {
-        "slug": "marble-silver",
-        "name": "Marble Silver"
-      },
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Chelsea Harbour Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/chelsea-harbour-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/chelsea-harbour-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/chelsea-harbour-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 57,
-    "slug": "regent-ottoman-bed",
-    "name": "Regent Ottoman Bed",
-    "price": 429,
-    "oldPrice": null,
-    "monthlyPrice": 36,
-    "rating": 5,
-    "reviewCount": 31,
-    "badge": "Popular",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Grey",
-      "Pink",
-      "Beige"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "naples-steel",
-        "name": "Naples Steel"
-      },
-      {
-        "slug": "plush-mustard",
-        "name": "Plush Mustard"
-      },
-      {
-        "slug": "plush-steel",
-        "name": "Plush Steel"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Regent Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/regent-ottoman-bed-main.svg",
-      "images/ottoman-beds/regent-ottoman-bed-angle.svg",
-      "images/ottoman-beds/regent-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 58,
-    "slug": "piccadilly-slatted-ottoman-bed",
-    "name": "Piccadilly Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
-    "rating": 5,
-    "reviewCount": 57,
-    "badge": "New",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Pink",
-      "Beige",
-      "Green"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-almond",
-        "name": "Coniston Almond"
-      },
-      {
-        "slug": "naples-ivory",
-        "name": "Naples Ivory"
-      },
-      {
-        "slug": "plush-green",
-        "name": "Plush Green"
-      },
-      {
-        "slug": "coniston-charcoal",
-        "name": "Coniston Charcoal"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Piccadilly Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/piccadilly-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/piccadilly-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/piccadilly-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 59,
-    "slug": "bloomsbury-slatted-ottoman-bed",
-    "name": "Bloomsbury Slatted Ottoman Bed",
-    "price": 679,
-    "oldPrice": 779,
-    "monthlyPrice": 57,
-    "rating": 4,
-    "reviewCount": 173,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Cream",
-      "Black",
-      "Silver"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-blue",
-        "name": "Coniston Blue"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "coniston-charcoal",
-        "name": "Coniston Charcoal"
-      },
-      {
-        "slug": "cream-boucle",
-        "name": "Cream Boucle"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Bloomsbury Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/bloomsbury-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/bloomsbury-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/bloomsbury-slatted-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 60,
-    "slug": "holborn-ottoman-bed",
-    "name": "Holborn Ottoman Bed",
-    "price": 629,
-    "oldPrice": 729,
-    "monthlyPrice": 52,
-    "rating": 5,
-    "reviewCount": 191,
-    "badge": null,
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Pink",
-      "Beige",
-      "Silver"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-emerald",
-        "name": "Coniston Emerald"
-      },
-      {
-        "slug": "plush-turquoise",
-        "name": "Plush Turquoise"
-      },
-      {
-        "slug": "naples-silver",
-        "name": "Naples Silver"
-      },
-      {
-        "slug": "plush-steel",
-        "name": "Plush Steel"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Holborn Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-      "images/ottoman-beds/holborn-ottoman-bed-main.svg",
-      "images/ottoman-beds/holborn-ottoman-bed-angle.svg",
-      "images/ottoman-beds/holborn-ottoman-bed-closeup.svg"
-    ]
-  },
-  {
-    "id": 61,
     "slug": "farringdon-slatted-ottoman-bed",
-    "name": "Farringdon Slatted Ottoman Bed",
-    "price": 679,
-    "oldPrice": null,
-    "monthlyPrice": 57,
+    "name": "Rabbora Teddy Zen Slatted Boucle Ottoman Bed",
+    "price": 599.0,
+    "oldPrice": 1399.0,
+    "monthlyPrice": 50,
     "rating": 5,
     "reviewCount": 48,
-    "badge": null,
+    "badge": "57% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6235,7 +4096,7 @@
         "length": 211
       }
     },
-    "description": "The Farringdon Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A calm and luxurious bedroom design combining a soft boucle-inspired appearance with comfortable sleeping and useful storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6254,21 +4115,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/farringdon-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/farringdon-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/farringdon-slatted-ottoman-bed-closeup.svg"
+      "slatted/198.png",
+    "slatted/199.jfif",
+    "slatted/200.png"
     ]
   },
   {
-    "id": 62,
+    "id": 39,
     "slug": "barbican-slatted-ottoman-bed",
-    "name": "Barbican Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
+    "name": "Rabbora Venice Slatted Linear Ottoman Bed",
+    "price": 314.99,
+    "oldPrice": 372.0,
+    "monthlyPrice": 27,
     "rating": 4,
     "reviewCount": 125,
-    "badge": null,
+    "badge": "15% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6328,7 +4189,7 @@
         "length": 211
       }
     },
-    "description": "The Barbican Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A contemporary linear design offering a clean bedroom appearance, comfortable sleeping and convenient hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6347,21 +4208,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/barbican-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/barbican-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/barbican-slatted-ottoman-bed-closeup.svg"
+     "slatted/195.png",
+    "slatted/196.jfif",
+    "slatted/197.jfif"
     ]
   },
   {
-    "id": 63,
+    "id": 40,
     "slug": "angel-ottoman-bed",
-    "name": "Angel Ottoman Bed",
-    "price": 449,
-    "oldPrice": null,
-    "monthlyPrice": 37,
+    "name": "Rabbora Geneva Slatted High & Wide Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 63,
     "rating": 5,
     "reviewCount": 175,
-    "badge": null,
+    "badge": "25% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6421,7 +4282,7 @@
         "length": 211
       }
     },
-    "description": "The Angel Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A luxurious wide-headboard design created to make a dramatic bedroom statement while offering a comfortable and refined sleeping space.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6440,21 +4301,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/angel-ottoman-bed-main.svg",
-      "images/ottoman-beds/angel-ottoman-bed-angle.svg",
-      "images/ottoman-beds/angel-ottoman-bed-closeup.svg"
+       "slatted/192.jfif",
+    "slatted/193.jfif",
+    "slatted/194.jfif"
     ]
   },
   {
-    "id": 64,
+    "id": 41,
     "slug": "finsbury-slatted-ottoman-bed",
-    "name": "Finsbury Slatted Ottoman Bed",
-    "price": 469,
-    "oldPrice": null,
-    "monthlyPrice": 39,
+    "name": "Rabbora Zurich Slatted Ottoman Bed",
+    "price": 299.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 89,
-    "badge": null,
+    "badge": "29% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6514,7 +4375,7 @@
         "length": 211
       }
     },
-    "description": "The Finsbury Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A sophisticated and practical bedroom design combining elegant styling, comfortable support and convenient under-bed storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6533,18 +4394,18 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/finsbury-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/finsbury-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/finsbury-slatted-ottoman-bed-closeup.svg"
+        "slatted/189.jfif",
+    "slatted/190.jfif",
+    "slatted/191.jfif"
     ]
   },
   {
-    "id": 65,
+    "id": 42,
     "slug": "whitechapel-slatted-ottoman-bed",
-    "name": "Whitechapel Slatted Ottoman Bed",
-    "price": 399,
+    "name": "Rabbora Arizona Slatted Ottoman Bed",
+    "price": 289.0,
     "oldPrice": null,
-    "monthlyPrice": 33,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 64,
     "badge": null,
@@ -6607,7 +4468,7 @@
         "length": 211
       }
     },
-    "description": "The Whitechapel Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A versatile bedroom design created to provide comfortable sleeping with a clean and stylish appearance and useful storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6626,21 +4487,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/whitechapel-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/whitechapel-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/whitechapel-slatted-ottoman-bed-closeup.svg"
+      "slatted/186.jfif",
+    "slatted/187.jfif",
+    "slatted/188.png"
     ]
   },
   {
-    "id": 66,
+    "id": 43,
     "slug": "aldgate-ottoman-bed",
-    "name": "Aldgate Ottoman Bed",
-    "price": 599,
-    "oldPrice": 679,
-    "monthlyPrice": 50,
+    "name": "Rabbora Golden Ibiza Slatted Linear Bed",
+    "price": 389.0,
+    "oldPrice": 499.0,
+    "monthlyPrice": 33,
     "rating": 4,
     "reviewCount": 79,
-    "badge": null,
+    "badge": "22% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6700,7 +4561,7 @@
         "length": 211
       }
     },
-    "description": "The Aldgate Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A luxurious linear design with distinctive detailing, created to add elegance and a premium finish to the bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6719,21 +4580,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/aldgate-ottoman-bed-main.svg",
-      "images/ottoman-beds/aldgate-ottoman-bed-angle.svg",
-      "images/ottoman-beds/aldgate-ottoman-bed-closeup.svg"
+     "slatted/183.jfif",
+    "slatted/184.jfif",
+    "slatted/185.png"
     ]
   },
   {
-    "id": 67,
+    "id": 44,
     "slug": "stratford-slatted-ottoman-bed",
-    "name": "Stratford Slatted Ottoman Bed",
-    "price": 579,
-    "oldPrice": null,
-    "monthlyPrice": 48,
+    "name": "Rabbora Sheffield Slatted Upholstered Bed",
+    "price": 295.0,
+    "oldPrice": 456.0,
+    "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 93,
-    "badge": "New",
+    "badge": "35% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6793,7 +4654,7 @@
         "length": 211
       }
     },
-    "description": "The Stratford Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A refined upholstered bedroom design offering comfortable support, elegant styling and versatile appeal.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6812,21 +4673,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/stratford-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/stratford-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/stratford-slatted-ottoman-bed-closeup.svg"
+   "slatted/180.png",
+    "slatted/181.jfif",
+    "slatted/182.jfif"
     ]
   },
   {
-    "id": 68,
+    "id": 45,
     "slug": "hackney-wick-slatted-ottoman-bed",
-    "name": "Hackney Wick Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
+    "name": "Rabbora Yukon Slatted Wing Bed",
+    "price": 294.0,
+    "oldPrice": 420.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 208,
-    "badge": null,
+    "badge": "30% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6886,7 +4747,7 @@
         "length": 211
       }
     },
-    "description": "The Hackney Wick Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A stylish winged design created to give the bedroom a sophisticated appearance while providing comfortable everyday support.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -6905,21 +4766,21 @@
     "ottomanUpgradePrice": 0,
     "detailingButtonsPrice": 15,
     "images": [
-      "images/ottoman-beds/hackney-wick-slatted-ottoman-bed-main.svg",
-      "images/ottoman-beds/hackney-wick-slatted-ottoman-bed-angle.svg",
-      "images/ottoman-beds/hackney-wick-slatted-ottoman-bed-closeup.svg"
+     "slatted/177.jfif",
+    "slatted/178.jfif",
+    "slatted/179.jfif"
     ]
   },
   {
-    "id": 69,
+    "id": 46,
     "slug": "bow-ottoman-bed",
-    "name": "Bow Ottoman Bed",
-    "price": 469,
-    "oldPrice": 549,
-    "monthlyPrice": 39,
+    "name": "Rabbora Presidential Slatted Ottoman Bed",
+    "price": 749.0,
+    "oldPrice": 1052.0,
+    "monthlyPrice": 63,
     "rating": 5,
     "reviewCount": 48,
-    "badge": null,
+    "badge": "29% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -6979,7 +4840,7 @@
         "length": 211
       }
     },
-    "description": "The Bow Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A grand bedroom design offering an impressive presence, comfortable sleeping space and practical hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7004,15 +4865,15 @@
     ]
   },
   {
-    "id": 70,
+    "id": 47,
     "slug": "poplar-slatted-ottoman-bed",
-    "name": "Poplar Slatted Ottoman Bed",
-    "price": 489,
-    "oldPrice": null,
-    "monthlyPrice": 41,
+    "name": "Rabbora Montana Ambassador Slatted Bed",
+    "price": 599.0,
+    "oldPrice": 800.0,
+    "monthlyPrice": 50,
     "rating": 5,
     "reviewCount": 170,
-    "badge": "Popular",
+    "badge": "25% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7072,7 +4933,7 @@
         "length": 211
       }
     },
-    "description": "The Poplar Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A luxurious ambassador-inspired design created to bring a premium and sophisticated atmosphere into the bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7097,15 +4958,15 @@
     ]
   },
   {
-    "id": 71,
+    "id": 48,
     "slug": "limehouse-slatted-ottoman-bed",
-    "name": "Limehouse Slatted Ottoman Bed",
-    "price": 489,
-    "oldPrice": 569,
-    "monthlyPrice": 41,
+    "name": "Rabbora Amalfi Slatted Italian Style Ottoman Bed",
+    "price": 299.0,
+    "oldPrice": 599.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 29,
-    "badge": "Best Seller",
+    "badge": "50% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7165,7 +5026,7 @@
         "length": 211
       }
     },
-    "description": "The Limehouse Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "An elegant Italian-inspired design combining sophisticated bedroom styling, comfortable sleeping and practical storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7190,15 +5051,15 @@
     ]
   },
   {
-    "id": 72,
+    "id": 49,
     "slug": "rotherhithe-ottoman-bed",
-    "name": "Rotherhithe Ottoman Bed",
-    "price": 629,
-    "oldPrice": 749,
-    "monthlyPrice": 52,
+    "name": "Rabbora Teddy Wave Slatted Ottoman Bed",
+    "price": 449.0,
+    "oldPrice": 520.0,
+    "monthlyPrice": 38,
     "rating": 5,
     "reviewCount": 105,
-    "badge": "New",
+    "badge": "14% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7258,7 +5119,7 @@
         "length": 211
       }
     },
-    "description": "The Rotherhithe Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A soft and contemporary wave-inspired design created to bring comfort, character and modern elegance to the bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7283,15 +5144,15 @@
     ]
   },
   {
-    "id": 73,
+    "id": 50,
     "slug": "deptford-slatted-ottoman-bed",
-    "name": "Deptford Slatted Ottoman Bed",
-    "price": 579,
-    "oldPrice": 639,
-    "monthlyPrice": 48,
+    "name": "Rabbora Black Plush Golden Pyramid Slatted Ottoman Bed",
+    "price": 539.0,
+    "oldPrice": 649.0,
+    "monthlyPrice": 45,
     "rating": 4,
     "reviewCount": 56,
-    "badge": null,
+    "badge": "17% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7351,7 +5212,7 @@
         "length": 211
       }
     },
-    "description": "The Deptford Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A bold luxury design combining dramatic styling with comfortable sleeping and practical ottoman storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7376,15 +5237,15 @@
     ]
   },
   {
-    "id": 74,
+    "id": 51,
     "slug": "new-cross-slatted-ottoman-bed",
-    "name": "New Cross Slatted Ottoman Bed",
-    "price": 699,
-    "oldPrice": null,
-    "monthlyPrice": 58,
+    "name": "Rabbora Bahamas Slatted Luxury Wide Headboard Bed",
+    "price": 749.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 63,
     "rating": 5,
     "reviewCount": 131,
-    "badge": "Popular",
+    "badge": "25% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7444,7 +5305,7 @@
         "length": 211
       }
     },
-    "description": "The New Cross Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A grand hotel-inspired bedroom centrepiece featuring a wide headboard design for an impressive and luxurious appearance.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7469,15 +5330,15 @@
     ]
   },
   {
-    "id": 75,
+    "id": 52,
     "slug": "catford-ottoman-bed",
-    "name": "Catford Ottoman Bed",
-    "price": 699,
-    "oldPrice": 779,
-    "monthlyPrice": 58,
+    "name": "Rabbora Riviera Slatted High Headboard Bed",
+    "price": 549.0,
+    "oldPrice": 900.0,
+    "monthlyPrice": 46,
     "rating": 5,
     "reviewCount": 187,
-    "badge": "Best Seller",
+    "badge": "39% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7537,7 +5398,7 @@
         "length": 211
       }
     },
-    "description": "The Catford Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A sophisticated high-headboard design created to add a luxurious focal point and elegant character to your bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7562,15 +5423,15 @@
     ]
   },
   {
-    "id": 76,
+    "id": 53,
     "slug": "sydenham-slatted-ottoman-bed",
-    "name": "Sydenham Slatted Ottoman Bed",
-    "price": 579,
-    "oldPrice": null,
-    "monthlyPrice": 48,
+    "name": "Rabbora New York Slatted Tall Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 900.0,
+    "monthlyPrice": 67,
     "rating": 5,
     "reviewCount": 92,
-    "badge": "Best Seller",
+    "badge": "11% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7630,7 +5491,7 @@
         "length": 211
       }
     },
-    "description": "The Sydenham Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A bold tall-headboard design bringing contemporary luxury and a striking architectural presence to the bedroom.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7655,15 +5516,15 @@
     ]
   },
   {
-    "id": 77,
+    "id": 54,
     "slug": "crystal-palace-slatted-ottoman-bed",
-    "name": "Crystal Palace Slatted Ottoman Bed",
-    "price": 489,
-    "oldPrice": null,
-    "monthlyPrice": 41,
+    "name": "Rabbora Grand Slatted Luxury Upholstered Bed",
+    "price": 1199.0,
+    "oldPrice": 1499.0,
+    "monthlyPrice": 100,
     "rating": 5,
     "reviewCount": 187,
-    "badge": "New",
+    "badge": "20% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7723,7 +5584,7 @@
         "length": 211
       }
     },
-    "description": "The Crystal Palace Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A truly impressive bedroom centrepiece designed with a luxurious appearance, sophisticated detailing and comfortable sleeping space.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7748,15 +5609,15 @@
     ]
   },
   {
-    "id": 78,
+    "id": 55,
     "slug": "norwood-ottoman-bed",
-    "name": "Norwood Ottoman Bed",
-    "price": 429,
-    "oldPrice": 529,
-    "monthlyPrice": 36,
+    "name": "Rabbora Silver Fern Slatted High Headboard Bed",
+    "price": 549.0,
+    "oldPrice": 900.0,
+    "monthlyPrice": 46,
     "rating": 5,
     "reviewCount": 209,
-    "badge": null,
+    "badge": "39% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7816,7 +5677,7 @@
         "length": 211
       }
     },
-    "description": "The Norwood Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "An elegant high-headboard design created to bring a refined and luxurious atmosphere to contemporary bedrooms.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7841,15 +5702,15 @@
     ]
   },
   {
-    "id": 79,
+    "id": 56,
     "slug": "streatham-slatted-ottoman-bed",
-    "name": "Streatham Slatted Ottoman Bed",
-    "price": 599,
-    "oldPrice": null,
-    "monthlyPrice": 50,
+    "name": "Rabbora Marble Bahamas Slatted Luxury Bed",
+    "price": 799.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 67,
     "rating": 5,
     "reviewCount": 38,
-    "badge": null,
+    "badge": "20% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -7909,7 +5770,7 @@
         "length": 211
       }
     },
-    "description": "The Streatham Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A grand hotel-style design combining a wide statement profile with sophisticated styling and a luxurious bedroom presence.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -7934,15 +5795,15 @@
     ]
   },
   {
-    "id": 80,
+    "id": 57,
     "slug": "balham-slatted-ottoman-bed",
-    "name": "Balham Slatted Ottoman Bed",
-    "price": 429,
-    "oldPrice": 489,
-    "monthlyPrice": 36,
+    "name": "Rabbora Duke of Orlando Slatted Wide Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 67,
     "rating": 5,
     "reviewCount": 165,
-    "badge": "Best Seller",
+    "badge": "20% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -8002,7 +5863,7 @@
         "length": 211
       }
     },
-    "description": "The Balham Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A bold wide-headboard design created to become the focal point of a luxury bedroom while providing comfortable everyday use.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -8027,15 +5888,15 @@
     ]
   }, 
   {
-    "id": 81,
+    "id": 58,
     "slug": "tooting-ottoman-bed",
-    "name": "Tooting Ottoman Bed",
-    "price": 629,
-    "oldPrice": null,
-    "monthlyPrice": 52,
+    "name": "Rabbora Ascot Slatted Tall Headboard Bed",
+    "price": 799.0,
+    "oldPrice": 900.0,
+    "monthlyPrice": 67,
     "rating": 5,
     "reviewCount": 41,
-    "badge": null,
+    "badge": "11% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -8095,7 +5956,7 @@
         "length": 211
       }
     },
-    "description": "The Tooting Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A sophisticated tall-headboard design offering an elegant bedroom statement with comfortable sleeping and premium styling.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -8120,15 +5981,15 @@
     ]
   },
   {
-    "id": 82,
+    "id": 59,
     "slug": "earlsfield-slatted-ottoman-bed",
-    "name": "Earlsfield Slatted Ottoman Bed",
-    "price": 549,
-    "oldPrice": null,
-    "monthlyPrice": 46,
+    "name": "Rabbora Teddy Duke Slatted Wide Headboard Bed",
+    "price": 849.0,
+    "oldPrice": 1000.0,
+    "monthlyPrice": 71,
     "rating": 5,
     "reviewCount": 187,
-    "badge": null,
+    "badge": "15% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -8188,7 +6049,7 @@
         "length": 211
       }
     },
-    "description": "The Earlsfield Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A luxurious wide-headboard design combining soft contemporary character with an impressive and comfortable bedroom setting.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -8213,15 +6074,15 @@
     ]
   },
   {
-    "id": 83,
+    "id": 60,
     "slug": "raynes-park-slatted-ottoman-bed",
-    "name": "Raynes Park Slatted Ottoman Bed",
-    "price": 489,
-    "oldPrice": 609,
-    "monthlyPrice": 41,
+    "name": "Rabbora Astoria Slatted Deco Ottoman Bed",
+    "price": 299.0,
+    "oldPrice": 599.0,
+    "monthlyPrice": 25,
     "rating": 5,
     "reviewCount": 18,
-    "badge": null,
+    "badge": "50% off",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -8281,7 +6142,7 @@
         "length": 211
       }
     },
-    "description": "The Raynes Park Slatted Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
+    "description": "A refined Deco-inspired ottoman design created to add elegant character, comfortable sleeping and practical hidden storage.",
     "features": [
       "Reinforced slatted base for supportive, breathable sleep",
       "Spacious gas-lift ottoman storage beneath the mattress",
@@ -8305,99 +6166,6 @@
     "slatted/132.jfif"
     ]
   },
-  {
-    "id": 84,
-    "slug": "motspur-ottoman-bed",
-    "name": "Motspur Ottoman Bed",
-    "price": 629,
-    "oldPrice": null,
-    "monthlyPrice": 52,
-    "rating": 5,
-    "reviewCount": 31,
-    "badge": "New",
-    "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
-      "Double 4ft 6\"",
-      "King 5ft",
-      "Super King 6ft"
-    ],
-    "availableSizes": [
-      "Single",
-      "Small Double",
-      "Double",
-      "King",
-      "Super King"
-    ],
-    "availableColours": [
-      "Green",
-      "Pink",
-      "Silver"
-    ],
-    "availableFabrics": [
-      {
-        "slug": "coniston-armour",
-        "name": "Coniston Armour"
-      },
-      {
-        "slug": "crushed-velvet-black",
-        "name": "Crushed Velvet Black"
-      },
-      {
-        "slug": "coniston-almond",
-        "name": "Coniston Almond"
-      },
-      {
-        "slug": "plush-beige",
-        "name": "Plush Beige"
-      }
-    ],
-    "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
-      "Small Double": {
-        "width": 136,
-        "length": 206
-      },
-      "Double": {
-        "width": 152,
-        "length": 206
-      },
-      "King": {
-        "width": 167,
-        "length": 211
-      },
-      "Super King": {
-        "width": 197,
-        "length": 211
-      }
-    },
-    "description": "The Motspur Ottoman Bed combines a reinforced slatted base with generous gas-lift ottoman storage beneath the mattress. Handmade to order, it's designed to bring smart, hidden storage and tailored upholstered style to a modern bedroom, in a choice of UK sizes and fabrics.",
-    "features": [
-      "Reinforced slatted base for supportive, breathable sleep",
-      "Spacious gas-lift ottoman storage beneath the mattress",
-      "Handmade to order in Britain",
-      "Available in multiple UK bed sizes"
-    ],
-    "materials": [
-      "Solid timber frame",
-      "Reinforced slatted base",
-      "High-density foam headboard padding",
-      "Tailored fabric upholstery"
-    ],
-    "warranty": "24 month warranty",
-    "delivery": "Handmade to order, with fast delivery options available on selected sizes and fabrics.",
-    "returns": "30-day easy returns on unused, unassembled beds.",
-    "ottomanUpgradePrice": 0,
-    "detailingButtonsPrice": 15,
-    "images": [
-     "slatted/127.png",
-    "slatted/130.png",
-    "slatted/128.jfif"
-    ]
-  }
 ];
 
   const SLATTED_OTTOMAN_SIZE_DELTAS = {

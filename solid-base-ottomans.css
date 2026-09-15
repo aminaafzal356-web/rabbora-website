@@ -820,6 +820,33 @@ body.sf-drawer-open {
   cursor: default;
 }
 
+/* ---- Solid Ottoman only: active pagination page uses the brand
+   brown/tan accent instead of the shared dark-green default, so
+   this does not affect Mattresses or any other page using
+   .mt-pagination. ---- */
+.so-toolbar-pagination .mt-pagination__page.is-active {
+  background-color: #a47b4c !important;
+  border-color: #a47b4c !important;
+  color: #ffffff !important;
+}
+
+/* ---- Solid Ottoman only: pagination sits inline in the toolbar
+   row next to Sort, with a small gap and safe wrapping on narrow
+   screens instead of the centered block-level layout used when
+   pagination stands alone under the grid. ---- */
+.so-toolbar-pagination {
+  justify-content: flex-start;
+  margin-top: 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 639px) {
+  .sf-toolbar-row__right {
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+  }
+}
+
 
 .bb-info__inner {
   max-width: 46rem;
@@ -1140,4 +1167,40 @@ body.sf-drawer-open {
 
 .bb-lightbox__close:hover {
   background-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ---- Solid Ottoman only: column-view toggle (2/3/4 columns per
+   row) buttons. Scoped to .so-view-toggle so other category pages
+   sharing the same .bb-toolbar__view-btn class are unaffected. ---- */
+.so-view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.so-view-toggle .bb-toolbar__view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding-inline: 0.6rem;
+  border: 1px solid #d8d2c4;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #23231f;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.so-view-toggle .bb-toolbar__view-btn:hover {
+  border-color: #a47b4c;
+}
+
+.so-view-toggle .bb-toolbar__view-btn.is-active {
+  background-color: #a47b4c;
+  border-color: #a47b4c;
+  color: #ffffff;
 }

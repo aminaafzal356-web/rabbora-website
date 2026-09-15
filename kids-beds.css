@@ -162,7 +162,7 @@
 
 /* ---- Product grid: 1 col mobile, 2 col tablet, 3 col desktop ---- */
 .kb-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (min-width: 768px) {
