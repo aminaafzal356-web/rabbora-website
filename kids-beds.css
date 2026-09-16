@@ -27,6 +27,13 @@
   object-position: center;
 }
 
+@media (max-width: 767px) {
+  .kb-hero__image {
+    object-fit: contain;
+  }
+}
+
+
 .kb-hero__overlay {
   position: absolute;
   inset: 0;
@@ -162,7 +169,7 @@
 
 /* ---- Product grid: 1 col mobile, 2 col tablet, 3 col desktop ---- */
 .kb-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
@@ -806,12 +813,4 @@
 
 .bb-lightbox__close:hover {
   background-color: rgba(255, 255, 255, 0.28);
-}
-
-
-/* ---- Honest "no reviews yet" label for product card grids ---- */
-.product-card__no-reviews {
-  font-size: 0.75rem;
-  font-style: italic;
-  color: rgba(35, 35, 32, 0.4);
 }

@@ -2511,8 +2511,6 @@ button.product-card__name.bb-product-open {
 
 .bb-modal__main-image-wrap {
   position: relative;
-  width: 100%;
-  max-width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -3454,6 +3452,13 @@ body.sf-drawer-open {
   animation: fabricHeroZoom 24s ease-in-out infinite alternate;
 }
 
+@media (max-width: 767px) {
+  .mt-hero__image {
+    object-fit: contain;
+  }
+}
+
+
 
 
 @media (prefers-reduced-motion: reduce) {
@@ -3796,14 +3801,6 @@ body.sf-drawer-open {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
-  min-width: 0;
-}
-
-
-
-.mt-detail__gallery,
-.mt-detail__info {
-  min-width: 0;
 }
 
 
@@ -3834,34 +3831,6 @@ body.sf-drawer-open {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-}
-
-
-
-.mt-option-pill {
-  height: 42px;
-  padding-inline: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-forest-dark);
-  background-color: var(--color-white);
-  transition: border-color var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-
-
-
-.mt-option-pill:hover {
-  border-color: var(--color-brass-light);
-}
-
-
-
-.mt-option-pill[aria-pressed="true"] {
-  background-color: var(--color-forest);
-  border-color: var(--color-forest);
-  color: var(--color-ivory-soft);
 }
 
 
@@ -3953,7 +3922,7 @@ body.sf-drawer-open {
 
 /* ---- Product grid: exactly 3 per row on desktop ---- */
 .mt-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   transition: opacity 0.2s var(--ease);
 }
 
@@ -5454,30 +5423,6 @@ body.sf-drawer-open {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
-.mt-detail__back-row {
-  padding-top: 1.25rem;
-}
-
-
-
-.mt-detail__back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-forest-dark);
-  transition: color var(--dur-fast) var(--ease);
-}
-
-
-
-.mt-detail__back-link:hover {
-  color: var(--color-brass);
-}
-
-/* ---- Honest "no reviews yet" label for product card grids ---- */
 .product-card__no-reviews {
   font-size: 0.75rem;
   font-style: italic;

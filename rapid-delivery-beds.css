@@ -30,6 +30,13 @@
   object-position: center;
 }
 
+@media (max-width: 767px) {
+  .rd2-hero__image {
+    object-fit: contain;
+  }
+}
+
+
 .rd2-hero__overlay {
   position: absolute;
   inset: 0;

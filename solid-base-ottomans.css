@@ -30,6 +30,13 @@
   object-position: center;
 }
 
+@media (max-width: 767px) {
+  .so-hero__image {
+    object-fit: contain;
+  }
+}
+
+
 .so-hero__overlay {
   position: absolute;
   inset: 0;

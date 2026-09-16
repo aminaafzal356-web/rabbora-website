@@ -3955,6 +3955,14 @@ body.sf-drawer-open {
   animation: fabricHeroZoom 24s ease-in-out infinite alternate;
 }
 
+@media (max-width: 767px) {
+  .rd-hero__image {
+    object-fit: contain;
+    animation: none;
+  }
+}
+
+
 
 
 @media (prefers-reduced-motion: reduce) {

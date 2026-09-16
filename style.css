@@ -1522,6 +1522,14 @@ h1, h2, h3, h4 {
   transition: opacity 1.3s ease, transform 7.5s ease-out;
 }
 
+@media (max-width: 767px) {
+  .hero__slide {
+    object-fit: contain;
+    object-position: center;
+    background-color: var(--color-forest-dark);
+  }
+}
+
 
 
 .hero__slide.is-active {

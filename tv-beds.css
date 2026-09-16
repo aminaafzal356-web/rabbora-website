@@ -27,6 +27,13 @@
   object-position: center;
 }
 
+@media (max-width: 767px) {
+  .tv-hero__image {
+    object-fit: contain;
+  }
+}
+
+
 .tv-hero__overlay {
   position: absolute;
   inset: 0;

@@ -37,6 +37,13 @@
   object-position: center;
 }
 
+@media (max-width: 767px) {
+  .sd-hero__image {
+    object-fit: contain;
+  }
+}
+
+
 .sd-hero__overlay {
   position: absolute;
   inset: 0;
