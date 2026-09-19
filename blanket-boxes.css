@@ -2457,6 +2457,40 @@ h1, h2, h3, h4 {
 
 
 
+/* ---- Mobile/tablet hero image fix -----------------------------------
+   Root cause of the blur + bad crop on mobile: this hero image is a
+   landscape photo (1600x1000, a 1.6:1 ratio). The hero box's own height
+   (min-height: clamp(420px, 60vh, 600px), unchanged above/on desktop)
+   is necessary to fit the heading/subheading/body/button text, but on a
+   narrow mobile viewport that produces a much TALLER, narrower box than
+   the image's own ratio. object-fit: cover then has to blow the image
+   up far beyond its native resolution just to fill that height, which
+   both (a) crops away most of the image's width — cutting the subject
+   — and (b) forces an upscale well past the source's real pixel density,
+   which is the actual cause of the softness/blur (worse on high-DPI
+   phones). The same rule looks fine on desktop because a wide viewport
+   is already close to the image's own 1.6:1 ratio, so cover only trims
+   a little off the top/bottom there — that desktop behaviour is left
+   completely untouched below.
+   The fix: on mobile/tablet only, switch to object-fit: contain, which
+   shows the complete image at no more than its natural resolution
+   (never crops, never upscales past what's needed) — eliminating both
+   the crop and the blur at the source. The existing dark forest-toned
+   background-color and overlay gradient on .bb-hero (both unchanged)
+   already sit behind/over the full hero box, so any letterboxing this
+   introduces reads as an intentional part of the design, not an empty
+   gap. The continuous Ken Burns zoom is also switched off here, since
+   animating a transform: scale() on a contained (not full-bleed) image
+   would visibly shift it inside its letterbox on every frame. ---- */
+@media (max-width: 768px) {
+  .bb-hero__image {
+    object-fit: contain;
+    animation: none;
+  }
+}
+
+
+
 @media (prefers-reduced-motion: reduce) {
   .bb-hero__image {
     animation: none;

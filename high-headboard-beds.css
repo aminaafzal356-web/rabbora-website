@@ -495,6 +495,193 @@
   color: var(--color-ivory-soft);
 }
 
+/* ---- Fabric Colour selector (new on this page — same shared
+   component/markup already used on Blanket Boxes, Sofas, Bed Frames
+   and Solid Base Ottoman, not a new design) ---- */
+.bb-modal__fabric-collections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+}
+
+.bb-modal__fabric-collection-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.75rem;
+}
+
+.bb-modal__fabric-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+}
+
+.bb-modal__fabric-grid .fabric-swatch__ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+}
+
+.bb-modal__fabric-grid .fabric-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+  width: 68px;
+}
+
+.bb-modal__fabric-grid .fabric-swatch__name {
+  font-size: 0.66rem;
+  line-height: 1.25;
+}
+
+.bb-modal__fabric-grid .fabric-swatch__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__ring {
+  border-color: var(--color-brass);
+  box-shadow: 0 0 0 2px rgba(164, 123, 76, 0.2);
+}
+
+.bb-modal__fabric-grid .fabric-swatch__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background-color: rgba(18, 40, 31, 0.72);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__check {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hh-detail__fabric-selected {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-forest);
+}
+
+.hh-detail__fabric-selected.is-empty {
+  color: rgba(35, 35, 32, 0.5);
+}
+
+/* ---- New configuration option cards (Ottoman Storage, Footstool,
+   Headboard customisation, Assembly, Delivery Delay) ---- */
+.hh-option-image {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.85rem;
+  border: 1px solid var(--color-border);
+}
+
+.hh-option-sub {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: rgba(35, 35, 32, 0.55);
+}
+
+.hh-option-message {
+  margin-top: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--color-clay);
+  min-height: 1.2em;
+}
+
+.hh-custom-request {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  resize: vertical;
+  min-height: 90px;
+}
+
+.hh-custom-request:focus {
+  outline: none;
+  border-color: var(--color-brass);
+}
+
+.hh-delay-date-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+}
+
+.hh-delay-date-wrap label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(35, 35, 32, 0.6);
+}
+
+.hh-delay-date-wrap input[type="date"] {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  max-width: 220px;
+  box-sizing: border-box;
+}
+
+.so-image-placeholder.hh-option-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 240px;
+  height: 160px;
+  margin-bottom: 0.85rem;
+  background-color: var(--color-ivory);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(35, 35, 32, 0.4);
+}
+
 .hh-list {
   display: flex;
   flex-direction: column;

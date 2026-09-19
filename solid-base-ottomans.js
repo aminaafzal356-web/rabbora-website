@@ -21,6 +21,162 @@
    Nothing else in this file needs to change when you update these.
    ========================================================= */
 
+var SO_FABRIC_COLLECTIONS = [
+    {
+      name: "Plush",
+      fabrics: [
+        { slug: "plush-grey", name: "Plush Grey", image: "fabric/plush-grey.jfif" },
+        { slug: "plush-silver", name: "Plush Silver", image: "fabric/plush-silver.jfif" },
+        { slug: "plush-steel", name: "Plush Steel", image: "fabric/plush-steel.jfif" },
+        { slug: "plush-cream", name: "Plush Cream", image: "fabric/plush-cream.jfif" },
+        { slug: "plush-beige", name: "Plush Beige", image: "fabric/plush-beige.jfif" },
+        { slug: "plush-black", name: "Plush Black", image: "fabric/plush-black.jfif" },
+        { slug: "plush-pink", name: "Plush Pink", image: "fabric/plush-pink.jfif" },
+        { slug: "plush-mustard", name: "Plush Mustard", image: "fabric/plush-mustard.jfif" },
+        { slug: "plush-green", name: "Plush Green", image: "fabric/plush-green.jfif" },
+        { slug: "plush-turquoise", name: "Plush Turquoise", image: "fabric/plush-turquoise.jfif" },
+        { slug: "plush-royal-blue", name: "Plush Royal Blue", image: "fabric/plush-royal-blue.jfif" },
+        { slug: "plush-white", name: "Plush White", image: "fabric/plush-white.jfif" },
+        { slug: "plush-baby-pink", name: "Plush Baby Pink", image: "fabric/plush-baby-pink.jfif" },
+        { slug: "plush-ice-silver", name: "Plush Ice Silver", image: "fabric/plush-ice-sliver.jfif" },
+        { slug: "plush-pebble", name: "Plush Pebble", image: "fabric/plush-pebble.jfif" },
+        { slug: "plush-mocca", name: "Plush Mocca", image: "fabric/plush-mocca.jfif" },
+        { slug: "plush-emerald-green", name: "Plush Emerald Green", image: "fabric/plush-emerald-green.jfif" },
+        { slug: "plush-duck-egg", name: "Plush Duck Egg", image: "fabric/plush-duck-egg.jfif" },
+        { slug: "plush-camel", name: "Plush Camel", image: "fabric/plush-camel.jfif" },
+        { slug: "plush-teal", name: "Plush Teal", image: "fabric/plush-teal.jfif" },
+        { slug: "plush-plum", name: "Plush Plum", image: "fabric/plush-plum.jfif" }
+      ]
+    },
+    {
+      name: "Coniston",
+      fabrics: [
+        { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "fabric/coniston-charcoal.jfif" },
+        { slug: "coniston-almond", name: "Coniston Almond", image: "fabric/coniston-almond.jfif" },
+        { slug: "coniston-armour", name: "Coniston Armour", image: "fabric/coniston-armour.jfif" },
+        { slug: "coniston-emerald", name: "Coniston Emerald", image: "fabric/coniston-emerald.jfif" },
+        { slug: "coniston-pink", name: "Coniston Pink", image: "fabric/coniston-pink.jfif" },
+        { slug: "coniston-blue", name: "Coniston Blue", image: "fabric/coniston-blue.jfif" }
+      ]
+    },
+    {
+      name: "Naples",
+      fabrics: [
+        { slug: "naples-silver", name: "Naples Silver", image: "fabric/naples-silver.jfif" },
+        { slug: "naples-steel", name: "Naples Steel", image: "fabric/naples-steel.jfif" },
+        { slug: "naples-black", name: "Naples Black", image: "fabric/naples-black.jfif" },
+        { slug: "naples-ivory", name: "Naples Ivory", image: "fabric/naples-ivory.jfif" },
+        { slug: "naples-pearl-blue", name: "Naples Pearl Blue", image: "fabric/naples-pearl-blue.jfif" },
+        { slug: "naples-cream", name: "Naples Cream", image: "fabric/naples-cream.jfif" },
+        { slug: "naples-sand", name: "Naples Sand", image: "fabric/naples-sand.jfif" },
+        { slug: "naples-mink", name: "Naples Mink", image: "fabric/naples-mink.jfif" },
+        { slug: "naples-seal-grey", name: "Naples Seal Grey", image: "fabric/naples-seal-grey.jfif" },
+        { slug: "naples-slate-grey", name: "Naples Slate Grey", image: "fabric/naples-slate-grey.jfif" },
+        { slug: "naples-charcoal", name: "Naples Charcoal", image: "fabric/naples-charcoal.jfif" },
+        { slug: "naples-blue", name: "Naples Blue", image: "fabric/naples-blue.jfif" },
+        { slug: "naples-plum", name: "Naples Plum", image: "fabric/naples-plum.jfif" }
+      ]
+    },
+    {
+      name: "Crushed Velvet",
+      fabrics: [
+        { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "fabric/crushed-velvet-silver.jfif" },
+        { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "fabric/crushed-velvet-black.jfif" },
+        { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "fabric/crushed-velvet-cream.jfif" },
+        { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "fabric/crushed-velvet-mink.jfif" },
+        { slug: "crushed-velvet-white", name: "Crushed Velvet White", image: "fabric/crushed-white.jfif" },
+        { slug: "crushed-velvet-grey", name: "Crushed Velvet Grey", image: "fabric/crushed-grey.jfif" },
+        { slug: "crushed-velvet-camel", name: "Crushed Velvet Camel", image: "fabric/crushed-camel.jfif" },
+        { slug: "crushed-velvet-gold", name: "Crushed Velvet Gold", image: "fabric/crushed-gold.jfif" },
+        { slug: "crushed-velvet-teal", name: "Crushed Velvet Teal", image: "fabric/crushed-teal.jfif" },
+        { slug: "crushed-velvet-denim", name: "Crushed Velvet Denim", image: "fabric/crushed-denim.jfif" },
+        { slug: "crushed-velvet-hot-pink", name: "Crushed Velvet Hot Pink", image: "fabric/crushed-hot-pink.jfif" },
+        { slug: "crushed-velvet-purple", name: "Crushed Velvet Purple", image: "fabric/crushed-purple.jfif" },
+        { slug: "crushed-velvet-plum", name: "Crushed Velvet Plum", image: "fabric/crushed-plum.jfif" },
+        { slug: "crushed-velvet-baby-pink", name: "Crushed Velvet Baby Pink", image: "fabric/crushed-baby-pink.jfif" }
+      ]
+    },
+    {
+      name: "Chenille",
+      fabrics: [
+        { slug: "chenille-cream", name: "Chenille Cream", image: "fabric/chenille-cream.jfif" },
+        { slug: "chenille-mink", name: "Chenille Mink", image: "fabric/chenille-mink.jfif" },
+        { slug: "chenille-chocolate", name: "Chenille Chocolate", image: "fabric/chenille-chocolate.jfif" },
+        { slug: "chenille-steel", name: "Chenille Steel", image: "fabric/chenille-steel.jfif" },
+        { slug: "chenille-charcoal", name: "Chenille Charcoal", image: "fabric/chenille-charcoal.jfif" },
+        { slug: "chenille-duck-egg", name: "Chenille Duck Egg", image: "fabric/chenille-duck-egg.jfif" },
+        { slug: "chenille-teal", name: "Chenille Teal", image: "fabric/chenille-teal.jfif" },
+        { slug: "chenille-purple", name: "Chenille Purple", image: "fabric/chenille-purple.jfif" },
+        { slug: "chenille-plum", name: "Chenille Plum", image: "fabric/chenille-plum.jfif" },
+        { slug: "chenille-red", name: "Chenille Red", image: "fabric/chenille-red.jfif" },
+        { slug: "chenille-black", name: "Chenille Black", image: "fabric/chenille-black.jfif" }
+      ]
+    },
+    {
+      name: "Linoso",
+      fabrics: [
+        { slug: "linoso-sand", name: "Linoso Sand", image: "fabric/linoso-sand.jfif" },
+        { slug: "linoso-silver", name: "Linoso Silver", image: "fabric/linoso-silver.jfif" },
+        { slug: "linoso-slate-grey", name: "Linoso Slate Grey", image: "fabric/linoso-slate-grey.jfif" },
+        { slug: "linoso-charcoal", name: "Linoso Charcoal", image: "fabric/linoso-charcoal.jfif" },
+        { slug: "linoso-truffle", name: "Linoso Truffle", image: "fabric/linoso-truffle.jfif" },
+        { slug: "linoso-black", name: "Linoso Black", image: "fabric/linoso-black.jfif" },
+        { slug: "linoso-midnight-blue", name: "Linoso Midnight Blue", image: "fabric/linoso-midnight-blue.jfif" },
+        { slug: "linoso-plum", name: "Linoso Plum", image: "fabric/linoso-plum.jfif" }
+      ]
+    },
+    {
+      name: "Boucle",
+      fabrics: [
+        { slug: "boucle-granite", name: "Boucle Granite", image: "fabric/boucle-granite.jfif" },
+        { slug: "boucle-dove", name: "Boucle Dove", image: "fabric/boucle-dove.jfif" },
+        { slug: "boucle-ivory", name: "Boucle Ivory", image: "fabric/boucle-ivory.jfif" },
+        { slug: "boucle-truffle", name: "Boucle Truffle", image: "fabric/boucle-truffle.jfif" }
+      ]
+    },
+    {
+      name: "Naples Alternative",
+      fabrics: [
+        { slug: "grey-naples", name: "Grey Naples", image: "fabric/plush-grey.jfif" },
+        { slug: "sand-naples", name: "Sand Naples", image: "fabric/naples-sand.jfif" },
+        { slug: "silver-naples", name: "Silver Naples", image: "fabric/Naples-Silver.jfif" },
+        { slug: "black-naples", name: "Black Naples", image: "fabric/Naples-Black.jfif" },
+        { slug: "brown-naples", name: "Brown Naples", image: "fabric/naple-brown.jfif" },
+        { slug: "cream-naples", name: "Cream Naples", image: "fabric/naples-cream.jfif" }
+      ]
+    },
+    {
+      name: "Additional Colours",
+      fabrics: [
+        { slug: "dove", name: "Dove", image: "fabric/dove.jfif" },
+        { slug: "ivory", name: "Ivory", image: "fabric/ivory.jfif" },
+        { slug: "latte", name: "Latte", image: "fabric/latte.jfif" },
+        { slug: "mink", name: "Mink", image: "fabric/mink.jfif" },
+        { slug: "truffle", name: "Truffle", image: "fabric/truffle.jfif" },
+        { slug: "saffron", name: "Saffron", image: "fabric/saffron.jfif" },
+        { slug: "powder", name: "Powder", image: "fabric/powder.jfif" },
+        { slug: "sky", name: "Sky", image: "fabric/sky.jfif" },
+        { slug: "marine", name: "Marine", image: "fabric/marrine.jfif" }
+      ]
+    },
+    {
+      name: "Marble",
+      fabrics: [
+        { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "fabric/marble-oatmeal.jfif" },
+        { slug: "marble-platinum", name: "Marble Platinum", image: "fabric/marble-platinum.jfif" },
+        { slug: "marble-silver", name: "Marble Silver", image: "fabric/marble-silver.jfif" }
+      ]
+    }
+  ];
+
+var SO_FABRIC_COLLECTIONS_FLAT = [];
+SO_FABRIC_COLLECTIONS.forEach(function (collection) {
+  collection.fabrics.forEach(function (fabric) {
+    SO_FABRIC_COLLECTIONS_FLAT.push(fabric);
+  });
+});
+
+
 var SOLID_OTTOMAN_PRODUCTS = 
 [
   {
@@ -1804,7 +1960,23 @@ var SOLID_OTTOMAN_PRODUCTS =
     var monthlyEl = document.getElementById("soDetailMonthly");
     var descriptionEl = document.getElementById("soDetailDescription");
     var featuresEl = document.getElementById("soDetailFeatures");
-    var dimensionsEl = document.getElementById("soDetailDimensions");
+    var sizeOptionsEl = document.getElementById("soSizeOptions");
+    var fabricOptionsEl = document.getElementById("soModalFabrics");
+    var diamantesToggle = document.getElementById("soDiamantesToggle");
+    var buttonsToggle = document.getElementById("soButtonsToggle");
+    var ottomanStorageEl = document.getElementById("soOttomanStorageOptions");
+    var ottomanStorageMsg = document.getElementById("soOttomanStorageMessage");
+    var footstoolEl = document.getElementById("soFootstoolOptions");
+    var footstoolMsg = document.getElementById("soFootstoolMessage");
+    var headboardEl = document.getElementById("soHeadboardOptions");
+    var headboardMsg = document.getElementById("soHeadboardMessage");
+    var customRequestEl = document.getElementById("soCustomRequest");
+    var assemblyEl = document.getElementById("soAssemblyOptions");
+    var assemblyMsg = document.getElementById("soAssemblyMessage");
+    var deliveryDelayEl = document.getElementById("soDeliveryDelayOptions");
+    var deliveryDelayMsg = document.getElementById("soDeliveryDelayMessage");
+    var delayDateWrap = document.getElementById("soDelayDateWrap");
+    var delayDateInput = document.getElementById("soDelayDate");
     var deliveryEl = document.getElementById("soDetailDelivery");
     var warrantyEl = document.getElementById("soDetailWarranty");
     var returnsEl = document.getElementById("soDetailReturns");
@@ -1818,6 +1990,17 @@ var SOLID_OTTOMAN_PRODUCTS =
     var currentProduct = null;
     var quantity = 1;
     var detailImageIndex = 0;
+    var selectedFabricIndex = -1;
+    var selectedSizeKey = null;
+    var diamantes = false;
+    var buttons = false;
+    var ottomanStorage = null;
+    var footstoolBlanketBox = null;
+    var headboardHeight = null;
+    var customRequest = "";
+    var assembly = null;
+    var deliveryDelay = null;
+    var deliveryDate = "";
 
     function renderGallery(product) {
       var images = (product.images && product.images.length) ? product.images : [];
@@ -1866,13 +2049,6 @@ var SOLID_OTTOMAN_PRODUCTS =
       if (nextBtn) nextBtn.hidden = images.length < 2;
     }
 
-    function renderDimensions(product) {
-      var d = product.dimensions;
-      dimensionsEl.innerHTML =
-        "<thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Width (cm)</th><th scope=\"col\">Length (cm)</th></tr></thead><tbody>" +
-        "<tr><td>" + product.size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr></tbody>";
-    }
-
     function renderRelated(product) {
       relatedGrid.innerHTML = "";
       var others = SOLID_OTTOMAN_PRODUCTS.filter(function (p) { return p.slug !== product.slug; });
@@ -1907,6 +2083,216 @@ var SOLID_OTTOMAN_PRODUCTS =
       });
     }
 
+    // Size — each Solid Base Ottoman product is a fixed-size SKU (no
+    // array of choices exists for a single product, unlike Ottoman
+    // Beds), so this renders the one genuine size as a single
+    // pre-selected pill purely for visual/UX consistency with Ottoman's
+    // Size section — nothing invented, nothing else selectable.
+    // The five standard Rabbora bed sizes, same labels/keys already used
+    // on Ottoman Beds and Mattresses. Each Solid Base Ottoman product's
+    // OWN real size/price stays exactly as it is — since no individual
+    // product has genuine price data for the other four sizes, choosing
+    // a different size here does not change the price (no invented
+    // price differences); it simply records which size the customer
+    // wants, exactly as requested.
+    var SO_SIZE_LABELS = ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"];
+    var SO_SIZE_KEYS = ["Single", "Small Double", "Double", "King", "Super King"];
+
+    function renderSizeOptions(product) {
+      if (!sizeOptionsEl) return;
+      sizeOptionsEl.innerHTML = "";
+      SO_SIZE_LABELS.forEach(function (label, index) {
+        var key = SO_SIZE_KEYS[index];
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mt-option-pill";
+        btn.setAttribute("aria-pressed", String(selectedSizeKey === key));
+        btn.textContent = label;
+        btn.addEventListener("click", function () {
+          selectedSizeKey = key;
+          qsa(".mt-option-pill", sizeOptionsEl).forEach(function (el) {
+            el.setAttribute("aria-pressed", "false");
+          });
+          btn.setAttribute("aria-pressed", "true");
+        });
+        sizeOptionsEl.appendChild(btn);
+      });
+    }
+
+    // Fabric Colour — same real, current Fabric Samples collection data
+    // and the same grouped/collection-heading swatch pattern already
+    // used on Blanket Boxes, Sofas and Bed Frames, with Ottoman's own
+    // "Same as main display picture" default-option pattern preserved.
+    function selectedFabricName() {
+      if (selectedFabricIndex === -1) return "Same as main display picture";
+      var fabric = SO_FABRIC_COLLECTIONS_FLAT[selectedFabricIndex];
+      return fabric ? fabric.name : "Same as main display picture";
+    }
+
+    function renderFabricOptions(product) {
+      if (!fabricOptionsEl) return;
+      fabricOptionsEl.innerHTML = "";
+
+      var defaultBtn = document.createElement("button");
+      defaultBtn.type = "button";
+      defaultBtn.className = "fabric-swatch";
+      defaultBtn.setAttribute("aria-pressed", String(selectedFabricIndex === -1));
+      defaultBtn.setAttribute("aria-label", "Same as main display picture");
+      defaultBtn.innerHTML =
+        '<span class="fabric-swatch__ring">' +
+          '<img src="' + (product.images && product.images[0] ? product.images[0] : "") + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
+          '<span class="fabric-swatch__check" aria-hidden="true">' +
+            '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+          '</span>' +
+        '</span>' +
+        '<span class="fabric-swatch__name">Default</span>';
+      defaultBtn.addEventListener("click", function () {
+        selectFabric(-1);
+      });
+      var defaultGridEl = document.createElement("div");
+      defaultGridEl.className = "bb-modal__fabric-grid";
+      defaultGridEl.appendChild(defaultBtn);
+      fabricOptionsEl.appendChild(defaultGridEl);
+
+      SO_FABRIC_COLLECTIONS.forEach(function (collection) {
+        var groupEl = document.createElement("div");
+        groupEl.className = "bb-modal__fabric-collection";
+
+        var titleEl2 = document.createElement("p");
+        titleEl2.className = "bb-modal__fabric-collection-title";
+        titleEl2.textContent = collection.name;
+        groupEl.appendChild(titleEl2);
+
+        var gridEl = document.createElement("div");
+        gridEl.className = "bb-modal__fabric-grid";
+
+        collection.fabrics.forEach(function (fabric) {
+          var flatIndex = SO_FABRIC_COLLECTIONS_FLAT.indexOf(fabric);
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "fabric-swatch";
+          btn.setAttribute("aria-pressed", String(selectedFabricIndex === flatIndex));
+          btn.setAttribute("aria-label", "Select " + fabric.name);
+          btn.innerHTML =
+            '<span class="fabric-swatch__ring">' +
+              '<img src="' + fabric.image + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+              '<span class="fabric-swatch__check" aria-hidden="true">' +
+                '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+              '</span>' +
+            '</span>' +
+            '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+          btn.addEventListener("click", function () {
+            selectFabric(selectedFabricIndex === flatIndex ? -1 : flatIndex);
+          });
+          gridEl.appendChild(btn);
+        });
+
+        groupEl.appendChild(gridEl);
+        fabricOptionsEl.appendChild(groupEl);
+      });
+    }
+
+    function selectFabric(index) {
+      selectedFabricIndex = index;
+      messageEl.textContent = "";
+      messageEl.classList.remove("is-error");
+      qsa(".fabric-swatch", fabricOptionsEl).forEach(function (el, i) {
+        el.setAttribute("aria-pressed", String((i - 1) === index));
+      });
+    }
+
+    // Detailing add-ons — Diamantes and Matching Fabric Buttons, the
+    // same genuinely-applicable upholstery options Ottoman Beds offers
+    // on its own fabric-covered frame. Ottoman's "Ottoman Storage
+    // Upgrade" toggle was NOT brought over here, since Solid Base
+    // Ottoman is already a storage bed by definition — offering to
+    // "add" storage to an already-storage product doesn't apply.
+    // Ottoman charges \u00a315 for Buttons via a real detailingButtonsPrice
+    // field on its own product data; Solid Base Ottoman has no such
+    // field, so per "never invent a price," Buttons stays free here too
+    // rather than fabricating a charge.
+    function initAddonControls() {
+      if (diamantesToggle) {
+        diamantesToggle.addEventListener("click", function () {
+          diamantes = !diamantes;
+          diamantesToggle.setAttribute("aria-pressed", String(diamantes));
+        });
+      }
+      if (buttonsToggle) {
+        buttonsToggle.addEventListener("click", function () {
+          buttons = !buttons;
+          buttonsToggle.setAttribute("aria-pressed", String(buttons));
+        });
+      }
+    }
+    initAddonControls();
+
+    // Shared helper for the six new single-select option groups below —
+    // each is a plain group of .mt-option-pill buttons where exactly one
+    // choice can be active at a time. Avoids repeating the same
+    // click/aria-pressed wiring six times.
+    function initRadioPillGroup(container, messageEl, onSelect) {
+      if (!container) return;
+      qsa(".mt-option-pill", container).forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          qsa(".mt-option-pill", container).forEach(function (el) {
+            el.setAttribute("aria-pressed", "false");
+          });
+          btn.setAttribute("aria-pressed", "true");
+          if (messageEl) messageEl.textContent = "";
+          onSelect(btn.dataset.value);
+        });
+      });
+    }
+
+    initRadioPillGroup(ottomanStorageEl, ottomanStorageMsg, function (value) {
+      ottomanStorage = value;
+    });
+
+    initRadioPillGroup(footstoolEl, footstoolMsg, function (value) {
+      footstoolBlanketBox = value;
+    });
+
+    initRadioPillGroup(headboardEl, headboardMsg, function (value) {
+      headboardHeight = value;
+    });
+
+    initRadioPillGroup(assemblyEl, assemblyMsg, function (value) {
+      assembly = value;
+      if (currentProduct) renderPurchasePanel(currentProduct);
+    });
+
+    initRadioPillGroup(deliveryDelayEl, deliveryDelayMsg, function (value) {
+      deliveryDelay = value;
+      if (delayDateWrap) delayDateWrap.hidden = value !== "yes";
+    });
+
+    if (customRequestEl) {
+      customRequestEl.addEventListener("input", function () {
+        customRequest = customRequestEl.value;
+      });
+    }
+
+    if (delayDateInput) {
+      delayDateInput.addEventListener("change", function () {
+        deliveryDate = delayDateInput.value;
+      });
+    }
+
+    // Assembly is the only new option with a confirmed real price
+    // (£59.00, given directly for this task) — every other new option
+    // stays £0 since no genuine price data exists for them.
+    var ASSEMBLY_PRICE = 59;
+
+    function currentPrice(product) {
+      return product.price + (assembly === "yes" ? ASSEMBLY_PRICE : 0);
+    }
+
+    function renderPurchasePanel(product) {
+      priceEl.textContent = soMoney(currentPrice(product));
+      prevPriceEl.textContent = product.oldPrice ? soMoney(product.oldPrice) : "";
+    }
+
     function renderDetail(product) {
       document.title = product.name + " | Rabbora Living";
       var descTag = document.getElementById("pageDescription");
@@ -1919,8 +2305,6 @@ var SOLID_OTTOMAN_PRODUCTS =
       titleEl.textContent = product.name;
       starsEl.textContent = "";
       reviewCountEl.textContent = "No reviews yet";
-      priceEl.textContent = soMoney(product.price);
-      prevPriceEl.textContent = product.oldPrice ? soMoney(product.oldPrice) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -1939,10 +2323,40 @@ var SOLID_OTTOMAN_PRODUCTS =
       messageEl.textContent = "";
       messageEl.classList.remove("is-error");
 
+      selectedFabricIndex = -1;
+      selectedSizeKey = product.sizeKey || null;
+      diamantes = false;
+      buttons = false;
+      if (diamantesToggle) diamantesToggle.setAttribute("aria-pressed", "false");
+      if (buttonsToggle) buttonsToggle.setAttribute("aria-pressed", "false");
+
+      ottomanStorage = null;
+      footstoolBlanketBox = null;
+      headboardHeight = null;
+      customRequest = "";
+      assembly = null;
+      deliveryDelay = null;
+      deliveryDate = "";
+      [ottomanStorageEl, footstoolEl, headboardEl, assemblyEl, deliveryDelayEl].forEach(function (group) {
+        if (!group) return;
+        qsa(".mt-option-pill", group).forEach(function (el) {
+          el.setAttribute("aria-pressed", "false");
+        });
+      });
+      [ottomanStorageMsg, footstoolMsg, headboardMsg, assemblyMsg, deliveryDelayMsg].forEach(function (msg) {
+        if (msg) msg.textContent = "";
+      });
+      if (customRequestEl) customRequestEl.value = "";
+      if (delayDateInput) delayDateInput.value = "";
+      if (delayDateWrap) delayDateWrap.hidden = true;
+
+      renderPurchasePanel(product);
+
       currentProduct = product;
       detailImageIndex = 0;
       renderGallery(product);
-      renderDimensions(product);
+      renderSizeOptions(product);
+      renderFabricOptions(product);
       renderRelated(product);
     }
 
@@ -2041,6 +2455,42 @@ var SOLID_OTTOMAN_PRODUCTS =
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;
 
+        // Each required new option shows its own inline message right
+        // next to that option (not just one generic message at the
+        // bottom), and focuses/scrolls to whichever one is missing —
+        // checked in the same top-to-bottom order they appear on the
+        // page.
+        if (!ottomanStorage) {
+          ottomanStorageMsg.textContent = "Please select an option.";
+          ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!footstoolBlanketBox) {
+          footstoolMsg.textContent = "Please select an option.";
+          footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!headboardHeight) {
+          headboardMsg.textContent = "Please select an option.";
+          headboardEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!assembly) {
+          assemblyMsg.textContent = "Please select an option.";
+          assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!deliveryDelay) {
+          deliveryDelayMsg.textContent = "Please select an option.";
+          deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        var fabricName = selectedFabricName();
+        var unitPrice = currentPrice(currentProduct);
+        var sizeIndex = SO_SIZE_KEYS.indexOf(selectedSizeKey);
+        var sizeLabel = sizeIndex !== -1 ? SO_SIZE_LABELS[sizeIndex] : currentProduct.size;
+
         if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
           window.RabboraCart.add(
             {
@@ -2050,10 +2500,21 @@ var SOLID_OTTOMAN_PRODUCTS =
               url: "solid-base-ottomans.html#/" + currentProduct.slug,
               image: (currentProduct.images && currentProduct.images[0]) || "",
               alt: currentProduct.name,
-              price: currentProduct.price,
+              price: unitPrice,
               category: "Solid Base Ottomans",
               variant: {
-                size: currentProduct.size || null
+                size: selectedSizeKey || currentProduct.sizeKey || currentProduct.size || null,
+                fabric: fabricName,
+                diamantes: diamantes ? "Yes" : null,
+                buttons: buttons ? "Yes" : null,
+                ottomanStorage: ottomanStorage,
+                footstoolBlanketBox: footstoolBlanketBox,
+                headboardHeight: headboardHeight,
+                customRequest: customRequest || null,
+                assembly: assembly,
+                assemblyPrice: assembly === "yes" ? ASSEMBLY_PRICE : 0,
+                deliveryDelay: deliveryDelay,
+                deliveryDate: deliveryDelay === "yes" ? (deliveryDate || null) : null
               }
             },
             quantity
@@ -2065,10 +2526,15 @@ var SOLID_OTTOMAN_PRODUCTS =
           );
         }
 
+        var detailBits = [];
+        if (diamantes) detailBits.push("Diamantes");
+        if (buttons) detailBits.push("Matching Fabric Buttons");
+        var detailText = detailBits.length ? " with " + detailBits.join(" & ") : "";
+
         messageEl.classList.remove("is-error");
         messageEl.textContent =
-          "Added " + quantity + " \u00d7 " + currentProduct.name + " (" + currentProduct.size +
-          ") to your basket \u2014 " + soMoney(currentProduct.price * quantity) + ".";
+          "Added " + quantity + " \u00d7 " + currentProduct.name + " (" + sizeLabel + ", " +
+          fabricName + detailText + ") to your basket \u2014 " + soMoney(unitPrice * quantity) + ".";
       });
     }
   }
