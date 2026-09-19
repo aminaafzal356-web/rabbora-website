@@ -6824,8 +6824,7 @@
           '<div class="product-card__body">' +
             '<a href="ottoman-beds.html#/' + p.slug + '" class="product-card__name">' + p.name + '</a>' +
             '<div class="product-card__rating">' +
-              '<span class="product-card__stars" aria-hidden="true">' + obStars(p.rating) + '</span>' +
-              '<span class="product-card__review-count">(' + p.reviewCount + ')</span>' +
+              '<span class="product-card__no-reviews">No reviews yet</span>' +
             '</div>' +
             '<div class="product-card__price-row">' +
               '<span class="product-card__price">' + obMoney(p.price) + '</span>' + prevHtml +
@@ -6859,8 +6858,11 @@
 
       breadcrumbName.textContent = product.name;
       titleEl.textContent = product.name;
-      starsEl.textContent = obStars(product.rating);
-      reviewCountEl.textContent = "(" + product.reviewCount + ")";
+      // No verified real review data exists yet for this product, so show
+      // an honest "No reviews yet" instead of the fake rating/count that
+      // used to be hardcoded here.
+      starsEl.textContent = "";
+      reviewCountEl.textContent = "No reviews yet";
       monthlyEl.textContent = "or from \u00A3" + product.monthlyPrice + "/month";
       descriptionEl.textContent = product.description;
       deliveryEl.textContent = product.delivery;
@@ -7088,8 +7090,11 @@
             previousPrice: currentProduct.oldPrice ? obMoney(currentProduct.oldPrice) : "",
             monthly: currentProduct.monthlyPrice ? ("or from \u00A3" + currentProduct.monthlyPrice + "/mo") : "",
             badge: currentProduct.badge || "",
-            stars: obStars(currentProduct.rating || 0),
-            reviewCount: currentProduct.reviewCount || "",
+            // No verified real review data exists yet, so this snapshot
+            // deliberately omits "stars"/"reviewCount" — wishlist.js only
+            // renders a rating row when these are present, so leaving them
+            // out means the saved item correctly shows no rating at all
+            // instead of carrying over a fake one.
             category: "Slatted Ottoman Beds"
           };
           willAdd = window.RabboraWishlist.toggle(snapshot).added;
@@ -7135,7 +7140,19 @@
     });
   }
 
+  /* ---- Review data cleanup: no verified real reviews exist yet, so
+     replace any star/count display with an honest "No reviews yet"
+     message instead of showing invented numbers. Excludes the detail
+     view's own rating element (.bb-modal__rating), which is populated
+     separately by initOttomanDetail() once a product is opened. ---- */
+  function cleanupFakeRatings() {
+    document.querySelectorAll(".product-card__rating:not(.bb-modal__rating)").forEach(function (el) {
+      el.innerHTML = '<span class="product-card__no-reviews">No reviews yet</span>';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    cleanupFakeRatings();
     initMainNavReveal();
     initWishlist();
     initCart();

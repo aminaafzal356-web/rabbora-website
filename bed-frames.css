@@ -145,7 +145,7 @@
 /* ---- Product grid: same responsive pattern as other category
    pages, ready to receive real .product-card entries ---- */
 .bf-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (min-width: 640px) {
@@ -364,6 +364,28 @@
 }
 
 
+.bb-modal__fabric-collections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+}
+
+
+.bb-modal__fabric-collection-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.75rem;
+}
+
+
 .bb-modal__fabric-grid {
   display: flex;
   flex-wrap: wrap;
@@ -382,6 +404,11 @@
 
 
 .bb-modal__fabric-grid .fabric-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
   width: 68px;
 }
 
@@ -578,6 +605,192 @@
 }
 
 
+/* ---- Customer Reviews (detail page) ---- */
+.mt-detail__reviews {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-block: 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+
+.mt-detail__reviews-heading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-forest-dark);
+}
+
+
+.mt-detail__reviews-summary {
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(35, 35, 32, 0.6);
+}
+
+
+.mt-detail__reviews-list {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+
+.mt-detail__reviews-empty {
+  font-size: 0.9rem;
+  color: rgba(35, 35, 32, 0.55);
+}
+
+
+.mt-detail__review-item {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+.mt-detail__review-item-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+
+.mt-detail__review-item-stars {
+  color: var(--color-brass);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+
+.mt-detail__review-item-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-forest-dark);
+}
+
+
+.mt-detail__review-item-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(35, 35, 32, 0.5);
+}
+
+
+.mt-detail__review-item-comment {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(35, 35, 32, 0.78);
+}
+
+
+.mt-detail__reviews-form-wrap {
+  margin-top: 2.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+
+.mt-detail__reviews-form-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-forest-dark);
+}
+
+
+.mt-detail__review-form {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+
+.mt-detail__review-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+
+.mt-detail__review-field label,
+.mt-detail__review-field-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(35, 35, 32, 0.6);
+}
+
+
+.mt-detail__review-field input,
+.mt-detail__review-field textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+}
+
+
+.mt-detail__review-field input:focus,
+.mt-detail__review-field textarea:focus {
+  outline: none;
+  border-color: var(--color-brass);
+}
+
+
+.mt-detail__review-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+
+.mt-detail__review-stars {
+  display: flex;
+  gap: 0.3rem;
+}
+
+
+.mt-detail__review-star {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-border);
+  transition: color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+
+.mt-detail__review-star:hover {
+  transform: scale(1.1);
+}
+
+
+.mt-detail__review-star.is-filled {
+  color: var(--color-brass);
+}
+
+
+.mt-detail__review-form .btn {
+  align-self: flex-start;
+}
+
+
+.mt-detail__review-message {
+  font-size: 0.85rem;
+  color: var(--color-forest);
+  min-height: 1.2em;
+}
+
+
+.mt-detail__review-message.is-error {
+  color: var(--color-clay);
+}
+
+
 .mt-not-found__inner .btn {
   margin-top: 2rem;
 }
@@ -707,6 +920,10 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(35, 35, 32, 0.4);
+}
+
+.so-image-placeholder[hidden] {
+  display: none;
 }
 
 .so-image-placeholder--large {

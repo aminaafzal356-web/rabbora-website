@@ -190,6 +190,11 @@
         alt: product.alt || product.name,
         price: price,
         variant: product.variant || null,
+        // Optional: a small swatch image for the selected variant (e.g.
+        // a fabric colour), separate from the main product image, so
+        // Cart/Checkout can show a colour dot beside "Fabric: Plush
+        // Grey" without guessing a path from the variant name.
+        fabricImage: product.fabricImage || "",
         category: product.category || "",
         quantity: qty,
         addedAt: Date.now()

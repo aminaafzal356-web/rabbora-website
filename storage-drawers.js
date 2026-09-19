@@ -28,7 +28,12 @@
       "name": "Rabbora Lyon Storage Bed",
       "description": "A sophisticated and practical storage bed designed to bring elegant character to the bedroom while providing comfortable sleeping and convenient drawer storage.",
       "image": "images/storage-drawers/img-1.png",
-      "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/1.jfif",
+        "drawar/2.jfif",
+        "drawar/3.jfif"
+      ],
+            "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
       "badge": "21% off",
       "rating": 4,
       "reviews": 22,
@@ -44,7 +49,12 @@
       "name": "Rabbora Mona Lisa Storage Bed",
       "description": "An elegant bedroom centrepiece combining graceful styling and comfortable sleeping with practical drawer storage for everyday convenience.",
       "image": "images/storage-drawers/img-2.png",
-      "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/4.jfif",
+        "drawar/5.jfif",
+        "drawar/6.jfif"
+      ],
+            "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
       "badge": "21% off",
       "rating": 5,
       "reviews": 31,
@@ -60,7 +70,12 @@
       "name": "Rabbora Art Deco Storage Bed",
       "description": "A refined Art Deco-inspired design created to add sophisticated character to the bedroom while offering comfortable sleeping and useful drawer storage.",
       "image": "images/storage-drawers/img-3.png",
-      "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/7.jfif",
+        "drawar/8.jfif",
+        "drawar/9.jfif"
+      ],
+            "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
       "badge": "21% off",
       "rating": 5,
       "reviews": 40,
@@ -76,7 +91,12 @@
       "name": "Rabbora Golden Skyline Storage Bed",
       "description": "A striking bedroom design created to make an elegant statement while combining comfortable sleeping with the practical convenience of drawer storage.",
       "image": "images/storage-drawers/img-4.png",
-      "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/10.jfif",
+        "drawar/11.jfif",
+        "drawar/12.jfif"
+      ],
+            "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
       "badge": "20% off",
       "rating": 5,
       "reviews": 49,
@@ -92,7 +112,12 @@
       "name": "Rabbora Dover Designer Storage Bed",
       "description": "A stylish designer storage bed created to bring refined bedroom character together with comfortable sleeping and convenient drawer storage.",
       "image": "images/storage-drawers/img-5.png",
-      "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/13.jfif",
+        "drawar/14.jfif",
+        "drawar/15.jfif"
+      ],
+            "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
       "badge": "25% off",
       "rating": 4,
       "reviews": 58,
@@ -108,7 +133,12 @@
       "name": "Rabbora Brooklyn Storage Bed",
       "description": "A clean and contemporary storage bed designed to give the bedroom a sophisticated appearance while providing comfortable sleeping and practical drawer storage.",
       "image": "images/storage-drawers/img-6.png",
-      "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/16.jfif",
+        "drawar/17.jfif",
+        "drawar/18.jfif"
+      ],
+            "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
       "badge": "21% off",
       "rating": 5,
       "reviews": 67,
@@ -124,7 +154,12 @@
       "name": "Rabbora Mayfair Storage Bed",
       "description": "A refined bedroom centrepiece designed to bring timeless elegance and comfortable sleeping together with the everyday practicality of drawer storage.",
       "image": "images/storage-drawers/img-7.png",
-      "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/19.jfif",
+        "drawar/20.jfif",
+        "drawar/21.jfif"
+      ],
+            "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
       "badge": "21% off",
       "rating": 5,
       "reviews": 76,
@@ -140,7 +175,12 @@
       "name": "Rabbora Toronto Lux Storage Bed",
       "description": "A premium-looking storage bed created to bring sophisticated character and comfortable sleeping together with convenient drawer storage for a well-organised bedroom.",
       "image": "images/storage-drawers/img-8.png",
-      "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
+      "images": [
+        "drawar/22.jfif",
+        "drawar/23.jfif",
+        "drawar/24.jfif"
+      ],
+            "shortInfo": "4 spacious drawers built into a tailored, handmade frame.",
       "badge": "20% off",
       "rating": 5,
       "reviews": 85,
@@ -156,10 +196,36 @@
       "name": "Rabbora Virginia Storage Bed",
       "description": "A versatile and elegant storage bed designed to provide comfortable everyday sleeping while helping keep the bedroom organised with convenient drawer storage.",
       "image": "images/storage-drawers/img-9.png",
+      "images": [
+        "drawar/25.jfif",
+        "drawar/26.jfif",
+        "drawar/27.jfif"
+      ],
       "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
       "badge": "19% off",
       "rating": 4,
       "reviews": 94,
+      "price": 299.0,
+      "oldPrice": 370.0,
+      "monthly": 25,
+      "drawers": 2,
+      "warranty": "24-month warranty",
+      "delivery": "Handmade to order, delivered boxed for home assembly"
+    },
+    {
+      "slug": "storage-drawer-10",
+      "name": "Rabbora Kensington Storage Bed",
+      "description": "A refined storage bed offering a comfortable, well-proportioned frame with the everyday practicality of built-in drawer storage.",
+      "image": "images/storage-drawers/img-9.png",
+      "images": [
+        "drawar/28.jfif",
+        "drawar/29.jfif",
+        "drawar/30.jfif"
+      ],
+      "shortInfo": "2 spacious drawers built into a tailored, handmade frame.",
+      "badge": "19% off",
+      "rating": 4,
+      "reviews": 0,
       "price": 299.0,
       "oldPrice": 370.0,
       "monthly": 25,
@@ -265,11 +331,11 @@
     }
 
     function renderGallery(product) {
-      // Only one image exists per product in this project — the
-      // gallery still supports multiple images (via a "gallery"
-      // array) if photos are added later, but falls back cleanly
-      // to the single image with prev/next and thumbs hidden.
-      var images = product.gallery && product.gallery.length ? product.gallery : [product.image];
+      // Each drawer bed has its own set of real photos in product.images,
+      // matching the same array-of-paths pattern used on the Mattresses
+      // page. Falls back to the single card image only if that array is
+      // ever empty, with prev/next and thumbs hidden in that case.
+      var images = product.images && product.images.length ? product.images : [product.image];
       mainImage.src = images[sdState.imageIndex] || images[0];
       mainImage.alt = "";
       mainImage.onerror = function () {
@@ -284,17 +350,28 @@
       thumbsWrap.innerHTML = "";
       if (images.length > 1) {
         images.forEach(function (src, index) {
+          // Same structure as the Mattresses gallery: each thumbnail is a
+          // button wrapping the image, so the shared .bb-modal__thumb /
+          // .bb-modal__thumb img / .bb-modal__thumb.is-active CSS (already
+          // defined in this stylesheet) sizes, clips and highlights it
+          // the same way it does there.
+          var thumb = document.createElement("button");
+          thumb.type = "button";
+          thumb.className = "bb-modal__thumb" + (index === sdState.imageIndex ? " is-active" : "");
+          thumb.setAttribute("aria-label", "Show image " + (index + 1) + " of " + product.name);
+
           var img = document.createElement("img");
           img.src = src;
           img.alt = "";
           img.loading = "lazy";
-          img.onerror = function () { img.style.visibility = "hidden"; };
-          if (index === sdState.imageIndex) img.classList.add("is-active");
-          img.addEventListener("click", function () {
+          img.onerror = function () { thumb.style.visibility = "hidden"; };
+          thumb.appendChild(img);
+
+          thumb.addEventListener("click", function () {
             sdState.imageIndex = index;
             renderGallery(product);
           });
-          thumbsWrap.appendChild(img);
+          thumbsWrap.appendChild(thumb);
         });
       }
       if (prevBtn) prevBtn.hidden = images.length < 2;
@@ -498,7 +575,7 @@
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        var images = currentProduct.images && currentProduct.images.length ? currentProduct.images : [currentProduct.image];
         sdState.imageIndex = (sdState.imageIndex - 1 + images.length) % images.length;
         renderGallery(currentProduct);
       });
@@ -507,7 +584,7 @@
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
         if (!currentProduct) return;
-        var images = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+        var images = currentProduct.images && currentProduct.images.length ? currentProduct.images : [currentProduct.image];
         sdState.imageIndex = (sdState.imageIndex + 1) % images.length;
         renderGallery(currentProduct);
       });

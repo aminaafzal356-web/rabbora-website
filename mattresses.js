@@ -554,10 +554,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -598,10 +597,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -642,10 +640,9 @@
       "Medium"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -688,10 +685,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -731,10 +727,9 @@
       "Soft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -774,10 +769,9 @@
       "Medium"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -817,10 +811,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -861,10 +854,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -905,10 +897,9 @@
       "Medium"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -949,10 +940,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -992,10 +982,9 @@
       "Medium"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -1035,10 +1024,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -1079,10 +1067,9 @@
       "Medium"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -1123,10 +1110,9 @@
       "Medium"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -1166,10 +1152,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -1211,10 +1196,9 @@
       "Firm"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
-      "King",
+      "King Size",
       "Super King"
     ],
     "materials": [
@@ -1246,12 +1230,21 @@
     MATTRESS_PRODUCTS[p.slug] = p;
   });
 
+  // "Single" is no longer an offered size. The remaining four keep their
+  // existing price deltas exactly as before ("King" renamed to "King
+  // Size" — same £80 uplift, not a new price).
   var MATTRESS_SIZE_DELTAS = {
-    "Single": -80,
     "Small Double": -40,
     "Double": 0,
-    "King": 80,
+    "King Size": 80,
     "Super King": 150
+  };
+
+  var MATTRESS_SIZE_DIMENSIONS = {
+    "Small Double": "120 x 190cm",
+    "Double": "135 x 190cm",
+    "King Size": "150 x 200cm",
+    "Super King": "180 x 200cm"
   };
 
   function mtMoney(v) {
@@ -1701,14 +1694,17 @@
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
       product.availableSizes.forEach(function (size) {
+        var dimensions = MATTRESS_SIZE_DIMENSIONS[size];
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "mt-option-pill";
+        btn.dataset.size = size;
         btn.setAttribute("aria-pressed", String(mtState.selectedSize === size));
-        btn.textContent = size;
+        btn.textContent = dimensions ? size + " \u2014 " + dimensions : size;
         btn.addEventListener("click", function () {
           mtState.selectedSize = size;
           purchaseMessage.textContent = "";
+          purchaseMessage.classList.remove("is-error");
           renderPurchasePanel(product);
         });
         sizeOptionsEl.appendChild(btn);
@@ -1740,7 +1736,7 @@
       priceEl.textContent = mtMoney(currentPrice(product));
       prevPriceEl.textContent = product.oldPrice ? mtMoney(product.oldPrice) : "";
       qsa(".mt-option-pill", sizeOptionsEl).forEach(function (el) {
-        el.setAttribute("aria-pressed", String(el.textContent === mtState.selectedSize));
+        el.setAttribute("aria-pressed", String(el.dataset.size === mtState.selectedSize));
       });
     }
 
@@ -1951,7 +1947,7 @@
         if (!product) return;
 
         if (!mtState.selectedSize) {
-          purchaseMessage.textContent = "Please select a size.";
+          purchaseMessage.textContent = "Please select a mattress size.";
           purchaseMessage.classList.add("is-error");
           return;
         }
@@ -1977,6 +1973,7 @@
               category: "Luxury Mattresses",
               variant: {
                 size: mtState.selectedSize,
+                dimensions: MATTRESS_SIZE_DIMENSIONS[mtState.selectedSize] || "",
                 firmness: firmness
               }
             },
@@ -2002,7 +1999,7 @@
         if (!product) return;
 
         if (!mtState.selectedSize) {
-          purchaseMessage.textContent = "Please select a size.";
+          purchaseMessage.textContent = "Please select a mattress size.";
           purchaseMessage.classList.add("is-error");
           return;
         }

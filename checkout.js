@@ -36,7 +36,7 @@
 
   function buildVariantText(variant) {
     if (!variant) return "";
-    var labels = { size: "Size", colour: "Colour", color: "Colour", fabric: "Fabric", diamantes: "Diamantes", buttons: "Buttons" };
+    var labels = { size: "Size", width: "Width", colour: "Colour", color: "Colour", fabric: "Fabric", diamantes: "Diamantes", buttons: "Buttons" };
     var parts = [];
     Object.keys(variant).forEach(function (key) {
       var value = variant[key];

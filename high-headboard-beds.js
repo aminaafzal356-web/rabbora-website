@@ -66,11 +66,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-1.png",
     "gallery": [
-      "images/high-headboard-beds/img-1.png",
-      "images/high-headboard-beds/img-1-b.png",
-      "images/high-headboard-beds/img-1-c.png",
-      "images/high-headboard-beds/img-1-d.png",
-      "images/high-headboard-beds/img-1-e.png"
+      "high/1.jfif",
+      "high/2.jfif",
+      "high/3.jfif",
+      "high/4.jfif"
     ]
   },
   {
@@ -126,11 +125,11 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-2.png",
     "gallery": [
-      "images/high-headboard-beds/img-2.png",
-      "images/high-headboard-beds/img-2-b.png",
-      "images/high-headboard-beds/img-2-c.png",
-      "images/high-headboard-beds/img-2-d.png",
-      "images/high-headboard-beds/img-2-e.png"
+      "high/5.jfif",
+      "high/6.jfif",
+      "high/7.jfif",
+        "high/8.jfif",
+
     ]
   },
   {
@@ -186,11 +185,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-3.png",
     "gallery": [
-      "images/high-headboard-beds/img-3.png",
-      "images/high-headboard-beds/img-3-b.png",
-      "images/high-headboard-beds/img-3-c.png",
-      "images/high-headboard-beds/img-3-d.png",
-      "images/high-headboard-beds/img-3-e.png"
+      "high/9.jfif",
+      "high/10.jfif",
+      "high/11.jfif",
+      "high/12.jfif"
     ]
   },
   {
@@ -246,11 +244,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-4.png",
     "gallery": [
-      "images/high-headboard-beds/img-4.png",
-      "images/high-headboard-beds/img-4-b.png",
-      "images/high-headboard-beds/img-4-c.png",
-      "images/high-headboard-beds/img-4-d.png",
-      "images/high-headboard-beds/img-4-e.png"
+      "high/13.jfif",
+      "high/14.jfif",
+      "high/15.jfif",
+      "high/16.jfif"
     ]
   },
   {
@@ -306,11 +303,9 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-5.png",
     "gallery": [
-      "images/high-headboard-beds/img-5.png",
-      "images/high-headboard-beds/img-5-b.png",
-      "images/high-headboard-beds/img-5-c.png",
-      "images/high-headboard-beds/img-5-d.png",
-      "images/high-headboard-beds/img-5-e.png"
+      "high/17.jfif",
+      "high/18.jfif",
+      "high/19.jfif"
     ]
   },
   {
@@ -366,11 +361,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-6.png",
     "gallery": [
-      "images/high-headboard-beds/img-6.png",
-      "images/high-headboard-beds/img-6-b.png",
-      "images/high-headboard-beds/img-6-c.png",
-      "images/high-headboard-beds/img-6-d.png",
-      "images/high-headboard-beds/img-6-e.png"
+      "high/20.jfif",
+      "high/21.jfif",
+      "high/22.jfif",
+      "high/23.jfif"
     ]
   },
   {
@@ -426,11 +420,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-7.png",
     "gallery": [
-      "images/high-headboard-beds/img-7.png",
-      "images/high-headboard-beds/img-7-b.png",
-      "images/high-headboard-beds/img-7-c.png",
-      "images/high-headboard-beds/img-7-d.png",
-      "images/high-headboard-beds/img-7-e.png"
+      "high/24.jfif",
+      "high/25.jfif",
+      "high/26.jfif",
+      "high/27.jfif"
     ]
   },
   {
@@ -486,11 +479,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-8.png",
     "gallery": [
-      "images/high-headboard-beds/img-8.png",
-      "images/high-headboard-beds/img-8-b.png",
-      "images/high-headboard-beds/img-8-c.png",
-      "images/high-headboard-beds/img-8-d.png",
-      "images/high-headboard-beds/img-8-e.png"
+      "high/28.jfif",
+      "high/29.jfif",
+      "high/30.jfif",
+      "high/31.jfif"
     ]
   },
   {
@@ -546,11 +538,9 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-9.png",
     "gallery": [
-      "images/high-headboard-beds/img-9.png",
-      "images/high-headboard-beds/img-9-b.png",
-      "images/high-headboard-beds/img-9-c.png",
-      "images/high-headboard-beds/img-9-d.png",
-      "images/high-headboard-beds/img-9-e.png"
+      "high/32.jfif",
+      "high/33.jfif",
+      "high/34.jfif"
     ]
   },
   {
@@ -606,11 +596,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-10.png",
     "gallery": [
-      "images/high-headboard-beds/img-10.png",
-      "images/high-headboard-beds/img-10-b.png",
-      "images/high-headboard-beds/img-10-c.png",
-      "images/high-headboard-beds/img-10-d.png",
-      "images/high-headboard-beds/img-10-e.png"
+      "high/35.jfif",
+      "high/36.jfif",
+      "high/37.jfif",
+    
     ]
   },
   {
@@ -666,11 +655,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-11.png",
     "gallery": [
-      "images/high-headboard-beds/img-11.png",
-      "images/high-headboard-beds/img-11-b.png",
-      "images/high-headboard-beds/img-11-c.png",
-      "images/high-headboard-beds/img-11-d.png",
-      "images/high-headboard-beds/img-11-e.png"
+      "high/40.png",
+      "high/38.png",
+      "high/39.png",
+      
     ]
   },
   {
@@ -726,20 +714,18 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-12.png",
     "gallery": [
-      "images/high-headboard-beds/img-12.png",
-      "images/high-headboard-beds/img-12-b.png",
-      "images/high-headboard-beds/img-12-c.png",
-      "images/high-headboard-beds/img-12-d.png",
-      "images/high-headboard-beds/img-12-e.png"
+      "high/41.jfif",
+      "high/42.png",
+      "high/43.jfif"
     ]
   },
   {
     "id": 13,
     "slug": "high-headboard-bed-13",
     "name": "Rabbora Silver Fern High Headboard Bed",
-    "price": 549.0,
+    "price": 799.00,
     "oldPrice": 900.0,
-    "monthly": 46,
+    "monthly": 67,
     "rating": 5,
     "reviews": 176,
     "badge": "39% off",
@@ -786,20 +772,19 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-13.png",
     "gallery": [
-      "images/high-headboard-beds/img-13.png",
-      "images/high-headboard-beds/img-13-b.png",
-      "images/high-headboard-beds/img-13-c.png",
-      "images/high-headboard-beds/img-13-d.png",
-      "images/high-headboard-beds/img-13-e.png"
+      "high/44.jfif",
+      "high/45.png",
+       "high/46.jfif",
+
     ]
   },
   {
     "id": 14,
     "slug": "high-headboard-bed-14",
     "name": "Rabbora Marble Bahamas Wide Headboard Bed",
-    "price": 799.0,
-    "oldPrice": 1000.0,
-    "monthly": 67,
+    "price": 549.00,
+    "oldPrice": 900.00,
+    "monthly": 46,
     "rating": 5,
     "reviews": 189,
     "badge": "20% off",
@@ -846,11 +831,10 @@ var HH_BED_PRODUCTS =
     "returns": "30-day easy returns on unused, unassembled beds.",
     "image": "images/high-headboard-beds/img-14.png",
     "gallery": [
-      "images/high-headboard-beds/img-14.png",
-      "images/high-headboard-beds/img-14-b.png",
-      "images/high-headboard-beds/img-14-c.png",
-      "images/high-headboard-beds/img-14-d.png",
-      "images/high-headboard-beds/img-14-e.png"
+      "high/49.png",
+     "high/47.png",
+      "high/48.jfif"
+       
     ]
   }
 ];
@@ -972,6 +956,10 @@ var HH_BED_SIZE_DELTAS = {
     var thumbsWrap = document.getElementById("hhGalleryThumbs");
     var prevBtn = document.getElementById("hhGalleryPrev");
     var nextBtn = document.getElementById("hhGalleryNext");
+    var zoomBtn = document.getElementById("hhGalleryZoom");
+    var lightbox = document.getElementById("hhLightbox");
+    var lightboxImage = document.getElementById("hhLightboxImage");
+    var lightboxClose = document.getElementById("hhLightboxClose");
     var headboardHeightEl = document.getElementById("hhDetailHeadboardHeight");
     var titleEl = document.getElementById("hhDetailTitle");
     var starsEl = document.getElementById("hhDetailStars");
@@ -1196,6 +1184,25 @@ var HH_BED_SIZE_DELTAS = {
         renderGallery(currentProduct);
       });
     }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener("click", function () {
+        if (!mainImage.src) return;
+        lightboxImage.src = mainImage.src;
+        lightboxImage.alt = mainImage.alt;
+        lightbox.hidden = false;
+      });
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener("click", function () { lightbox.hidden = true; });
+    if (lightbox) {
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.hidden = true;
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) lightbox.hidden = true;
+    });
 
     if (qtyMinus) {
       qtyMinus.addEventListener("click", function () {

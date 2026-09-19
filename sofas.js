@@ -609,36 +609,154 @@
   }
 };
 
-  var SOFA_FABRIC_OPTIONS = [
-    { "slug": "plush-grey", "name": "Plush Grey", "image": "images/img-34.jfif" },
-    { "slug": "plush-silver", "name": "Plush Silver", "image": "images/img-35.jfif" },
-    { "slug": "plush-steel", "name": "Plush Steel", "image": "images/img-36.jfif" },
-    { "slug": "coniston-charcoal", "name": "Coniston Charcoal", "image": "images/img-37.jfif" },
-    { "slug": "coniston-almond", "name": "Coniston Almond", "image": "images/img-105.jfif" },
-    { "slug": "plush-cream", "name": "Plush Cream", "image": "images/img-38.jfif" },
-    { "slug": "naples-silver", "name": "Naples Silver", "image": "images/img-39.jfif" },
-    { "slug": "naples-steel", "name": "Naples Steel", "image": "images/img-40.jfif" },
-    { "slug": "coniston-armour", "name": "Coniston Armour", "image": "images/img-101.jfif" },
-    { "slug": "plush-beige", "name": "Plush Beige", "image": "images/img-102.jfif" },
-    { "slug": "plush-black", "name": "Plush Black", "image": "images/img-104.jfif" },
-    { "slug": "plush-pink", "name": "Plush Pink", "image": "images/img-106.jfif" },
-    { "slug": "coniston-emerald", "name": "Coniston Emerald", "image": "images/img-107.jfif" },
-    { "slug": "coniston-pink", "name": "Coniston Pink", "image": "images/img-108.jfif" },
-    { "slug": "naples-black", "name": "Naples Black", "image": "images/img-109.jfif" },
-    { "slug": "naples-ivory", "name": "Naples Ivory", "image": "images/img-110.jfif" },
-    { "slug": "crushed-velvet-silver", "name": "Crushed Velvet Silver", "image": "images/img-111.jfif" },
-    { "slug": "crushed-velvet-black", "name": "Crushed Velvet Black", "image": "images/img-112.jfif" },
-    { "slug": "crushed-velvet-cream", "name": "Crushed Velvet Cream", "image": "images/img-113.jfif" },
-    { "slug": "crushed-velvet-mink", "name": "Crushed Velvet Mink", "image": "images/img-114.jfif" },
-    { "slug": "plush-mustard", "name": "Plush Mustard", "image": "images/img-115.jfif" },
-    { "slug": "plush-green", "name": "Plush Green", "image": "images/img-116.jfif" },
-    { "slug": "plush-turquoise", "name": "Plush Turquoise", "image": "images/img-117.jfif" },
-    { "slug": "coniston-blue", "name": "Coniston Blue", "image": "images/img-118.jfif" },
-    { "slug": "cream-boucle", "name": "Cream Boucle", "image": "images/img-119.jfif" },
-    { "slug": "pink-boucle", "name": "Pink Boucle", "image": "images/img-120.jfif" },
-    { "slug": "marble-oatmeal", "name": "Marble Oatmeal", "image": "images/img-121.jfif" },
-    { "slug": "marble-platinum", "name": "Marble Platinum", "image": "images/img-122.jfif" },
-    { "slug": "marble-silver", "name": "Marble Silver", "image": "images/img-123.jfif" }
+  var SF_SIZE_OPTIONS = ["2 Seater Sofa", "3 Seater Sofa", "3+2 Seater", "Left Corner Sofa", "Right Corner Sofa"];
+
+var FABRIC_COLLECTIONS = [
+    {
+      name: "Plush",
+      fabrics: [
+        { slug: "plush-grey", name: "Plush Grey", image: "fabric/plush-grey.jfif" },
+        { slug: "plush-silver", name: "Plush Silver", image: "fabric/plush-silver.jfif" },
+        { slug: "plush-steel", name: "Plush Steel", image: "fabric/plush-steel.jfif" },
+        { slug: "plush-cream", name: "Plush Cream", image: "fabric/plush-cream.jfif" },
+        { slug: "plush-beige", name: "Plush Beige", image: "fabric/plush-beige.jfif" },
+        { slug: "plush-black", name: "Plush Black", image: "fabric/plush-black.jfif" },
+        { slug: "plush-pink", name: "Plush Pink", image: "fabric/plush-pink.jfif" },
+        { slug: "plush-mustard", name: "Plush Mustard", image: "fabric/plush-mustard.jfif" },
+        { slug: "plush-green", name: "Plush Green", image: "fabric/plush-green.jfif" },
+        { slug: "plush-turquoise", name: "Plush Turquoise", image: "fabric/plush-turquoise.jfif" },
+        { slug: "plush-royal-blue", name: "Plush Royal Blue", image: "fabric/plush-royal-blue.jfif" },
+        { slug: "plush-white", name: "Plush White", image: "fabric/plush-white.jfif" },
+        { slug: "plush-baby-pink", name: "Plush Baby Pink", image: "fabric/plush-baby-pink.jfif" },
+        { slug: "plush-ice-silver", name: "Plush Ice Silver", image: "fabric/plush-ice-sliver.jfif" },
+        { slug: "plush-pebble", name: "Plush Pebble", image: "fabric/plush-pebble.jfif" },
+        { slug: "plush-mocca", name: "Plush Mocca", image: "fabric/plush-mocca.jfif" },
+        { slug: "plush-emerald-green", name: "Plush Emerald Green", image: "fabric/plush-emerald-green.jfif" },
+        { slug: "plush-duck-egg", name: "Plush Duck Egg", image: "fabric/plush-duck-egg.jfif" },
+        { slug: "plush-camel", name: "Plush Camel", image: "fabric/plush-camel.jfif" },
+        { slug: "plush-teal", name: "Plush Teal", image: "fabric/plush-teal.jfif" },
+        { slug: "plush-plum", name: "Plush Plum", image: "fabric/plush-plum.jfif" }
+      ]
+    },
+    {
+      name: "Coniston",
+      fabrics: [
+        { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "fabric/coniston-charcoal.jfif" },
+        { slug: "coniston-almond", name: "Coniston Almond", image: "fabric/coniston-almond.jfif" },
+        { slug: "coniston-armour", name: "Coniston Armour", image: "fabric/coniston-armour.jfif" },
+        { slug: "coniston-emerald", name: "Coniston Emerald", image: "fabric/coniston-emerald.jfif" },
+        { slug: "coniston-pink", name: "Coniston Pink", image: "fabric/coniston-pink.jfif" },
+        { slug: "coniston-blue", name: "Coniston Blue", image: "fabric/coniston-blue.jfif" }
+      ]
+    },
+    {
+      name: "Naples",
+      fabrics: [
+        { slug: "naples-silver", name: "Naples Silver", image: "fabric/naples-silver.jfif" },
+        { slug: "naples-steel", name: "Naples Steel", image: "fabric/naples-steel.jfif" },
+        { slug: "naples-black", name: "Naples Black", image: "fabric/naples-black.jfif" },
+        { slug: "naples-ivory", name: "Naples Ivory", image: "fabric/naples-ivory.jfif" },
+        { slug: "naples-pearl-blue", name: "Naples Pearl Blue", image: "fabric/naples-pearl-blue.jfif" },
+        { slug: "naples-cream", name: "Naples Cream", image: "fabric/naples-cream.jfif" },
+        { slug: "naples-sand", name: "Naples Sand", image: "fabric/naples-sand.jfif" },
+        { slug: "naples-mink", name: "Naples Mink", image: "fabric/naples-mink.jfif" },
+        { slug: "naples-seal-grey", name: "Naples Seal Grey", image: "fabric/naples-seal-grey.jfif" },
+        { slug: "naples-slate-grey", name: "Naples Slate Grey", image: "fabric/naples-slate-grey.jfif" },
+        { slug: "naples-charcoal", name: "Naples Charcoal", image: "fabric/naples-charcoal.jfif" },
+        { slug: "naples-blue", name: "Naples Blue", image: "fabric/naples-blue.jfif" },
+        { slug: "naples-plum", name: "Naples Plum", image: "fabric/naples-plum.jfif" }
+      ]
+    },
+    {
+      name: "Crushed Velvet",
+      fabrics: [
+        { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "fabric/crushed-velvet-silver.jfif" },
+        { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "fabric/crushed-velvet-black.jfif" },
+        { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "fabric/crushed-velvet-cream.jfif" },
+        { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "fabric/crushed-velvet-mink.jfif" },
+        { slug: "crushed-velvet-white", name: "Crushed Velvet White", image: "fabric/crushed-white.jfif" },
+        { slug: "crushed-velvet-grey", name: "Crushed Velvet Grey", image: "fabric/crushed-grey.jfif" },
+        { slug: "crushed-velvet-camel", name: "Crushed Velvet Camel", image: "fabric/crushed-camel.jfif" },
+        { slug: "crushed-velvet-gold", name: "Crushed Velvet Gold", image: "fabric/crushed-gold.jfif" },
+        { slug: "crushed-velvet-teal", name: "Crushed Velvet Teal", image: "fabric/crushed-teal.jfif" },
+        { slug: "crushed-velvet-denim", name: "Crushed Velvet Denim", image: "fabric/crushed-denim.jfif" },
+        { slug: "crushed-velvet-hot-pink", name: "Crushed Velvet Hot Pink", image: "fabric/crushed-hot-pink.jfif" },
+        { slug: "crushed-velvet-purple", name: "Crushed Velvet Purple", image: "fabric/crushed-purple.jfif" },
+        { slug: "crushed-velvet-plum", name: "Crushed Velvet Plum", image: "fabric/crushed-plum.jfif" },
+        { slug: "crushed-velvet-baby-pink", name: "Crushed Velvet Baby Pink", image: "fabric/crushed-baby-pink.jfif" }
+      ]
+    },
+    {
+      name: "Chenille",
+      fabrics: [
+        { slug: "chenille-cream", name: "Chenille Cream", image: "fabric/chenille-cream.jfif" },
+        { slug: "chenille-mink", name: "Chenille Mink", image: "fabric/chenille-mink.jfif" },
+        { slug: "chenille-chocolate", name: "Chenille Chocolate", image: "fabric/chenille-chocolate.jfif" },
+        { slug: "chenille-steel", name: "Chenille Steel", image: "fabric/chenille-steel.jfif" },
+        { slug: "chenille-charcoal", name: "Chenille Charcoal", image: "fabric/chenille-charcoal.jfif" },
+        { slug: "chenille-duck-egg", name: "Chenille Duck Egg", image: "fabric/chenille-duck-egg.jfif" },
+        { slug: "chenille-teal", name: "Chenille Teal", image: "fabric/chenille-teal.jfif" },
+        { slug: "chenille-purple", name: "Chenille Purple", image: "fabric/chenille-purple.jfif" },
+        { slug: "chenille-plum", name: "Chenille Plum", image: "fabric/chenille-plum.jfif" },
+        { slug: "chenille-red", name: "Chenille Red", image: "fabric/chenille-red.jfif" },
+        { slug: "chenille-black", name: "Chenille Black", image: "fabric/chenille-black.jfif" }
+      ]
+    },
+    {
+      name: "Linoso",
+      fabrics: [
+        { slug: "linoso-sand", name: "Linoso Sand", image: "fabric/linoso-sand.jfif" },
+        { slug: "linoso-silver", name: "Linoso Silver", image: "fabric/linoso-silver.jfif" },
+        { slug: "linoso-slate-grey", name: "Linoso Slate Grey", image: "fabric/linoso-slate-grey.jfif" },
+        { slug: "linoso-charcoal", name: "Linoso Charcoal", image: "fabric/linoso-charcoal.jfif" },
+        { slug: "linoso-truffle", name: "Linoso Truffle", image: "fabric/linoso-truffle.jfif" },
+        { slug: "linoso-black", name: "Linoso Black", image: "fabric/linoso-black.jfif" },
+        { slug: "linoso-midnight-blue", name: "Linoso Midnight Blue", image: "fabric/linoso-midnight-blue.jfif" },
+        { slug: "linoso-plum", name: "Linoso Plum", image: "fabric/linoso-plum.jfif" }
+      ]
+    },
+    {
+      name: "Boucle",
+      fabrics: [
+        { slug: "boucle-granite", name: "Boucle Granite", image: "fabric/boucle-granite.jfif" },
+        { slug: "boucle-dove", name: "Boucle Dove", image: "fabric/boucle-dove.jfif" },
+        { slug: "boucle-ivory", name: "Boucle Ivory", image: "fabric/boucle-ivory.jfif" },
+        { slug: "boucle-truffle", name: "Boucle Truffle", image: "fabric/boucle-truffle.jfif" }
+      ]
+    },
+    {
+      name: "Naples Alternative",
+      fabrics: [
+        { slug: "grey-naples", name: "Grey Naples", image: "fabric/plush-grey.jfif" },
+        { slug: "sand-naples", name: "Sand Naples", image: "fabric/naples-sand.jfif" },
+        { slug: "silver-naples", name: "Silver Naples", image: "fabric/Naples-Silver.jfif" },
+        { slug: "black-naples", name: "Black Naples", image: "fabric/Naples-Black.jfif" },
+        { slug: "brown-naples", name: "Brown Naples", image: "fabric/naple-brown.jfif" },
+        { slug: "cream-naples", name: "Cream Naples", image: "fabric/naples-cream.jfif" }
+      ]
+    },
+    {
+      name: "Additional Colours",
+      fabrics: [
+        { slug: "dove", name: "Dove", image: "fabric/dove.jfif" },
+        { slug: "ivory", name: "Ivory", image: "fabric/ivory.jfif" },
+        { slug: "latte", name: "Latte", image: "fabric/latte.jfif" },
+        { slug: "mink", name: "Mink", image: "fabric/mink.jfif" },
+        { slug: "truffle", name: "Truffle", image: "fabric/truffle.jfif" },
+        { slug: "saffron", name: "Saffron", image: "fabric/saffron.jfif" },
+        { slug: "powder", name: "Powder", image: "fabric/powder.jfif" },
+        { slug: "sky", name: "Sky", image: "fabric/sky.jfif" },
+        { slug: "marine", name: "Marine", image: "fabric/marrine.jfif" }
+      ]
+    },
+    {
+      name: "Marble",
+      fabrics: [
+        { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "fabric/marble-oatmeal.jfif" },
+        { slug: "marble-platinum", name: "Marble Platinum", image: "fabric/marble-platinum.jfif" },
+        { slug: "marble-silver", name: "Marble Silver", image: "fabric/marble-silver.jfif" }
+      ]
+    }
   ];
 
   function sfMoney(v) {
@@ -653,7 +771,10 @@
     slug: null,
     imageIndex: 0,
     quantity: 1,
-    selectedFabric: null
+    selectedSize: null,
+    selectedFabric: null,
+    selectedFabricSlug: null,
+    selectedFabricImage: null
   };
 
   function initSofaFilters() {
@@ -919,6 +1040,9 @@
     var descriptionEl = document.getElementById("sfModalDescription");
     var featuresEl = document.getElementById("sfModalFeatures");
     var fabricsEl = document.getElementById("sfModalFabrics");
+    var fabricSelectedStatusEl = document.getElementById("sfFabricSelectedStatus");
+    var sizeOptionsEl = document.getElementById("sfSizeOptions");
+    var sizeSelectedStatusEl = document.getElementById("sfSizeSelectedStatus");
     var relatedEl = document.getElementById("sfModalRelated");
     var qtyValueEl = document.getElementById("sfQtyValue");
     var qtyMinus = document.getElementById("sfQtyMinus");
@@ -956,55 +1080,134 @@
       });
     }
 
-    function renderFabrics() {
-      fabricsEl.innerHTML = "";
-      if (!SOFA_FABRIC_OPTIONS || SOFA_FABRIC_OPTIONS.length === 0) {
-        fabricsEl.parentElement.hidden = true;
-        return;
+    function updateSizeSelectedStatus() {
+      if (!sizeSelectedStatusEl) return;
+      if (sfModalState.selectedSize) {
+        sizeSelectedStatusEl.textContent = "Selected: " + sfModalState.selectedSize;
+        sizeSelectedStatusEl.classList.remove("is-empty");
+      } else {
+        sizeSelectedStatusEl.textContent = "No size selected yet";
+        sizeSelectedStatusEl.classList.add("is-empty");
       }
-      fabricsEl.parentElement.hidden = false;
+    }
 
-      // Same 8 fabric/colour options shown on every sofa's detail page.
-      // fabric.image is used directly as the <img> src below — to swap
-      // a photo, just change the "image" path in SOFA_FABRIC_OPTIONS.
-      SOFA_FABRIC_OPTIONS.forEach(function (fabric, index) {
-        var isSelected = sfModalState.selectedFabric === fabric.name;
-        if (sfModalState.selectedFabric === null && index === 0) {
-          sfModalState.selectedFabric = fabric.name;
-          isSelected = true;
-        }
+    function renderSizeOptions() {
+      if (!sizeOptionsEl) return;
+      sizeOptionsEl.innerHTML = "";
+
+      SF_SIZE_OPTIONS.forEach(function (size) {
+        var isSelected = sfModalState.selectedSize === size;
 
         var btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "fabric-swatch";
+        btn.className = "sf-option-pill";
         btn.setAttribute("aria-pressed", String(isSelected));
-        btn.setAttribute("aria-label", "Select " + fabric.name);
-        btn.innerHTML =
-          '<span class="fabric-swatch__ring">' +
-            '<img src="' + fabric.image + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
-            '<span class="fabric-swatch__check" aria-hidden="true">' +
-              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-            '</span>' +
-          '</span>' +
-          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+        btn.setAttribute("aria-label", "Select " + size);
+        btn.textContent = size;
 
         btn.addEventListener("click", function () {
-          var alreadySelected = sfModalState.selectedFabric === fabric.name;
+          sfModalState.selectedSize = size;
 
-          qsa(".fabric-swatch", fabricsEl).forEach(function (el) {
+          qsa(".sf-option-pill", sizeOptionsEl).forEach(function (el) {
             el.setAttribute("aria-pressed", "false");
           });
+          btn.setAttribute("aria-pressed", "true");
 
-          if (alreadySelected) {
-            sfModalState.selectedFabric = null;
-          } else {
-            sfModalState.selectedFabric = fabric.name;
-            btn.setAttribute("aria-pressed", "true");
+          updateSizeSelectedStatus();
+
+          if (purchaseMessage && purchaseMessage.classList.contains("is-error")) {
+            purchaseMessage.textContent = "";
+            purchaseMessage.classList.remove("is-error");
           }
         });
 
-        fabricsEl.appendChild(btn);
+        sizeOptionsEl.appendChild(btn);
       });
+
+      updateSizeSelectedStatus();
+    }
+
+    function updateFabricSelectedStatus() {
+      if (!fabricSelectedStatusEl) return;
+      if (sfModalState.selectedFabric) {
+        fabricSelectedStatusEl.textContent = "Selected: " + sfModalState.selectedFabric;
+        fabricSelectedStatusEl.classList.remove("is-empty");
+      } else {
+        fabricSelectedStatusEl.textContent = "No fabric colour selected yet";
+        fabricSelectedStatusEl.classList.add("is-empty");
+      }
+    }
+
+    function renderFabrics() {
+      fabricsEl.innerHTML = "";
+
+      // No fabric is pre-selected — the customer must actively choose one
+      // (required before Add to Cart; see the addToCartBtn handler below).
+      // Same collection-grouped structure and real fabric/ image paths as
+      // the working Blanket Box implementation.
+      FABRIC_COLLECTIONS.forEach(function (collection) {
+        var groupEl = document.createElement("div");
+        groupEl.className = "bb-modal__fabric-collection";
+
+        var titleEl = document.createElement("p");
+        titleEl.className = "bb-modal__fabric-collection-title";
+        titleEl.textContent = collection.name;
+        groupEl.appendChild(titleEl);
+
+        var gridEl = document.createElement("div");
+        gridEl.className = "bb-modal__fabric-grid";
+
+        collection.fabrics.forEach(function (fabric) {
+          var isSelected = sfModalState.selectedFabric === fabric.name;
+
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "fabric-swatch";
+          btn.setAttribute("aria-pressed", String(isSelected));
+          btn.setAttribute("aria-label", "Select " + fabric.name);
+          btn.innerHTML =
+            '<span class="fabric-swatch__ring">' +
+              '<img src="' + fabric.image + '" alt="' + fabric.name + ' fabric option" class="fabric-swatch__image" loading="lazy" width="56" height="56" />' +
+              '<span class="fabric-swatch__check" aria-hidden="true">' +
+                '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+              '</span>' +
+            '</span>' +
+            '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+
+          btn.addEventListener("click", function () {
+            var alreadySelected = sfModalState.selectedFabric === fabric.name;
+
+            qsa(".fabric-swatch", fabricsEl).forEach(function (el) {
+              el.setAttribute("aria-pressed", "false");
+            });
+
+            if (alreadySelected) {
+              sfModalState.selectedFabric = null;
+              sfModalState.selectedFabricSlug = null;
+              sfModalState.selectedFabricImage = null;
+            } else {
+              sfModalState.selectedFabric = fabric.name;
+              sfModalState.selectedFabricSlug = fabric.slug;
+              sfModalState.selectedFabricImage = fabric.image;
+              btn.setAttribute("aria-pressed", "true");
+            }
+
+            updateFabricSelectedStatus();
+
+            if (purchaseMessage && purchaseMessage.classList.contains("is-error")) {
+              purchaseMessage.textContent = "";
+              purchaseMessage.classList.remove("is-error");
+            }
+          });
+
+          gridEl.appendChild(btn);
+        });
+
+        groupEl.appendChild(gridEl);
+        fabricsEl.appendChild(groupEl);
+      });
+
+      updateFabricSelectedStatus();
     }
 
     function renderRelated() {
@@ -1046,6 +1249,7 @@
       });
 
       renderGallery();
+      renderSizeOptions();
       renderFabrics();
       renderRelated();
 
@@ -1104,7 +1308,10 @@
       sfModalState.slug = slug;
       sfModalState.imageIndex = 0;
       sfModalState.quantity = 1;
+      sfModalState.selectedSize = null;
       sfModalState.selectedFabric = null;
+      sfModalState.selectedFabricSlug = null;
+      sfModalState.selectedFabricImage = null;
       showDetail(product);
     }
 
@@ -1176,9 +1383,31 @@
         var product = SF_PRODUCTS[sfModalState.slug];
         if (!product) return;
 
+        // Both the sofa size and the fabric colour are required before
+        // this item can be added — block the add and show an inline
+        // message (matching the site's existing status/error message
+        // pattern) instead of adding with a missing option.
+        if (!sfModalState.selectedSize) {
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Please select a sofa size.";
+          return;
+        }
+
+        if (!sfModalState.selectedFabric || !sfModalState.selectedFabricSlug) {
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Please select a fabric colour.";
+          return;
+        }
+
         if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
           window.RabboraCart.add(
             {
+              // A plain, stable product id — the cart's own buildLineId()
+              // already derives a unique line identity from this id PLUS
+              // everything inside "variant", so a different size OR a
+              // different fabric colour naturally becomes a separate
+              // cart line, while the SAME size + SAME colour merges into
+              // the existing line instead of duplicating it.
               id: "sofa-" + sfModalState.slug,
               slug: sfModalState.slug,
               name: product.name,
@@ -1187,8 +1416,15 @@
               alt: product.name,
               price: product.price,
               category: "Sofas",
+              // fabricImage is a plain top-level field (not inside
+              // variant) since checkout's buildVariantText() renders
+              // every variant key it finds — this is a swatch-image
+              // path for Cart/Checkout to optionally show a colour dot,
+              // not something a customer should see printed as text.
+              fabricImage: sfModalState.selectedFabricImage,
               variant: {
-                fabric: sfModalState.selectedFabric || null
+                size: sfModalState.selectedSize,
+                fabric: sfModalState.selectedFabric
               }
             },
             sfModalState.quantity
@@ -1200,7 +1436,8 @@
           );
         }
 
-        purchaseMessage.textContent = "Added " + sfModalState.quantity + " to your cart in " + (sfModalState.selectedFabric || "the selected fabric") + ".";
+        purchaseMessage.classList.remove("is-error");
+        purchaseMessage.textContent = "Added " + sfModalState.quantity + " to your cart \u2014 " + sfModalState.selectedSize + ", " + sfModalState.selectedFabric + ".";
       });
     }
 

@@ -3134,6 +3134,7 @@ body.bb-modal-open {
 /* ---- Top toolbar row: count | grid/list | Filters button ---- */
 .sf-toolbar-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -3152,6 +3153,7 @@ body.bb-modal-open {
 
 .sf-toolbar-row__right {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
 }
@@ -3801,6 +3803,14 @@ body.sf-drawer-open {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  min-width: 0;
+}
+
+
+
+.mt-detail__gallery,
+.mt-detail__info {
+  min-width: 0;
 }
 
 
@@ -3831,6 +3841,35 @@ body.sf-drawer-open {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+}
+
+
+
+.mt-option-pill {
+  height: 42px;
+  padding-inline: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+
+
+.mt-option-pill:hover {
+  border-color: var(--color-brass);
+}
+
+
+
+.mt-option-pill[aria-pressed="true"] {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-ivory-soft);
 }
 
 
@@ -3922,7 +3961,7 @@ body.sf-drawer-open {
 
 /* ---- Product grid: exactly 3 per row on desktop ---- */
 .mt-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   transition: opacity 0.2s var(--ease);
 }
 
@@ -3979,7 +4018,7 @@ body.sf-drawer-open {
 
 
 .mt-grid.is-large-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 

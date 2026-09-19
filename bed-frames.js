@@ -7,379 +7,587 @@
    count, cart count — none of that is duplicated here).
 
    ===============================
-   EDIT YOUR PRODUCTS HERE
+   PRODUCT DATA
    ===============================
-   The 3 products below are PLACEHOLDERS. Replace "name",
-   "price" and "image" with real data before this page goes
-   live — nothing else needs to change; the detail page,
-   gallery, fabric colours, size selector and Cart/Wishlist
-   are already fully wired up.
+   These 30 entries are real Rabbora products (name, price,
+   oldPrice, badge and image) pulled from the Slatted Ottoman
+   Beds, Solid Base Ottomans, High Headboard Beds and TV Beds
+   ranges, so this hub page showcases real, currently-listed
+   beds rather than placeholders. "description"/"features" are
+   still generic filler text — real per-product copy for these
+   wasn't available/requested when this data was populated.
    ========================================================= */
 
 var BF_PRODUCTS = [
   {
     slug: "bed-frame-1",
-    name: "Bed Name 1",
-    price: 0,
+    name: "Rabbora Manhattan Slatted Ottoman Bed",
+    price: 249.0,
+    oldPrice: 429.0,
+    badge: "42% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-1.jfif",
+    images: ["slatted/img-1.jfif", "slatted/img-6.jfif", "slatted/img-5.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-2",
-    name: "Bed Name 2",
-    price: 0,
+    name: "Rabbora Milan Slatted Wingback Ottoman Bed",
+    price: 259.0,
+    oldPrice: 420.0,
+    badge: "38% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-7.jfif",
+    images: ["slatted/img-7.jfif", "slatted/img-8.jfif", "slatted/img-9.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-3",
-    name: "Bed Name 3",
-    price: 0,
+    name: "Rabbora Athens Slatted Designer Ottoman Bed",
+    price: 289.0,
+    oldPrice: 400.0,
+    badge: "28% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-12.jfif",
+    images: ["slatted/img-12.jfif", "slatted/img-15.jfif", "slatted/img-13.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-4",
-    name: "Bed Name 4",
-    price: 0,
+    name: "Rabbora Empire Slatted Ottoman Bed",
+    price: 289.0,
+    oldPrice: 420.0,
+    badge: "31% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-17.jfif",
+    images: ["slatted/img-17.jfif", "slatted/img-19.jfif", "slatted/img-18.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-5",
-    name: "Bed Name 5",
-    price: 0,
+    name: "Rabbora Art Deco Slatted Ottoman Bed",
+    price: 252.0,
+    oldPrice: 420.0,
+    badge: "40% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-22.jfif",
+    images: ["slatted/img-22.jfif", "slatted/img-24.jfif", "slatted/img-25.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-6",
-    name: "Bed Name 6",
-    price: 0,
+    name: "Rabbora Orlando Slatted Ottoman Bed",
+    price: 306.59,
+    oldPrice: 420.0,
+    badge: "27% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-30.png",
+    images: ["slatted/img-30.png", "slatted/img-28.png", "slatted/img-29.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-7",
-    name: "Bed Name 7",
-    price: 0,
+    name: "Rabbora Kendal Slatted Wingback Bed",
+    price: 299.0,
+    oldPrice: 444.0,
+    badge: "33% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/img-35.png",
+    images: ["slatted/img-35.png", "slatted/img-34.png", "slatted/img-33.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-8",
-    name: "Bed Name 8",
-    price: 0,
+    name: "Rabbora Teddy Orlando Slatted Ottoman Bed",
+    price: 306.59,
+    oldPrice: 420.0,
+    badge: "27% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/34.png",
+    images: ["slatted/34.png", "slatted/35.png", "slatted/36.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-9",
-    name: "Bed Name 9",
-    price: 0,
+    name: "Rabbora Park Lane Ambassador Slatted Bed",
+    price: 449.0,
+    oldPrice: 600.0,
+    badge: "25% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "slatted/38.png",
+    images: ["slatted/38.png", "slatted/39.png", "slatted/img-37.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-10",
-    name: "Bed Name 10",
-    price: 0,
+    name: "Rabbora Solid Ottoman Bed",
+    price: 249.0,
+    oldPrice: 429.0,
+    badge: "42% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/1.jfif",
+    images: ["solid/1.jfif", "solid/2.jfif", "solid/3.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-11",
-    name: "Bed Name 11",
-    price: 0,
+    name: "Rabbora Luxury Solid Ottoman Bed",
+    price: 259.0,
+    oldPrice: 420.0,
+    badge: "38% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/4.jfif",
+    images: ["solid/4.jfif", "solid/5.jfif", "solid/6.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-12",
-    name: "Bed Name 12",
-    price: 0,
+    name: "Rabbora Premium Ottoman Bed",
+    price: 289.0,
+    oldPrice: 400.0,
+    badge: "28% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/7.jfif",
+    images: ["solid/7.jfif", "solid/8.jfif", "solid/9.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-13",
-    name: "Bed Name 13",
-    price: 0,
+    name: "Rabbora Classic Ottoman Bed",
+    price: 289.0,
+    oldPrice: 420.0,
+    badge: "31% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/10.jfif",
+    images: ["solid/10.jfif", "solid/11.jfif", "solid/12.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-14",
-    name: "Bed Name 14",
-    price: 0,
+    name: "Rabbora Elegant Ottoman Bed",
+    price: 252.0,
+    oldPrice: 420.0,
+    badge: "40% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/13.jfif",
+    images: ["solid/13.jfif", "solid/14.jfif", "solid/15.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-15",
-    name: "Bed Name 15",
-    price: 0,
+    name: "Rabbora Comfort Ottoman Bed",
+    price: 299.0,
+    oldPrice: 444.0,
+    badge: "33% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/16.jfif",
+    images: ["solid/16.jfif", "solid/17.jfif", "solid/18.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-16",
-    name: "Bed Name 16",
-    price: 0,
+    name: "Rabbora Signature Ottoman Bed",
+    price: 299.0,
+    oldPrice: 420.0,
+    badge: "29% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/19.jfif",
+    images: ["solid/19.jfif", "solid/20.jfif", "solid/21.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-17",
-    name: "Bed Name 17",
-    price: 0,
+    name: "Rabbora Modern Ottoman Bed",
+    price: 299.0,
+    oldPrice: 420.0,
+    badge: "29% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/22.jfif",
+    images: ["solid/22.jfif", "solid/23.jfif", "solid/24.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-18",
-    name: "Bed Name 18",
-    price: 0,
+    name: "Rabbora Prestige Ottoman Bed",
+    price: 389.0,
+    oldPrice: 499.0,
+    badge: "22% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "solid/25.jfif",
+    images: ["solid/25.jfif", "solid/26.jfif", "solid/27.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-19",
-    name: "Bed Name 19",
-    price: 0,
+    name: "Rabbora Duke High & Wide Headboard Bed",
+    price: 799.0,
+    oldPrice: 1000.0,
+    badge: "20% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/1.jfif",
+    images: ["high/1.jfif", "high/2.jfif", "high/3.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-20",
-    name: "Bed Name 20",
-    price: 0,
+    name: "Rabbora Las Vegas High Headboard Bed",
+    price: 749.0,
+    oldPrice: 1000.0,
+    badge: "25% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/5.jfif",
+    images: ["high/5.jfif", "high/6.jfif", "high/7.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-21",
-    name: "Bed Name 21",
-    price: 0,
+    name: "Rabbora Athena High Headboard Bed",
+    price: 699.0,
+    oldPrice: 900.0,
+    badge: "22% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/9.jfif",
+    images: ["high/9.jfif", "high/10.jfif", "high/11.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-22",
-    name: "Bed Name 22",
-    price: 0,
+    name: "Rabbora Chicago High Headboard Bed",
+    price: 349.0,
+    oldPrice: 420.0,
+    badge: "17% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/13.jfif",
+    images: ["high/13.jfif", "high/14.jfif", "high/15.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-23",
-    name: "Bed Name 23",
-    price: 0,
+    name: "Rabbora Model Square Hotel Bed",
+    price: 649.0,
+    oldPrice: 1000.0,
+    badge: "35% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/17.jfif",
+    images: ["high/17.jfif", "high/18.jfif", "high/19.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-24",
-    name: "Bed Name 24",
-    price: 0,
+    name: "Rabbora Starlight Luxury Bed",
+    price: 599.0,
+    oldPrice: 900.0,
+    badge: "33% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/20.jfif",
+    images: ["high/20.jfif", "high/21.jfif", "high/22.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-25",
-    name: "Bed Name 25",
-    price: 0,
+    name: "Rabbora DaVinci Tall Headboard Bed",
+    price: 749.0,
+    oldPrice: 900.0,
+    badge: "17% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/24.jfif",
+    images: ["high/24.jfif", "high/25.jfif", "high/26.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-26",
-    name: "Bed Name 26",
-    price: 0,
+    name: "Rabbora Geneva High & Wide Headboard Bed",
+    price: 749.0,
+    oldPrice: 1000.0,
+    badge: "25% off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "high/28.jfif",
+    images: ["high/28.jfif", "high/29.jfif", "high/30.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-27",
-    name: "Bed Name 27",
-    price: 0,
+    name: "Rabbora Milano TV Bed",
+    price: 999,
+    oldPrice: 1399,
+    badge: "29% Off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "tv/img-1.jfif",
+    images: ["tv/img-1.jfif", "tv/img-22.png", "tv/img-23.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-28",
-    name: "Bed Name 28",
-    price: 0,
+    name: "Rabbora Monaco TV Bed",
+    price: 990,
+    oldPrice: 1399,
+    badge: "29% Off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "tv/img-2.jfif",
+    images: ["tv/img-2.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-29",
-    name: "Bed Name 29",
-    price: 0,
+    name: "Rabbora Windsor TV Bed",
+    price: 1099,
+    oldPrice: 1399,
+    badge: "21% Off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "tv/img-3.jfif",
+    images: ["tv/img-3.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   },
   {
     slug: "bed-frame-30",
-    name: "Bed Name 30",
-    price: 0,
+    name: "Rabbora Kensington TV Bed",
+    price: 999,
+    oldPrice: 1399,
+    badge: "29% Off",
     rating: 5,
     reviewCount: 0,
-    image: "images/PUT-IMAGE-HERE.jpg",
+    image: "tv/img-4.jfif",
+    images: ["tv/img-4.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
     sizes: ["Single", "Small Double", "Double", "King", "Super King"]
   }
 ];
 
-var BF_FABRIC_CATALOG = [
-  { slug: "plush-grey", name: "Plush Grey", image: "img-34.jfif" },
-  { slug: "plush-silver", name: "Plush Silver", image: "img-35.jfif" },
-  { slug: "plush-steel", name: "Plush Steel", image: "img-36.jfif" },
-  { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "img-37.jfif" },
-  { slug: "coniston-almond", name: "Coniston Almond", image: "img-105.jfif" },
-  { slug: "plush-cream", name: "Plush Cream", image: "img-38.jfif" },
-  { slug: "naples-silver", name: "Naples Silver", image: "img-39.jfif" },
-  { slug: "naples-steel", name: "Naples Steel", image: "img-40.jfif" },
-  { slug: "coniston-armour", name: "Coniston Armour", image: "img-101.jfif" },
-  { slug: "plush-beige", name: "Plush Beige", image: "img-102.jfif" },
-  { slug: "plush-black", name: "Plush Black", image: "img-104.jfif" },
-  { slug: "plush-pink", name: "Plush Pink", image: "img-106.jfif" },
-  { slug: "coniston-emerald", name: "Coniston Emerald", image: "img-107.jfif" },
-  { slug: "coniston-pink", name: "Coniston Pink", image: "img-108.jfif" },
-  { slug: "naples-black", name: "Naples Black", image: "img-109.jfif" },
-  { slug: "naples-ivory", name: "Naples Ivory", image: "img-110.jfif" },
-  { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "img-111.jfif" },
-  { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "img-112.jfif" },
-  { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "img-113.jfif" },
-  { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "img-114.jfif" },
-  { slug: "plush-mustard", name: "Plush Mustard", image: "img-115.jfif" },
-  { slug: "plush-green", name: "Plush Green", image: "img-116.jfif" },
-  { slug: "plush-turquoise", name: "Plush Turquoise", image: "img-117.jfif" },
-  { slug: "coniston-blue", name: "Coniston Blue", image: "img-118.jfif" },
-  { slug: "cream-boucle", name: "Cream Boucle", image: "img-119.jfif" },
-  { slug: "pink-boucle", name: "Pink Boucle", image: "img-120.jfif" },
-  { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "img-121.jfif" },
-  { slug: "marble-platinum", name: "Marble Platinum", image: "img-122.jfif" },
-  { slug: "marble-silver", name: "Marble Silver", image: "img-123.jfif" }
-];
+var BF_FABRIC_COLLECTIONS = [
+    {
+      name: "Plush",
+      fabrics: [
+        { slug: "plush-grey", name: "Plush Grey", image: "fabric/plush-grey.jfif" },
+        { slug: "plush-silver", name: "Plush Silver", image: "fabric/plush-silver.jfif" },
+        { slug: "plush-steel", name: "Plush Steel", image: "fabric/plush-steel.jfif" },
+        { slug: "plush-cream", name: "Plush Cream", image: "fabric/plush-cream.jfif" },
+        { slug: "plush-beige", name: "Plush Beige", image: "fabric/plush-beige.jfif" },
+        { slug: "plush-black", name: "Plush Black", image: "fabric/plush-black.jfif" },
+        { slug: "plush-pink", name: "Plush Pink", image: "fabric/plush-pink.jfif" },
+        { slug: "plush-mustard", name: "Plush Mustard", image: "fabric/plush-mustard.jfif" },
+        { slug: "plush-green", name: "Plush Green", image: "fabric/plush-green.jfif" },
+        { slug: "plush-turquoise", name: "Plush Turquoise", image: "fabric/plush-turquoise.jfif" },
+        { slug: "plush-royal-blue", name: "Plush Royal Blue", image: "fabric/plush-royal-blue.jfif" },
+        { slug: "plush-white", name: "Plush White", image: "fabric/plush-white.jfif" },
+        { slug: "plush-baby-pink", name: "Plush Baby Pink", image: "fabric/plush-baby-pink.jfif" },
+        { slug: "plush-ice-silver", name: "Plush Ice Silver", image: "fabric/plush-ice-sliver.jfif" },
+        { slug: "plush-pebble", name: "Plush Pebble", image: "fabric/plush-pebble.jfif" },
+        { slug: "plush-mocca", name: "Plush Mocca", image: "fabric/plush-mocca.jfif" },
+        { slug: "plush-emerald-green", name: "Plush Emerald Green", image: "fabric/plush-emerald-green.jfif" },
+        { slug: "plush-duck-egg", name: "Plush Duck Egg", image: "fabric/plush-duck-egg.jfif" },
+        { slug: "plush-camel", name: "Plush Camel", image: "fabric/plush-camel.jfif" },
+        { slug: "plush-teal", name: "Plush Teal", image: "fabric/plush-teal.jfif" },
+        { slug: "plush-plum", name: "Plush Plum", image: "fabric/plush-plum.jfif" }
+      ]
+    },
+    {
+      name: "Coniston",
+      fabrics: [
+        { slug: "coniston-charcoal", name: "Coniston Charcoal", image: "fabric/coniston-charcoal.jfif" },
+        { slug: "coniston-almond", name: "Coniston Almond", image: "fabric/coniston-almond.jfif" },
+        { slug: "coniston-armour", name: "Coniston Armour", image: "fabric/coniston-armour.jfif" },
+        { slug: "coniston-emerald", name: "Coniston Emerald", image: "fabric/coniston-emerald.jfif" },
+        { slug: "coniston-pink", name: "Coniston Pink", image: "fabric/coniston-pink.jfif" },
+        { slug: "coniston-blue", name: "Coniston Blue", image: "fabric/coniston-blue.jfif" }
+      ]
+    },
+    {
+      name: "Naples",
+      fabrics: [
+        { slug: "naples-silver", name: "Naples Silver", image: "fabric/naples-silver.jfif" },
+        { slug: "naples-steel", name: "Naples Steel", image: "fabric/naples-steel.jfif" },
+        { slug: "naples-black", name: "Naples Black", image: "fabric/naples-black.jfif" },
+        { slug: "naples-ivory", name: "Naples Ivory", image: "fabric/naples-ivory.jfif" },
+        { slug: "naples-pearl-blue", name: "Naples Pearl Blue", image: "fabric/naples-pearl-blue.jfif" },
+        { slug: "naples-cream", name: "Naples Cream", image: "fabric/naples-cream.jfif" },
+        { slug: "naples-sand", name: "Naples Sand", image: "fabric/naples-sand.jfif" },
+        { slug: "naples-mink", name: "Naples Mink", image: "fabric/naples-mink.jfif" },
+        { slug: "naples-seal-grey", name: "Naples Seal Grey", image: "fabric/naples-seal-grey.jfif" },
+        { slug: "naples-slate-grey", name: "Naples Slate Grey", image: "fabric/naples-slate-grey.jfif" },
+        { slug: "naples-charcoal", name: "Naples Charcoal", image: "fabric/naples-charcoal.jfif" },
+        { slug: "naples-blue", name: "Naples Blue", image: "fabric/naples-blue.jfif" },
+        { slug: "naples-plum", name: "Naples Plum", image: "fabric/naples-plum.jfif" }
+      ]
+    },
+    {
+      name: "Crushed Velvet",
+      fabrics: [
+        { slug: "crushed-velvet-silver", name: "Crushed Velvet Silver", image: "fabric/crushed-velvet-silver.jfif" },
+        { slug: "crushed-velvet-black", name: "Crushed Velvet Black", image: "fabric/crushed-velvet-black.jfif" },
+        { slug: "crushed-velvet-cream", name: "Crushed Velvet Cream", image: "fabric/crushed-velvet-cream.jfif" },
+        { slug: "crushed-velvet-mink", name: "Crushed Velvet Mink", image: "fabric/crushed-velvet-mink.jfif" },
+        { slug: "crushed-velvet-white", name: "Crushed Velvet White", image: "fabric/crushed-white.jfif" },
+        { slug: "crushed-velvet-grey", name: "Crushed Velvet Grey", image: "fabric/crushed-grey.jfif" },
+        { slug: "crushed-velvet-camel", name: "Crushed Velvet Camel", image: "fabric/crushed-camel.jfif" },
+        { slug: "crushed-velvet-gold", name: "Crushed Velvet Gold", image: "fabric/crushed-gold.jfif" },
+        { slug: "crushed-velvet-teal", name: "Crushed Velvet Teal", image: "fabric/crushed-teal.jfif" },
+        { slug: "crushed-velvet-denim", name: "Crushed Velvet Denim", image: "fabric/crushed-denim.jfif" },
+        { slug: "crushed-velvet-hot-pink", name: "Crushed Velvet Hot Pink", image: "fabric/crushed-hot-pink.jfif" },
+        { slug: "crushed-velvet-purple", name: "Crushed Velvet Purple", image: "fabric/crushed-purple.jfif" },
+        { slug: "crushed-velvet-plum", name: "Crushed Velvet Plum", image: "fabric/crushed-plum.jfif" },
+        { slug: "crushed-velvet-baby-pink", name: "Crushed Velvet Baby Pink", image: "fabric/crushed-baby-pink.jfif" }
+      ]
+    },
+    {
+      name: "Chenille",
+      fabrics: [
+        { slug: "chenille-cream", name: "Chenille Cream", image: "fabric/chenille-cream.jfif" },
+        { slug: "chenille-mink", name: "Chenille Mink", image: "fabric/chenille-mink.jfif" },
+        { slug: "chenille-chocolate", name: "Chenille Chocolate", image: "fabric/chenille-chocolate.jfif" },
+        { slug: "chenille-steel", name: "Chenille Steel", image: "fabric/chenille-steel.jfif" },
+        { slug: "chenille-charcoal", name: "Chenille Charcoal", image: "fabric/chenille-charcoal.jfif" },
+        { slug: "chenille-duck-egg", name: "Chenille Duck Egg", image: "fabric/chenille-duck-egg.jfif" },
+        { slug: "chenille-teal", name: "Chenille Teal", image: "fabric/chenille-teal.jfif" },
+        { slug: "chenille-purple", name: "Chenille Purple", image: "fabric/chenille-purple.jfif" },
+        { slug: "chenille-plum", name: "Chenille Plum", image: "fabric/chenille-plum.jfif" },
+        { slug: "chenille-red", name: "Chenille Red", image: "fabric/chenille-red.jfif" },
+        { slug: "chenille-black", name: "Chenille Black", image: "fabric/chenille-black.jfif" }
+      ]
+    },
+    {
+      name: "Linoso",
+      fabrics: [
+        { slug: "linoso-sand", name: "Linoso Sand", image: "fabric/linoso-sand.jfif" },
+        { slug: "linoso-silver", name: "Linoso Silver", image: "fabric/linoso-silver.jfif" },
+        { slug: "linoso-slate-grey", name: "Linoso Slate Grey", image: "fabric/linoso-slate-grey.jfif" },
+        { slug: "linoso-charcoal", name: "Linoso Charcoal", image: "fabric/linoso-charcoal.jfif" },
+        { slug: "linoso-truffle", name: "Linoso Truffle", image: "fabric/linoso-truffle.jfif" },
+        { slug: "linoso-black", name: "Linoso Black", image: "fabric/linoso-black.jfif" },
+        { slug: "linoso-midnight-blue", name: "Linoso Midnight Blue", image: "fabric/linoso-midnight-blue.jfif" },
+        { slug: "linoso-plum", name: "Linoso Plum", image: "fabric/linoso-plum.jfif" }
+      ]
+    },
+    {
+      name: "Boucle",
+      fabrics: [
+        { slug: "boucle-granite", name: "Boucle Granite", image: "fabric/boucle-granite.jfif" },
+        { slug: "boucle-dove", name: "Boucle Dove", image: "fabric/boucle-dove.jfif" },
+        { slug: "boucle-ivory", name: "Boucle Ivory", image: "fabric/boucle-ivory.jfif" },
+        { slug: "boucle-truffle", name: "Boucle Truffle", image: "fabric/boucle-truffle.jfif" }
+      ]
+    },
+    {
+      name: "Naples Alternative",
+      fabrics: [
+        { slug: "grey-naples", name: "Grey Naples", image: "fabric/plush-grey.jfif" },
+        { slug: "sand-naples", name: "Sand Naples", image: "fabric/naples-sand.jfif" },
+        { slug: "silver-naples", name: "Silver Naples", image: "fabric/Naples-Silver.jfif" },
+        { slug: "black-naples", name: "Black Naples", image: "fabric/Naples-Black.jfif" },
+        { slug: "brown-naples", name: "Brown Naples", image: "fabric/naple-brown.jfif" },
+        { slug: "cream-naples", name: "Cream Naples", image: "fabric/naples-cream.jfif" }
+      ]
+    },
+    {
+      name: "Additional Colours",
+      fabrics: [
+        { slug: "dove", name: "Dove", image: "fabric/dove.jfif" },
+        { slug: "ivory", name: "Ivory", image: "fabric/ivory.jfif" },
+        { slug: "latte", name: "Latte", image: "fabric/latte.jfif" },
+        { slug: "mink", name: "Mink", image: "fabric/mink.jfif" },
+        { slug: "truffle", name: "Truffle", image: "fabric/truffle.jfif" },
+        { slug: "saffron", name: "Saffron", image: "fabric/saffron.jfif" },
+        { slug: "powder", name: "Powder", image: "fabric/powder.jfif" },
+        { slug: "sky", name: "Sky", image: "fabric/sky.jfif" },
+        { slug: "marine", name: "Marine", image: "fabric/marrine.jfif" }
+      ]
+    },
+    {
+      name: "Marble",
+      fabrics: [
+        { slug: "marble-oatmeal", name: "Marble Oatmeal", image: "fabric/marble-oatmeal.jfif" },
+        { slug: "marble-platinum", name: "Marble Platinum", image: "fabric/marble-platinum.jfif" },
+        { slug: "marble-silver", name: "Marble Silver", image: "fabric/marble-silver.jfif" }
+      ]
+    }
+  ];
 
 (function () {
   "use strict";
@@ -403,6 +611,36 @@ var BF_FABRIC_CATALOG = [
     var out = "";
     for (var i = 0; i < 5; i++) out += i < full ? "\u2605" : "\u2606";
     return out;
+  }
+
+  /**
+   * Reviews are stored per-product in localStorage, following the same
+   * pattern as the existing Cart/Wishlist stores elsewhere on this site
+   * (a plain JSON array under one key per product), but self-contained
+   * here since no shared review store exists yet.
+   */
+  var BF_REVIEWS_STORAGE_PREFIX = "rabboraReviews:bedframe:";
+
+  function getStoredReviews(slug) {
+    try {
+      var raw = window.localStorage.getItem(BF_REVIEWS_STORAGE_PREFIX + slug);
+      if (!raw) return [];
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (err) {
+      return [];
+    }
+  }
+
+  function saveReview(slug, review) {
+    var reviews = getStoredReviews(slug);
+    reviews.push(review);
+    try {
+      window.localStorage.setItem(BF_REVIEWS_STORAGE_PREFIX + slug, JSON.stringify(reviews));
+      return true;
+    } catch (err) {
+      return false;
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -503,45 +741,63 @@ var BF_FABRIC_CATALOG = [
       if (!fabricsEl) return;
       fabricsEl.innerHTML = "";
 
-      BF_FABRIC_CATALOG.forEach(function (fabric, index) {
-        var isSelected = selectedFabric === fabric.name;
-        if (selectedFabric === null && index === 0) {
-          selectedFabric = fabric.name;
-          isSelected = true;
-        }
+      // Same real fabric collections/paths as the working Blanket Box and
+      // Sofa fabric selectors, grouped under their collection headings
+      // since there are now 95 real colours rather than the old 29-item
+      // flat placeholder list.
+      BF_FABRIC_COLLECTIONS.forEach(function (collection) {
+        var groupEl = document.createElement("div");
+        groupEl.className = "bb-modal__fabric-collection";
 
-        var swatchImagePath = fabric.image ? "images/" + fabric.image : "images/fabrics/" + fabric.slug + ".svg";
+        var titleEl = document.createElement("p");
+        titleEl.className = "bb-modal__fabric-collection-title";
+        titleEl.textContent = collection.name;
+        groupEl.appendChild(titleEl);
 
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "fabric-swatch";
-        btn.setAttribute("aria-pressed", String(isSelected));
-        btn.setAttribute("aria-label", "Select " + fabric.name);
-        btn.innerHTML =
-          '<span class="fabric-swatch__ring">' +
-            '<img src="' + swatchImagePath + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
-            '<span class="fabric-swatch__check" aria-hidden="true">' +
-              '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        var gridEl = document.createElement("div");
+        gridEl.className = "bb-modal__fabric-grid";
+
+        collection.fabrics.forEach(function (fabric, index) {
+          var isSelected = selectedFabric === fabric.name;
+          if (selectedFabric === null && collection === BF_FABRIC_COLLECTIONS[0] && index === 0) {
+            selectedFabric = fabric.name;
+            isSelected = true;
+          }
+
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "fabric-swatch";
+          btn.setAttribute("aria-pressed", String(isSelected));
+          btn.setAttribute("aria-label", "Select " + fabric.name);
+          btn.innerHTML =
+            '<span class="fabric-swatch__ring">' +
+              '<img src="' + fabric.image + '" alt="" class="fabric-swatch__image" loading="lazy" width="56" height="56" onerror="this.style.display=&#39;none&#39;; this.parentElement.classList.add(&#39;fabric-swatch__ring--fallback&#39;);" />' +
+              '<span class="fabric-swatch__check" aria-hidden="true">' +
+                '<svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+              '</span>' +
             '</span>' +
-          '</span>' +
-          '<span class="fabric-swatch__name">' + fabric.name + '</span>';
+            '<span class="fabric-swatch__name">' + fabric.name + '</span>';
 
-        btn.addEventListener("click", function () {
-          var alreadySelected = selectedFabric === fabric.name;
+          btn.addEventListener("click", function () {
+            var alreadySelected = selectedFabric === fabric.name;
 
-          Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
-            el.setAttribute("aria-pressed", "false");
+            Array.prototype.forEach.call(fabricsEl.querySelectorAll(".fabric-swatch"), function (el) {
+              el.setAttribute("aria-pressed", "false");
+            });
+
+            if (alreadySelected) {
+              selectedFabric = null;
+            } else {
+              selectedFabric = fabric.name;
+              btn.setAttribute("aria-pressed", "true");
+            }
           });
 
-          if (alreadySelected) {
-            selectedFabric = null;
-          } else {
-            selectedFabric = fabric.name;
-            btn.setAttribute("aria-pressed", "true");
-          }
+          gridEl.appendChild(btn);
         });
 
-        fabricsEl.appendChild(btn);
+        groupEl.appendChild(gridEl);
+        fabricsEl.appendChild(groupEl);
       });
     }
 
@@ -573,6 +829,157 @@ var BF_FABRIC_CATALOG = [
       });
     }
 
+    var reviewsSummaryEl = document.getElementById("bfReviewsSummary");
+    var reviewsListEl = document.getElementById("bfReviewsList");
+    var reviewForm = document.getElementById("bfReviewForm");
+    var reviewNameInput = document.getElementById("bfReviewName");
+    var reviewCommentInput = document.getElementById("bfReviewComment");
+    var reviewMessageEl = document.getElementById("bfReviewMessage");
+    var reviewStarsInputEl = document.getElementById("bfReviewStarsInput");
+    var selectedReviewRating = 0;
+
+    function updateReviewStarButtons() {
+      if (!reviewStarsInputEl) return;
+      qsa(".mt-detail__review-star", reviewStarsInputEl).forEach(function (btn) {
+        var value = Number(btn.getAttribute("data-value"));
+        var isFilled = value <= selectedReviewRating;
+        btn.setAttribute("aria-pressed", String(isFilled));
+        btn.classList.toggle("is-filled", isFilled);
+      });
+    }
+
+    function renderReviews(product) {
+      var starsEl = document.getElementById("bfDetailStars");
+      var reviewCountEl = document.getElementById("bfDetailReviewCount");
+      var reviews = getStoredReviews(product.slug);
+
+      if (reviews.length === 0) {
+        if (starsEl) starsEl.textContent = "";
+        if (reviewCountEl) reviewCountEl.textContent = "No reviews yet";
+        if (reviewsSummaryEl) reviewsSummaryEl.textContent = "";
+        if (reviewsListEl) {
+          reviewsListEl.innerHTML = "";
+          var emptyMsg = document.createElement("p");
+          emptyMsg.className = "mt-detail__reviews-empty";
+          emptyMsg.textContent = "No reviews yet. Be the first to review this bed frame.";
+          reviewsListEl.appendChild(emptyMsg);
+        }
+        return;
+      }
+
+      var total = reviews.reduce(function (sum, r) { return sum + r.rating; }, 0);
+      var avg = total / reviews.length;
+      var roundedAvg = Math.round(avg);
+
+      if (starsEl) starsEl.textContent = renderStars(roundedAvg);
+      if (reviewCountEl) reviewCountEl.textContent = "(" + reviews.length + ")";
+
+      if (reviewsSummaryEl) {
+        reviewsSummaryEl.textContent =
+          avg.toFixed(1) + " out of 5 \u00b7 " + reviews.length + " review" + (reviews.length === 1 ? "" : "s");
+      }
+
+      if (reviewsListEl) {
+        reviewsListEl.innerHTML = "";
+        reviews.slice().reverse().forEach(function (r) {
+          var item = document.createElement("div");
+          item.className = "mt-detail__review-item";
+
+          var head = document.createElement("div");
+          head.className = "mt-detail__review-item-head";
+
+          var starsSpan = document.createElement("span");
+          starsSpan.className = "mt-detail__review-item-stars";
+          starsSpan.setAttribute("aria-hidden", "true");
+          starsSpan.textContent = renderStars(r.rating);
+
+          var nameSpan = document.createElement("span");
+          nameSpan.className = "mt-detail__review-item-name";
+          nameSpan.textContent = r.name;
+
+          var dateSpan = document.createElement("span");
+          dateSpan.className = "mt-detail__review-item-date";
+          dateSpan.textContent = new Date(r.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+
+          head.appendChild(starsSpan);
+          head.appendChild(nameSpan);
+          head.appendChild(dateSpan);
+
+          var commentP = document.createElement("p");
+          commentP.className = "mt-detail__review-item-comment";
+          commentP.textContent = r.comment;
+
+          item.appendChild(head);
+          item.appendChild(commentP);
+          reviewsListEl.appendChild(item);
+        });
+      }
+    }
+
+    if (reviewStarsInputEl) {
+      qsa(".mt-detail__review-star", reviewStarsInputEl).forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          selectedReviewRating = Number(btn.getAttribute("data-value"));
+          updateReviewStarButtons();
+          if (reviewMessageEl) {
+            reviewMessageEl.textContent = "";
+            reviewMessageEl.classList.remove("is-error");
+          }
+        });
+      });
+    }
+
+    if (reviewForm) {
+      reviewForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!currentProduct) return;
+
+        var name = reviewNameInput.value.trim();
+        var comment = reviewCommentInput.value.trim();
+
+        if (!name) {
+          reviewMessageEl.textContent = "Please enter your name.";
+          reviewMessageEl.classList.add("is-error");
+          reviewNameInput.focus();
+          return;
+        }
+        if (!selectedReviewRating) {
+          reviewMessageEl.textContent = "Please select a star rating.";
+          reviewMessageEl.classList.add("is-error");
+          return;
+        }
+        if (!comment) {
+          reviewMessageEl.textContent = "Please write a short review.";
+          reviewMessageEl.classList.add("is-error");
+          reviewCommentInput.focus();
+          return;
+        }
+
+        var review = {
+          name: name,
+          rating: selectedReviewRating,
+          comment: comment,
+          date: Date.now()
+        };
+
+        var ok = saveReview(currentProduct.slug, review);
+
+        reviewForm.reset();
+        selectedReviewRating = 0;
+        updateReviewStarButtons();
+
+        if (!ok) {
+          reviewMessageEl.textContent = "Sorry, something went wrong saving your review. Please try again.";
+          reviewMessageEl.classList.add("is-error");
+          return;
+        }
+
+        reviewMessageEl.classList.remove("is-error");
+        reviewMessageEl.textContent = "Thank you \u2014 your review has been added.";
+        renderReviews(currentProduct);
+      });
+    }
+
     function renderDetail(product) {
       document.title = product.name + " | Non-Storage Bed Frames | Rabbora Living";
 
@@ -582,12 +989,9 @@ var BF_FABRIC_CATALOG = [
       document.getElementById("bfDetailTitle").textContent = product.name;
       document.getElementById("bfDetailBreadcrumbName").textContent = product.name;
 
-      var starsEl = document.getElementById("bfDetailStars");
-      var reviewCountEl = document.getElementById("bfDetailReviewCount");
-      if (starsEl) starsEl.textContent = renderStars(product.rating || 5);
-      if (reviewCountEl) reviewCountEl.textContent = product.reviewCount ? "(" + product.reviewCount + ")" : "";
-
       document.getElementById("bfDetailPrice").textContent = bfMoney(product.price);
+      var prevPriceEl = document.getElementById("bfDetailPrevPrice");
+      if (prevPriceEl) prevPriceEl.textContent = product.oldPrice ? bfMoney(product.oldPrice) : "";
       document.getElementById("bfDetailDescription").textContent = product.description || "";
 
       var featuresEl = document.getElementById("bfDetailFeatures");
@@ -606,6 +1010,15 @@ var BF_FABRIC_CATALOG = [
         messageEl.textContent = "";
         messageEl.classList.remove("is-error");
       }
+
+      selectedReviewRating = 0;
+      updateReviewStarButtons();
+      if (reviewForm) reviewForm.reset();
+      if (reviewMessageEl) {
+        reviewMessageEl.textContent = "";
+        reviewMessageEl.classList.remove("is-error");
+      }
+      renderReviews(product);
     }
 
     function showCategory() {

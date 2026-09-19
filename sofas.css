@@ -2939,12 +2939,75 @@ button.product-card__name.bb-product-open {
 
 
 
-.bb-modal__fabric-grid {
+.bb-modal__size {
+  margin-top: 1.5rem;
+}
+
+
+
+.bb-modal__size-selected,
+.bb-modal__fabric-selected {
+  margin-top: 0.35rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--color-forest);
+}
+
+
+
+.bb-modal__size-selected.is-empty,
+.bb-modal__fabric-selected.is-empty {
+  color: rgba(35, 35, 32, 0.5);
+}
+
+
+
+.bb-modal__size-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.1rem;
-  max-height: 260px;
+  gap: 0.65rem;
+}
+
+
+
+.sf-option-pill {
+  height: 42px;
+  padding-inline: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+
+
+.sf-option-pill:hover {
+  border-color: var(--color-brass);
+}
+
+
+
+.sf-option-pill[aria-pressed="true"] {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-ivory-soft);
+}
+
+
+
+.bb-modal__fabric-collections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 420px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 1rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -2953,7 +3016,31 @@ button.product-card__name.bb-product-open {
 
 
 
+.bb-modal__fabric-collection-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.75rem;
+}
+
+
+
+.bb-modal__fabric-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+}
+
+
+
 .bb-modal__fabric-grid .fabric-swatch__ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 52px;
   height: 52px;
 }
@@ -2961,6 +3048,11 @@ button.product-card__name.bb-product-open {
 
 
 .bb-modal__fabric-grid .fabric-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
   width: 68px;
 }
 
@@ -2969,6 +3061,49 @@ button.product-card__name.bb-product-open {
 .bb-modal__fabric-grid .fabric-swatch__name {
   font-size: 0.66rem;
   line-height: 1.25;
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__ring {
+  border-color: var(--color-brass);
+  box-shadow: 0 0 0 2px rgba(164, 123, 76, 0.2);
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background-color: rgba(18, 40, 31, 0.72);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+
+
+.bb-modal__fabric-grid .fabric-swatch[aria-pressed="true"] .fabric-swatch__check {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 
@@ -3048,6 +3183,12 @@ button.product-card__name.bb-product-open {
   font-size: 0.85rem;
   color: var(--color-forest);
   min-height: 1.2em;
+}
+
+
+
+.bb-modal__purchase-message.is-error {
+  color: var(--color-clay);
 }
 
 
@@ -3966,6 +4107,22 @@ body.sf-drawer-open {
   .mt-help-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+
+
+.mt-detail__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  min-width: 0;
+}
+
+
+
+.mt-detail__gallery,
+.mt-detail__info {
+  min-width: 0;
 }
 
 

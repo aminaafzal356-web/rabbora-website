@@ -751,3 +751,109 @@
   font-size: 0.8rem;
   color: rgba(35, 35, 32, 0.6);
 }
+
+/* ---- Gallery zoom button + fullscreen lightbox ---- */
+.bb-modal__zoom {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-forest-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.bb-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background-color: rgba(18, 40, 31, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bb-lightbox[hidden] {
+  display: none;
+}
+
+.bb-lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.bb-lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-ivory-soft);
+  border: none;
+  cursor: pointer;
+}
+
+.bb-lightbox__close:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+
+/* ---- High Headboard only: view-toggle and columns-toggle buttons.
+   Scoped so other pages sharing .bb-toolbar__view-btn are unaffected. ---- */
+.hh-view-toggle,
+.hh-columns-toggle {
+  gap: 0.4rem;
+}
+
+.hh-view-toggle .bb-toolbar__view-btn:not(.is-active),
+.hh-columns-toggle .bb-toolbar__view-btn:not(.is-active) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding-inline: 0.6rem;
+  border: 1px solid #d8d2c4;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #23231f;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.hh-view-toggle .bb-toolbar__view-btn.is-active,
+.hh-columns-toggle .bb-toolbar__view-btn.is-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding-inline: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hh-view-toggle .bb-toolbar__view-btn:hover,
+.hh-columns-toggle .bb-toolbar__view-btn:hover {
+  border-color: var(--color-brass);
+}
