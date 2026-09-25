@@ -1876,6 +1876,178 @@ h1, h2, h3, h4 {
   }
 }
 
+/* ---------- Mobile / tablet (below 1024px) ----------
+   Desktop (1024px+) is untouched. Here the hero becomes one centred
+   vertical composition: text, buttons, pager, then the image stack.
+   The stack is simplified: the front card fills the width and only
+   two rear cards peek out as thin layered edges BELOW it; cards 3-5
+   wait invisibly behind. Same data-pos system and timing as desktop. */
+@media (max-width: 1023.98px) {
+  .hero {
+    padding-block: 1.75rem 2rem;
+  }
+
+  .hero__bg-curve {
+    top: auto;
+    height: 62%;
+    /* fade the top edge so the shape blends in with no straight line */
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%);
+    mask-image: linear-gradient(to bottom, transparent, #000 35%);
+  }
+
+  .hero__grid {
+    gap: 1.6rem;
+  }
+
+  .hero__text {
+    max-width: 36rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero__heading {
+    font-size: clamp(2rem, 8.8vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .hero__lead {
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 22rem;
+    margin: 0.9rem auto 0;
+  }
+
+  .hero__body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .hero__lead-arrow {
+    flex-basis: 22px;
+    width: 22px;
+    margin-bottom: 0;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    max-width: 22rem;
+    margin: 1.35rem auto 0;
+  }
+
+  .hero__ctas .btn {
+    flex: 0 0 auto;
+    padding-inline: 1rem;
+    white-space: nowrap;
+  }
+
+  .hero__pager {
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+  }
+
+  .hero__page {
+    min-width: 2.1rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.15rem 0.45rem;
+  }
+
+  /* Image stack */
+  .hero__stage {
+    --card-w: 100%;
+    --peek: 22px;
+    width: 100%;
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  .hero__cards {
+    /* one card (ratio 1.3) + room for the two peeking edges */
+    padding-bottom: calc(76.92% + var(--peek));
+  }
+
+  .hero__card {
+    --ty: 0px;
+    bottom: var(--peek);
+    border-radius: 18px;
+    box-shadow: 0 10px 22px -14px rgba(18, 40, 31, 0.3);
+    transform-origin: center bottom;
+    transform: translate3d(0, var(--ty), 0) scale(var(--s));
+    transition:
+      transform 1.1s cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 0.8s ease;
+  }
+
+  .hero__card[data-pos="0"] {
+    box-shadow: 0 16px 30px -18px rgba(18, 40, 31, 0.4);
+  }
+
+  .hero__card[data-pos="1"] { --tx: 0%; --s: 0.93; --ty: 11px; }
+  .hero__card[data-pos="2"] { --tx: 0%; --s: 0.86; --ty: 22px; }
+  .hero__card[data-pos="3"],
+  .hero__card[data-pos="4"],
+  .hero__card[data-pos="5"] { --tx: 0%; --s: 0.86; --ty: 22px; opacity: 0; }
+
+  .hero__arrow {
+    top: calc(50% - var(--peek) / 2);
+    width: 36px;
+    height: 36px;
+    margin-top: -18px;
+  }
+
+  .hero__arrow svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .hero__arrow--prev {
+    left: 10px;
+  }
+
+  .hero__arrow--next {
+    left: auto;
+    right: 10px;
+  }
+}
+
+/* Buttons side by side once they comfortably fit. */
+@media (min-width: 420px) and (max-width: 1023.98px) {
+  .hero__ctas {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .hero__ctas .btn {
+    flex: 0 1 auto;
+    padding-inline: 1.4rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .hero__card {
+    border-radius: 22px;
+  }
+
+  .hero__stage {
+    --peek: 26px;
+  }
+
+  .hero__card[data-pos="1"] { --ty: 13px; }
+  .hero__card[data-pos="2"],
+  .hero__card[data-pos="3"],
+  .hero__card[data-pos="4"],
+  .hero__card[data-pos="5"] { --ty: 26px; }
+}
+
 /* Safety net: if any markup from the OLD full-width hero is still on
    the page (old index.html / cached copy), keep it hidden so it can
    never mix with the new stack design. */
