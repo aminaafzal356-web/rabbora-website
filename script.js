@@ -465,98 +465,93 @@
     });
   }
 
+  // Home hero image stack. The six .hero__card elements are never
+  // re-created: each tick only rewrites their data-pos attribute
+  // (0 = front, 1-5 = behind) and the active pagination number, and
+  // CSS transforms animate the stack. Auto-advances every 4.5s; the
+  // pager and arrows jump straight to an image and restart the timer.
   function initHeroSlideshow() {
-    var slideshow = document.getElementById("heroSlideshow");
-    if (!slideshow) return;
+    var stack = document.getElementById("heroSlideshow");
+    if (!stack) return;
 
-    var slides = slideshow.querySelectorAll(".hero__slide");
-    if (slides.length < 2) return;
+    var hero = stack.closest(".hero");
+    var cards = Array.prototype.slice.call(stack.querySelectorAll(".hero__card"));
+    var pages = hero ? Array.prototype.slice.call(hero.querySelectorAll(".hero__page")) : [];
+    var prevBtn = hero ? hero.querySelector(".hero__arrow--prev") : null;
+    var nextBtn = hero ? hero.querySelector(".hero__arrow--next") : null;
+    var total = cards.length;
+    if (total < 2) return;
 
-    var CROSSFADE_MS = 1300;
+    var INTERVAL_MS = 4500;
+    var current = 0;
+    var timerId = null;
 
-    // The first slide is forced to opacity:1 with transitions disabled
-    // inline (see HTML) so it is guaranteed to be visible the instant the
-    // page paints, with no fade-in and no blank moment beforehand. Once
-    // that first paint has happened, hand it back to the normal CSS
-    // transition so every later crossfade still animates exactly as
-    // before.
-    var firstSlide = slides[0];
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () {
-        firstSlide.style.transition = "";
+    function render() {
+      cards.forEach(function (card, i) {
+        var pos = (i - current + total) % total;
+        card.setAttribute("data-pos", String(pos));
+        if (pos === 0) {
+          card.removeAttribute("aria-hidden");
+        } else {
+          card.setAttribute("aria-hidden", "true");
+        }
       });
-    });
-
-    // Warm the browser cache for every slide right away so each one is
-    // already downloaded by the time its turn in the rotation comes.
-    slides.forEach(function (img) {
-      if (img.complete) return;
-      var warm = new Image();
-      warm.src = img.currentSrc || img.src;
-    });
-
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduceMotion.matches) return;
-
-    var currentIndex = 0;
-    var intervalId = null;
-
-    function isLoaded(img) {
-      return img.complete && img.naturalWidth > 0;
+      pages.forEach(function (page, i) {
+        var active = i === current;
+        page.classList.toggle("is-active", active);
+        if (active) {
+          page.setAttribute("aria-current", "true");
+        } else {
+          page.removeAttribute("aria-current");
+        }
+      });
     }
 
-    // True crossfade: the incoming slide is raised above the outgoing
-    // one (z-index) and fades in on top of it. The outgoing slide is
-    // only hidden again once the fade-in has fully finished, so the
-    // hero area is always covered by a fully opaque image — there is
-    // never a moment where both are transparent and the background
-    // colour underneath could show through.
-    function activateSlide(nextIndex) {
-      var outgoing = slides[currentIndex];
-      var incoming = slides[nextIndex];
-
-      incoming.style.zIndex = "2";
-      outgoing.style.zIndex = "1";
-      incoming.classList.add("is-active");
-
-      window.setTimeout(function () {
-        outgoing.classList.remove("is-active");
-        outgoing.style.zIndex = "";
-      }, CROSSFADE_MS);
-
-      currentIndex = nextIndex;
-    }
-
-    function goToNextSlide() {
-      var nextIndex = (currentIndex + 1) % slides.length;
-      var nextImg = slides[nextIndex];
-
-      if (isLoaded(nextImg)) {
-        activateSlide(nextIndex);
-        return;
-      }
-
-      // Rare case: the next slide hasn't finished loading yet. Wait for
-      // it rather than starting the transition early, so the current
-      // image never disappears before the next one is actually ready.
-      var onReady = function () {
-        nextImg.removeEventListener("load", onReady);
-        activateSlide(nextIndex);
-      };
-      nextImg.addEventListener("load", onReady);
-    }
-
-    function start() {
-      if (intervalId) return;
-      intervalId = window.setInterval(goToNextSlide, 6500);
+    function goTo(index) {
+      current = (index + total) % total;
+      render();
     }
 
     function stop() {
-      if (!intervalId) return;
-      window.clearInterval(intervalId);
-      intervalId = null;
+      if (!timerId) return;
+      window.clearInterval(timerId);
+      timerId = null;
     }
 
+    function start() {
+      if (timerId) return;
+      timerId = window.setInterval(function () {
+        goTo(current + 1);
+      }, INTERVAL_MS);
+    }
+
+    function restart() {
+      stop();
+      start();
+    }
+
+    pages.forEach(function (page, i) {
+      page.addEventListener("click", function () {
+        goTo(i);
+        restart();
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goTo(current - 1);
+        restart();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goTo(current + 1);
+        restart();
+      });
+    }
+
+    render();
     start();
 
     document.addEventListener("visibilitychange", function () {

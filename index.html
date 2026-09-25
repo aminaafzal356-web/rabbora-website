@@ -7,7 +7,7 @@
   <!-- Preload the first hero slide as early as possible so the browser
        starts fetching it before anything else — this removes the green
        background flash before the first hero image appears. -->
-  <link rel="preload" as="image" href="images/hero-bedroom.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/img-136.png" fetchpriority="high" />
 
   <title>Rabbora Living | Luxury Beds Designed for Exceptional Comfort</title>
   <meta name="description" content="Discover beautifully crafted beds, ottomans and bedroom furniture designed to bring comfort, elegance and character to your home. Made in Britain." />
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=hero-fix-4" />
+  <link rel="stylesheet" href="style.css?v=hero-stack-2" />
 </head>
 <body>
 
@@ -292,95 +292,65 @@
   <main id="main-content">
 
     <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="hero__media">
-        <div class="hero__slideshow" id="heroSlideshow">
-          <img
-            src="images/img-136.png"
-            alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents"
-            class="hero__slide is-active"
-            fetchpriority="high"
-            decoding="sync"
-            width="2000"
-            height="1400"
-            style="opacity:1;transition:none;"
-          />
-          <img
-            src="images/1.jfif"
-            alt="Upholstered luxury bed frame in a forest-green bedroom"
-            class="hero__slide"
-            width="1200"
-            height="900"
-          />
-          <img
-            src="images/img-139.png"
-            alt="Bedroom styled with a forest-green bed frame and brass side table"
-            class="hero__slide"
-            width="1600"
-            height="1300"
-          />
-          <img
-            src="images/img-137.png"
-            alt="Ottoman storage bed with the base lifted to show internal storage"
-            class="hero__slide"
-            width="1200"
-            height="900"
-          />
-          <img
-            src="images/img-140.png"
-            alt="Tailored upholstered bed frame with a tall headboard"
-            class="hero__slide"
-            width="1200"
-            height="900"
-          />
-          <img
-            src="images/img-141.png"
-            alt="Layered luxury mattress on a bed frame"
-            class="hero__slide"
-            width="1200"
-            height="900"
-          />
-        </div>
-        <div class="hero__overlay"></div>
-      </div>
+    <!-- One unified hero: fixed text column on the left, a stack of six
+         layered image cards on the right. script.js (initHeroSlideshow)
+         only changes each card's data-pos (0 = front, 1-5 = behind) and
+         the active pagination number; CSS animates the stack. -->
+    <section class="hero" aria-roledescription="carousel" aria-label="Featured luxury beds">
+      <svg class="hero__bg-curve" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M760,0 C 900,140 980,420 1180,600 C 1270,680 1360,730 1440,750 L1440,0 Z"></path>
+      </svg>
 
-      <!-- ONE continuous curved content area: the cream arc (main curve)
-           overlaps upward into the image and the heading, text, buttons
-           and scroll indicator sit INSIDE that curved area. -->
-      <div class="hero__cream">
-        <svg class="hero__curve hero__curve--main" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,160 L0,120 C 220,20 1220,20 1440,120 L1440,160 Z"></path>
-        </svg>
-        <!-- Thin lighter highlight arc just inside the main curve, for
-             the same layered-curve depth seen in the reference. -->
-        <svg class="hero__curve hero__curve--highlight" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,40 L0,26 C 220,2 1220,2 1440,26 L1440,40 Z"></path>
-        </svg>
-
-        <div class="container hero__inner">
-          <div class="hero__content">
-            <p class="eyebrow hero__eyebrow">Luxury Bedroom Collection</p>
-            <div class="hero__text">
-              <h1 class="hero__heading">Luxury Beds Designed for Exceptional Comfort</h1>
-              <p class="hero__body">Discover beautifully crafted beds designed to bring comfort, elegance and character to your bedroom.</p>
-            </div>
-            <div class="hero__ctas">
-              <a href="best-sellers.html" class="btn btn--primary">Explore Best Sellers</a>
-              <a href="bed-frames.html" class="btn btn--outline-forest">Shop Bed Frames</a>
-            </div>
+      <div class="hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow hero__eyebrow">Luxury Bedroom Collection</p>
+          <h1 class="hero__heading">Luxury Beds <span>Designed for</span> <span>Exceptional Comfort</span></h1>
+          <div class="hero__lead">
+            <p class="hero__body">Handcrafted beds to bring elegance and style to your bedroom.</p>
+            <svg class="hero__lead-arrow" viewBox="0 0 28 14" aria-hidden="true"><path d="M1 7h25M20 1l6 6-6 6"></path></svg>
           </div>
-
-          <a href="#popular-categories-heading" class="hero__scroll" aria-label="Scroll down to explore">
-            <span class="hero__scroll-icon" aria-hidden="true"><span class="hero__scroll-dot"></span></span>
-            <span class="hero__scroll-label">Scroll Down</span>
-          </a>
+          <div class="hero__ctas">
+            <a href="best-sellers.html" class="btn btn--primary">Explore Best Sellers</a>
+            <a href="bed-frames.html" class="btn btn--outline-forest">Shop Bed Frames</a>
+          </div>
+          <div class="hero__pager" role="group" aria-label="Choose hero image">
+            <button type="button" class="hero__page is-active" data-index="0" aria-label="Show image 1 of 6" aria-current="true">01</button>
+            <button type="button" class="hero__page" data-index="1" aria-label="Show image 2 of 6">02</button>
+            <button type="button" class="hero__page" data-index="2" aria-label="Show image 3 of 6">03</button>
+            <button type="button" class="hero__page" data-index="3" aria-label="Show image 4 of 6">04</button>
+            <button type="button" class="hero__page" data-index="4" aria-label="Show image 5 of 6">05</button>
+            <button type="button" class="hero__page" data-index="5" aria-label="Show image 6 of 6">06</button>
+          </div>
         </div>
 
-        <!-- Dark green curved ending beneath the cream content, closing
-             the whole hero composition with one final layered wave. -->
-        <svg class="hero__curve hero__curve--green" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,0 C 480,70 960,70 1440,0 L1440,70 L0,70 Z"></path>
-        </svg>
+        <div class="hero__stage">
+          <div class="hero__cards" id="heroSlideshow" aria-live="off">
+            <figure class="hero__card" data-pos="0">
+              <img src="images/img-136.png" alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents" width="2000" height="1400" fetchpriority="high" decoding="async" />
+            </figure>
+            <figure class="hero__card" data-pos="1" aria-hidden="true">
+              <img src="images/1.jfif" alt="Upholstered luxury bed frame in a forest-green bedroom" width="1200" height="900" decoding="async" />
+            </figure>
+            <figure class="hero__card" data-pos="2" aria-hidden="true">
+              <img src="images/img-139.png" alt="Bedroom styled with a forest-green bed frame and brass side table" width="1600" height="1300" decoding="async" />
+            </figure>
+            <figure class="hero__card" data-pos="3" aria-hidden="true">
+              <img src="images/img-137.png" alt="Ottoman storage bed with the base lifted to show internal storage" width="1200" height="900" decoding="async" />
+            </figure>
+            <figure class="hero__card" data-pos="4" aria-hidden="true">
+              <img src="images/img-140.png" alt="Tailored upholstered bed frame with a tall headboard" width="1200" height="900" decoding="async" />
+            </figure>
+            <figure class="hero__card" data-pos="5" aria-hidden="true">
+              <img src="images/img-141.png" alt="Layered luxury mattress on a bed frame" width="1200" height="900" decoding="async" />
+            </figure>
+          </div>
+          <button type="button" class="hero__arrow hero__arrow--prev" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+          </button>
+          <button type="button" class="hero__arrow hero__arrow--next" aria-label="Next image">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -984,6 +954,6 @@
   <script src="search-index.js"></script>
   <script src="wishlist-data.js"></script>
   <script src="cart-data.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=hero-stack-2"></script>
 </body>
 </html>
