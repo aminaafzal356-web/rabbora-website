@@ -632,7 +632,64 @@
 
             <div class="kb-detail__option-block">
               <p class="kb-detail__section-label">Choose Your Fabric</p>
-              <div class="bb-modal__fabric-grid" id="kbModalFabrics"></div>
+              <div class="bb-modal__fabric-collections" id="kbModalFabrics"></div>
+            </div>
+
+            <!-- Matching footstool / blanket box -->
+            <div class="kb-detail__option-block">
+              <p class="kb-option-heading">Add a matching footstool or blanket box? <span class="kb-option-sub">(Same style and colour as bed's footboard)</span></p>
+              <img src="blanket/img-1.png" alt="Matching footstool or blanket box" class="kb-option-image" loading="lazy" />
+              <div class="kb-option-pills" id="kbFootstoolOptions">
+                <button type="button" class="kb-option-pill" data-value="yes" aria-pressed="false">Yes Please, show me the options</button>
+                <button type="button" class="kb-option-pill" data-value="no" aria-pressed="false">No thanks</button>
+              </div>
+              <p class="kb-option-message" id="kbFootstoolMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Custom headboard height -->
+            <div class="kb-detail__option-block">
+              <p class="kb-option-heading">Would you like to customise the headboard height?</p>
+              <img src="blanket/1.png" alt="Custom headboard height" class="kb-option-image" loading="lazy" />
+              <div class="kb-option-pills" id="kbHeadboardCustomOptions">
+                <button type="button" class="kb-option-pill" data-value="normal" aria-pressed="false">No Thanks (I want normal dimensions)</button>
+                <button type="button" class="kb-option-pill" data-value="increase" aria-pressed="false">Yes, increase headboard height</button>
+                <button type="button" class="kb-option-pill" data-value="decrease" aria-pressed="false">Yes, decrease headboard height</button>
+              </div>
+              <p class="kb-option-message" id="kbHeadboardCustomMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Specific custom requests -->
+            <div class="kb-detail__option-block">
+              <p class="kb-option-heading">Add any specific requests, such as custom footboard dimensions, colour, or a 2-piece headboard.</p>
+              <textarea class="kb-custom-request" id="kbCustomRequest" rows="4" maxlength="500"></textarea>
+              <p class="kb-option-sub">Extra charges may apply for custom dimensions. If you use this section the bed will be non-returnable.</p>
+            </div>
+
+            <!-- Professional assembly service -->
+            <div class="kb-detail__option-block">
+              <p class="kb-option-heading">Professional Bed Assembly Service <span class="kb-option-sub">(Customer will be responsible for disposing the packaging)</span></p>
+              <img src="blanket/2.png" alt="Professional bed assembly service" class="kb-option-image" loading="lazy" />
+              <p class="kb-option-sub">Fitted upon delivery.</p>
+              <div class="kb-option-pills" id="kbAssemblyOptions">
+                <button type="button" class="kb-option-pill" data-value="no" aria-pressed="false">No Thanks (Delivery to front door of your house/flat)</button>
+                <button type="button" class="kb-option-pill" data-value="yes" aria-pressed="false">Yes Please (&pound;59.00)</button>
+              </div>
+              <p class="kb-option-message" id="kbAssemblyMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Delay delivery/assembly -->
+            <div class="kb-detail__option-block">
+              <p class="kb-option-heading">Do you want to delay delivery/assembly until after your required date?</p>
+              <img src="blanket/3.png" alt="Delay delivery or assembly" class="kb-option-image" loading="lazy" />
+              <div class="kb-option-pills" id="kbDeliveryDelayOptions">
+                <button type="button" class="kb-option-pill" data-value="no" aria-pressed="false">No, I want standard delivery asap</button>
+                <button type="button" class="kb-option-pill" data-value="yes" aria-pressed="false">Yes, I would like to delay my delivery until after my required date</button>
+              </div>
+              <div class="kb-delay-date-wrap" id="kbDelayDateWrap" hidden>
+                <label for="kbDelayDate">Required date</label>
+                <input type="date" id="kbDelayDate" />
+              </div>
+              <p class="kb-option-message" id="kbDeliveryDelayMessage" role="status" aria-live="polite"></p>
             </div>
 
             <div class="kb-detail__option-block">

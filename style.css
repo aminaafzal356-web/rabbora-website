@@ -1484,18 +1484,36 @@ h1, h2, h3, h4 {
 
 /* =========================================================
    HERO
+   Full-bleed hero image with a wide organic cream curve overlapping
+   its lower edge, layered with a thin highlight arc for depth, the
+   existing heading/subtitle/buttons inside the cream area, a subtle
+   scroll-down indicator, and a final dark-green curved wave closing
+   the whole composition — recreating the supplied reference as one
+   continuous premium hero. The slideshow crossfade JS
+   (#heroSlideshow, .hero__slide, .is-active) is untouched — only the
+   layout/visuals around it have changed.
    ========================================================= */
 .hero {
   position: relative;
+}
+
+
+
+.hero__media {
+  position: relative;
   overflow: hidden;
-  /* Fallback layer: shows the first hero image as a plain CSS background
-     the instant the page paints, beneath the <img> slides. This is a
-     safety net only — in normal use the <img> itself (preloaded, high
-     priority) covers this immediately, but it guarantees there is never
-     a moment with no image-like content behind the hero text. */
-  background-image: url("images/hero-bedroom.jpg");
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 62vh;
+  min-height: 340px;
+  max-height: 620px;
+}
+
+@media (min-width: 768px) {
+  .hero__media {
+    height: 74vh;
+    min-height: 480px;
+    max-height: 780px;
+  }
 }
 
 
@@ -1515,19 +1533,14 @@ h1, h2, h3, h4 {
   inset: 0;
   width: 100%;
   height: 100%;
+  /* Full-bleed, edge-to-edge image with no side gaps, matching the
+     reference. object-position keeps the bed itself centred and in
+     frame even where the crop trims the outer edges of the room. */
   object-fit: cover;
-  object-position: center;
+  object-position: center 42%;
   opacity: 0;
   transform: scale(1) translateX(0);
   transition: opacity 1.3s ease, transform 7.5s ease-out;
-}
-
-@media (max-width: 767px) {
-  .hero__slide {
-    object-fit: contain;
-    object-position: center;
-    background-color: var(--color-forest-dark);
-  }
 }
 
 
@@ -1565,64 +1578,174 @@ h1, h2, h3, h4 {
 
 
 
-.hero__inner {
+/* Shared styling for every curve in the hero (the main cream arc, the
+   thin inner highlight, and the dark-green ending wave). */
+.hero__curve {
+  display: block;
   position: relative;
-  z-index: 10;
-  min-height: clamp(320px, 85vw, 420px);
-  display: flex;
-  align-items: flex-end;
-  padding-block: 1.75rem;
+  width: 100%;
+}
+
+.hero__curve--main {
+  z-index: 1;
+  height: 60px;
+  margin-top: -58px;
+  animation: heroCurveReveal 0.9s var(--ease) 0.15s both;
+}
+
+.hero__curve--main path {
+  fill: var(--color-ivory-soft);
+}
+
+@media (min-width: 480px) {
+  .hero__curve--main {
+    height: 90px;
+    margin-top: -88px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__curve--main {
+    height: 150px;
+    margin-top: -148px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero__curve--main {
+    height: 210px;
+    margin-top: -208px;
+  }
 }
 
 
 
+.hero__curve--highlight {
+  height: 14px;
+  margin-bottom: 0.75rem;
+}
+
+.hero__curve--highlight path {
+  fill: var(--color-ivory);
+}
+
 @media (min-width: 768px) {
-  .hero__inner {
-    min-height: clamp(620px, 78vh, 780px);
-    align-items: center;
-    padding-block: 6rem;
+  .hero__curve--highlight {
+    height: 22px;
+    margin-bottom: 1.25rem;
   }
+}
+
+
+
+.hero__curve--green {
+  height: 34px;
+  margin-top: 0.75rem;
+}
+
+.hero__curve--green path {
+  fill: var(--color-forest-dark);
+}
+
+@media (min-width: 768px) {
+  .hero__curve--green {
+    height: 56px;
+    margin-top: 1.25rem;
+  }
+}
+
+
+
+@keyframes heroCurveReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scaleY(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__curve--main {
+    animation: none;
+  }
+}
+
+
+
+/* Cream area continuing from the main curve — same fill colour, no
+   gap — holding the heading/subtitle/buttons and scroll indicator,
+   and ending in its own dark-green curved wave. */
+.hero__cream {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-ivory-soft);
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .hero__cream {
+    padding-top: 2.25rem;
+  }
+}
+
+
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 0 0.5rem;
 }
 
 
 
 .hero__content {
   max-width: 34rem;
-  color: var(--color-ivory-soft);
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
-  animation: fadeUp 0.7s var(--ease) forwards;
+  text-align: center;
+  color: var(--color-ink);
+  animation: fadeUp 0.7s var(--ease) 0.3s both;
 }
 
 
 
 .hero__eyebrow {
-  color: var(--color-brass-light);
+  color: var(--color-brass);
 }
 
 
 
 .hero__heading {
-  font-size: 2.5rem;
-  line-height: 1.05;
-  color: var(--color-ivory-soft);
+  margin: 0.4rem 0 0;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--color-forest-dark);
 }
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .hero__heading {
-    font-size: 3.75rem;
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__heading {
+    font-size: 3.25rem;
   }
 }
 
 
 
 .hero__body {
-  margin-top: 1.25rem;
+  margin: 0.75rem auto 0;
   max-width: 28rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: rgba(248, 244, 235, 0.85);
+  color: rgba(35, 35, 32, 0.75);
 }
 
 
@@ -1638,8 +1761,9 @@ h1, h2, h3, h4 {
 .hero__ctas {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 
@@ -1651,6 +1775,245 @@ h1, h2, h3, h4 {
 }
 
 
+
+/* Subtle scroll-down indicator, sitting below the buttons and above
+   the closing green curve. */
+.hero__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  color: rgba(35, 35, 32, 0.55);
+  text-decoration: none;
+  animation: fadeUp 0.7s var(--ease) 0.5s both;
+}
+
+@media (min-width: 768px) {
+  .hero__scroll {
+    margin-top: 1.25rem;
+  }
+}
+
+
+
+.hero__scroll-icon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid rgba(35, 35, 32, 0.4);
+  border-radius: 999px;
+  padding-top: 6px;
+}
+
+
+
+.hero__scroll-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background-color: var(--color-brass);
+  animation: heroScrollDot 1.8s ease-in-out infinite;
+}
+
+
+
+.hero__scroll-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+
+@keyframes heroScrollDot {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-dot {
+    animation: none;
+  }
+}
+
+
+
+
+
+/* =========================================================
+   HERO — COMPACT CURVED VERSION
+   Full-width image + ONE short curved cream area overlapping its
+   bottom edge, holding heading, subtitle and one button. The whole
+   hero is sized to fit in one viewport below the header
+   (--hero-offset = header height: 254px desktop, 197px mobile).
+   The main cream arc lives inside .hero__cream as its curved top.
+   ========================================================= */
+.hero {
+  --hero-offset: 197px;
+  --hero-curve-h: 64px;
+  --hero-content-top: 32px;
+  --hero-band: 250px;
+}
+
+@media (min-width: 480px) {
+  .hero {
+    --hero-curve-h: 84px;
+    --hero-content-top: 34px;
+    --hero-band: 220px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    --hero-curve-h: 140px;
+    --hero-content-top: 76px;
+    --hero-band: 150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    --hero-offset: 254px;
+    --hero-curve-h: 170px;
+    --hero-content-top: 92px;
+    --hero-band: 66px;
+  }
+}
+
+/* Image height = viewport minus header minus the cream strip below
+   the image, clamped so it never gets huge or too thin. */
+.hero .hero__media {
+  height: clamp(220px, calc(100vh - var(--hero-offset) - var(--hero-band)), 440px);
+  height: clamp(220px, calc(100svh - var(--hero-offset) - var(--hero-band)), 440px);
+  min-height: 0;
+  max-height: none;
+}
+
+@media (min-width: 768px) {
+  .hero .hero__media {
+    height: clamp(300px, calc(100vh - var(--hero-offset) - var(--hero-band)), 620px);
+    height: clamp(300px, calc(100svh - var(--hero-offset) - var(--hero-band)), 620px);
+  }
+}
+
+.hero .hero__cream {
+  margin-top: calc(-1 * var(--hero-curve-h));
+  padding-top: var(--hero-content-top);
+  /* Transparent behind the arc so the image shows around it, cream
+     from the bottom of the arc down. */
+  background: linear-gradient(
+    to bottom,
+    transparent calc(var(--hero-curve-h) - 1px),
+    var(--color-ivory-soft) calc(var(--hero-curve-h) - 1px)
+  );
+}
+
+.hero .hero__curve--main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--hero-curve-h);
+  margin: 0;
+  z-index: 0;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+
+/* Not part of the compact composition. */
+.hero .hero__curve--highlight,
+.hero .hero__eyebrow,
+.hero .hero__scroll,
+.hero .hero__ctas .btn--outline-forest {
+  display: none;
+}
+
+.hero .hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 0 1.1rem;
+}
+
+.hero .hero__heading {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.hero .hero__body {
+  margin: 0.4rem auto 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.hero .hero__ctas {
+  margin-top: 1rem;
+}
+
+.hero .hero__ctas .btn {
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .hero .hero__ctas .btn {
+    width: auto;
+  }
+}
+
+.hero .hero__curve--green {
+  height: 18px;
+  margin-top: 0;
+}
+
+/* Desktop / tablet: text on the left, button on the right, as in the
+   reference. */
+@media (min-width: 768px) {
+  .hero .hero__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 0 1.25rem;
+  }
+
+  .hero .hero__content {
+    display: contents;
+  }
+
+  .hero .hero__text {
+    text-align: left;
+  }
+
+  .hero .hero__heading {
+    font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+  }
+
+  .hero .hero__body {
+    margin: 0.35rem 0 0;
+    max-width: 46rem;
+    font-size: 1rem;
+  }
+
+  .hero .hero__ctas {
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .hero .hero__curve--green {
+    height: 26px;
+  }
+}
 
 @keyframes fadeUp {
   from {

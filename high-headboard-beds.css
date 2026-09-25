@@ -595,6 +595,13 @@
 
 /* ---- New configuration option cards (Ottoman Storage, Footstool,
    Headboard customisation, Assembly, Delivery Delay) ---- */
+.hh-option-heading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.5rem;
+}
+
 .hh-option-image {
   display: block;
   width: 100%;

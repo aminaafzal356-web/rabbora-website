@@ -615,7 +615,64 @@
 
             <div class="tv-detail__option-block">
               <p class="tv-detail__section-label">Choose Your Fabric</p>
-              <div class="bb-modal__fabric-grid" id="tvModalFabrics"></div>
+              <div class="bb-modal__fabric-collections" id="tvModalFabrics"></div>
+            </div>
+
+            <!-- Option 2: matching footstool / blanket box -->
+            <div class="tv-detail__option-block">
+              <p class="tv-detail__section-label">Add a matching footstool or blanket box? <span class="tv-option-sub">(Same style and colour as bed's footboard)</span></p>
+              <img src="blanket/img-1.png" alt="Matching footstool or blanket box" class="tv-option-image" loading="lazy" />
+              <div class="tv-option-pills" id="tvFootstoolOptions">
+                <button type="button" class="tv-option-pill" data-value="yes" aria-pressed="false">Yes Please, show me the options</button>
+                <button type="button" class="tv-option-pill" data-value="no" aria-pressed="false">No thanks</button>
+              </div>
+              <p class="tv-option-message" id="tvFootstoolMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 3: custom headboard height -->
+            <div class="tv-detail__option-block">
+              <p class="tv-detail__section-label">Would you like to customise the headboard height?</p>
+              <img src="blanket/1.png" alt="Custom headboard height" class="tv-option-image" loading="lazy" />
+              <div class="tv-option-pills" id="tvHeadboardCustomOptions">
+                <button type="button" class="tv-option-pill" data-value="normal" aria-pressed="false">No Thanks (I want normal dimensions)</button>
+                <button type="button" class="tv-option-pill" data-value="increase" aria-pressed="false">Yes, increase headboard height</button>
+                <button type="button" class="tv-option-pill" data-value="decrease" aria-pressed="false">Yes, decrease headboard height</button>
+              </div>
+              <p class="tv-option-message" id="tvHeadboardCustomMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 4: specific custom requests -->
+            <div class="tv-detail__option-block">
+              <p class="tv-detail__section-label">Add any specific requests, such as custom footboard dimensions, colour, or a 2-piece headboard.</p>
+              <textarea class="tv-custom-request" id="tvCustomRequest" rows="4" maxlength="500"></textarea>
+              <p class="tv-option-sub">Extra charges may apply for custom dimensions. If you use this section the bed will be non-returnable.</p>
+            </div>
+
+            <!-- Option 5: professional assembly service -->
+            <div class="tv-detail__option-block">
+              <p class="tv-detail__section-label">Professional Bed Assembly Service <span class="tv-option-sub">(Customer will be responsible for disposing the packaging)</span></p>
+              <img src="blanket/2.png" alt="Professional bed assembly service" class="tv-option-image" loading="lazy" />
+              <p class="tv-option-sub">Fitted upon delivery.</p>
+              <div class="tv-option-pills" id="tvAssemblyOptions">
+                <button type="button" class="tv-option-pill" data-value="no" aria-pressed="false">No Thanks (Delivery to front door of your house/flat)</button>
+                <button type="button" class="tv-option-pill" data-value="yes" aria-pressed="false">Yes Please (&pound;59.00)</button>
+              </div>
+              <p class="tv-option-message" id="tvAssemblyMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 6: delay delivery/assembly -->
+            <div class="tv-detail__option-block">
+              <p class="tv-detail__section-label">Do you want to delay delivery/assembly until after your required date?</p>
+              <img src="blanket/3.png" alt="Delay delivery or assembly" class="tv-option-image" loading="lazy" />
+              <div class="tv-option-pills" id="tvDeliveryDelayOptions">
+                <button type="button" class="tv-option-pill" data-value="no" aria-pressed="false">No, I want standard delivery asap</button>
+                <button type="button" class="tv-option-pill" data-value="yes" aria-pressed="false">Yes, I would like to delay my delivery until after my required date</button>
+              </div>
+              <div class="tv-delay-date-wrap" id="tvDelayDateWrap" hidden>
+                <label for="tvDelayDate">Required date</label>
+                <input type="date" id="tvDelayDate" />
+              </div>
+              <p class="tv-option-message" id="tvDeliveryDelayMessage" role="status" aria-live="polite"></p>
             </div>
 
             <div class="tv-detail__option-block">

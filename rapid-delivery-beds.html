@@ -1489,7 +1489,75 @@
 
             <div class="rd2-detail__option-block">
               <p class="rd2-detail__section-label">Fabric / Colour</p>
-              <div class="rd2-fabric-grid" id="rd2FabricOptions"></div>
+              <div class="rd2-fabric-collections" id="rd2FabricOptions"></div>
+            </div>
+
+            <!-- Option 1: Ottoman storage upgrade -->
+            <div class="rd2-detail__option-block">
+              <p class="rd2-option-heading">Add Gas Lift-Up Ottoman Storage to Your Bed?</p>
+              <img src="slatted/53.png" alt="Gas lift-up ottoman storage base" class="rd2-option-image" loading="lazy" />
+              <div class="rd2-option-pills" id="rd2OttomanStorageOptions">
+                <button type="button" class="rd2-option-pill" data-value="yes" aria-pressed="false">Yes Please, I want a storage base</button>
+                <button type="button" class="rd2-option-pill" data-value="no" aria-pressed="false">No thanks, I want a normal bed</button>
+              </div>
+              <p class="rd2-option-message" id="rd2OttomanStorageMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 2: matching footstool / blanket box -->
+            <div class="rd2-detail__option-block">
+              <p class="rd2-option-heading">Add a matching footstool or blanket box? <span class="rd2-option-sub">(Same style and colour as bed's footboard)</span></p>
+              <img src="blanket/img-1.png" alt="Matching footstool or blanket box" class="rd2-option-image" loading="lazy" />
+              <div class="rd2-option-pills" id="rd2FootstoolOptions">
+                <button type="button" class="rd2-option-pill" data-value="yes" aria-pressed="false">Yes Please, show me the options</button>
+                <button type="button" class="rd2-option-pill" data-value="no" aria-pressed="false">No thanks</button>
+              </div>
+              <p class="rd2-option-message" id="rd2FootstoolMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 3: custom headboard height -->
+            <div class="rd2-detail__option-block">
+              <p class="rd2-option-heading">Would you like to customise the headboard height?</p>
+              <img src="blanket/1.png" alt="Custom headboard height" class="rd2-option-image" loading="lazy" />
+              <div class="rd2-option-pills" id="rd2HeadboardCustomOptions">
+                <button type="button" class="rd2-option-pill" data-value="normal" aria-pressed="false">No Thanks (I want normal dimensions)</button>
+                <button type="button" class="rd2-option-pill" data-value="increase" aria-pressed="false">Yes, increase headboard height</button>
+                <button type="button" class="rd2-option-pill" data-value="decrease" aria-pressed="false">Yes, decrease headboard height</button>
+              </div>
+              <p class="rd2-option-message" id="rd2HeadboardCustomMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 4: specific custom requests -->
+            <div class="rd2-detail__option-block">
+              <p class="rd2-option-heading">Add any specific requests, such as custom footboard dimensions, colour, or a 2-piece headboard.</p>
+              <textarea class="rd2-custom-request" id="rd2CustomRequest" rows="4" maxlength="500"></textarea>
+              <p class="rd2-option-sub">Extra charges may apply for custom dimensions. If you use this section the bed will be non-returnable.</p>
+            </div>
+
+            <!-- Option 5: professional assembly service -->
+            <div class="rd2-detail__option-block">
+              <p class="rd2-option-heading">Professional Bed Assembly Service <span class="rd2-option-sub">(Customer will be responsible for disposing the packaging)</span></p>
+              <img src="blanket/2.png" alt="Professional bed assembly service" class="rd2-option-image" loading="lazy" />
+              <p class="rd2-option-sub">Fitted upon delivery.</p>
+              <div class="rd2-option-pills" id="rd2AssemblyOptions">
+                <button type="button" class="rd2-option-pill" data-value="no" aria-pressed="false">No Thanks (Delivery to front door of your house/flat)</button>
+                <button type="button" class="rd2-option-pill" data-value="yes" aria-pressed="false">Yes Please (&pound;59.00)</button>
+              </div>
+              <p class="rd2-option-message" id="rd2AssemblyMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Option 6: delay delivery/assembly -->
+            <div class="rd2-detail__option-block">
+              <p class="rd2-option-heading">Do you want to delay delivery/assembly until after your required date?</p>
+              <img src="blanket/3.png" alt="Delay delivery or assembly" class="rd2-option-image" loading="lazy" />
+              <div class="rd2-option-pills" id="rd2DeliveryDelayOptions">
+                <button type="button" class="rd2-option-pill" data-value="no" aria-pressed="false">No, I want standard delivery asap</button>
+                <button type="button" class="rd2-option-pill" data-value="yes" aria-pressed="false">Yes, I would like to delay my delivery until after my required date</button>
+              </div>
+              <div class="rd2-delay-date-wrap" id="rd2DelayDateWrap" hidden>
+                <label for="rd2DelayDate">Required date</label>
+                <input type="date" id="rd2DelayDate" />
+              </div>
+              <p class="rd2-option-message" id="rd2DeliveryDelayMessage" role="status" aria-live="polite"></p>
             </div>
 
             <div class="rd2-detail__option-block">

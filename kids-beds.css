@@ -672,7 +672,111 @@
 }
 
 .bb-modal__fabric-grid .fabric-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
   width: 68px;
+}
+
+.bb-modal__fabric-collections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+}
+
+.bb-modal__fabric-collection-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.75rem;
+}
+
+
+/* ---- New bed configuration option cards ---- */
+.kb-option-heading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.5rem;
+}
+
+.kb-option-image {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.85rem;
+  border: 1px solid var(--color-border);
+}
+
+.kb-option-sub {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: rgba(35, 35, 32, 0.55);
+}
+
+.kb-option-message {
+  margin-top: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--color-clay);
+  min-height: 1.2em;
+}
+
+.kb-custom-request {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  resize: vertical;
+  min-height: 90px;
+}
+
+.kb-custom-request:focus {
+  outline: none;
+  border-color: var(--color-brass);
+}
+
+.kb-delay-date-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+}
+
+.kb-delay-date-wrap label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(35, 35, 32, 0.6);
+}
+
+.kb-delay-date-wrap input[type="date"] {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  max-width: 220px;
+  box-sizing: border-box;
 }
 
 .bb-modal__fabric-grid .fabric-swatch__name {

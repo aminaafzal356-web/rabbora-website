@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=hero-fix-2" />
+  <link rel="stylesheet" href="style.css?v=hero-fix-4" />
 </head>
 <body>
 
@@ -293,64 +293,94 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="hero__slideshow" id="heroSlideshow">
-        <img
-          src="images/img-136.png"
-          alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents"
-          class="hero__slide is-active"
-          fetchpriority="high"
-          decoding="sync"
-          width="2000"
-          height="1400"
-          style="opacity:1;transition:none;"
-        />
-        <img
-          src="images/1.jfif"
-          alt="Upholstered luxury bed frame in a forest-green bedroom"
-          class="hero__slide"
-          width="1200"
-          height="900"
-        />
-        <img
-          src="images/img-139.png"
-          alt="Bedroom styled with a forest-green bed frame and brass side table"
-          class="hero__slide"
-          width="1600"
-          height="1300"
-        />
-        <img
-          src="images/img-137.png"
-          alt="Ottoman storage bed with the base lifted to show internal storage"
-          class="hero__slide"
-          width="1200"
-          height="900"
-        />
-        <img
-          src="images/img-140.png"
-          alt="Tailored upholstered bed frame with a tall headboard"
-          class="hero__slide"
-          width="1200"
-          height="900"
-        />
-        <img
-          src="images/img-141.png"
-          alt="Layered luxury mattress on a bed frame"
-          class="hero__slide"
-          width="1200"
-          height="900"
-        />
-      </div>
-      <div class="hero__overlay"></div>
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <p class="eyebrow hero__eyebrow">Luxury Bedroom Collection</p>
-          <h1 class="hero__heading">Luxury Beds Designed for Exceptional Comfort</h1>
-          <p class="hero__body">Discover beautifully crafted beds designed to bring comfort, elegance and character to your bedroom.</p>
-          <div class="hero__ctas">
-            <a href="best-sellers.html" class="btn btn--primary">Explore Best Sellers</a>
-            <a href="bed-frames.html" class="btn btn--outline">Shop Bed Frames</a>
-          </div>
+      <div class="hero__media">
+        <div class="hero__slideshow" id="heroSlideshow">
+          <img
+            src="images/img-136.png"
+            alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents"
+            class="hero__slide is-active"
+            fetchpriority="high"
+            decoding="sync"
+            width="2000"
+            height="1400"
+            style="opacity:1;transition:none;"
+          />
+          <img
+            src="images/1.jfif"
+            alt="Upholstered luxury bed frame in a forest-green bedroom"
+            class="hero__slide"
+            width="1200"
+            height="900"
+          />
+          <img
+            src="images/img-139.png"
+            alt="Bedroom styled with a forest-green bed frame and brass side table"
+            class="hero__slide"
+            width="1600"
+            height="1300"
+          />
+          <img
+            src="images/img-137.png"
+            alt="Ottoman storage bed with the base lifted to show internal storage"
+            class="hero__slide"
+            width="1200"
+            height="900"
+          />
+          <img
+            src="images/img-140.png"
+            alt="Tailored upholstered bed frame with a tall headboard"
+            class="hero__slide"
+            width="1200"
+            height="900"
+          />
+          <img
+            src="images/img-141.png"
+            alt="Layered luxury mattress on a bed frame"
+            class="hero__slide"
+            width="1200"
+            height="900"
+          />
         </div>
+        <div class="hero__overlay"></div>
+      </div>
+
+      <!-- ONE continuous curved content area: the cream arc (main curve)
+           overlaps upward into the image and the heading, text, buttons
+           and scroll indicator sit INSIDE that curved area. -->
+      <div class="hero__cream">
+        <svg class="hero__curve hero__curve--main" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,160 L0,120 C 220,20 1220,20 1440,120 L1440,160 Z"></path>
+        </svg>
+        <!-- Thin lighter highlight arc just inside the main curve, for
+             the same layered-curve depth seen in the reference. -->
+        <svg class="hero__curve hero__curve--highlight" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,40 L0,26 C 220,2 1220,2 1440,26 L1440,40 Z"></path>
+        </svg>
+
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="eyebrow hero__eyebrow">Luxury Bedroom Collection</p>
+            <div class="hero__text">
+              <h1 class="hero__heading">Luxury Beds Designed for Exceptional Comfort</h1>
+              <p class="hero__body">Discover beautifully crafted beds designed to bring comfort, elegance and character to your bedroom.</p>
+            </div>
+            <div class="hero__ctas">
+              <a href="best-sellers.html" class="btn btn--primary">Explore Best Sellers</a>
+              <a href="bed-frames.html" class="btn btn--outline-forest">Shop Bed Frames</a>
+            </div>
+          </div>
+
+          <a href="#popular-categories-heading" class="hero__scroll" aria-label="Scroll down to explore">
+            <span class="hero__scroll-icon" aria-hidden="true"><span class="hero__scroll-dot"></span></span>
+            <span class="hero__scroll-label">Scroll Down</span>
+          </a>
+        </div>
+
+        <!-- Dark green curved ending beneath the cream content, closing
+             the whole hero composition with one final layered wave. -->
+        <svg class="hero__curve hero__curve--green" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 C 480,70 960,70 1440,0 L1440,70 L0,70 Z"></path>
+        </svg>
       </div>
     </section>
 
@@ -928,7 +958,7 @@
         <li>
           <a href="https://youtube.com/@rabboraliving" target="_blank" rel="noopener noreferrer" aria-label="Rabbora Living on YouTube" class="footer__social-link">
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.2c-.4 0-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2.2 9 2.2 10.7v1.6c0 1.7.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 6.5.2 6.5.2s3.9 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1.6c0-1.7-.2-3.5-.2-3.5ZM9.9 14.6V8.9l5.4 2.9-5.4 2.8Z"/></svg>
-          </a>
+          </a> 
         </li>
         <li>
           <a href="https://pinterest.com/rabboraliving" target="_blank" rel="noopener noreferrer" aria-label="Rabbora Living on Pinterest" class="footer__social-link">

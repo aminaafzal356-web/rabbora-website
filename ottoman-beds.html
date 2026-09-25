@@ -2388,18 +2388,19 @@
                  swatch images/data (images/fabrics/*.svg), not a new set. -->
             <div class="bb-modal__features">
               <p class="bb-modal__section-label">Fabric Colour</p>
-              <div class="fabric-grid bb-modal__fabric-grid" id="obFabricOptions"></div>
+              <div class="bb-modal__fabric-collections" id="obFabricOptions"></div>
               <p class="ob-selected-fabric" id="obSelectedFabricName">Same as main display picture</p>
             </div>
 
             <!-- Ottoman storage upgrade -->
             <div class="ob-addon">
               <p class="ob-addon__heading">Add Gas-Lift Ottoman Storage to Your Bed</p>
-              <img src="images/ottoman-beds/chelsea-slatted-ottoman-bed-angle.svg" alt="Gas-lift ottoman storage base" class="ob-addon__image" loading="lazy" />
+              <img src="slatted/53.png" alt="Gas-lift ottoman storage base" class="ob-addon__image" loading="lazy" />
               <div class="mt-option-pills" id="obOttomanOptions">
-                <button type="button" class="mt-option-pill" data-value="yes" aria-pressed="true">Yes Please, I want a storage base</button>
+                <button type="button" class="mt-option-pill" data-value="yes" aria-pressed="false">Yes Please, I want a storage base</button>
                 <button type="button" class="mt-option-pill" data-value="no" aria-pressed="false">No thanks, I want a normal bed</button>
               </div>
+              <p class="ob-option-message" id="obOttomanStorageMessage" role="status" aria-live="polite"></p>
             </div>
 
             <!-- Detailing toggles -->
@@ -2420,11 +2421,12 @@
             <!-- Matching footstool / blanket box -->
             <div class="ob-addon">
               <p class="ob-addon__heading">Add a matching footstool or blanket box? <span class="ob-addon__sub">(Same style and colour as bed's footboard)</span></p>
-              <img src="images/blanket-boxes/luxury-storage-blanket-box-main.svg" alt="Matching footstool or blanket box" class="ob-addon__image" loading="lazy" />
+              <img src="blanket/img-1.png" alt="Matching footstool or blanket box" class="ob-addon__image" loading="lazy" />
               <div class="mt-option-pills" id="obMatchingOptions">
                 <button type="button" class="mt-option-pill" data-value="yes" aria-pressed="false">Yes Please, show me the options</button>
-                <button type="button" class="mt-option-pill" data-value="no" aria-pressed="true">No thanks</button>
+                <button type="button" class="mt-option-pill" data-value="no" aria-pressed="false">No thanks</button>
               </div>
+              <p class="ob-option-message" id="obFootstoolMessage" role="status" aria-live="polite"></p>
               <div class="ob-matching-panel" id="obMatchingPanel" hidden>
                 <p class="ob-matching-panel__note">Matching fabric: <strong id="obMatchingFabricName">Same as main display picture</strong></p>
                 <div class="mt-option-pills">
@@ -2432,6 +2434,52 @@
                   <button type="button" class="mt-option-pill" data-matching="blanket-box" aria-pressed="false">Blanket Box</button>
                 </div>
               </div>
+            </div>
+
+            <!-- Custom headboard height -->
+            <div class="ob-addon">
+              <p class="ob-addon__heading">Would you like to customise the headboard height?</p>
+              <img src="blanket/1.png" alt="Custom headboard height" class="ob-addon__image" loading="lazy" />
+              <div class="mt-option-pills" id="obHeadboardCustomOptions">
+                <button type="button" class="mt-option-pill" data-value="normal" aria-pressed="false">No Thanks (I want normal dimensions)</button>
+                <button type="button" class="mt-option-pill" data-value="increase" aria-pressed="false">Yes, increase headboard height</button>
+                <button type="button" class="mt-option-pill" data-value="decrease" aria-pressed="false">Yes, decrease headboard height</button>
+              </div>
+              <p class="ob-option-message" id="obHeadboardCustomMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Specific custom requests -->
+            <div class="ob-addon">
+              <p class="ob-addon__heading">Add any specific requests, such as custom footboard dimensions, colour, or a 2-piece headboard.</p>
+              <textarea class="ob-custom-request" id="obCustomRequest" rows="4" maxlength="500"></textarea>
+              <p class="ob-addon__sub">Extra charges may apply for custom dimensions. If you use this section the bed will be non-returnable.</p>
+            </div>
+
+            <!-- Professional assembly service -->
+            <div class="ob-addon">
+              <p class="ob-addon__heading">Professional Bed Assembly Service <span class="ob-addon__sub">(Customer will be responsible for disposing the packaging)</span></p>
+              <img src="blanket/2.png" alt="Professional bed assembly service" class="ob-addon__image" loading="lazy" />
+              <p class="ob-addon__sub">Fitted upon delivery.</p>
+              <div class="mt-option-pills" id="obAssemblyOptions">
+                <button type="button" class="mt-option-pill" data-value="no" aria-pressed="false">No Thanks (Delivery to front door of your house/flat)</button>
+                <button type="button" class="mt-option-pill" data-value="yes" aria-pressed="false">Yes Please (&pound;59.00)</button>
+              </div>
+              <p class="ob-option-message" id="obAssemblyMessage" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Delay delivery/assembly -->
+            <div class="ob-addon">
+              <p class="ob-addon__heading">Do you want to delay delivery/assembly until after your required date?</p>
+              <img src="blanket/3.png" alt="Delay delivery or assembly" class="ob-addon__image" loading="lazy" />
+              <div class="mt-option-pills" id="obDeliveryDelayOptions">
+                <button type="button" class="mt-option-pill" data-value="no" aria-pressed="false">No, I want standard delivery asap</button>
+                <button type="button" class="mt-option-pill" data-value="yes" aria-pressed="false">Yes, I would like to delay my delivery until after my required date</button>
+              </div>
+              <div class="ob-delay-date-wrap" id="obDelayDateWrap" hidden>
+                <label for="obDelayDate">Required date</label>
+                <input type="date" id="obDelayDate" />
+              </div>
+              <p class="ob-option-message" id="obDeliveryDelayMessage" role="status" aria-live="polite"></p>
             </div>
 
             <div class="bb-modal__purchase">

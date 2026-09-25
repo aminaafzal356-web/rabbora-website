@@ -663,11 +663,36 @@ var BF_FABRIC_COLLECTIONS = [
     var buyNowBtn = document.getElementById("bfBuyNow");
     var messageEl = document.getElementById("bfPurchaseMessage");
 
+    var ottomanStorageEl = document.getElementById("bfOttomanStorageOptions");
+    var ottomanStorageMsg = document.getElementById("bfOttomanStorageMessage");
+    var footstoolEl = document.getElementById("bfFootstoolOptions");
+    var footstoolMsg = document.getElementById("bfFootstoolMessage");
+    var headboardCustomEl = document.getElementById("bfHeadboardCustomOptions");
+    var headboardCustomMsg = document.getElementById("bfHeadboardCustomMessage");
+    var customRequestEl = document.getElementById("bfCustomRequest");
+    var assemblyEl = document.getElementById("bfAssemblyOptions");
+    var assemblyMsg = document.getElementById("bfAssemblyMessage");
+    var deliveryDelayEl = document.getElementById("bfDeliveryDelayOptions");
+    var deliveryDelayMsg = document.getElementById("bfDeliveryDelayMessage");
+    var delayDateWrap = document.getElementById("bfDelayDateWrap");
+    var delayDateInput = document.getElementById("bfDelayDate");
+
     var currentProduct = null;
     var quantity = 1;
     var selectedFabric = null;
+    var selectedFabricSlug = null;
+    var selectedFabricImage = null;
     var selectedSize = null;
     var imageIndex = 0;
+    var ottomanStorage = null;
+    var footstoolBlanketBox = null;
+    var headboardCustom = null;
+    var customRequest = "";
+    var assembly = null;
+    var deliveryDelay = null;
+    var deliveryDate = "";
+
+    var ASSEMBLY_PRICE = 59;
 
     function getProductImages(product) {
       if (Array.isArray(product.images) && product.images.length) return product.images;
@@ -761,6 +786,8 @@ var BF_FABRIC_COLLECTIONS = [
           var isSelected = selectedFabric === fabric.name;
           if (selectedFabric === null && collection === BF_FABRIC_COLLECTIONS[0] && index === 0) {
             selectedFabric = fabric.name;
+            selectedFabricSlug = fabric.slug;
+            selectedFabricImage = fabric.image;
             isSelected = true;
           }
 
@@ -787,8 +814,12 @@ var BF_FABRIC_COLLECTIONS = [
 
             if (alreadySelected) {
               selectedFabric = null;
+              selectedFabricSlug = null;
+              selectedFabricImage = null;
             } else {
               selectedFabric = fabric.name;
+              selectedFabricSlug = fabric.slug;
+              selectedFabricImage = fabric.image;
               btn.setAttribute("aria-pressed", "true");
             }
           });
@@ -980,6 +1011,59 @@ var BF_FABRIC_COLLECTIONS = [
       });
     }
 
+    // Assembly is the only new option with a confirmed real price
+    // (£59.00) — every other new option stays £0 since no genuine
+    // price data exists for them anywhere in the project.
+    function currentPrice(product) {
+      return product.price + (assembly === "yes" ? ASSEMBLY_PRICE : 0);
+    }
+
+    function renderPrice(product) {
+      var priceEl = document.getElementById("bfDetailPrice");
+      if (priceEl) priceEl.textContent = bfMoney(currentPrice(product));
+    }
+
+    // Shared helper for the five new single-select option groups — each
+    // is a plain group of .mt-option-pill buttons using this page's own
+    // .is-active convention (matching the existing Size selector),
+    // where exactly one choice can be active at a time.
+    function initRadioPillGroup(container, setter, messageEl2, onSelect) {
+      if (!container) return;
+      Array.prototype.forEach.call(container.querySelectorAll(".mt-option-pill"), function (btn) {
+        btn.addEventListener("click", function () {
+          setter(btn.dataset.value);
+          Array.prototype.forEach.call(container.querySelectorAll(".mt-option-pill"), function (el) {
+            el.classList.remove("is-active");
+          });
+          btn.classList.add("is-active");
+          if (messageEl2) messageEl2.textContent = "";
+          if (onSelect) onSelect(btn.dataset.value);
+        });
+      });
+    }
+
+    initRadioPillGroup(ottomanStorageEl, function (v) { ottomanStorage = v; }, ottomanStorageMsg);
+    initRadioPillGroup(footstoolEl, function (v) { footstoolBlanketBox = v; }, footstoolMsg);
+    initRadioPillGroup(headboardCustomEl, function (v) { headboardCustom = v; }, headboardCustomMsg);
+    initRadioPillGroup(assemblyEl, function (v) { assembly = v; }, assemblyMsg, function () {
+      if (currentProduct) renderPrice(currentProduct);
+    });
+    initRadioPillGroup(deliveryDelayEl, function (v) { deliveryDelay = v; }, deliveryDelayMsg, function (value) {
+      if (delayDateWrap) delayDateWrap.hidden = value !== "yes";
+    });
+
+    if (customRequestEl) {
+      customRequestEl.addEventListener("input", function () {
+        customRequest = customRequestEl.value;
+      });
+    }
+
+    if (delayDateInput) {
+      delayDateInput.addEventListener("change", function () {
+        deliveryDate = delayDateInput.value;
+      });
+    }
+
     function renderDetail(product) {
       document.title = product.name + " | Non-Storage Bed Frames | Rabbora Living";
 
@@ -989,7 +1073,7 @@ var BF_FABRIC_COLLECTIONS = [
       document.getElementById("bfDetailTitle").textContent = product.name;
       document.getElementById("bfDetailBreadcrumbName").textContent = product.name;
 
-      document.getElementById("bfDetailPrice").textContent = bfMoney(product.price);
+      renderPrice(product);
       var prevPriceEl = document.getElementById("bfDetailPrevPrice");
       if (prevPriceEl) prevPriceEl.textContent = product.oldPrice ? bfMoney(product.oldPrice) : "";
       document.getElementById("bfDetailDescription").textContent = product.description || "";
@@ -1039,7 +1123,34 @@ var BF_FABRIC_COLLECTIONS = [
       notFoundView.hidden = true;
       detailView.hidden = false;
       selectedFabric = null;
+      selectedFabricSlug = null;
+      selectedFabricImage = null;
       imageIndex = 0;
+
+      ottomanStorage = null;
+      footstoolBlanketBox = null;
+      headboardCustom = null;
+      customRequest = "";
+      assembly = null;
+      deliveryDelay = null;
+      deliveryDate = "";
+      [ottomanStorageEl, footstoolEl, headboardCustomEl, assemblyEl, deliveryDelayEl].forEach(function (group) {
+        if (!group) return;
+        Array.prototype.forEach.call(group.querySelectorAll(".mt-option-pill"), function (el) {
+          el.classList.remove("is-active");
+        });
+      });
+      [ottomanStorageMsg, footstoolMsg, headboardCustomMsg, assemblyMsg, deliveryDelayMsg].forEach(function (msg) {
+        if (msg) msg.textContent = "";
+      });
+      if (customRequestEl) customRequestEl.value = "";
+      if (delayDateInput) delayDateInput.value = "";
+      if (delayDateWrap) delayDateWrap.hidden = true;
+      if (messageEl) {
+        messageEl.textContent = "";
+        messageEl.classList.remove("is-error");
+      }
+
       currentProduct = product;
       renderDetail(product);
       renderSizeOptions(product);
@@ -1119,8 +1230,43 @@ var BF_FABRIC_COLLECTIONS = [
       return !!(window.RabboraCart && typeof window.RabboraCart.add === "function");
     }
 
+    // Each required new option shows its own inline message right next
+    // to that option (not just one generic message at the bottom),
+    // checked top-to-bottom in the order they appear. This page has
+    // never enforced a Size requirement, so that behaviour is left
+    // unchanged here.
+    function validateRequiredOptions() {
+      if (!ottomanStorage) {
+        ottomanStorageMsg.textContent = "Please select an option.";
+        ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      if (!footstoolBlanketBox) {
+        footstoolMsg.textContent = "Please select an option.";
+        footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      if (!headboardCustom) {
+        headboardCustomMsg.textContent = "Please select an option.";
+        headboardCustomEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      if (!assembly) {
+        assemblyMsg.textContent = "Please select an option.";
+        assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      if (!deliveryDelay) {
+        deliveryDelayMsg.textContent = "Please select an option.";
+        deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      return true;
+    }
+
     function addCurrentToCart() {
       if (!currentProduct) return;
+      if (!validateRequiredOptions()) return;
 
       if (!hasCartStore()) {
         console.error(
@@ -1134,13 +1280,28 @@ var BF_FABRIC_COLLECTIONS = [
         return;
       }
 
+      var unitPrice = currentPrice(currentProduct);
+
       window.RabboraCart.add({
         id: currentProduct.slug,
         slug: currentProduct.slug,
         name: currentProduct.name,
         image: currentProduct.image,
-        price: currentProduct.price,
-        variant: { size: selectedSize || "", fabric: selectedFabric || "" },
+        price: unitPrice,
+        variant: {
+          size: selectedSize || "",
+          fabric: selectedFabric || "",
+          fabricSlug: selectedFabricSlug || "",
+          fabricImage: selectedFabricImage || "",
+          ottomanStorage: ottomanStorage,
+          footstoolBlanketBox: footstoolBlanketBox,
+          headboardHeight: headboardCustom,
+          customRequest: customRequest || null,
+          assembly: assembly,
+          assemblyPrice: assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: deliveryDelay,
+          requiredDeliveryDate: deliveryDelay === "yes" ? (deliveryDate || null) : null
+        },
         url: "bed-frames.html#/" + currentProduct.slug
       }, quantity);
 
@@ -1149,7 +1310,7 @@ var BF_FABRIC_COLLECTIONS = [
         messageEl.textContent =
           "Added " + quantity + " \u00d7 " + currentProduct.name +
           (selectedSize ? " (" + selectedSize + ")" : "") +
-          " to your basket \u2014 " + bfMoney(currentProduct.price * quantity) + ".";
+          " to your basket \u2014 " + bfMoney(unitPrice * quantity) + ".";
       }
     }
 
@@ -1160,6 +1321,7 @@ var BF_FABRIC_COLLECTIONS = [
     if (buyNowBtn) {
       buyNowBtn.addEventListener("click", function () {
         if (!currentProduct) return;
+        if (!validateRequiredOptions()) return;
         addCurrentToCart();
         window.location.href = "cart.html";
       });
