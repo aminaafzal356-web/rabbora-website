@@ -1,0 +1,1158 @@
+/* =========================================================
+   RABBORA LIVING — CUSTOMER AREAS
+   My Account (details, addresses, orders), Checkout, and the
+   product Reviews panel. Loaded AFTER each page's own stylesheet
+   and only adds new rb- / ck- / account-dash classes, so nothing
+   that already exists changes. Uses the site's colour, font and
+   radius tokens (with the same values as fallbacks).
+   ========================================================= */
+
+/* Elements switched off with the hidden attribute stay hidden even
+   when they also carry a class that sets display (e.g. .btn). */
+.account-dash [hidden],
+.ck-section [hidden],
+.rb-reviews [hidden],
+.rb-reviews[hidden],
+.account-dash[hidden] {
+  display: none !important;
+}
+
+/* ---------- Form fields (same look as the login form) ---------- */
+
+.rb-fields {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .rb-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rb-field--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.rb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.rb-field__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-forest-dark, #12281f);
+}
+
+.rb-input {
+  height: 48px;
+  width: 100%;
+  padding-inline: 1rem;
+  border: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  border-radius: var(--radius-sm, 4px);
+  background-color: var(--color-white, #fff);
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--color-ink, #232320);
+  transition: border-color 0.2s var(--ease, ease), box-shadow 0.2s var(--ease, ease);
+}
+
+.rb-input[readonly] {
+  background-color: var(--color-ivory-soft, #f8f4eb);
+  color: rgba(35, 35, 32, 0.7);
+}
+
+.rb-textarea {
+  height: auto;
+  min-height: 6rem;
+  padding-block: 0.75rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.rb-input:focus,
+.rb-input:focus-visible {
+  outline: none;
+  border-color: var(--color-brass, #a47b4c);
+  box-shadow: 0 0 0 3px rgba(164, 123, 76, 0.16);
+}
+
+.rb-input[aria-invalid="true"] {
+  border-color: var(--color-clay, #c89482);
+}
+
+.rb-field__error {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #a4533e;
+  margin: 0;
+}
+
+.rb-field__hint {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: rgba(35, 35, 32, 0.55);
+  margin: 0;
+}
+
+.rb-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--color-ink, #232320);
+  cursor: pointer;
+}
+
+.rb-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-forest, #1b3a2f);
+}
+
+.rb-link-btn {
+  padding: 0.25rem 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-forest, #1b3a2f);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.rb-link-btn:hover {
+  color: var(--color-brass, #a47b4c);
+}
+
+.rb-link-btn--danger {
+  color: #a4533e;
+}
+
+.rb-link-btn:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* ---------- Badges (order status, default address) ---------- */
+
+.rb-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: var(--color-ivory, #f1ebde);
+  color: var(--color-forest-dark, #12281f);
+}
+
+.rb-badge--default,
+.rb-badge--confirmed,
+.rb-badge--processing {
+  background-color: var(--color-sage, #dce3d4);
+}
+
+.rb-badge--pending {
+  background-color: #f3e6cf;
+  color: #7a5a2e;
+}
+
+.rb-badge--shipped,
+.rb-badge--delivered {
+  background-color: var(--color-forest, #1b3a2f);
+  color: var(--color-white, #fff);
+}
+
+.rb-badge--cancelled,
+.rb-badge--refunded {
+  background-color: #f1dcd5;
+  color: #8a4434;
+}
+
+/* ---------- Addresses ---------- */
+
+.rb-address {
+  font-style: normal;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-ink, #232320);
+}
+
+.rb-address-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .rb-address-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rb-address-card {
+  position: relative;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-white, #fff);
+}
+
+.rb-address-card.is-default {
+  border-color: var(--color-brass-light, #c7a06b);
+}
+
+.rb-address-card .rb-badge {
+  margin-bottom: 0.6rem;
+}
+
+.rb-address-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.rb-address-form {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-ivory-soft, #f8f4eb);
+}
+
+.rb-address-form__heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--color-ink, #232320);
+}
+
+/* ---------- Product lines and totals (checkout + orders) ---------- */
+
+.rb-line {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: start;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+}
+
+@media (min-width: 640px) {
+  .rb-line {
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+  }
+}
+
+.rb-line:last-child {
+  border-bottom: 0;
+}
+
+.rb-line__image {
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-sm, 4px);
+  background-color: var(--color-ivory, #f1ebde);
+}
+
+.rb-line__name {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--color-ink, #232320);
+}
+
+.rb-line__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.rb-line__options strong {
+  font-weight: 600;
+  color: var(--color-ink, #232320);
+}
+
+.rb-line__meta {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.rb-line__total {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  color: var(--color-forest-dark, #12281f);
+}
+
+.rb-totals {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+}
+
+.rb-totals__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.rb-totals__row--total {
+  margin-top: 0.35rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-forest-dark, #12281f);
+}
+
+/* ---------- One order (confirmation + My orders) ---------- */
+
+.rb-order__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-ivory-soft, #f8f4eb);
+}
+
+@media (min-width: 768px) {
+  .rb-order__facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.rb-order__facts dt {
+  margin-bottom: 0.25rem;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brass, #a47b4c);
+}
+
+.rb-order__facts dd {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink, #232320);
+  overflow-wrap: anywhere;
+}
+
+.rb-order__cols {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .rb-order__cols {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.rb-order__subheading {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-forest-dark, #12281f);
+}
+
+.rb-order__side .rb-order__subheading:not(:first-child) {
+  margin-top: 1.25rem;
+}
+
+.rb-order__notes {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.rb-order__back {
+  margin-bottom: 0.75rem;
+}
+
+.rb-order__cancel {
+  margin-top: 1.5rem;
+}
+
+.rb-order-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.rb-order-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.6rem 1rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-white, #fff);
+}
+
+@media (min-width: 768px) {
+  .rb-order-row {
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+  }
+}
+
+.rb-order-row__number {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-ink, #232320);
+}
+
+.rb-order-row__date {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  color: rgba(35, 35, 32, 0.6);
+}
+
+.rb-order-row__total {
+  margin: 0;
+  font-weight: 600;
+}
+
+.rb-order-row__btn {
+  height: 40px;
+  padding-inline: 1.1rem;
+}
+
+/* =========================================================
+   MY ACCOUNT (account.html)
+   ========================================================= */
+
+.account-dash {
+  background-color: var(--color-ivory-soft, #f8f4eb);
+  padding-block: 3rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .account-dash {
+    padding-block: 4rem 5rem;
+  }
+}
+
+.account-dash__head {
+  margin-bottom: 1.5rem;
+}
+
+.account-dash__heading {
+  margin: 0;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--color-ink, #232320);
+}
+
+.account-dash__tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.account-dash__tab {
+  flex: 0 0 auto;
+  height: 42px;
+  padding-inline: 1.1rem;
+  border: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  border-radius: 999px;
+  background-color: var(--color-white, #fff);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-forest-dark, #12281f);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease, ease), color 0.2s var(--ease, ease), border-color 0.2s var(--ease, ease);
+}
+
+.account-dash__tab:hover {
+  border-color: var(--color-forest, #1b3a2f);
+}
+
+.account-dash__tab.is-active {
+  background-color: var(--color-forest, #1b3a2f);
+  border-color: var(--color-forest, #1b3a2f);
+  color: var(--color-white, #fff);
+}
+
+.account-dash__tab:focus-visible {
+  outline: 2px solid var(--color-brass, #a47b4c);
+  outline-offset: 2px;
+}
+
+.account-dash__status:empty {
+  display: none;
+}
+
+.account-dash__status {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: #a4533e;
+}
+
+.account-dash__card {
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg, 20px);
+  background-color: var(--color-white, #fff);
+  box-shadow: var(--shadow-sm, 0 2px 10px rgba(27, 58, 47, 0.08));
+}
+
+@media (min-width: 640px) {
+  .account-dash__card {
+    padding: 2rem;
+  }
+}
+
+.account-dash__subheading {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--color-ink, #232320);
+}
+
+.account-dash__subheading:focus {
+  outline: none;
+}
+
+.account-dash__actions,
+.ck-form-actions,
+.rb-review-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.account-dash__message,
+.ck-message,
+.rb-reviews__message {
+  margin: 0.9rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--color-forest, #1b3a2f);
+}
+
+.account-dash__message.is-error,
+.ck-message.is-error,
+.rb-reviews__message.is-error,
+.account-dash__empty.is-error {
+  color: #a4533e;
+}
+
+.account-dash__empty {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+/* =========================================================
+   CHECKOUT (checkout.html — uses cart.css for the page frame)
+   ========================================================= */
+
+.ck-notice {
+  margin: 0 0 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-ivory, #f1ebde);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-ink, #232320);
+}
+
+.ck-notice--error {
+  background-color: #f6e3dc;
+  color: #7f3b2c;
+}
+
+.ck-notice--info {
+  background-color: var(--color-sage, #dce3d4);
+  color: var(--color-forest-dark, #12281f);
+}
+
+.ck-panel {
+  max-width: 40rem;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg, 20px);
+  background-color: var(--color-white, #fff);
+  box-shadow: var(--shadow-sm, 0 2px 10px rgba(27, 58, 47, 0.08));
+}
+
+.ck-panel__heading {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: var(--color-ink, #232320);
+}
+
+.ck-panel p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(35, 35, 32, 0.75);
+}
+
+.ck-panel__actions,
+.ck-confirmation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.ck-layout {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .ck-layout {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 2rem;
+  }
+
+  .ck-summary {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+.ck-main {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.ck-step {
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg, 20px);
+  background-color: var(--color-white, #fff);
+  box-shadow: var(--shadow-sm, 0 2px 10px rgba(27, 58, 47, 0.08));
+}
+
+@media (min-width: 640px) {
+  .ck-step {
+    padding: 1.75rem;
+  }
+}
+
+.ck-step__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--color-ink, #232320);
+}
+
+.ck-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background-color: var(--color-forest, #1b3a2f);
+  color: var(--color-white, #fff);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.8rem;
+}
+
+.ck-address-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ck-address-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ck-address {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  border-radius: var(--radius-md, 10px);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease, ease), box-shadow 0.2s var(--ease, ease);
+}
+
+.ck-address:hover {
+  border-color: var(--color-brass-light, #c7a06b);
+}
+
+.ck-address.is-selected {
+  border-color: var(--color-forest, #1b3a2f);
+  box-shadow: 0 0 0 1px var(--color-forest, #1b3a2f);
+}
+
+.ck-address input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+  accent-color: var(--color-forest, #1b3a2f);
+}
+
+.ck-address__body .rb-badge {
+  margin-bottom: 0.4rem;
+}
+
+.ck-muted {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.ck-shipping {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-ink, #232320);
+}
+
+.ck-local-only {
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md, 10px);
+  background-color: #f3e6cf;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #6a4c24;
+}
+
+.ck-local-only p {
+  margin: 0;
+}
+
+.ck-notes {
+  margin-top: 1.25rem;
+}
+
+.ck-summary__address {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+}
+
+.ck-summary__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-forest-dark, #12281f);
+}
+
+.ck-summary__none {
+  margin: 0;
+  font-size: 0.86rem;
+  color: #a4533e;
+}
+
+.ck-summary .cart-checkout-btn {
+  width: 100%;
+}
+
+.ck-summary .cart-checkout-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ck-confirmation {
+  max-width: none;
+}
+
+.ck-confirmation__head {
+  margin-bottom: 1.5rem;
+}
+
+.ck-confirmation__heading {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  line-height: 1.15;
+  color: var(--color-ink, #232320);
+}
+
+.ck-confirmation__heading:focus {
+  outline: none;
+}
+
+/* =========================================================
+   PRODUCT REVIEWS (8 category pages, below the product details)
+   ========================================================= */
+
+.rb-reviews {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+}
+
+.rb-reviews__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rb-reviews__heading {
+  margin: 0;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  line-height: 1.15;
+  color: var(--color-ink, #232320);
+}
+
+.rb-reviews__summary {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-ink, #232320);
+}
+
+.rb-reviews__summary-stars,
+.rb-review__stars {
+  color: var(--color-brass, #a47b4c);
+  letter-spacing: 0.08em;
+}
+
+.rb-reviews__list {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .rb-reviews__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rb-reviews__empty {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.rb-review {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-white, #fff);
+}
+
+.rb-review.is-mine {
+  border-color: var(--color-brass-light, #c7a06b);
+}
+
+.rb-review__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.rb-review__author {
+  font-weight: 600;
+  color: var(--color-ink, #232320);
+}
+
+.rb-review__date {
+  color: rgba(35, 35, 32, 0.55);
+}
+
+.rb-review__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-ink, #232320);
+}
+
+.rb-review__body {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(35, 35, 32, 0.8);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.rb-reviews__more {
+  margin-top: 1rem;
+}
+
+.rb-reviews__mine {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-ivory-soft, #f8f4eb);
+}
+
+.rb-reviews__mine-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.rb-reviews__mine-heading {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-ink, #232320);
+}
+
+.rb-reviews__mine-note {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.rb-reviews__mine-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.rb-reviews__write {
+  margin-top: 1.5rem;
+}
+
+.rb-reviews__login {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(35, 35, 32, 0.75);
+}
+
+.rb-reviews__login a {
+  color: var(--color-forest, #1b3a2f);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rb-review-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-ivory-soft, #f8f4eb);
+}
+
+.rb-review-form__heading {
+  margin: 0;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--color-ink, #232320);
+}
+
+.rb-review-form__actions {
+  margin-top: 0;
+}
+
+/* Star rating: radio buttons shown as stars (5 -> 1 in the markup,
+   flipped visually so hovering a star lights it and those before it). */
+.rb-stars-input {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.15rem;
+}
+
+.rb-stars-input input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.rb-stars-input label {
+  font-size: 1.7rem;
+  line-height: 1;
+  color: rgba(35, 35, 32, 0.2);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.rb-stars-input input:checked ~ label,
+.rb-stars-input label:hover,
+.rb-stars-input label:hover ~ label {
+  color: var(--color-brass, #a47b4c);
+}
+
+.rb-stars-input input:focus-visible + label {
+  outline: 2px solid var(--color-brass, #a47b4c);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Checkout page frame and summary card. cart.css styles the cart page;
+   these keep the checkout complete on its own (same tokens). */
+.ck-section {
+  padding-block: 2rem 4rem;
+  background-color: var(--color-ivory-soft, #f8f4eb);
+}
+
+.ck-section .cart-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: rgba(35, 35, 32, 0.6);
+}
+
+.ck-section .cart-heading {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--color-ink, #232320);
+}
+
+.ck-section .cart-status:empty {
+  display: none;
+}
+
+.ck-summary {
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg, 20px);
+  background-color: var(--color-white, #fff);
+  box-shadow: var(--shadow-sm, 0 2px 10px rgba(27, 58, 47, 0.08));
+}
+
+.ck-summary .cart-summary__heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-display, "Instrument Serif", Georgia, serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--color-ink, #232320);
+}
+
+.ck-summary .cart-summary__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.4rem;
+  font-size: 0.92rem;
+}
+
+.ck-summary .cart-summary__row--total {
+  margin-top: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border, rgba(35, 35, 32, 0.1));
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-forest-dark, #12281f);
+}
+
+.ck-summary .cart-summary__note {
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(35, 35, 32, 0.65);
+}
+
+.ck-summary .cart-continue-link {
+  display: block;
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-forest, #1b3a2f);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Step 5: payment (checkout confirmation + account "Pay now") ---------- */
+.ck-next-steps {
+  margin: 1.5rem 0 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(35, 35, 32, 0.1);
+  border-radius: 12px;
+  background: #faf7f0;
+}
+
+.ck-next-steps h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.ck-next-steps ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+}
+
+.rb-order__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.rb-order__actions .rb-order__cancel {
+  margin-top: 0;
+}
+
+.rb-order-row__badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.rb-badge--pay-paid {
+  background-color: var(--color-sage, #dce3d4);
+}
+
+.rb-badge--pay-refunded {
+  background-color: #f1dcd5;
+  color: #8a4434;
+}

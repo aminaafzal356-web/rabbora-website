@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabrics | Rabbora Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../images/img-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css?v=admin-3" />
+</head>
+<body class="admin admin--loading">
+
+  <a href="#adminContent" class="admin-skip">Skip to content</a>
+
+  <!-- Shown until GET /api/auth/me confirms an admin (admin-auth.js). -->
+  <div class="admin-boot" aria-hidden="true"><span class="admin-spinner"></span></div>
+
+  <div class="admin-layout" id="adminLayout">
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin navigation"></aside>
+    <div class="admin-scrim" id="adminScrim"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" class="admin-menu-toggle" id="adminMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="adminSidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="admin-topbar__title">
+          <p class="admin-eyebrow">Catalogue</p>
+          <h1 class="admin-page-title" id="adminPageTitle">Fabrics</h1>
+        </div>
+        <div class="admin-user" id="adminUser"></div>
+      </header>
+
+      <main class="admin-content" id="adminContent">
+        <p class="admin-flash" id="adminFlash" role="status" aria-live="polite" hidden></p>
+        <section class="admin-panel admin-editor-panel" id="editorPanel" hidden>
+          <div class="admin-panel__head">
+            <h2 class="admin-panel__title" id="editorTitle">Add</h2>
+            <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-editor-close>Close</button>
+          </div>
+          <form class="admin-grid" id="editorForm" novalidate>
+            <div class="admin-field" data-field="name">
+              <label class="admin-label" for="f_name">Name</label>
+              <input class="admin-input" id="f_name" name="name" type="text" aria-invalid="false" maxlength="100" required aria-required="true"/>
+              <p class="admin-error" role="alert" hidden></p>
+            </div>
+            <div class="admin-field" data-field="slug">
+              <label class="admin-label" for="f_slug">Slug</label>
+              <input class="admin-input admin-input--mono" id="f_slug" name="slug" type="text" aria-invalid="false" maxlength="100" required aria-required="true"/>
+              <p class="admin-hint">Lowercase letters, numbers and single hyphens.</p>
+              <p class="admin-error" role="alert" hidden></p>
+            </div>
+            <div class="admin-field" data-field="collection">
+              <label class="admin-label" for="f_collection">Collection (optional)</label>
+              <input class="admin-input" id="f_collection" name="collection" type="text" aria-invalid="false" maxlength="100" list="collectionList"/>
+              <datalist id="collectionList"></datalist>
+              <p class="admin-error" role="alert" hidden></p>
+            </div>
+            <div class="admin-field" data-field="sortOrder">
+              <label class="admin-label" for="f_sortOrder">Sort order</label>
+              <input class="admin-input" id="f_sortOrder" name="sortOrder" type="text" aria-invalid="false" inputmode="numeric"/>
+              <p class="admin-error" role="alert" hidden></p>
+            </div>
+            <div class="admin-field admin-field--wide" data-field="imageUrl">
+              <label class="admin-label" for="f_imageUrl">Image path (optional)</label>
+              <div class="admin-image-row">
+                <div class="admin-image-preview admin-image-preview--sm" id="imagePreview" aria-hidden="true"></div>
+                <div class="admin-field admin-field--grow">
+                  <input class="admin-input admin-input--mono" id="f_imageUrl" name="imageUrl" type="text" maxlength="1000" placeholder="e.g. fabrics/plush-velvet-grey.jpg" aria-invalid="false" />
+                  <p class="admin-hint">The path of an image already in the website folder.</p>
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+              </div>
+            </div>
+            <label class="admin-switch admin-field--wide">
+              <input type="checkbox" id="f_isActive" name="isActive" />
+              <span class="admin-switch__track" aria-hidden="true"></span>
+              <span><strong>Active</strong><small>Inactive fabrics are not offered.</small></span>
+            </label>
+            <div class="admin-actions admin-field--wide">
+              <button type="submit" class="admin-btn admin-btn--primary" id="editorSave">Save</button>
+              <button type="button" class="admin-btn admin-btn--ghost" data-editor-close>Cancel</button>
+            </div>
+          </form>
+        </section>
+        <section class="admin-panel admin-mapping" id="mappingPanel" hidden></section>
+
+        <section class="admin-panel">
+          <div class="admin-toolbar admin-toolbar--three">
+            <div class="admin-field admin-toolbar__search">
+              <label class="admin-label" for="listSearch">Search</label>
+              <input class="admin-input" id="listSearch" type="search" placeholder="Name, slug or collection" maxlength="100" autocomplete="off" />
+            </div>
+            <div class="admin-field">
+              <label class="admin-label" for="listCollection">Collection</label>
+              <select class="admin-input" id="listCollection"><option value="">All collections</option></select>
+            </div>
+            <div class="admin-field">
+              <label class="admin-label" for="listStatus">Status</label>
+              <select class="admin-input" id="listStatus">
+                <option value="all">All</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+            <button type="button" class="admin-btn admin-btn--primary admin-toolbar__add" id="addBtn">+ Add fabric</button>
+          </div>
+          <p class="admin-result-count" id="listCount" role="status" aria-live="polite"></p>
+          <div class="admin-table-wrap">
+            <table class="admin-table admin-table--fabrics">
+              <thead><tr><th scope="col">Fabric</th><th scope="col">Collection</th><th scope="col">Products</th><th scope="col">Status</th><th scope="col"><span class="admin-sr">Actions</span></th></tr></thead>
+              <tbody id="listRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Logged in, but not an admin. -->
+  <div class="admin-denied" id="adminDenied" hidden>
+    <div class="admin-login__card">
+      <img class="admin-login__logo" src="../images/img-2.png" alt="Rabbora Living" width="64" height="64" />
+      <h1 class="admin-login__heading">Access denied</h1>
+      <p class="admin-login__sub">This account does not have admin access.</p>
+      <div class="admin-actions admin-actions--center">
+        <a class="admin-btn admin-btn--primary" href="../index.html">Back to the shop</a>
+        <button type="button" class="admin-btn admin-btn--ghost" data-admin-logout>Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend not reachable. -->
+  <div class="admin-denied" id="adminOffline" hidden>
+    <div class="admin-login__card">
+      <h1 class="admin-login__heading">Admin panel unavailable</h1>
+      <p class="admin-login__sub"></p>
+      <div class="admin-actions admin-actions--center">
+        <button type="button" class="admin-btn admin-btn--primary" onclick="window.location.reload()">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../api-config.js"></script>
+  <script src="js/admin-auth.js?v=admin-3"></script>
+  <script src="js/product-mapping.js?v=admin-2"></script>
+  <script src="js/fabrics.js?v=admin-2"></script>
+</body>
+</html>

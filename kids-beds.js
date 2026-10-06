@@ -405,6 +405,46 @@ var KIDS_BED_SIZE_DELTAS = {
   "Small Double": 40
 };
 
+// Exact per-size prices (current Pascal Beds prices for the matching
+// kids beds). A product listed here uses these prices instead of the
+// deltas above; products not listed keep using price + delta.
+var KIDS_BED_SIZE_PRICES = {
+  "kids-bed-1": { "Single": 449, "Small Double": 489 }, // Harper = HARPER Kids Day Bed
+  "kids-bed-2": { "Single": 449, "Small Double": 489 }, // Luna   = PSCL Rio-Pink
+  "kids-bed-3": { "Single": 449, "Small Double": 489 }, // Mia    = PSCL SnugSpace
+  "kids-bed-4": { "Single": 449, "Small Double": 489 }, // Oliver = PSCL Rio-Blue
+  "kids-bed-5": { "Single": 499, "Small Double": 549 }  // Aria   = PSCL Little Castle
+};
+
+// Old (original / "was") price for each size. Single 3ft is not listed:
+// it keeps its existing old price. The other sizes are worked out from
+// their existing sale price:
+//   Small Double 21% off -> old = sale / 0.79
+//   Double       28% off -> old = sale / 0.72
+//   King         29% off -> old = sale / 0.71
+//   Super King   29% off -> old = sale / 0.71
+// Any number here can be changed in VS Code; a size left out shows the
+// page's old price exactly as before.
+var KIDS_BED_SIZE_OLD_PRICES = {
+  "kids-bed-1": { "Small Double": 618.99 },
+  "kids-bed-2": { "Small Double": 618.99 },
+  "kids-bed-3": { "Small Double": 618.99 },
+  "kids-bed-4": { "Small Double": 618.99 },
+  "kids-bed-5": { "Small Double": 694.94 }
+};
+
+
+// Price of one size before add-ons. With no size selected this is the
+// product's base (Single) price.
+function kbSizePrice(product, size) {
+  // A product loaded from the backend API carries its own size prices.
+  if (size && product.sizePrices && typeof product.sizePrices[size] === "number") return product.sizePrices[size];
+  var map = KIDS_BED_SIZE_PRICES[product.slug];
+  if (size && map && typeof map[size] === "number") return map[size];
+  var delta = size ? (KIDS_BED_SIZE_DELTAS[size] || 0) : 0;
+  return Math.max(0, product.price + delta);
+}
+
 (function () {
   "use strict";
 
@@ -556,9 +596,8 @@ var KIDS_BED_SIZE_DELTAS = {
     var currentProduct = null;
 
     function currentPrice(product) {
-      var delta = kbState.selectedSize ? (KIDS_BED_SIZE_DELTAS[kbState.selectedSize] || 0) : 0;
       var addons = kbState.assembly === "yes" ? ASSEMBLY_PRICE : 0;
-      return Math.max(0, product.price + delta + addons);
+      return kbSizePrice(product, kbState.selectedSize) + addons;
     }
 
     // Fabric Colour — new on this page (the container already existed
@@ -726,6 +765,161 @@ var KIDS_BED_SIZE_DELTAS = {
       "Small Double": "Small Double 4ft"
     };
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "kb-detail__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="kb-detail__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = money(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? money(oldPrice) : "";
+    }
+
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
       product.sizes.forEach(function (size) {
@@ -733,7 +927,7 @@ var KIDS_BED_SIZE_DELTAS = {
         btn.type = "button";
         btn.className = "kb-option-pill";
         btn.setAttribute("aria-pressed", String(kbState.selectedSize === size));
-        btn.textContent = KB_SIZE_LABELS[size] || size;
+        btn.textContent = (product.sizeLabels && product.sizeLabels[size]) || KB_SIZE_LABELS[size] || size;
         btn.addEventListener("click", function () {
           kbState.selectedSize = size;
           messageEl.textContent = "";
@@ -749,7 +943,31 @@ var KIDS_BED_SIZE_DELTAS = {
 
     function renderPrice(product) {
       priceEl.textContent = money(currentPrice(product));
-      prevPriceEl.textContent = product.oldPrice ? money(product.oldPrice) : "";
+      var sizePrice = kbSizePrice(product, kbState.selectedSize);
+      var validOldPrice;
+      if (product.sizeOldPrices) {
+        // Product from the backend API: each size has its own compare-at price.
+        var apiOldPrice = kbState.selectedSize ? product.sizeOldPrices[kbState.selectedSize] : product.oldPrice;
+        validOldPrice = (apiOldPrice && apiOldPrice > sizePrice) ? apiOldPrice : null;
+      } else {
+        // The stored oldPrice belongs to the base (Single) price only.
+        var isBaseSize = !kbState.selectedSize || sizePrice === product.price;
+        validOldPrice = (isBaseSize && product.oldPrice && product.oldPrice > sizePrice) ? product.oldPrice : null;
+      }
+      // Small Double / Double / King / Super King: old price from
+      // KIDS_BED_SIZE_OLD_PRICES (Single keeps its existing old price).
+      var listedOld = (kbState.selectedSize && kbState.selectedSize !== "Single" && KIDS_BED_SIZE_OLD_PRICES[product.slug])
+        ? KIDS_BED_SIZE_OLD_PRICES[product.slug][kbState.selectedSize] : null;
+      if (typeof listedOld === "number") validOldPrice = listedOld > sizePrice ? listedOld : null;
+      prevPriceEl.textContent = validOldPrice ? money(validOldPrice) : "";
+      renderSelectedSizePrice(kbState.selectedSize, sizePrice, validOldPrice);
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: currentPrice(product), sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: kbState.selectedSize, sizeOptions: sizeOptionsEl, sizeRow: sizePriceRow,
+        money: money
+      });
     }
 
     function renderDimensions(product) {
@@ -877,13 +1095,169 @@ var KIDS_BED_SIZE_DELTAS = {
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
+    // ---- Backend Product Detail API ----
+    // The detail view first asks the backend for the product. Only the
+    // name, images, sizes, size prices, compare-at prices and (where this
+    // page shows them) dimensions come from the API. They are merged ON TOP
+    // of a copy of the existing product object from this file, so every
+    // frontend-only field stays exactly as it is. If the API fails, is
+    // unreachable, returns 404 or sends unexpected data, the original
+    // product object from this file is used exactly as before.
+    // Address from api-config.js (window.RabboraApi), which must load
+    // before this file: GET <API_URL>/products/slug/<slug>.
+    var RB_API_PRODUCT_URL = window.RabboraApi && typeof window.RabboraApi.url === "function"
+      ? window.RabboraApi.url("/products/slug/")
+      : null;
+    if (!RB_API_PRODUCT_URL) {
+      console.warn(
+        "[Rabbora Kids Beds] api-config.js is not loaded, so product details come from this file only. " +
+        "Add <script src=\"api-config.js\"></script> before kids-beds.js."
+      );
+    }
+    var RB_API_TIMEOUT_MS = 4000;
+    var rbApiCache = {};
+    var rbApiRouteId = 0;
+
+    function rbApiIsValid(apiProduct, slug) {
+      if (!apiProduct || apiProduct.slug !== slug) return false;
+      if (typeof apiProduct.name !== "string" || !apiProduct.name.trim()) return false;
+      if (!Array.isArray(apiProduct.images) || apiProduct.images.length === 0) return false;
+      if (!Array.isArray(apiProduct.variants) || apiProduct.variants.length === 0) return false;
+      var imagesOk = apiProduct.images.every(function (img) {
+        return img && typeof img.image_url === "string" && img.image_url.trim() !== "";
+      });
+      var variantsOk = apiProduct.variants.every(function (v) {
+        return v &&
+          typeof v.option_value === "string" && v.option_value !== "" &&
+          typeof v.option_label === "string" && v.option_label !== "" &&
+          typeof v.price === "number" && isFinite(v.price) && v.price > 0;
+      });
+      return imagesOk && variantsOk;
+    }
+
+    // Shallow copy, so the original product object in this file is never
+    // changed (grid cards, related products and the fallback keep using it).
+    function rbApiCopy(baseProduct) {
+      var copy = {};
+      Object.keys(baseProduct).forEach(function (key) { copy[key] = baseProduct[key]; });
+      return copy;
+    }
+
+    // Size data from the API variants, in the API's sort order. When
+    // needDimensions is true, every size must end up with a width/length
+    // (API value, or this file's existing value) or null is returned.
+    function rbApiSizeData(baseProduct, apiProduct, needDimensions) {
+      var variants = apiProduct.variants.slice().sort(function (a, b) {
+        return (a.sort_order || 0) - (b.sort_order || 0);
+      });
+      var data = {
+        sizes: [], labels: [], labelMap: {}, sizePrices: {}, sizeOldPrices: {}, dimensions: {},
+        images: apiProduct.images.map(function (img) { return img.image_url; })
+      };
+      var baseDims = baseProduct.dimensions && typeof baseProduct.dimensions === "object" ? baseProduct.dimensions : {};
+      Object.keys(baseDims).forEach(function (size) { data.dimensions[size] = baseDims[size]; });
+      var ok = true;
+      variants.forEach(function (v) {
+        data.sizes.push(v.option_value);
+        data.labels.push(v.option_label);
+        data.labelMap[v.option_value] = v.option_label;
+        data.sizePrices[v.option_value] = v.price;
+        data.sizeOldPrices[v.option_value] =
+          (typeof v.compare_at_price === "number" && v.compare_at_price > v.price) ? v.compare_at_price : null;
+        if (typeof v.width_cm === "number" && typeof v.length_cm === "number") {
+          data.dimensions[v.option_value] = { width: v.width_cm, length: v.length_cm };
+        }
+        var d = data.dimensions[v.option_value];
+        if (needDimensions && !(d && typeof d.width === "number" && typeof d.length === "number")) ok = false;
+      });
+      if (!ok) return null;
+      // Base (no size selected) price: this page's own base price when one
+      // of the API sizes has exactly that price (so the page shows the same
+      // "from" price as before); otherwise the API product price (its
+      // lowest size). The crossed-out price is that size's compare-at price.
+      var baseVariant = null;
+      if (typeof baseProduct.price === "number") {
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - baseProduct.price) < 0.001; })[0] || null;
+      }
+      if (baseVariant) {
+        data.price = baseVariant.price;
+      } else {
+        data.price = (typeof apiProduct.price === "number" && isFinite(apiProduct.price) && apiProduct.price > 0)
+          ? apiProduct.price : variants[0].price;
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - data.price) < 0.001; })[0] || variants[0];
+      }
+      data.oldPrice = data.sizeOldPrices[baseVariant.option_value];
+      // Some pages keep the crossed-out price on their first size even when
+      // another size is the base price; the page showed it before a size
+      // was chosen, so the first size's compare-at price is used then.
+      if (!data.oldPrice) {
+        var firstOld = data.sizeOldPrices[variants[0].option_value];
+        data.oldPrice = (firstOld && firstOld > data.price) ? firstOld : null;
+      }
+      return data;
+    }
+
+    // Page-specific merge: which API values go into which fields this
+    // page already reads.
+    function rbApiMerge(baseProduct, apiProduct) {
+      var d = rbApiSizeData(baseProduct, apiProduct, true);
+      if (!d) return null;
+      var merged = rbApiCopy(baseProduct);
+      merged.name = apiProduct.name;
+      merged.images = d.images;
+      merged.sizes = d.sizes;
+      merged.sizeLabels = d.labelMap;
+      merged.sizePrices = d.sizePrices;
+      merged.sizeOldPrices = d.sizeOldPrices;
+      merged.dimensions = d.dimensions;
+      merged.price = d.price;
+      merged.oldPrice = d.oldPrice;
+      return merged;
+    }
+
+    // Resolves with the merged API product, or null when the original
+    // product object should be used instead. Never rejects.
+    function rbApiFetch(baseProduct, slug) {
+      if (rbApiCache[slug]) return Promise.resolve(rbApiCache[slug]);
+      if (typeof fetch !== "function" || !RB_API_PRODUCT_URL) return Promise.resolve(null);
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var timeoutId = controller ? window.setTimeout(function () { controller.abort(); }, RB_API_TIMEOUT_MS) : null;
+      return fetch(RB_API_PRODUCT_URL + encodeURIComponent(slug), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (response) {
+          if (!response.ok) return null;
+          return response.json().catch(function () { return null; });
+        })
+        .then(function (data) {
+          var apiProduct = data && data.success === true ? data.product : null;
+          if (!rbApiIsValid(apiProduct, slug)) return null;
+          var merged = rbApiMerge(baseProduct, apiProduct);
+          if (merged) rbApiCache[slug] = merged;
+          return merged;
+        })
+        .catch(function () { return null; })
+        .then(function (result) {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          return result;
+        });
+    }
+
     function handleRoute() {
       var hash = window.location.hash;
-      if (!hash || hash === "#") { showCategory(); return; }
+      if (!hash || hash === "#") { rbApiRouteId++; showCategory(); return; }
       var slug = hash.replace(/^#\/?/, "");
-      if (!slug) { showCategory(); return; }
+      if (!slug) { rbApiRouteId++; showCategory(); return; }
       var product = KIDS_PRODUCTS_BY_SLUG[slug];
-      if (product) { showDetail(product); } else { showNotFound(); }
+      if (!product) { rbApiRouteId++; showNotFound(); return; }
+      // Only the newest route may render (ignores late answers).
+      var requestId = ++rbApiRouteId;
+      rbApiFetch(product, slug).then(function (apiProduct) {
+        if (requestId !== rbApiRouteId) return;
+        showDetail(apiProduct || product);
+      });
     }
 
     window.addEventListener("hashchange", handleRoute);

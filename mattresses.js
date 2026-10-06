@@ -587,12 +587,12 @@
     "name": "Healthopaedic Zero Gravity Orthoflex Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 299,
-    "oldPrice": 499,
-    "monthlyPrice": 25,
+    "price": 389,
+    "oldPrice": 699,
+    "monthlyPrice": 33,
     "rating": 5,
     "reviewCount": 0,
-    "badge": "40% Off",
+    "badge": "44% Off",
     "firmness": [
       "Firm"
     ],
@@ -629,9 +629,9 @@
     "name": "Chicago 3000 Pocket Sprung Ultimate Luxury Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 549,
+    "price": 699,
     "oldPrice": null,
-    "monthlyPrice": 46,
+    "monthlyPrice": 59,
     "rating": 5,
     "reviewCount": 0,
     "badge": null,
@@ -674,12 +674,12 @@
     "name": "Healthopaedic Pillowtop 3000 Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 499,
-    "oldPrice": 699,
-    "monthlyPrice": 42,
+    "price": 599,
+    "oldPrice": 899,
+    "monthlyPrice": 50,
     "rating": 0,
     "reviewCount": 0,
-    "badge": "29% Off",
+    "badge": "33% Off",
     "firmness": [
       "Medium",
       "Firm"
@@ -717,12 +717,12 @@
     "name": "Healthopedic Zero Gravity ZenFloat 1000 Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 399,
-    "oldPrice": 549,
-    "monthlyPrice": 34,
+    "price": 449,
+    "oldPrice": 699,
+    "monthlyPrice": 38,
     "rating": 5,
     "reviewCount": 0,
-    "badge": "27% Off",
+    "badge": "36% Off",
     "firmness": [
       "Soft"
     ],
@@ -759,9 +759,9 @@
     "name": "Backcare Luxury 2000 Pocket Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 299,
+    "price": 359,
     "oldPrice": null,
-    "monthlyPrice": 25,
+    "monthlyPrice": 30,
     "rating": 0,
     "reviewCount": 0,
     "badge": null,
@@ -801,9 +801,9 @@
     "name": "1000 CoolGel Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 299,
+    "price": 349,
     "oldPrice": null,
-    "monthlyPrice": 25,
+    "monthlyPrice": 30,
     "rating": 0,
     "reviewCount": 0,
     "badge": null,
@@ -843,9 +843,9 @@
     "name": "California Pillow Top Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 299,
+    "price": 349,
     "oldPrice": null,
-    "monthlyPrice": 25,
+    "monthlyPrice": 30,
     "rating": 0,
     "reviewCount": 0,
     "badge": null,
@@ -886,9 +886,9 @@
     "name": "Orion 1000 Pocket Sprung Luxury Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 229,
+    "price": 289,
     "oldPrice": null,
-    "monthlyPrice": 20,
+    "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
     "badge": null,
@@ -929,12 +929,12 @@
     "name": "MTRS Comfort Dynamics 1000 Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 380,
-    "oldPrice": 699,
-    "monthlyPrice": 32,
+    "price": 450,
+    "oldPrice": 899,
+    "monthlyPrice": 38,
     "rating": 0,
     "reviewCount": 0,
-    "badge": "46% Off",
+    "badge": "50% Off",
     "firmness": [
       "Medium",
       "Firm"
@@ -972,12 +972,12 @@
     "name": "Bedzone Titanium Ortho 12.5 Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 145,
-    "oldPrice": 175,
-    "monthlyPrice": 13,
+    "price": 279,
+    "oldPrice": null,
+    "monthlyPrice": 24,
     "rating": 0,
     "reviewCount": 0,
-    "badge": "17% Off",
+    "badge": null,
     "firmness": [
       "Medium"
     ],
@@ -1014,9 +1014,9 @@
     "name": "Orion 2000 Pocket Sprung Luxury Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 249,
+    "price": 299,
     "oldPrice": null,
-    "monthlyPrice": 21,
+    "monthlyPrice": 25,
     "rating": 0,
     "reviewCount": 0,
     "badge": null,
@@ -1056,9 +1056,9 @@
     "name": "MTRS Atomic Comfort 5000 Mattress",
     "mattressType": "memory-foam",
     "mattressTypeLabel": "Memory Foam",
-    "price": 799,
-    "oldPrice": 1199,
-    "monthlyPrice": 67,
+    "price": 899,
+    "oldPrice": 1350,
+    "monthlyPrice": 75,
     "rating": 0,
     "reviewCount": 0,
     "badge": "33% Off",
@@ -1100,12 +1100,12 @@
     "name": "MTRS Comfort Dynamics 2000 Pocket Mattress",
     "mattressType": "hybrid",
     "mattressTypeLabel": "Hybrid",
-    "price": 499,
-    "oldPrice": 699,
-    "monthlyPrice": 42,
+    "price": 599,
+    "oldPrice": 899,
+    "monthlyPrice": 50,
     "rating": 0,
     "reviewCount": 0,
-    "badge": "29% Off",
+    "badge": "33% Off",
     "firmness": [
       "Medium"
     ],
@@ -1142,12 +1142,12 @@
     "name": "MTRS Atomic Comfort 3000 Mattress",
     "mattressType": "orthopaedic",
     "mattressTypeLabel": "Orthopaedic",
-    "price": 549,
-    "oldPrice": 999,
-    "monthlyPrice": 46,
+    "price": 675,
+    "oldPrice": 1100,
+    "monthlyPrice": 57,
     "rating": 0,
     "reviewCount": 0,
-    "badge": "45% Off",
+    "badge": "39% Off",
     "firmness": [
       "Firm"
     ],
@@ -1185,12 +1185,12 @@
     "name": "MTRS Lux Comfort 9000 Mattress",
     "mattressType": "pocket-spring",
     "mattressTypeLabel": "Pocket Spring",
-    "price": 1200,
-    "oldPrice": 1800,
-    "monthlyPrice": 100,
+    "price": 1550,
+    "oldPrice": 2100,
+    "monthlyPrice": 130,
     "rating": 0,
     "reviewCount": 0,
-    "badge": "33% Off",
+    "badge": "26% Off",
     "firmness": [
       "Medium",
       "Firm"
@@ -1239,6 +1239,39 @@
     "King Size": 80,
     "Super King": 150
   };
+
+  // Exact per-size prices (current Pascal Beds prices for the matching
+  // mattresses). A product listed here uses these prices instead of the
+  // deltas above; product.price is its cheapest size (Small Double).
+  var MATTRESS_SIZE_PRICES = {
+    "bedzone-hybrid-memory-pocket-spring": { "Small Double": 279, "Double": 299, "King Size": 349, "Super King": 399 }, // Bedzone Hybrid Memory Pocket Spring [Medium]
+    "orthopaedic-zero-gravity": { "Small Double": 389, "Double": 429, "King Size": 529, "Super King": 599 }, // Healthopaedic Zero Gravity Orthoflex
+    "pillowtop-2000": { "Small Double": 699, "Double": 729, "King Size": 799, "Super King": 899 }, // Chicago 3000 Pocket Sprung Ultimate Luxury
+    "luxury-pocket-spring": { "Small Double": 599, "Double": 629, "King Size": 749, "Super King": 888 }, // Healthopaedic Pillowtop 3000
+    "cloudrest-memory-foam": { "Small Double": 449, "Double": 469, "King Size": 549, "Super King": 649 }, // Healthopedic Zero Gravity ZenFloat 1000
+    "harmony-hybrid-deluxe": { "Small Double": 359, "Double": 359, "King Size": 399, "Super King": 449 }, // Backcare Luxury 2000 Pocket
+    "firmsupport-orthopaedic-pro": { "Small Double": 349, "Double": 349, "King Size": 399, "Super King": 449 }, // 1000 CoolGel [Medium to Firm]
+    "serenity-pocket-1000": { "Small Double": 349, "Double": 349, "King Size": 399, "Super King": 449 }, // California Pillow Top FIRM
+    "dreamsoft-memory-foam": { "Small Double": 289, "Double": 329, "King Size": 399, "Super King": 429 }, // Orion 1000 Pocket Sprung Luxury
+    "everest-hybrid-support": { "Small Double": 450, "Double": 450, "King Size": 530, "Super King": 630 }, // MTRS Comfort Dynamics 1000
+    "royaltouch-pocket-spring": { "Small Double": 279, "Double": 299, "King Size": 349, "Super King": 399 }, // Bedzone Titanium Ortho 12.5 [FIRM]
+    "restwell-orthopaedic-classic": { "Small Double": 299, "Double": 369, "King Size": 399, "Super King": 499 }, // Orion 2000 Pocket Sprung Luxury
+    "nightcloud-memory-foam-plus": { "Small Double": 899, "Double": 899, "King Size": 1049, "Super King": 1099 }, // MTRS Atomic Comfort 5000
+    "coastal-hybrid-breeze": { "Small Double": 599, "Double": 699, "King Size": 699, "Super King": 799 }, // MTRS Comfort Dynamics 2000 Pocket Firm
+    "pureposture-orthopaedic": { "Small Double": 675, "Double": 675, "King Size": 775, "Super King": 849 }, // MTRS Atomic Comfort 3000
+    "signature-pocket-2000": { "Small Double": 1550, "Double": 1550, "King Size": 1799, "Super King": 1899 }  // MTRS Lux Comfort 9000
+  };
+
+  // Price of one size (before any add-ons). With no size selected this is
+  // the product's base price.
+  function mtSizePrice(product, size) {
+    // A product loaded from the backend API carries its own size prices.
+    if (size && product.sizePrices && typeof product.sizePrices[size] === "number") return product.sizePrices[size];
+    var map = MATTRESS_SIZE_PRICES[product.slug];
+    if (size && map && typeof map[size] === "number") return map[size];
+    var delta = size ? (MATTRESS_SIZE_DELTAS[size] || 0) : 0;
+    return Math.max(0, product.price + delta);
+  }
 
   var MATTRESS_SIZE_DIMENSIONS = {
     "Small Double": "120 x 190cm",
@@ -1668,8 +1701,7 @@
     var lightboxClose = document.getElementById("mtLightboxClose");
 
     function currentPrice(product) {
-      var delta = mtState.selectedSize ? (MATTRESS_SIZE_DELTAS[mtState.selectedSize] || 0) : 0;
-      return Math.max(0, product.price + delta);
+      return mtSizePrice(product, mtState.selectedSize);
     }
 
     function renderGallery(product) {
@@ -1691,6 +1723,161 @@
       });
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "bb-modal__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="bb-modal__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = mtMoney(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? mtMoney(oldPrice) : "";
+    }
+
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
       product.availableSizes.forEach(function (size) {
@@ -1700,7 +1887,7 @@
         btn.className = "mt-option-pill";
         btn.dataset.size = size;
         btn.setAttribute("aria-pressed", String(mtState.selectedSize === size));
-        btn.textContent = dimensions ? size + " \u2014 " + dimensions : size;
+        btn.textContent = (product.sizeLabels && product.sizeLabels[size]) || (dimensions ? size + " \u2014 " + dimensions : size);
         btn.addEventListener("click", function () {
           mtState.selectedSize = size;
           purchaseMessage.textContent = "";
@@ -1734,9 +1921,32 @@
 
     function renderPurchasePanel(product) {
       priceEl.textContent = mtMoney(currentPrice(product));
-      prevPriceEl.textContent = product.oldPrice ? mtMoney(product.oldPrice) : "";
+      var sizePrice = mtSizePrice(product, mtState.selectedSize);
+      var validOldPrice;
+      if (product.sizeOldPrices) {
+        // Product from the backend API: each size has its own compare-at price.
+        var apiOldPrice = mtState.selectedSize ? product.sizeOldPrices[mtState.selectedSize] : product.oldPrice;
+        validOldPrice = (apiOldPrice && apiOldPrice > sizePrice) ? apiOldPrice : null;
+      } else {
+        // The stored oldPrice belongs to the base (first, cheapest) size only,
+        // even when another size happens to cost the same.
+        var isBaseSize = !mtState.selectedSize ||
+          (MATTRESS_SIZE_PRICES[product.slug]
+            ? mtState.selectedSize === product.availableSizes[0]
+            : sizePrice === product.price);
+        validOldPrice = (isBaseSize && product.oldPrice && product.oldPrice > sizePrice) ? product.oldPrice : null;
+      }
+      prevPriceEl.textContent = validOldPrice ? mtMoney(validOldPrice) : "";
+      renderSelectedSizePrice(mtState.selectedSize, sizePrice, validOldPrice);
       qsa(".mt-option-pill", sizeOptionsEl).forEach(function (el) {
         el.setAttribute("aria-pressed", String(el.dataset.size === mtState.selectedSize));
+      });
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: currentPrice(product), sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: mtState.selectedSize, sizeOptions: sizeOptionsEl, sizeRow: sizePriceRow,
+        money: mtMoney
       });
     }
 
@@ -1857,23 +2067,192 @@
     // detail view; no hash (or an unrecognised one only when a hash
     // is actually present) shows the category grid. Supports full
     // back/forward navigation via the hashchange event.
+    // ---- Backend Product Detail API ----
+    // The detail view first asks the backend for the product. Only the
+    // name, images, sizes, size prices, compare-at prices and (where this
+    // page shows them) dimensions come from the API. They are merged ON TOP
+    // of a copy of the existing product object from this file, so every
+    // frontend-only field stays exactly as it is. If the API fails, is
+    // unreachable, returns 404 or sends unexpected data, the original
+    // product object from this file is used exactly as before.
+    // Address from api-config.js (window.RabboraApi), which must load
+    // before this file: GET <API_URL>/products/slug/<slug>.
+    var RB_API_PRODUCT_URL = window.RabboraApi && typeof window.RabboraApi.url === "function"
+      ? window.RabboraApi.url("/products/slug/")
+      : null;
+    if (!RB_API_PRODUCT_URL) {
+      console.warn(
+        "[Rabbora Mattresses] api-config.js is not loaded, so product details come from this file only. " +
+        "Add <script src=\"api-config.js\"></script> before mattresses.js."
+      );
+    }
+    var RB_API_TIMEOUT_MS = 4000;
+    var rbApiCache = {};
+    var rbApiRouteId = 0;
+
+    function rbApiIsValid(apiProduct, slug) {
+      if (!apiProduct || apiProduct.slug !== slug) return false;
+      if (typeof apiProduct.name !== "string" || !apiProduct.name.trim()) return false;
+      if (!Array.isArray(apiProduct.images) || apiProduct.images.length === 0) return false;
+      if (!Array.isArray(apiProduct.variants) || apiProduct.variants.length === 0) return false;
+      var imagesOk = apiProduct.images.every(function (img) {
+        return img && typeof img.image_url === "string" && img.image_url.trim() !== "";
+      });
+      var variantsOk = apiProduct.variants.every(function (v) {
+        return v &&
+          typeof v.option_value === "string" && v.option_value !== "" &&
+          typeof v.option_label === "string" && v.option_label !== "" &&
+          typeof v.price === "number" && isFinite(v.price) && v.price > 0;
+      });
+      return imagesOk && variantsOk;
+    }
+
+    // Shallow copy, so the original product object in this file is never
+    // changed (grid cards, related products and the fallback keep using it).
+    function rbApiCopy(baseProduct) {
+      var copy = {};
+      Object.keys(baseProduct).forEach(function (key) { copy[key] = baseProduct[key]; });
+      return copy;
+    }
+
+    // Size data from the API variants, in the API's sort order. When
+    // needDimensions is true, every size must end up with a width/length
+    // (API value, or this file's existing value) or null is returned.
+    function rbApiSizeData(baseProduct, apiProduct, needDimensions) {
+      var variants = apiProduct.variants.slice().sort(function (a, b) {
+        return (a.sort_order || 0) - (b.sort_order || 0);
+      });
+      var data = {
+        sizes: [], labels: [], labelMap: {}, sizePrices: {}, sizeOldPrices: {}, dimensions: {},
+        images: apiProduct.images.map(function (img) { return img.image_url; })
+      };
+      var baseDims = baseProduct.dimensions && typeof baseProduct.dimensions === "object" ? baseProduct.dimensions : {};
+      Object.keys(baseDims).forEach(function (size) { data.dimensions[size] = baseDims[size]; });
+      var ok = true;
+      variants.forEach(function (v) {
+        data.sizes.push(v.option_value);
+        data.labels.push(v.option_label);
+        data.labelMap[v.option_value] = v.option_label;
+        data.sizePrices[v.option_value] = v.price;
+        data.sizeOldPrices[v.option_value] =
+          (typeof v.compare_at_price === "number" && v.compare_at_price > v.price) ? v.compare_at_price : null;
+        if (typeof v.width_cm === "number" && typeof v.length_cm === "number") {
+          data.dimensions[v.option_value] = { width: v.width_cm, length: v.length_cm };
+        }
+        var d = data.dimensions[v.option_value];
+        if (needDimensions && !(d && typeof d.width === "number" && typeof d.length === "number")) ok = false;
+      });
+      if (!ok) return null;
+      // Base (no size selected) price: this page's own base price when one
+      // of the API sizes has exactly that price (so the page shows the same
+      // "from" price as before); otherwise the API product price (its
+      // lowest size). The crossed-out price is that size's compare-at price.
+      var baseVariant = null;
+      if (typeof baseProduct.price === "number") {
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - baseProduct.price) < 0.001; })[0] || null;
+      }
+      if (baseVariant) {
+        data.price = baseVariant.price;
+      } else {
+        data.price = (typeof apiProduct.price === "number" && isFinite(apiProduct.price) && apiProduct.price > 0)
+          ? apiProduct.price : variants[0].price;
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - data.price) < 0.001; })[0] || variants[0];
+      }
+      data.oldPrice = data.sizeOldPrices[baseVariant.option_value];
+      // Some pages keep the crossed-out price on their first size even when
+      // another size is the base price; the page showed it before a size
+      // was chosen, so the first size's compare-at price is used then.
+      if (!data.oldPrice) {
+        var firstOld = data.sizeOldPrices[variants[0].option_value];
+        data.oldPrice = (firstOld && firstOld > data.price) ? firstOld : null;
+      }
+      return data;
+    }
+
+    // Page-specific merge: which API values go into which fields this
+    // page already reads.
+    function rbApiMerge(baseProduct, apiProduct) {
+      var d = rbApiSizeData(baseProduct, apiProduct, false);
+      if (!d) return null;
+      var merged = rbApiCopy(baseProduct);
+      merged.name = apiProduct.name;
+      merged.images = d.images;
+      merged.availableSizes = d.sizes;
+      merged.sizeLabels = d.labelMap;
+      merged.sizePrices = d.sizePrices;
+      merged.sizeOldPrices = d.sizeOldPrices;
+      merged.price = d.price;
+      merged.oldPrice = d.oldPrice;
+      return merged;
+    }
+
+    // Resolves with the merged API product, or null when the original
+    // product object should be used instead. Never rejects.
+    function rbApiFetch(baseProduct, slug) {
+      if (rbApiCache[slug]) return Promise.resolve(rbApiCache[slug]);
+      if (typeof fetch !== "function" || !RB_API_PRODUCT_URL) return Promise.resolve(null);
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var timeoutId = controller ? window.setTimeout(function () { controller.abort(); }, RB_API_TIMEOUT_MS) : null;
+      return fetch(RB_API_PRODUCT_URL + encodeURIComponent(slug), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (response) {
+          if (!response.ok) return null;
+          return response.json().catch(function () { return null; });
+        })
+        .then(function (data) {
+          var apiProduct = data && data.success === true ? data.product : null;
+          if (!rbApiIsValid(apiProduct, slug)) return null;
+          var merged = rbApiMerge(baseProduct, apiProduct);
+          if (merged) rbApiCache[slug] = merged;
+          return merged;
+        })
+        .catch(function () { return null; })
+        .then(function (result) {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          return result;
+        });
+    }
+
+    // The product the detail view is currently showing: the merged API
+    // product when it belongs to the current hash, otherwise the product
+    // from MATTRESS_PRODUCTS exactly as before. The gallery arrows, Add
+    // to Basket, Buy Now and wishlist handlers below all read it.
+    var mtApiDetailProduct = null;
+    function mtDetailProduct() {
+      var slug = currentSlugFromHash();
+      if (mtApiDetailProduct && mtApiDetailProduct.slug === slug) return mtApiDetailProduct;
+      return MATTRESS_PRODUCTS[slug];
+    }
+
     function handleRoute() {
       var hash = window.location.hash;
       if (!hash || hash === "#") {
+        rbApiRouteId++;
         showCategoryView();
         return;
       }
       var slug = hash.replace(/^#\/?/, "");
       if (!slug) {
+        rbApiRouteId++;
         showCategoryView();
         return;
       }
       var product = MATTRESS_PRODUCTS[slug];
-      if (product) {
-        showDetail(product);
-      } else {
+      if (!product) {
+        rbApiRouteId++;
         showNotFound();
+        return;
       }
+      // Only the newest route may render (ignores late answers).
+      var requestId = ++rbApiRouteId;
+      rbApiFetch(product, slug).then(function (apiProduct) {
+        if (requestId !== rbApiRouteId) return;
+        mtApiDetailProduct = apiProduct;
+        showDetail(apiProduct || product);
+      });
     }
 
     window.addEventListener("hashchange", handleRoute);
@@ -1885,7 +2264,7 @@
 
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
-        var product = MATTRESS_PRODUCTS[currentSlugFromHash()];
+        var product = mtDetailProduct();
         if (!product) return;
         mtState.detailImageIndex = (mtState.detailImageIndex - 1 + product.images.length) % product.images.length;
         renderGallery(product);
@@ -1894,7 +2273,7 @@
 
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
-        var product = MATTRESS_PRODUCTS[currentSlugFromHash()];
+        var product = mtDetailProduct();
         if (!product) return;
         mtState.detailImageIndex = (mtState.detailImageIndex + 1) % product.images.length;
         renderGallery(product);
@@ -1943,7 +2322,7 @@
 
     if (addToCartBtn) {
       addToCartBtn.addEventListener("click", function () {
-        var product = MATTRESS_PRODUCTS[currentSlugFromHash()];
+        var product = mtDetailProduct();
         if (!product) return;
 
         if (!mtState.selectedSize) {
@@ -1995,7 +2374,7 @@
 
     if (buyNowBtn) {
       buyNowBtn.addEventListener("click", function () {
-        var product = MATTRESS_PRODUCTS[currentSlugFromHash()];
+        var product = mtDetailProduct();
         if (!product) return;
 
         if (!mtState.selectedSize) {
@@ -2016,7 +2395,7 @@
 
     if (wishlistBtn) {
       wishlistBtn.addEventListener("click", function () {
-        var product = MATTRESS_PRODUCTS[currentSlugFromHash()];
+        var product = mtDetailProduct();
         if (!product) return;
         var key = "mattress-" + product.slug;
         var willAdd;

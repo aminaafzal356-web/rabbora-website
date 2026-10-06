@@ -2638,15 +2638,11 @@
     "reviewCount": 131,
     "badge": "20% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -3382,15 +3378,11 @@
     "reviewCount": 20,
     "badge": "44% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -3475,14 +3467,12 @@
     "reviewCount": 57,
     "badge": "25% off",
     "availableSizeLabels": [
-      "Single 3ft",
       "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -4038,15 +4028,11 @@
     "reviewCount": 48,
     "badge": "57% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -4224,14 +4210,12 @@
     "reviewCount": 175,
     "badge": "25% off",
     "availableSizeLabels": [
-      "Single 3ft",
       "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -4782,14 +4766,12 @@
     "reviewCount": 48,
     "badge": "29% off",
     "availableSizeLabels": [
-      "Single 3ft",
       "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -5247,15 +5229,11 @@
     "reviewCount": 131,
     "badge": "25% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -5340,14 +5318,12 @@
     "reviewCount": 187,
     "badge": "39% off",
     "availableSizeLabels": [
-      "Single 3ft",
       "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -5433,15 +5409,11 @@
     "reviewCount": 92,
     "badge": "11% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -5526,15 +5498,11 @@
     "reviewCount": 187,
     "badge": "20% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -5619,14 +5587,12 @@
     "reviewCount": 209,
     "badge": "39% off",
     "availableSizeLabels": [
-      "Single 3ft",
       "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -5712,15 +5678,11 @@
     "reviewCount": 38,
     "badge": "20% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -5805,15 +5767,11 @@
     "reviewCount": 165,
     "badge": "20% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -5898,15 +5856,11 @@
     "reviewCount": 41,
     "badge": "11% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -5991,15 +5945,11 @@
     "reviewCount": 187,
     "badge": "15% off",
     "availableSizeLabels": [
-      "Single 3ft",
-      "Small Double 4ft",
       "Double 4ft 6\"",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -6167,6 +6117,143 @@
     ]
   },
 ];
+
+  // Price of each size, per bed (site owner's price list, 26 Sep 2026).
+  // Sizes not in a bed's list are not offered for that bed. Beds not in
+  // this table (Cannes) keep the size differences below.
+  const SLATTED_OTTOMAN_SIZE_PRICES = {
+    "chelsea-slatted-ottoman-bed": { "Single": 249, "Small Double": 388, "Double": 429, "King": 459, "Super King": 499 } /* 2026 Manhattan Bed Frame with Lines ® */,
+    "hampton-slatted-ottoman-bed": { "Single": 259, "Small Double": 359, "Double": 399, "King": 439, "Super King": 469 } /* 2026 Milan Wingback Bed® with Optional Ottoman Storage */,
+    "monaco-ottoman-bed": { "Single": 289, "Small Double": 367.5, "Double": 399, "King": 439, "Super King": 469 } /* 2026 Athens Linear Designer Bed® */,
+    "windsor-slatted-ottoman-bed": { "Single": 289, "Small Double": 409, "Double": 449, "King": 458.99, "Super King": 499 } /* 2026 Empire Bed Frame with Optional Ottoman Storage */,
+    "kensington-slatted-ottoman-bed": { "Single": 252, "Small Double": 383.99, "Double": 449, "King": 489, "Super King": 529 } /* The 2026 Art Deco Bed Style */,
+    "mayfair-ottoman-bed": { "Single": 306.59, "Small Double": 409, "Double": 449, "King": 489, "Super King": 539 } /* 2026 Orlando Bed frame (Optional Ottoman Storage) */,
+    "richmond-slatted-ottoman-bed": { "Single": 299, "Small Double": 409, "Double": 439, "King": 459, "Super King": 509 } /* 2026 Kendal Butterfly Wingback Bed */,
+    "cambridge-slatted-ottoman-bed": { "Single": 306.59, "Small Double": 439, "Double": 489, "King": 509, "Super King": 559 } /* 2026 Teddy-Orlando Bed frame (Optional Ottoman Storage) */,
+    "victoria-ottoman-bed": { "Single": 449, "Small Double": 589, "Double": 599, "King": 649, "Super King": 699 } /* 2026 Park lane Ambassador Luxury Bed ® */,
+    "oxford-slatted-ottoman-bed": { "Single": 299, "Small Double": 369, "Double": 399, "King": 419, "Super King": 479 } /* 2026 Brooklyn Bed Frame with Lines */,
+    "chester-slatted-ottoman-bed": { "Single": 349, "Small Double": 449, "Double": 459, "King": 519, "Super King": 569 } /* 2026 Washington Black Wooden Frame with Black Fabric Covering Edges */,
+    "kingston-ottoman-bed": { "Single": 299, "Small Double": 409, "Double": 429, "King": 459, "Super King": 499 } /* 2026 Nevada Bed Frame with Lines */,
+    "manhattan-slatted-ottoman-bed": { "Single": 239, "Small Double": 379, "Double": 399, "King": 449, "Super King": 499 } /* 2026 Hawaii Cream Bouclé bed with optional ottoman storage */,
+    "brighton-slatted-ottoman-bed": { "Single": 389, "Small Double": 439, "Double": 449, "King": 499, "Super King": 549 } /* 2026 Ibiza Linear Upholstered Bed with Black Lining */,
+    "lancaster-ottoman-bed": { "Single": 289, "Small Double": 409, "Double": 425, "King": 459, "Super King": 485 } /* 2026 Tokyo Sunrise Designer Bed® – With Optional Ottoman Storage */,
+    "bristol-slatted-ottoman-bed": { "Single": 275, "Small Double": 339, "Double": 349, "King": 399, "Super King": 419 } /* 2026 Málaga Upholstery Designer Bed */,
+    "soho-slatted-ottoman-bed": { "Single": 349, "Small Double": 409, "Double": 449, "King": 489, "Super King": 539 } /* 2026 Madrid Bed frame with Lines (Optional Ottoman Storage) */,
+    "belgravia-ottoman-bed": { "Single": 349, "Small Double": 399, "Double": 449, "King": 489, "Super King": 549 } /* 2026 Lisbon Bed Frame with Optional Ottoman Storage */,
+    "fulham-slatted-ottoman-bed": { "Single": 389, "Small Double": 449, "Double": 489, "King": 549, "Super King": 609 } /* 2026 Rome Luxury Wingback Bed */,
+    "chiswick-slatted-ottoman-bed": { "Single": 299, "Small Double": 399, "Double": 419, "King": 449, "Super King": 499 } /* 2026 Mona Lisa bed with optional ottoman storage */,
+    "greenwich-ottoman-bed": { "Single": 349, "Small Double": 409, "Double": 439, "King": 479, "Super King": 529 } /* 2026 Barcelona Bed Frame with Lines */,
+    "camden-slatted-ottoman-bed": { "Single": 399, "Small Double": 479, "Double": 499, "King": 579, "Super King": 609 } /* 2026 Florence Design Bed Frame */,
+    "notting-hill-slatted-ottoman-bed": { "Double": 799, "King": 849, "Super King": 899 } /* 2026 DUKE OF PSCL LUXURY HOTEL STYLE WIDE 3 PIECE HEADBOARD BED */,
+    "marylebone-ottoman-bed": { "Single": 349, "Small Double": 489, "Double": 499, "King": 549, "Super King": 589 } /* 2026 Golden Crown Bed with Optional Ottoman Storage */,
+    "highgate-slatted-ottoman-bed": { "Single": 349, "Small Double": 409, "Double": 439, "King": 479, "Super King": 529 } /* 2026 Avon Triple Panel Bed */,
+    "hampstead-slatted-ottoman-bed": { "Single": 299, "Small Double": 349, "Double": 389, "King": 419, "Super King": 499 } /* Duchess of La Rosa Bed (2026 Collection) */,
+    "clapham-ottoman-bed": { "Single": 389, "Small Double": 439, "Double": 449, "King": 499, "Super King": 549 } /* 2026 Osaka Linear Upholstered Bed with Black Lining */,
+    "islington-slatted-ottoman-bed": { "Single": 249, "Small Double": 339, "Double": 389, "King": 429, "Super King": 449 } /* 2026 Jersey bed with optional ottoman storage */,
+    "shoreditch-slatted-ottoman-bed": { "Single": 299, "Small Double": 399, "Double": 409, "King": 449, "Super King": 469 } /* 2026 Victoria V Lined Designer Bed */,
+    "southbank-ottoman-bed": { "Single": 319, "Small Double": 379, "Double": 409, "King": 449, "Super King": 499 } /* 2026 Thames Triple Wingback Bed */,
+    "kew-slatted-ottoman-bed": { "Double": 789, "King": 849, "Super King": 899 } /* 2026 Cloud of Boucle Cream bed frame */,
+    "putney-slatted-ottoman-bed": { "Small Double": 749, "Double": 799, "King": 849, "Super King": 899 } /* 2026 Las Vegas Luxury High Headboard Bed Frame (2-Piece Headboard) */,
+    "wimbledon-ottoman-bed": { "Single": 349, "Small Double": 409, "Double": 439, "King": 479, "Super King": 529 } /* 2026 Paris Linear Bed Frame */,
+    "dulwich-slatted-ottoman-bed": { "Single": 299, "Small Double": 439, "Double": 465, "King": 499, "Super King": 529 } /* 2026 New Skyscraper Art Deco Bed */,
+    "ealing-slatted-ottoman-bed": { "Single": 290, "Small Double": 399, "Double": 399, "King": 449, "Super King": 499 } /* 2026 Torino Bumper Style Designer Bed */,
+    "harrow-ottoman-bed": { "Single": 349, "Small Double": 399, "Double": 429, "King": 499, "Super King": 549 } /* 2026 Sheffield Bed With Studs */,
+    "farringdon-slatted-ottoman-bed": { "Double": 599, "King": 699, "Super King": 719 } /* 2026 Teddy Zen (Teddy Boucle Cream) Bed frame with optional ottoman storage */,
+    "barbican-slatted-ottoman-bed": { "Single": 319, "Small Double": 314.99, "Double": 399, "King": 429, "Super King": 469 } /* 2026 Venice Linear Bed with optional ottoman storage */,
+    "angel-ottoman-bed": { "Small Double": 749, "Double": 799, "King": 849, "Super King": 899 } /* 2026 Geneva High & Wide Headboard Bed Frame (2-Piece Headboard) */,
+    "finsbury-slatted-ottoman-bed": { "Single": 299, "Small Double": 399, "Double": 409, "King": 449, "Super King": 499 } /* 2026 Zurich Bed with Optional Ottoman Storage */,
+    "whitechapel-slatted-ottoman-bed": { "Single": 289, "Small Double": 409, "Double": 449, "King": 458.99, "Super King": 499 } /* 2026 PSCL Arizona Bed Frame with optional ottoman storage */,
+    "aldgate-ottoman-bed": { "Single": 389, "Small Double": 439, "Double": 449, "King": 499, "Super King": 549 } /* 2026 Golden Ibiza Linear Bed with Gold Fabric Lining */,
+    "stratford-slatted-ottoman-bed": { "Single": 295, "Small Double": 399, "Double": 429, "King": 489, "Super King": 529 } /* 2026 Sheffield Upholstery Bed */,
+    "hackney-wick-slatted-ottoman-bed": { "Single": 294, "Small Double": 409, "Double": 439, "King": 479, "Super King": 529 } /* 2026 Yukon Bed Frame with Wings */,
+    "bow-ottoman-bed": { "Small Double": 749, "Double": 779, "King": 819, "Super King": 899 } /* 2026 Presidential Bed Frame with Optional Ottoman Storage */,
+    "poplar-slatted-ottoman-bed": { "Single": 599, "Small Double": 699, "Double": 749, "King": 799, "Super King": 899 } /* 2026 MONTANA AMBASSADOR DESIGN */,
+    "limehouse-slatted-ottoman-bed": { "Single": 299, "Small Double": 429, "Double": 459, "King": 499, "Super King": 529 } /* 2026 PSCL Amalfi Italian Style Bed with Optional Ottoman Storage */,
+    "rotherhithe-ottoman-bed": { "Single": 449, "Small Double": 519, "Double": 539, "King": 599, "Super King": 649 } /* 2026 Teddy-Wave Cream Bed Frame with Optional Ottoman Storage */,
+    "deptford-slatted-ottoman-bed": { "Single": 539, "Small Double": 649, "Double": 699, "King": 799, "Super King": 899 } /* Black Plush Golden Pyramid Bed with Optional Ottoman Storage */,
+    "new-cross-slatted-ottoman-bed": { "Double": 749, "King": 799, "Super King": 849 } /* 2026 THE BAHAMAS LUXURY HOTEL STYLE WIDE 2 PIECE HEADBOARD BED */,
+    "catford-ottoman-bed": { "Small Double": 549, "Double": 599, "King": 659, "Super King": 699 } /* 2026 Riviera High Headboard Bed Frame (2-Piece Headboard) */,
+    "sydenham-slatted-ottoman-bed": { "Double": 799, "King": 849, "Super King": 899 } /* 2026 New York Tall headboard Bed Frame (2/3 Piece Headboard) */,
+    "crystal-palace-slatted-ottoman-bed": { "Double": 1199, "King": 1349, "Super King": 1699 } /* 2026 The Grand Bed Frame – Luxury Upholstered (With metal lining) */,
+    "norwood-ottoman-bed": { "Small Double": 549, "Double": 599, "King": 659, "Super King": 699 } /* 2026 Silver Fern Bed with High Headboard (2-Piece Headboard) */,
+    "streatham-slatted-ottoman-bed": { "Double": 799, "King": 849, "Super King": 899 } /* 2026 Marble Bahamas PSCL Luxury Hotel Style Wide Bed, Marble Fabric */,
+    "balham-slatted-ottoman-bed": { "Double": 799, "King": 849, "Super King": 899 } /* 2026 Duke of Orlando wide headboard bed frame */,
+    "tooting-ottoman-bed": { "Double": 799, "King": 849, "Super King": 899 } /* 2026 PSCL Ascot – Tall headboard Bed Frame (2 Piece Headboard) */,
+    "earlsfield-slatted-ottoman-bed": { "Double": 849, "King": 899, "Super King": 949 } /* 2026 Teddy-Duke Wide Headboard Luxury Bed Frame (3-Piece Headboard) */,
+    "raynes-park-slatted-ottoman-bed": { "Single": 299, "Small Double": 419, "Double": 449, "King": 499, "Super King": 509 } /* 2026 Astoria Deco Bed with Optional Ottoman Storage */
+  };
+
+  // Old (original / "was") price for each size, same layout as
+  // SLATTED_OTTOMAN_SIZE_PRICES above. Single 3ft keeps its existing old
+  // price. The other sizes are worked out from their existing sale price:
+  //   Small Double 21% off -> old = sale / 0.79
+  //   Double       28% off -> old = sale / 0.72
+  //   King         29% off -> old = sale / 0.71
+  //   Super King   29% off -> old = sale / 0.71
+  // Any number here can be changed in VS Code; a size left out (or null)
+  // shows no old price.
+  const SLATTED_OTTOMAN_SIZE_OLD_PRICES = {
+    "chelsea-slatted-ottoman-bed": { "Single": 429, "Small Double": 491.14, "Double": 595.83, "King": 646.48, "Super King": 702.82 } /* 2026 Manhattan Bed Frame with Lines ® */,
+    "hampton-slatted-ottoman-bed": { "Single": 420, "Small Double": 454.43, "Double": 554.17, "King": 618.31, "Super King": 660.56 } /* 2026 Milan Wingback Bed® with Optional Ottoman Storage */,
+    "monaco-ottoman-bed": { "Single": 400, "Small Double": 465.19, "Double": 554.17, "King": 618.31, "Super King": 660.56 } /* 2026 Athens Linear Designer Bed® */,
+    "windsor-slatted-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 623.61, "King": 646.46, "Super King": 702.82 } /* 2026 Empire Bed Frame with Optional Ottoman Storage */,
+    "kensington-slatted-ottoman-bed": { "Single": 420, "Small Double": 486.06, "Double": 623.61, "King": 688.73, "Super King": 745.07 } /* The 2026 Art Deco Bed Style */,
+    "mayfair-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 623.61, "King": 688.73, "Super King": 759.15 } /* 2026 Orlando Bed frame (Optional Ottoman Storage) */,
+    "richmond-slatted-ottoman-bed": { "Single": 444, "Small Double": 517.72, "Double": 609.72, "King": 646.48, "Super King": 716.9 } /* 2026 Kendal Butterfly Wingback Bed */,
+    "cambridge-slatted-ottoman-bed": { "Single": 420, "Small Double": 555.7, "Double": 679.17, "King": 716.9, "Super King": 787.32 } /* 2026 Teddy-Orlando Bed frame (Optional Ottoman Storage) */,
+    "victoria-ottoman-bed": { "Single": 600, "Small Double": 745.57, "Double": 831.94, "King": 914.08, "Super King": 984.51 } /* 2026 Park lane Ambassador Luxury Bed ® */,
+    "oxford-slatted-ottoman-bed": { "Single": 420, "Small Double": 467.09, "Double": 554.17, "King": 590.14, "Super King": 674.65 } /* 2026 Brooklyn Bed Frame with Lines */,
+    "chester-slatted-ottoman-bed": { "Single": 599, "Small Double": 568.35, "Double": 637.5, "King": 730.99, "Super King": 801.41 } /* 2026 Washington Black Wooden Frame with Black Fabric Covering Edges */,
+    "kingston-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 595.83, "King": 646.48, "Super King": 702.82 } /* 2026 Nevada Bed Frame with Lines */,
+    "manhattan-slatted-ottoman-bed": { "Single": 420, "Small Double": 479.75, "Double": 554.17, "King": 632.39, "Super King": 702.82 } /* 2026 Hawaii Cream Bouclé bed with optional ottoman storage */,
+    "brighton-slatted-ottoman-bed": { "Single": 499, "Small Double": 555.7, "Double": 623.61, "King": 702.82, "Super King": 773.24 } /* 2026 Ibiza Linear Upholstered Bed with Black Lining */,
+    "lancaster-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 590.28, "King": 646.48, "Super King": 683.1 } /* 2026 Tokyo Sunrise Designer Bed® – With Optional Ottoman Storage */,
+    "bristol-slatted-ottoman-bed": { "Single": 360, "Small Double": 429.11, "Double": 484.72, "King": 561.97, "Super King": 590.14 } /* 2026 Málaga Upholstery Designer Bed */,
+    "soho-slatted-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 623.61, "King": 688.73, "Super King": 759.15 } /* 2026 Madrid Bed frame with Lines (Optional Ottoman Storage) */,
+    "belgravia-ottoman-bed": { "Single": 420, "Small Double": 505.06, "Double": 623.61, "King": 688.73, "Super King": 773.24 } /* 2026 Lisbon Bed Frame with Optional Ottoman Storage */,
+    "fulham-slatted-ottoman-bed": { "Single": 478.8, "Small Double": 568.35, "Double": 679.17, "King": 773.24, "Super King": 857.75 } /* 2026 Rome Luxury Wingback Bed */,
+    "chiswick-slatted-ottoman-bed": { "Single": 420, "Small Double": 505.06, "Double": 581.94, "King": 632.39, "Super King": 702.82 } /* 2026 Mona Lisa bed with optional ottoman storage */,
+    "greenwich-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 609.72, "King": 674.65, "Super King": 745.07 } /* 2026 Barcelona Bed Frame with Lines */,
+    "camden-slatted-ottoman-bed": { "Single": 478.8, "Small Double": 606.33, "Double": 693.06, "King": 815.49, "Super King": 857.75 } /* 2026 Florence Design Bed Frame */,
+    "notting-hill-slatted-ottoman-bed": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 DUKE OF PSCL LUXURY HOTEL STYLE WIDE 3 PIECE HEADBOARD BED */,
+    "marylebone-ottoman-bed": { "Single": 549, "Small Double": 618.99, "Double": 693.06, "King": 773.24, "Super King": 829.58 } /* 2026 Golden Crown Bed with Optional Ottoman Storage */,
+    "highgate-slatted-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 609.72, "King": 674.65, "Super King": 745.07 } /* 2026 Avon Triple Panel Bed */,
+    "hampstead-slatted-ottoman-bed": { "Single": 414, "Small Double": 441.77, "Double": 540.28, "King": 590.14, "Super King": 702.82 } /* Duchess of La Rosa Bed (2026 Collection) */,
+    "clapham-ottoman-bed": { "Single": 499, "Small Double": 555.7, "Double": 623.61, "King": 702.82, "Super King": 773.24 } /* 2026 Osaka Linear Upholstered Bed with Black Lining */,
+    "islington-slatted-ottoman-bed": { "Single": 420, "Small Double": 429.11, "Double": 540.28, "King": 604.23, "Super King": 632.39 } /* 2026 Jersey bed with optional ottoman storage */,
+    "shoreditch-slatted-ottoman-bed": { "Single": 360, "Small Double": 505.06, "Double": 568.06, "King": 632.39, "Super King": 660.56 } /* 2026 Victoria V Lined Designer Bed */,
+    "southbank-ottoman-bed": { "Single": 420, "Small Double": 479.75, "Double": 568.06, "King": 632.39, "Super King": 702.82 } /* 2026 Thames Triple Wingback Bed */,
+    "kew-slatted-ottoman-bed": { "Double": 1095.83, "King": 1195.77, "Super King": 1266.2 } /* 2026 Cloud of Boucle Cream bed frame */,
+    "putney-slatted-ottoman-bed": { "Small Double": 948.1, "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 Las Vegas Luxury High Headboard Bed Frame (2-Piece Headboard) */,
+    "wimbledon-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 609.72, "King": 674.65, "Super King": 745.07 } /* 2026 Paris Linear Bed Frame */,
+    "dulwich-slatted-ottoman-bed": { "Single": 420, "Small Double": 555.7, "Double": 645.83, "King": 702.82, "Super King": 745.07 } /* 2026 New Skyscraper Art Deco Bed */,
+    "ealing-slatted-ottoman-bed": { "Single": 396, "Small Double": 505.06, "Double": 554.17, "King": 632.39, "Super King": 702.82 } /* 2026 Torino Bumper Style Designer Bed */,
+    "harrow-ottoman-bed": { "Single": 456, "Small Double": 505.06, "Double": 595.83, "King": 702.82, "Super King": 773.24 } /* 2026 Sheffield Bed With Studs */,
+    "barnet-slatted-ottoman-bed": { "Single": 399, "Small Double": 441.77, "Double": 554.17, "King": 702.82, "Super King": 829.58 } /* Rabbora Cannes Slatted Ottoman Bed */,
+    "farringdon-slatted-ottoman-bed": { "Double": 831.94, "King": 984.51, "Super King": 1012.68 } /* 2026 Teddy Zen (Teddy Boucle Cream) Bed frame with optional ottoman storage */,
+    "barbican-slatted-ottoman-bed": { "Single": 372, "Small Double": 398.72, "Double": 554.17, "King": 604.23, "Super King": 660.56 } /* 2026 Venice Linear Bed with optional ottoman storage */,
+    "angel-ottoman-bed": { "Small Double": 948.1, "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 Geneva High & Wide Headboard Bed Frame (2-Piece Headboard) */,
+    "finsbury-slatted-ottoman-bed": { "Single": 420, "Small Double": 505.06, "Double": 568.06, "King": 632.39, "Super King": 702.82 } /* 2026 Zurich Bed with Optional Ottoman Storage */,
+    "aldgate-ottoman-bed": { "Single": 499, "Small Double": 555.7, "Double": 623.61, "King": 702.82, "Super King": 773.24 } /* 2026 Golden Ibiza Linear Bed with Gold Fabric Lining */,
+    "stratford-slatted-ottoman-bed": { "Single": 456, "Small Double": 505.06, "Double": 595.83, "King": 688.73, "Super King": 745.07 } /* 2026 Sheffield Upholstery Bed */,
+    "hackney-wick-slatted-ottoman-bed": { "Single": 420, "Small Double": 517.72, "Double": 609.72, "King": 674.65, "Super King": 745.07 } /* 2026 Yukon Bed Frame with Wings */,
+    "bow-ottoman-bed": { "Small Double": 948.1, "Double": 1081.94, "King": 1153.52, "Super King": 1266.2 } /* 2026 Presidential Bed Frame with Optional Ottoman Storage */,
+    "poplar-slatted-ottoman-bed": { "Single": 800, "Small Double": 884.81, "Double": 1040.28, "King": 1125.35, "Super King": 1266.2 } /* 2026 MONTANA AMBASSADOR DESIGN */,
+    "limehouse-slatted-ottoman-bed": { "Single": 599, "Small Double": 543.04, "Double": 637.5, "King": 702.82, "Super King": 745.07 } /* 2026 PSCL Amalfi Italian Style Bed with Optional Ottoman Storage */,
+    "rotherhithe-ottoman-bed": { "Single": 520, "Small Double": 656.96, "Double": 748.61, "King": 843.66, "Super King": 914.08 } /* 2026 Teddy-Wave Cream Bed Frame with Optional Ottoman Storage */,
+    "deptford-slatted-ottoman-bed": { "Single": 649, "Small Double": 821.52, "Double": 970.83, "King": 1125.35, "Super King": 1266.2 } /* Black Plush Golden Pyramid Bed with Optional Ottoman Storage */,
+    "new-cross-slatted-ottoman-bed": { "Double": 1040.28, "King": 1125.35, "Super King": 1195.77 } /* 2026 THE BAHAMAS LUXURY HOTEL STYLE WIDE 2 PIECE HEADBOARD BED */,
+    "catford-ottoman-bed": { "Small Double": 694.94, "Double": 831.94, "King": 928.17, "Super King": 984.51 } /* 2026 Riviera High Headboard Bed Frame (2-Piece Headboard) */,
+    "sydenham-slatted-ottoman-bed": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 New York Tall headboard Bed Frame (2/3 Piece Headboard) */,
+    "crystal-palace-slatted-ottoman-bed": { "Double": 1665.28, "King": 1900, "Super King": 2392.96 } /* 2026 The Grand Bed Frame – Luxury Upholstered (With metal lining) */,
+    "norwood-ottoman-bed": { "Small Double": 694.94, "Double": 831.94, "King": 928.17, "Super King": 984.51 } /* 2026 Silver Fern Bed with High Headboard (2-Piece Headboard) */,
+    "streatham-slatted-ottoman-bed": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 Marble Bahamas PSCL Luxury Hotel Style Wide Bed, Marble Fabric */,
+    "balham-slatted-ottoman-bed": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 Duke of Orlando wide headboard bed frame */,
+    "tooting-ottoman-bed": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 } /* 2026 PSCL Ascot – Tall headboard Bed Frame (2 Piece Headboard) */,
+    "earlsfield-slatted-ottoman-bed": { "Double": 1179.17, "King": 1266.2, "Super King": 1336.62 } /* 2026 Teddy-Duke Wide Headboard Luxury Bed Frame (3-Piece Headboard) */,
+    "raynes-park-slatted-ottoman-bed": { "Single": 599, "Small Double": 530.38, "Double": 623.61, "King": 702.82, "Super King": 716.9 } /* 2026 Astoria Deco Bed with Optional Ottoman Storage */,
+    "whitechapel-slatted-ottoman-bed": { "Small Double": 517.72, "Double": 623.61, "King": 646.46, "Super King": 702.82 } /* 2026 PSCL Arizona Bed Frame (no Single old price) */
+  };
 
   const SLATTED_OTTOMAN_SIZE_DELTAS = {
     "Single": -100,
@@ -6770,12 +6857,89 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
 
     var ASSEMBLY_PRICE = 59;
 
+    // Price of the chosen size (before add-ons). Uses the bed's own
+    // size price list when it has one; otherwise the size difference.
+    function sizePriceFor(product, size) {
+      // A product loaded from the backend API carries its own size prices.
+      if (size && product.sizePrices && typeof product.sizePrices[size] === "number") return product.sizePrices[size];
+      var prices = SLATTED_OTTOMAN_SIZE_PRICES[product.slug];
+      if (prices) {
+        return (size && typeof prices[size] === "number") ? prices[size] : product.price;
+      }
+      var delta = size ? (OTTOMAN_SIZE_DELTAS[size] || 0) : 0;
+      return Math.max(0, product.price + delta);
+    }
+
+    // The stored oldPrice is the original price of the bed's first
+    // (smallest) size. It is only shown for that size, or before a size
+    // is chosen, and only when it is higher than the price shown.
+    function validOldPriceFor(product, size, sizePrice) {
+      // Old price written for this exact size in SLATTED_OTTOMAN_SIZE_OLD_PRICES.
+      var sizeOlds = SLATTED_OTTOMAN_SIZE_OLD_PRICES[product.slug];
+      var listedOldPrice = (size && sizeOlds && typeof sizeOlds[size] === "number") ? sizeOlds[size] : null;
+      if (product.sizeOldPrices) {
+        // Product from the backend API: the old price listed above for this
+        // size comes first; the API compare-at price is used for a size the
+        // list does not have.
+        var apiOldPrice = size ? (listedOldPrice || product.sizeOldPrices[size]) : product.oldPrice;
+        return (apiOldPrice && apiOldPrice > sizePrice) ? apiOldPrice : null;
+      }
+      if (listedOldPrice) return listedOldPrice > sizePrice ? listedOldPrice : null;
+      if (!product.oldPrice || product.oldPrice <= sizePrice) return null;
+      if (!size) return product.oldPrice;
+      if (SLATTED_OTTOMAN_SIZE_PRICES[product.slug]) {
+        return size === product.availableSizes[0] ? product.oldPrice : null;
+      }
+      return (OTTOMAN_SIZE_DELTAS[size] || 0) === 0 ? product.oldPrice : null;
+    }
+
     function currentPrice(product) {
-      var delta = obState.selectedSize ? (OTTOMAN_SIZE_DELTAS[obState.selectedSize] || 0) : 0;
       var addons = 0;
       if (obState.buttons) addons += product.detailingButtonsPrice || 15;
       if (obState.assembly === "yes") addons += ASSEMBLY_PRICE;
-      return Math.max(0, product.price + delta + addons);
+      var total = Number(sizePriceFor(product, obState.selectedSize)) + addons;
+      // Rounded to whole pence so the page and the basket always hold the
+      // exact same number (e.g. 367.5 + 15 = 382.50, never 382.49999).
+      return isFinite(total) ? Math.round(total * 100) / 100 : NaN;
+    }
+
+    // True only for a real, usable price (not NaN, undefined or \u00A30).
+    function isValidPrice(v) {
+      return typeof v === "number" && isFinite(v) && v > 0;
+    }
+
+    // ---- Price display helpers (price area only; prices are unchanged) ----
+
+    // True when a paid add-on (Detailing Buttons or Assembly) is part of
+    // the final price shown.
+    function hasPaidAddons() {
+      return obState.buttons === true || obState.assembly === "yes";
+    }
+
+    // "42% off", worked out only from a real old price and the real price
+    // it belongs to. No old price (or not higher) -> no percentage.
+    function discountPercentFor(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    // The page's existing monthly rule: price / 12, rounded up to the next
+    // whole pound (every product's monthlyPrice follows it, e.g. £249 ->
+    // £21). Worked out in pence so 300 / 12 stays exactly 25.
+    function monthlyAmountFor(price) {
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // Small "% off" text next to a crossed-out price. Created by script so
+    // no HTML/CSS file has to change; inline style only for spacing/weight.
+    function createDiscountEl() {
+      var el = document.createElement("span");
+      el.className = "ob-price-discount";
+      el.style.marginLeft = "0.5rem";
+      el.style.fontSize = "0.8rem";
+      el.style.fontWeight = "600";
+      return el;
     }
 
     function renderGallery(product) {
@@ -6795,6 +6959,78 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
         });
         thumbsWrap.appendChild(thumb);
       });
+    }
+
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Selected size label (price area) ----
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "bb-modal__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="bb-modal__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+        // "% off" for this size (only when the size has a real old price).
+        sizePriceRow.appendChild(createDiscountEl());
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      var validOld = (oldPrice && oldPrice > sizePrice) ? oldPrice : null;
+      var pct = discountPercentFor(validOld, sizePrice);
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = obMoney(sizePrice);
+      sizePriceRow.children[1].textContent = validOld ? obMoney(validOld) : "";
+      sizePriceRow.children[2].textContent = pct ? pct + "% off" : "";
     }
 
     function renderSizeOptions(product) {
@@ -6901,14 +7137,201 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
       });
       selectedFabricNameEl.textContent = selectedFabricName();
       if (matchingFabricNameEl) matchingFabricNameEl.textContent = selectedFabricName();
+      if (currentProduct) renderPurchasePanel(currentProduct);
       // A matching fabric-specific product photo isn't available for
       // every fabric, so per the spec we keep the main product image
       // and simply update the selected fabric name/highlight.
     }
 
+    // ---- Sale price block (main price area) ----
+    // Original Price: £XXX (crossed out)
+    // Sale Price:     £XXX (the existing big price, unchanged element)
+    // You Save:       £XXX (XX% OFF)
+    // Every number comes from the page's existing price data:
+    //   Sale price     = currentPrice(product)  (size price + paid add-ons)
+    //   Original price = the size's real old price + the same paid add-ons
+    //                    (add-ons are never discounted, so they count at
+    //                    their normal price on both sides)
+    //   You save       = Original price - Sale price
+    //   % off          = round(You save / Original price * 100)
+    // Only shown when the selected size has a real old price (API
+    // compare_at_price or this file's fallback rule). No old price -> just
+    // the normal price, exactly as before.
+    var saleOriginalEl = null;
+    var saleLabelEl = null;
+    var saleSaveEl = null;
+
+    function injectSalePriceStyles() {
+      if (document.getElementById("obSalePriceStyles")) return;
+      var style = document.createElement("style");
+      style.id = "obSalePriceStyles";
+      style.textContent =
+        ".ob-sale__original{margin:0 0 .3rem;font-family:var(--font-body,sans-serif);font-size:.9rem;color:rgba(35,35,32,.62);letter-spacing:.01em;}" +
+        ".ob-sale__original s{color:inherit;text-decoration-thickness:1px;}" +
+        ".ob-sale__label{align-self:center;margin-right:.55rem;font-family:var(--font-body,sans-serif);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-brass,#a47b4c);}" +
+        ".ob-sale__save{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.4rem 0 .3rem;font-family:var(--font-body,sans-serif);font-size:.9rem;font-weight:600;color:var(--color-forest,#1b3a2f);}" +
+        ".ob-sale__badge{display:inline-block;padding:.18rem .65rem;border-radius:999px;background:var(--color-forest,#1b3a2f);color:var(--color-ivory,#f1ebde);font-size:.72rem;font-weight:700;letter-spacing:.08em;}" +
+        ".ob-sale__original[hidden],.ob-sale__label[hidden],.ob-sale__save[hidden]{display:none!important;}" +
+        "@media (max-width:600px){.ob-sale__original,.ob-sale__save{font-size:.85rem;}.ob-sale__label{font-size:.7rem;}}";
+      document.head.appendChild(style);
+    }
+
+    function ensureSalePriceEls() {
+      var row = priceEl.parentNode;
+      if (saleOriginalEl || !row || !row.parentNode) return;
+      injectSalePriceStyles();
+      saleOriginalEl = document.createElement("p");
+      saleOriginalEl.className = "ob-sale__original";
+      saleOriginalEl.innerHTML = 'Original Price: <s data-ob-original-price></s>';
+      row.parentNode.insertBefore(saleOriginalEl, row);
+
+      saleLabelEl = document.createElement("span");
+      saleLabelEl.className = "ob-sale__label";
+      saleLabelEl.textContent = "Sale Price:";
+      row.insertBefore(saleLabelEl, priceEl);
+
+      saleSaveEl = document.createElement("p");
+      saleSaveEl.className = "ob-sale__save";
+      saleSaveEl.setAttribute("aria-live", "polite");
+      saleSaveEl.innerHTML = '<span>You Save: <span data-ob-save-amount></span></span> <span class="ob-sale__badge" data-ob-save-pct></span>';
+      row.parentNode.insertBefore(saleSaveEl, row.nextSibling);
+    }
+
+    function renderSalePrice(originalPrice, salePrice) {
+      ensureSalePriceEls();
+      if (!saleOriginalEl) return;
+      var save = originalPrice ? Math.round((originalPrice - salePrice) * 100) / 100 : 0;
+      var pct = save > 0 ? Math.round((save / originalPrice) * 100) : 0;
+      var onSale = save > 0 && pct > 0;
+      saleOriginalEl.hidden = !onSale;
+      saleLabelEl.hidden = !onSale;
+      saleSaveEl.hidden = !onSale;
+      if (!onSale) return;
+      saleOriginalEl.querySelector("[data-ob-original-price]").textContent = obMoney(originalPrice);
+      saleSaveEl.querySelector("[data-ob-save-amount]").textContent = obMoney(save);
+      saleSaveEl.querySelector("[data-ob-save-pct]").textContent = "(" + pct + "% OFF)";
+    }
+
+    // ---- Total Price (above quantity / Add to Basket) ----
+    // Total Price = currentPrice(product) x quantity. It uses the exact same
+    // currentPrice() that Add to Basket sends to the cart, so the page and
+    // the basket can never show different amounts. When the configuration
+    // is on sale it also shows the original total crossed out and the
+    // total saved. Created by script, like the sale block above, so no
+    // HTML/CSS file has to change.
+    var totalBlockEl = null;
+
+    function injectTotalPriceStyles() {
+      if (document.getElementById("obTotalPriceStyles")) return;
+      var style = document.createElement("style");
+      style.id = "obTotalPriceStyles";
+      style.textContent =
+        ".ob-total{margin:1.25rem 0 1rem;padding:1rem 1.15rem;border:1px solid rgba(164,123,76,.35);border-radius:4px;background:rgba(241,235,222,.55);}" +
+        ".ob-total__row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.35rem .75rem;}" +
+        ".ob-total__label{font-family:var(--font-body,sans-serif);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-forest,#1b3a2f);}" +
+        ".ob-total__amounts{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem;}" +
+        ".ob-total__was{font-family:var(--font-body,sans-serif);font-size:.95rem;color:rgba(35,35,32,.55);text-decoration:line-through;text-decoration-thickness:1px;}" +
+        ".ob-total__amount{font-family:var(--font-display,Georgia,serif);font-size:1.75rem;line-height:1.1;font-weight:600;color:var(--color-forest,#1b3a2f);}" +
+        ".ob-total__meta{margin:.45rem 0 0;font-family:var(--font-body,sans-serif);font-size:.85rem;color:rgba(35,35,32,.7);}" +
+        ".ob-total__save{margin:.3rem 0 0;font-family:var(--font-body,sans-serif);font-size:.88rem;font-weight:600;color:var(--color-brass,#a47b4c);}" +
+        ".ob-total__was[hidden],.ob-total__meta[hidden],.ob-total__save[hidden]{display:none!important;}" +
+        "@media (max-width:600px){.ob-total{padding:.85rem .9rem;}.ob-total__amount{font-size:1.5rem;}.ob-total__label{font-size:.72rem;}}";
+      document.head.appendChild(style);
+    }
+
+    // Placed directly above the row that holds the quantity control, so it
+    // sits just before Add to Basket whatever the surrounding markup is.
+    function ensureTotalBlock() {
+      if (totalBlockEl && document.contains(totalBlockEl)) return totalBlockEl;
+      if (!addToCartBtn || !qtyValueEl) return null;
+      var common = addToCartBtn.parentNode;
+      while (common && !common.contains(qtyValueEl)) common = common.parentNode;
+      if (!common) return null;
+      var anchor = qtyValueEl;
+      while (anchor.parentNode && anchor.parentNode !== common) anchor = anchor.parentNode;
+      injectTotalPriceStyles();
+      totalBlockEl = document.createElement("div");
+      totalBlockEl.className = "ob-total";
+      totalBlockEl.setAttribute("aria-live", "polite");
+      totalBlockEl.innerHTML =
+        '<div class="ob-total__row">' +
+          '<span class="ob-total__label">Total Price</span>' +
+          '<span class="ob-total__amounts">' +
+            '<span class="ob-total__was" data-ob-total-was hidden></span>' +
+            '<span class="ob-total__amount" data-ob-total-amount></span>' +
+          '</span>' +
+        '</div>' +
+        '<p class="ob-total__save" data-ob-total-save hidden></p>' +
+        '<p class="ob-total__meta" data-ob-total-meta hidden></p>';
+      common.insertBefore(totalBlockEl, anchor);
+      return totalBlockEl;
+    }
+
+    function renderTotalPrice(unitPrice, originalUnit) {
+      var el = ensureTotalBlock();
+      if (!el) return;
+      var qty = obState.quantity > 0 ? obState.quantity : 1;
+      var amountEl = el.querySelector("[data-ob-total-amount]");
+      var wasEl = el.querySelector("[data-ob-total-was]");
+      var saveEl = el.querySelector("[data-ob-total-save]");
+      var metaEl = el.querySelector("[data-ob-total-meta]");
+
+      if (!isValidPrice(unitPrice)) {
+        amountEl.textContent = "Price unavailable";
+        wasEl.hidden = true; saveEl.hidden = true;
+        metaEl.hidden = false;
+        metaEl.textContent = "Please choose another size or contact us for a quote.";
+        return;
+      }
+
+      var total = Math.round(unitPrice * qty * 100) / 100;
+      var onSale = isValidPrice(originalUnit) && originalUnit > unitPrice;
+      var originalTotal = onSale ? Math.round(originalUnit * qty * 100) / 100 : 0;
+      var saved = onSale ? Math.round((originalTotal - total) * 100) / 100 : 0;
+
+      amountEl.textContent = (obState.selectedSize ? "" : "From ") + obMoney(total);
+      wasEl.hidden = !onSale;
+      wasEl.textContent = onSale ? obMoney(originalTotal) : "";
+      saveEl.hidden = !onSale;
+      saveEl.textContent = onSale ? "You Save: " + obMoney(saved) : "";
+
+      var meta = [];
+      if (!obState.selectedSize) meta.push("Select a size to confirm your price.");
+      if (qty > 1) meta.push(qty + " \u00d7 " + obMoney(unitPrice) + " each");
+      metaEl.hidden = meta.length === 0;
+      metaEl.textContent = meta.join(" \u00b7 ");
+    }
+
     function renderPurchasePanel(product) {
-      priceEl.textContent = obMoney(currentPrice(product));
-      prevPriceEl.textContent = product.oldPrice ? obMoney(product.oldPrice) : "";
+      var finalPrice = currentPrice(product);
+      priceEl.textContent = obMoney(finalPrice);
+      var sizePrice = sizePriceFor(product, obState.selectedSize);
+      var validOldPrice = validOldPriceFor(product, obState.selectedSize, sizePrice);
+
+      // Original total of this exact configuration: the size's real old
+      // price plus the same paid add-ons that are in the sale price.
+      var addonsTotal = Math.round((finalPrice - sizePrice) * 100) / 100;
+      var originalTotal = validOldPrice ? validOldPrice + addonsTotal : null;
+      // The old price now has its own "Original Price" line, so the small
+      // crossed-out price next to the big price stays empty.
+      prevPriceEl.textContent = "";
+      renderSalePrice(originalTotal, finalPrice);
+
+      // Monthly amount from the final price shown (paid add-ons included),
+      // using the page's existing rule. With no size and no add-ons this is
+      // exactly the product's own monthlyPrice.
+      if (monthlyEl) {
+        var monthly = (!obState.selectedSize && !hasPaidAddons() && typeof product.monthlyPrice === "number")
+          ? product.monthlyPrice
+          : monthlyAmountFor(finalPrice);
+        monthlyEl.textContent = "or from £" + monthly + "/month";
+      }
+
+      renderSelectedSizePrice(obState.selectedSize, sizePrice, validOldPrice);
+      // Selected size shown above the size buttons.
+      rbRenderSizeLabel(sizeOptionsEl, obState.selectedSize);
+      // Total Price for the whole configuration and quantity.
+      renderTotalPrice(finalPrice, originalTotal);
     }
 
     function renderDimensionsTable(product) {
@@ -6930,6 +7353,7 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
           });
           btn.setAttribute("aria-pressed", "true");
           if (ottomanStorageMsg) ottomanStorageMsg.textContent = "";
+          if (currentProduct) renderPurchasePanel(currentProduct);
         });
       });
 
@@ -6937,6 +7361,7 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
         diamantesToggle.addEventListener("click", function () {
           obState.diamantes = !obState.diamantes;
           diamantesToggle.setAttribute("aria-pressed", String(obState.diamantes));
+          if (currentProduct) renderPurchasePanel(currentProduct);
         });
       }
 
@@ -7173,23 +7598,181 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
+    // ---- Backend Product Detail API ----
+    // The detail view first asks the backend for the product. Only the
+    // name, images, sizes, size prices, compare-at prices and (where this
+    // page shows them) dimensions come from the API. They are merged ON TOP
+    // of a copy of the existing product object from this file, so every
+    // frontend-only field stays exactly as it is. If the API fails, is
+    // unreachable, returns 404 or sends unexpected data, the original
+    // product object from this file is used exactly as before.
+    // Address from api-config.js (window.RabboraApi), which must load
+    // before this file: GET <API_URL>/products/slug/<slug>.
+    var RB_API_PRODUCT_URL = window.RabboraApi && typeof window.RabboraApi.url === "function"
+      ? window.RabboraApi.url("/products/slug/")
+      : null;
+    if (!RB_API_PRODUCT_URL) {
+      console.warn(
+        "[Rabbora Ottoman Beds] api-config.js is not loaded, so product details come from this file only. " +
+        "Add <script src=\"api-config.js\"></script> before ottoman-beds.js."
+      );
+    }
+    var RB_API_TIMEOUT_MS = 4000;
+    var rbApiCache = {};
+    var rbApiRouteId = 0;
+
+    function rbApiIsValid(apiProduct, slug) {
+      if (!apiProduct || apiProduct.slug !== slug) return false;
+      if (typeof apiProduct.name !== "string" || !apiProduct.name.trim()) return false;
+      if (!Array.isArray(apiProduct.images) || apiProduct.images.length === 0) return false;
+      if (!Array.isArray(apiProduct.variants) || apiProduct.variants.length === 0) return false;
+      var imagesOk = apiProduct.images.every(function (img) {
+        return img && typeof img.image_url === "string" && img.image_url.trim() !== "";
+      });
+      var variantsOk = apiProduct.variants.every(function (v) {
+        return v &&
+          typeof v.option_value === "string" && v.option_value !== "" &&
+          typeof v.option_label === "string" && v.option_label !== "" &&
+          typeof v.price === "number" && isFinite(v.price) && v.price > 0;
+      });
+      return imagesOk && variantsOk;
+    }
+
+    // Shallow copy, so the original product object in this file is never
+    // changed (grid cards, related products and the fallback keep using it).
+    function rbApiCopy(baseProduct) {
+      var copy = {};
+      Object.keys(baseProduct).forEach(function (key) { copy[key] = baseProduct[key]; });
+      return copy;
+    }
+
+    // Size data from the API variants, in the API's sort order. When
+    // needDimensions is true, every size must end up with a width/length
+    // (API value, or this file's existing value) or null is returned.
+    function rbApiSizeData(baseProduct, apiProduct, needDimensions) {
+      var variants = apiProduct.variants.slice().sort(function (a, b) {
+        return (a.sort_order || 0) - (b.sort_order || 0);
+      });
+      var data = {
+        sizes: [], labels: [], labelMap: {}, sizePrices: {}, sizeOldPrices: {}, dimensions: {},
+        images: apiProduct.images.map(function (img) { return img.image_url; })
+      };
+      var baseDims = baseProduct.dimensions && typeof baseProduct.dimensions === "object" ? baseProduct.dimensions : {};
+      Object.keys(baseDims).forEach(function (size) { data.dimensions[size] = baseDims[size]; });
+      var ok = true;
+      variants.forEach(function (v) {
+        data.sizes.push(v.option_value);
+        data.labels.push(v.option_label);
+        data.labelMap[v.option_value] = v.option_label;
+        data.sizePrices[v.option_value] = v.price;
+        data.sizeOldPrices[v.option_value] =
+          (typeof v.compare_at_price === "number" && v.compare_at_price > v.price) ? v.compare_at_price : null;
+        if (typeof v.width_cm === "number" && typeof v.length_cm === "number") {
+          data.dimensions[v.option_value] = { width: v.width_cm, length: v.length_cm };
+        }
+        var d = data.dimensions[v.option_value];
+        if (needDimensions && !(d && typeof d.width === "number" && typeof d.length === "number")) ok = false;
+      });
+      if (!ok) return null;
+      // Base (no size selected) price: this page's own base price when one
+      // of the API sizes has exactly that price (so the page shows the same
+      // "from" price as before); otherwise the API product price (its
+      // lowest size). The crossed-out price is that size's compare-at price.
+      var baseVariant = null;
+      if (typeof baseProduct.price === "number") {
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - baseProduct.price) < 0.001; })[0] || null;
+      }
+      if (baseVariant) {
+        data.price = baseVariant.price;
+      } else {
+        data.price = (typeof apiProduct.price === "number" && isFinite(apiProduct.price) && apiProduct.price > 0)
+          ? apiProduct.price : variants[0].price;
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - data.price) < 0.001; })[0] || variants[0];
+      }
+      data.oldPrice = data.sizeOldPrices[baseVariant.option_value];
+      // Some pages keep the crossed-out price on their first size even when
+      // another size is the base price; the page showed it before a size
+      // was chosen, so the first size's compare-at price is used then.
+      if (!data.oldPrice) {
+        var firstOld = data.sizeOldPrices[variants[0].option_value];
+        data.oldPrice = (firstOld && firstOld > data.price) ? firstOld : null;
+      }
+      return data;
+    }
+
+    // Page-specific merge: which API values go into which fields this
+    // page already reads.
+    function rbApiMerge(baseProduct, apiProduct) {
+      var d = rbApiSizeData(baseProduct, apiProduct, true);
+      if (!d) return null;
+      var merged = rbApiCopy(baseProduct);
+      merged.name = apiProduct.name;
+      merged.images = d.images;
+      merged.availableSizes = d.sizes;
+      merged.availableSizeLabels = d.labels;
+      merged.sizePrices = d.sizePrices;
+      merged.sizeOldPrices = d.sizeOldPrices;
+      merged.dimensions = d.dimensions;
+      merged.price = d.price;
+      merged.oldPrice = d.oldPrice;
+      return merged;
+    }
+
+    // Resolves with the merged API product, or null when the original
+    // product object should be used instead. Never rejects.
+    function rbApiFetch(baseProduct, slug) {
+      if (rbApiCache[slug]) return Promise.resolve(rbApiCache[slug]);
+      if (typeof fetch !== "function" || !RB_API_PRODUCT_URL) return Promise.resolve(null);
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var timeoutId = controller ? window.setTimeout(function () { controller.abort(); }, RB_API_TIMEOUT_MS) : null;
+      return fetch(RB_API_PRODUCT_URL + encodeURIComponent(slug), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (response) {
+          if (!response.ok) return null;
+          return response.json().catch(function () { return null; });
+        })
+        .then(function (data) {
+          var apiProduct = data && data.success === true ? data.product : null;
+          if (!rbApiIsValid(apiProduct, slug)) return null;
+          var merged = rbApiMerge(baseProduct, apiProduct);
+          if (merged) rbApiCache[slug] = merged;
+          return merged;
+        })
+        .catch(function () { return null; })
+        .then(function (result) {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          return result;
+        });
+    }
+
     function handleRoute() {
       var hash = window.location.hash;
       if (!hash || hash === "#") {
+        rbApiRouteId++;
         showCategoryView();
         return;
       }
       var slug = hash.replace(/^#\/?/, "");
       if (!slug) {
+        rbApiRouteId++;
         showCategoryView();
         return;
       }
       var product = OTTOMAN_PRODUCTS[slug];
-      if (product) {
-        showDetail(product);
-      } else {
+      if (!product) {
+        rbApiRouteId++;
         showNotFound();
+        return;
       }
+      // Only the newest route may render (ignores late answers).
+      var requestId = ++rbApiRouteId;
+      rbApiFetch(product, slug).then(function (apiProduct) {
+        if (requestId !== rbApiRouteId) return;
+        showDetail(apiProduct || product);
+      });
     }
 
     window.addEventListener("hashchange", handleRoute);
@@ -7234,6 +7817,7 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
         if (obState.quantity > 1) {
           obState.quantity -= 1;
           qtyValueEl.textContent = String(obState.quantity);
+          if (currentProduct) renderPurchasePanel(currentProduct);
         }
       });
     }
@@ -7242,6 +7826,7 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
       qtyPlus.addEventListener("click", function () {
         obState.quantity += 1;
         qtyValueEl.textContent = String(obState.quantity);
+        if (currentProduct) renderPurchasePanel(currentProduct);
       });
     }
 
@@ -7289,7 +7874,14 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
         var detailText = detailBits.length ? " with " + detailBits.join(" & ") : "";
 
         var fabricName = selectedFabricName();
+        // Same function the Total Price uses, so the basket receives
+        // exactly the price shown on the page.
         var unitPrice = currentPrice(currentProduct);
+        if (!isValidPrice(unitPrice)) {
+          purchaseMessage.textContent = "Sorry, we couldn't work out a price for this size. Please choose another size or contact us.";
+          purchaseMessage.classList.add("is-error");
+          return;
+        }
 
         if (window.RabboraCart && typeof window.RabboraCart.add === "function") {
           window.RabboraCart.add(

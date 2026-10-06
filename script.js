@@ -1,112 +1,108 @@
 (function () {
   "use strict";
 
+  // Home page product cards. Every value below is copied exactly from
+  // the product's own data file (named in each comment) — same name,
+  // image, price, previous price, monthly price and badge as on that
+  // product's page. No ratings or review counts: none are real yet.
   var PRODUCTS = {
     popular: [
       {
-        id: "demo-p1",
-        slug: "ottoman-bed",
-        name: "2026 Empire Bed Frame with Optional Ottoman Storage",
-        image: "images/img-18.jfif",
-        alt: "Harrow ottoman bed frame in sage fabric",
-        rating: 5,
-        reviewCount: 128,
-        price: 290.00,
-        previousPrice: 421.00,
-        monthlyPrice: 25,
-        badge: "Best Seller"
-      },
-      {
-        id: "demo-p2",
-        slug: "2026 Manhattan Bed Frame with Lines ®",
-        name: "2026 Manhattan Bed Frame with Lines ®",
-        image: "images/img-20.jfif",
-        alt: "Kensworth drawer bed in ivory boucle",
-        rating: 5,
-        reviewCount: 94,
-        price: 249.00,
-        previousPrice: 429.00,
-        monthlyPrice: 21,
-        badge: null
-      },
-      {
-        id: "demo-p3",
-        slug: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        name: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        image: "images/img-4.jfif",
-        alt: "Aldermoor high headboard bed in forest velvet",
-        rating: 5,
-        reviewCount: 201,
-        price: 729,
-        previousPrice: 899,
-        monthlyPrice: 30,
-        badge: "New"
-      },
-      {
-        id: "demo-p4",
-        slug: "wren-tv-bed",
-        name: "Wren TV Bed Frame",
-        image: "images/img-29.jfif",
-        alt: "Wren TV bed frame with lift mechanism",
-        rating: 4,
-        reviewCount: 67,
-        price: 1399.00,
-        previousPrice: 999.00,
+        // tv-beds.js → TV_BED_PRODUCTS "tv-bed-1"
+        id: "tv-bed-tv-bed-1",
+        slug: "tv-bed-1",
+        name: "Rabbora Milano TV Bed",
+        image: "tv/img-1.jfif",
+        alt: "Rabbora Milano TV Bed",
+        price: 999,
+        previousPrice: 1399,
         monthlyPrice: 84,
-        badge: null
+        badge: "29% Off"
+      },
+      {
+        // ottoman-beds.js → SLATTED_OTTOMAN_PRODUCTS "monaco-ottoman-bed"
+        id: "monaco-ottoman-bed",
+        slug: "monaco-ottoman-bed",
+        name: "Rabbora Athens Slatted Designer Ottoman Bed",
+        image: "slatted/img-12.jfif",
+        alt: "Rabbora Athens Slatted Designer Ottoman Bed",
+        price: 289,
+        previousPrice: 400,
+        monthlyPrice: 25,
+        badge: "28% off"
+      },
+      {
+        // high-headboard-beds.js → HH_BED_PRODUCTS "high-headboard-bed-3"
+        id: "high-headboard-bed-3",
+        slug: "high-headboard-bed-3",
+        name: "Rabbora Athena High Headboard Bed",
+        image: "high/9.jfif",
+        alt: "Rabbora Athena High Headboard Bed",
+        price: 699,
+        previousPrice: 900,
+        monthlyPrice: 59,
+        badge: "22% off"
+      },
+      {
+        // solid-base-ottomans.js → SOLID_OTTOMAN_PRODUCTS "solid-ottoman-bed-3"
+        id: "solid-ottoman-bed-3",
+        slug: "solid-ottoman-bed-3",
+        name: "Rabbora Premium Ottoman Bed",
+        image: "solid/7.jfif",
+        alt: "Rabbora Premium Ottoman Bed",
+        price: 289,
+        previousPrice: 400,
+        monthlyPrice: 25,
+        badge: "28% off"
       }
     ],
     bestSellers: [
       {
-        id: "demo-b1",
-        slug: "The 2026 Art Deco Bed Style",
-        name: "The 2026 Art Deco Bed Style",
-        image: "images/img-1.jfif",
-        alt: "Art Deco Bed Style",
-        rating: 5,
-        reviewCount: 156,
-        price: 253.00,
-        previousPrice: 430.00,
+        // best-sellers.js → BS_PRODUCTS id 1
+        id: "art-deco-bed-style",
+        slug: "art-deco-bed-style",
+        name: "Rabbora Manhattan Slatted Ottoman Bed",
+        image: "slatted/img-1.jfif",
+        alt: "Rabbora Manhattan Slatted Ottoman Bed",
+        price: 249,
+        previousPrice: 429,
         monthlyPrice: 21,
         badge: "Best Seller"
       },
       {
-        id: "demo-b2",
-        slug: "2026 Kendal Butterfly Wingback Bed",
-        name: "2026 Kendal Butterfly Wingback Bed",
-        image: "images/img-31.png",
-        alt: "Kendal Butterfly Wingback Bed",
-        rating: 5,
-        reviewCount: 88,
-        price: 299.00,
-        previousPrice: 444.00,
+        // best-sellers.js → BS_PRODUCTS id 2
+        id: "kendal-butterfly-wingback-bed",
+        slug: "kendal-butterfly-wingback-bed",
+        name: "Rabbora Duke High & Wide Headboard Bed",
+        image: "high/1.jfif",
+        alt: "Rabbora Duke High & Wide Headboard Bed",
+        price: 799,
+        previousPrice: 1000,
+        monthlyPrice: 67,
+        badge: null
+      },
+      {
+        // best-sellers.js → BS_PRODUCTS id 3
+        id: "empire-bed-frame-ottoman-storage",
+        slug: "empire-bed-frame-ottoman-storage",
+        name: "Rabbora Solid Ottoman Bed",
+        image: "solid/1.jfif",
+        alt: "Rabbora Solid Ottoman Bed",
+        price: 249,
+        previousPrice: 429,
+        monthlyPrice: 21,
+        badge: null
+      },
+      {
+        // best-sellers.js → BS_PRODUCTS id 4
+        id: "orlando-bed-frame-ottoman-storage",
+        slug: "orlando-bed-frame-ottoman-storage",
+        name: "Rabbora Lyon Storage Bed",
+        image: "drawar/1.jfif",
+        alt: "Rabbora Lyon Storage Bed",
+        price: 299,
+        previousPrice: 380,
         monthlyPrice: 25,
-        badge: null
-      },
-      {
-        id: "demo-b3",
-        slug: " Frame with Optional Ottoman Storage",
-        name: "2026 Empire Bed Frame with Optional Ottoman Storage",
-        image: "images/img-8.jfif",
-        alt: "Brindley solid base ottoman bed",
-        rating: 5,
-        reviewCount: 172,
-        price: 290.00,
-        previousPrice: 420.00,
-        monthlyPrice: 26,
-        badge: null
-      },
-      {
-        id: "demo-b4",
-        slug: " Bed frame (Optional Ottoman Storage)",
-        name: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        image: "images/img-3.jfif",
-        alt: "2026 Orlando Bed frame (Optional Ottoman Storage)",
-        rating: 5,
-        reviewCount: 307.59,
-        price: 329,
-        previousPrice: 421.00,
-        monthlyPrice: 26,
         badge: "New"
       }
     ]
@@ -146,7 +142,7 @@
 
     card.innerHTML =
       '<div class="product-card__image-wrap">' +
-        '<a class="product-card__image-link" href="product.html?slug=' + product.slug + '">' +
+        '<a class="product-card__image-link" href="bed-frames.html">' +
           '<img src="' + product.image + '" alt="' + product.alt + '" loading="lazy" width="900" height="900" />' +
         "</a>" +
         badgeHtml +
@@ -157,7 +153,7 @@
         "</button>" +
       "</div>" +
       '<div class="product-card__body">' +
-        '<a href="product.html?slug=' + product.slug + '" class="product-card__name">' + product.name + "</a>" +
+        '<a href="bed-frames.html" class="product-card__name">' + product.name + "</a>" +
         '<div class="product-card__rating">' +
           '<span class="product-card__no-reviews">No reviews yet</span>' +
         "</div>" +
@@ -490,10 +486,15 @@
       cards.forEach(function (card, i) {
         var pos = (i - current + total) % total;
         card.setAttribute("data-pos", String(pos));
+        var cardLink = card.querySelector(".hero__card-link");
         if (pos === 0) {
           card.removeAttribute("aria-hidden");
+          if (cardLink) cardLink.removeAttribute("tabindex");
         } else {
           card.setAttribute("aria-hidden", "true");
+          // Cards behind the front one stay clickable with a mouse, but
+          // are skipped by the keyboard since they are aria-hidden.
+          if (cardLink) cardLink.setAttribute("tabindex", "-1");
         }
       });
       pages.forEach(function (page, i) {
@@ -794,6 +795,82 @@
     }
   }
 
+
+  // Home page trust strip ("Made in Britain", "24 Month Warranty"…) as a
+  // continuous right-to-left marquee. Only runs on a .trust-bar that has
+  // the data-marquee attribute (the home page), so the same strip on
+  // other pages is untouched. The original list is copied enough times
+  // to cover the screen, then that whole set is copied once more; the
+  // track moves by exactly one set (-50%), so the loop restarts on an
+  // identical frame and never jumps. Without JavaScript the strip keeps
+  // its original static layout.
+  function initTrustMarquee() {
+    var bar = document.querySelector(".trust-bar[data-marquee]");
+    if (!bar) return;
+    var list = bar.querySelector(".trust-bar__list");
+    if (!list) return;
+
+    var SPEED_PX_PER_SEC = 45;
+    var viewport = document.createElement("div");
+    viewport.className = "trust-bar__viewport";
+    var track = document.createElement("div");
+    track.className = "trust-bar__track";
+
+    // Replace the list's container with the moving track.
+    var holder = list.parentNode;
+    holder.parentNode.replaceChild(viewport, holder);
+    viewport.appendChild(track);
+
+    function build() {
+      track.style.animation = "none";
+      track.innerHTML = "";
+      bar.classList.add("is-marquee");
+
+      var first = list.cloneNode(true);
+      track.appendChild(first);
+      var setWidth = first.getBoundingClientRect().width;
+      if (!setWidth) return;
+
+      // One "set" = enough copies to be at least as wide as the screen.
+      var copies = Math.max(1, Math.ceil(viewport.clientWidth / setWidth));
+      for (var i = 1; i < copies; i++) {
+        track.appendChild(hiddenCopy());
+      }
+      // Second, identical set for the seamless loop.
+      for (var j = 0; j < copies; j++) {
+        track.appendChild(hiddenCopy());
+      }
+
+      var distance = setWidth * copies;
+      track.style.setProperty("--trust-marquee-duration", (distance / SPEED_PX_PER_SEC).toFixed(2) + "s");
+      // Force a reflow so the animation restarts cleanly after a rebuild.
+      void track.offsetWidth;
+      track.style.animation = "";
+    }
+
+    function hiddenCopy() {
+      var copy = list.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      return copy;
+    }
+
+    build();
+
+    var lastWidth = window.innerWidth;
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(build, 200);
+    });
+
+    // Web fonts can change the text width after first paint.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(build);
+    }
+  }
+
   function initFooterYear() {
     var yearEl = document.getElementById("footerYear");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
@@ -910,6 +987,7 @@
     initMobileAccordion();
     initNewsletterForm();
     initHeroSlideshow();
+    initTrustMarquee();
     initFooterYear();
     updateWishlistCount();
     initScrollReveal();

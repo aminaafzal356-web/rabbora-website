@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | Rabbora Living</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../images/img-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css?v=admin-3" />
+</head>
+<body class="admin admin-login-page">
+
+  <main class="admin-login">
+    <div class="admin-login__card">
+      <img class="admin-login__logo" src="../images/img-2.png" alt="Rabbora Living" width="64" height="64" />
+      <p class="admin-eyebrow">Rabbora Living</p>
+      <h1 class="admin-login__heading">Admin login</h1>
+      <p class="admin-login__sub">Sign in with your admin account to manage the shop.</p>
+
+      <p class="admin-flash" id="adminFlash" role="alert" hidden></p>
+
+      <form class="admin-form" id="adminLoginForm" novalidate>
+        <div class="admin-field" data-field="email">
+          <label class="admin-label" for="adminEmail">Email address</label>
+          <input class="admin-input" id="adminEmail" name="email" type="email" autocomplete="username" required aria-required="true" aria-invalid="false" />
+          <p class="admin-error" role="alert" hidden></p>
+        </div>
+        <div class="admin-field" data-field="password">
+          <label class="admin-label" for="adminPassword">Password</label>
+          <input class="admin-input" id="adminPassword" name="password" type="password" autocomplete="current-password" required aria-required="true" aria-invalid="false" />
+          <p class="admin-error" role="alert" hidden></p>
+        </div>
+        <label class="admin-check">
+          <input type="checkbox" id="adminRemember" name="remember" />
+          <span>Keep me signed in on this computer</span>
+        </label>
+        <button type="submit" class="admin-btn admin-btn--primary admin-btn--block" id="adminLoginBtn">Sign in</button>
+      </form>
+
+      <a class="admin-login__back" href="../index.html">&larr; Back to the shop</a>
+    </div>
+  </main>
+
+  <script src="../api-config.js"></script>
+  <script src="js/admin-auth.js?v=admin-3"></script>
+  <script src="js/login.js?v=admin-3"></script>
+</body>
+</html>

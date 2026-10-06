@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Create Account | Rabbora Living</title>
-  <meta name="description" content="Create your Rabbora Living account to track orders, save your wishlist, and check out faster next time." />
+  <meta name="description" content="Create your Rabbora Living account to track orders, manage your details and save your wishlist." />
   <link rel="canonical" href="https://rabbora.co.uk/register.html" />
   <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Create Account | Rabbora Living" />
-  <meta property="og:description" content="Create your Rabbora Living account to track orders, save your wishlist, and check out faster next time." />
+  <meta property="og:description" content="Create your Rabbora Living account to track orders, manage your details and save your wishlist." />
   <meta property="og:url" content="https://rabbora.co.uk/register.html" />
   <meta property="og:site_name" content="Rabbora Living" />
 
@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="register.css" />
+  <link rel="stylesheet" href="account.css?v=pw-toggle-3" />
 
   <script type="application/ld+json">
   {
@@ -38,7 +38,7 @@
   }
   </script>
 </head>
-<body class="register-page">
+<body class="login-page">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -120,7 +120,7 @@
             </svg>
           </button>
 
-          <a href="account.html" class="icon-btn" aria-label="Login or register">
+          <a href="account.html" class="icon-btn" aria-label="Login or register" aria-current="page">
             <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
               <circle cx="10" cy="6.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.4" />
               <path d="M3.5 17c1.2-3.4 4-5 6.5-5s5.3 1.6 6.5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
@@ -255,153 +255,166 @@
     </nav>
   </div>
 
-  
   <main id="main-content">
 
-    <section class="register-section">
+    <section class="login-section">
 
-      <div class="register-visual-background" aria-hidden="true">
+      <div class="login-visual-background" aria-hidden="true">
 
-        <div class="register-parallax-layer register-parallax-layer--back" id="registerParallaxBack">
-          <div class="register-aurora register-aurora--one"></div>
-          <div class="register-aurora register-aurora--two"></div>
-          <div class="register-glow register-glow--one"></div>
-          <div class="register-glow register-glow--two"></div>
-          <div class="register-glow register-glow--three"></div>
+        <div class="login-parallax-layer login-parallax-layer--back" id="loginParallaxBack">
+          <div class="login-aurora login-aurora--one"></div>
+          <div class="login-aurora login-aurora--two"></div>
+          <div class="login-glow login-glow--one"></div>
+          <div class="login-glow login-glow--two"></div>
+          <div class="login-glow login-glow--three"></div>
+          <div class="login-glow login-glow--four"></div>
         </div>
 
-        <div class="register-parallax-layer register-parallax-layer--mid" id="registerParallaxMid">
-          <div class="register-silk register-silk--one"></div>
-          <div class="register-silk register-silk--two"></div>
-          <div class="register-silk register-silk--three"></div>
-          <div class="register-shimmer"></div>
+        <div class="login-parallax-layer login-parallax-layer--mid" id="loginParallaxMid">
+          <div class="login-silk login-silk--one"></div>
+          <div class="login-silk login-silk--two"></div>
+          <div class="login-silk login-silk--three"></div>
+          <div class="login-silk login-silk--four"></div>
+          <div class="login-shimmer"></div>
         </div>
 
-        <div class="register-parallax-layer register-parallax-layer--front" id="registerParallaxFront">
-          <div class="register-light-ray register-light-ray--one"></div>
-          <div class="register-light-ray register-light-ray--two"></div>
+        <div class="login-parallax-layer login-parallax-layer--front" id="loginParallaxFront">
+          <div class="login-light-ray login-light-ray--one"></div>
+          <div class="login-light-ray login-light-ray--two"></div>
         </div>
 
-        <div class="register-particles" id="registerParticles"></div>
+        <div class="login-particles" id="loginParticles"></div>
 
       </div>
 
-      <div class="container register-section__inner">
+      <div class="container login-section__inner">
 
-        <div class="register-card" id="registerCard">
+        <div class="login-card" id="registerCard">
 
-          <div class="register-logo">
+          <div class="login-logo">
             <img src="images/img-2.png" alt="Rabbora Living" width="72" height="72" />
           </div>
 
-          <p class="eyebrow register-eyebrow">My Account</p>
-          <h1 class="register-heading">Create your account</h1>
-          <p class="register-subtext">Save your details, track orders, and pick up your wishlist wherever you left it.</p>
+          <p class="eyebrow login-eyebrow">My Account</p>
+          <h1 class="login-heading">Create your account</h1>
+          <p class="login-subtext">Create an account to track your orders, manage your details, and keep your wishlist wherever you shop.</p>
 
-          <p class="register-form-status sr-only" id="registerFormStatus" role="status" aria-live="polite"></p>
+          <p class="login-form-status sr-only" id="registerFormStatus" role="status" aria-live="polite"></p>
 
-          <form class="register-form" id="registerForm" novalidate>
+          <form class="login-form" id="registerForm" novalidate>
 
-            <div class="register-form__row">
-              <div class="register-field" id="registerFirstNameField">
-                <label for="registerFirstName" class="register-field__label">First name</label>
-                <input
-                  type="text"
-                  id="registerFirstName"
-                  name="firstName"
-                  class="register-input"
-                  autocomplete="given-name"
-                  required
-                  aria-required="true"
-                  aria-describedby="registerFirstNameError"
-                  aria-invalid="false"
-                />
-                <p class="register-error" id="registerFirstNameError" role="alert" hidden></p>
-              </div>
-
-              <div class="register-field" id="registerLastNameField">
-                <label for="registerLastName" class="register-field__label">Last name</label>
-                <input
-                  type="text"
-                  id="registerLastName"
-                  name="lastName"
-                  class="register-input"
-                  autocomplete="family-name"
-                  required
-                  aria-required="true"
-                  aria-describedby="registerLastNameError"
-                  aria-invalid="false"
-                />
-                <p class="register-error" id="registerLastNameError" role="alert" hidden></p>
-              </div>
+            <div class="login-field" id="registerFirstNameField">
+              <label for="registerFirstName" class="login-field__label">First Name</label>
+              <input
+                type="text"
+                id="registerFirstName"
+                name="firstName"
+                class="login-input"
+                autocomplete="given-name"
+                maxlength="100"
+                required
+                aria-required="true"
+                aria-describedby="registerFirstNameError"
+                aria-invalid="false"
+              />
+              <p class="login-error" id="registerFirstNameError" role="alert" hidden></p>
             </div>
 
-            <div class="register-field" id="registerEmailField">
-              <label for="registerEmail" class="register-field__label">Email address</label>
+            <div class="login-field" id="registerLastNameField">
+              <label for="registerLastName" class="login-field__label">Last Name</label>
+              <input
+                type="text"
+                id="registerLastName"
+                name="lastName"
+                class="login-input"
+                autocomplete="family-name"
+                maxlength="100"
+                required
+                aria-required="true"
+                aria-describedby="registerLastNameError"
+                aria-invalid="false"
+              />
+              <p class="login-error" id="registerLastNameError" role="alert" hidden></p>
+            </div>
+
+            <div class="login-field" id="registerEmailField">
+              <label for="registerEmail" class="login-field__label">Email Address</label>
               <input
                 type="email"
                 id="registerEmail"
                 name="email"
-                class="register-input"
+                class="login-input"
                 autocomplete="email"
+                maxlength="254"
                 required
                 aria-required="true"
                 aria-describedby="registerEmailError"
                 aria-invalid="false"
               />
-              <p class="register-error" id="registerEmailError" role="alert" hidden></p>
+              <p class="login-error" id="registerEmailError" role="alert" hidden></p>
             </div>
 
-            <div class="register-field" id="registerPasswordField">
-              <label for="registerPassword" class="register-field__label">Password</label>
-              <div class="register-password-wrap">
+            <div class="login-field" id="registerPhoneField">
+              <label for="registerPhone" class="login-field__label">Phone Number</label>
+              <input
+                type="tel"
+                id="registerPhone"
+                name="phone"
+                class="login-input"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="20"
+                required
+                aria-required="true"
+                aria-describedby="registerPhoneError"
+                aria-invalid="false"
+              />
+              <p class="login-error" id="registerPhoneError" role="alert" hidden></p>
+            </div>
+
+            <div class="login-field" id="registerPasswordField">
+              <label for="registerPassword" class="login-field__label">Password</label>
+              <div class="login-password-wrap">
                 <input
                   type="password"
                   id="registerPassword"
                   name="password"
-                  class="register-input register-input--password"
+                  class="login-input login-input--password"
                   autocomplete="new-password"
                   required
                   aria-required="true"
-                  aria-describedby="registerPasswordError registerPasswordStrengthLabel"
+                  aria-describedby="registerPasswordError"
                   aria-invalid="false"
                 />
                 <button
                   type="button"
-                  class="register-password-toggle"
+                  class="login-password-toggle"
                   id="registerPasswordToggle"
+                  data-password-toggle="registerPassword"
                   aria-pressed="false"
                   aria-label="Show password"
                   aria-controls="registerPassword"
                 >
-                  <svg class="register-password-toggle__icon-show" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                  <svg class="login-password-toggle__icon-show" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
                     <circle cx="10" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.4" />
                   </svg>
-                  <svg class="register-password-toggle__icon-hide" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" hidden>
+                  <svg class="login-password-toggle__icon-hide" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" hidden>
                     <path d="M2.5 2.5l15 15M8.3 8.4a2.5 2.5 0 0 0 3.4 3.4M5.6 5.7C3.2 7.1 1 10 1 10s3.5 6 9 6c1.4 0 2.7-.4 3.8-1M14.9 14.9C17 13.4 19 10 19 10s-1.4-2.4-3.6-4.1c-1.4-1.1-3-1.9-5.4-1.9-.7 0-1.4.07-2 .2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </button>
               </div>
-              <div class="register-strength" id="registerPasswordStrength" data-strength="">
-                <div class="register-strength__track" aria-hidden="true">
-                  <span class="register-strength__segment"></span>
-                  <span class="register-strength__segment"></span>
-                  <span class="register-strength__segment"></span>
-                </div>
-                <span class="register-strength__label" id="registerPasswordStrengthLabel"></span>
-              </div>
-              <p class="register-error" id="registerPasswordError" role="alert" hidden></p>
+              <p class="login-error" id="registerPasswordError" role="alert" hidden></p>
             </div>
 
-            <div class="register-field" id="registerConfirmPasswordField">
-              <label for="registerConfirmPassword" class="register-field__label">Confirm password</label>
-              <div class="register-password-wrap">
+            <div class="login-field" id="registerConfirmPasswordField">
+              <label for="registerConfirmPassword" class="login-field__label">Confirm Password</label>
+              <div class="login-password-wrap">
                 <input
                   type="password"
                   id="registerConfirmPassword"
                   name="confirmPassword"
-                  class="register-input register-input--password"
+                  class="login-input login-input--password"
                   autocomplete="new-password"
                   required
                   aria-required="true"
@@ -410,44 +423,39 @@
                 />
                 <button
                   type="button"
-                  class="register-password-toggle"
+                  class="login-password-toggle"
                   id="registerConfirmPasswordToggle"
+                  data-password-toggle="registerConfirmPassword"
                   aria-pressed="false"
-                  aria-label="Show password"
+                  aria-label="Show confirm password"
                   aria-controls="registerConfirmPassword"
                 >
-                  <svg class="register-password-toggle__icon-show" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                  <svg class="login-password-toggle__icon-show" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
                     <circle cx="10" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.4" />
                   </svg>
-                  <svg class="register-password-toggle__icon-hide" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" hidden>
+                  <svg class="login-password-toggle__icon-hide" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" hidden>
                     <path d="M2.5 2.5l15 15M8.3 8.4a2.5 2.5 0 0 0 3.4 3.4M5.6 5.7C3.2 7.1 1 10 1 10s3.5 6 9 6c1.4 0 2.7-.4 3.8-1M14.9 14.9C17 13.4 19 10 19 10s-1.4-2.4-3.6-4.1c-1.4-1.1-3-1.9-5.4-1.9-.7 0-1.4.07-2 .2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </button>
               </div>
-              <p class="register-error" id="registerConfirmPasswordError" role="alert" hidden></p>
+              <p class="login-error" id="registerConfirmPasswordError" role="alert" hidden></p>
             </div>
 
-            <div class="register-field register-field--checkbox" id="registerTermsField">
-              <div class="register-terms">
-                <input type="checkbox" id="registerTerms" name="terms" required aria-required="true" aria-describedby="registerTermsError" aria-invalid="false" />
-                <label for="registerTerms">I agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy-policy.html">Privacy Policy</a>.</label>
-              </div>
-              <p class="register-error" id="registerTermsError" role="alert" hidden></p>
-            </div>
-
-            <button type="submit" class="btn btn--forest register-button" id="registerSubmitBtn">
-              <span class="register-button__text">Create account</span>
-              <span class="register-button__spinner" aria-hidden="true"></span>
+            <button type="submit" class="btn btn--forest login-button" id="registerSubmitBtn">
+              <span class="login-button__text">Create account</span>
+              <span class="login-button__spinner" aria-hidden="true"></span>
             </button>
+
+            <p class="login-error" id="registerFormError" role="alert" hidden></p>
 
           </form>
 
-          <div class="register-divider" role="separator">
+          <div class="login-divider" role="separator">
             <span>or</span>
           </div>
 
-          <p class="register-login-link">
+          <p class="login-create-account">
             Already have an account?
             <a href="account.html">Log in</a>
           </p>
@@ -459,7 +467,7 @@
 
   </main>
 
-<footer class="site-footer">
+  <footer class="site-footer">
     <div class="container footer__grid">
 
       <div class="footer__brand">
@@ -569,10 +577,12 @@
     </svg>
   </a>
 
+  <script src="api-config.js"></script>
   <script src="search-index.js"></script>
-  <script src="wishlist-data.js"></script>
-  <script src="cart-data.js"></script>
+  <script src="wishlist-data.js?v=wishlist-sync-1"></script>
+  <script src="cart-data.js?v=cart-sync-1"></script>
   <script src="script.js"></script>
-  <script src="register.js"></script>
+  <script src="account.js?v=customer-1"></script>
+  <script src="register.js?v=api-config-1"></script>
 </body>
 </html>

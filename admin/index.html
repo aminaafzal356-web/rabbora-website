@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Rabbora Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../images/img-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css?v=admin-3" />
+</head>
+<body class="admin admin--loading">
+
+  <a href="#adminContent" class="admin-skip">Skip to content</a>
+
+  <!-- Shown until GET /api/auth/me confirms an admin (admin-auth.js). -->
+  <div class="admin-boot" aria-hidden="true"><span class="admin-spinner"></span></div>
+
+  <div class="admin-layout" id="adminLayout">
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin navigation"></aside>
+    <div class="admin-scrim" id="adminScrim"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" class="admin-menu-toggle" id="adminMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="adminSidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="admin-topbar__title">
+          <p class="admin-eyebrow">Overview</p>
+          <h1 class="admin-page-title" id="adminPageTitle">Dashboard</h1>
+        </div>
+        <div class="admin-user" id="adminUser"></div>
+      </header>
+
+      <main class="admin-content" id="adminContent">
+        <p class="admin-flash" id="adminFlash" role="status" aria-live="polite" hidden></p>
+
+        <section class="admin-stats" id="adminStats" aria-label="Shop summary" aria-busy="true"></section>
+
+        <section class="admin-panel admin-quick">
+          <h2 class="admin-panel__title">Quick actions</h2>
+          <div class="admin-actions">
+            <a class="admin-btn admin-btn--primary" href="product.html?new=1">Add a product</a>
+            <a class="admin-btn admin-btn--ghost" href="products.html">Manage products</a>
+            <a class="admin-btn admin-btn--ghost" href="products.html?status=inactive">Inactive products</a>
+          </div>
+          <p class="admin-muted" id="adminStatsUpdated"></p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Logged in, but not an admin. -->
+  <div class="admin-denied" id="adminDenied" hidden>
+    <div class="admin-login__card">
+      <img class="admin-login__logo" src="../images/img-2.png" alt="Rabbora Living" width="64" height="64" />
+      <h1 class="admin-login__heading">Access denied</h1>
+      <p class="admin-login__sub">This account does not have admin access.</p>
+      <div class="admin-actions admin-actions--center">
+        <a class="admin-btn admin-btn--primary" href="../index.html">Back to the shop</a>
+        <button type="button" class="admin-btn admin-btn--ghost" data-admin-logout>Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend not reachable. -->
+  <div class="admin-denied" id="adminOffline" hidden>
+    <div class="admin-login__card">
+      <h1 class="admin-login__heading">Admin panel unavailable</h1>
+      <p class="admin-login__sub"></p>
+      <div class="admin-actions admin-actions--center">
+        <button type="button" class="admin-btn admin-btn--primary" onclick="window.location.reload()">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../api-config.js"></script>
+  <script src="js/admin-auth.js?v=admin-3"></script>
+  <script src="js/dashboard.js?v=admin-3b"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product | Rabbora Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../images/img-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css?v=admin-4" />
+</head>
+<body class="admin admin--loading">
+
+  <a href="#adminContent" class="admin-skip">Skip to content</a>
+
+  <!-- Shown until GET /api/auth/me confirms an admin (admin-auth.js). -->
+  <div class="admin-boot" aria-hidden="true"><span class="admin-spinner"></span></div>
+
+  <div class="admin-layout" id="adminLayout">
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin navigation"></aside>
+    <div class="admin-scrim" id="adminScrim"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" class="admin-menu-toggle" id="adminMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="adminSidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="admin-topbar__title">
+          <p class="admin-eyebrow">Products</p>
+          <h1 class="admin-page-title" id="adminPageTitle">Product</h1>
+        </div>
+        <div class="admin-user" id="adminUser"></div>
+      </header>
+
+      <main class="admin-content" id="adminContent">
+        <p class="admin-flash" id="adminFlash" role="status" aria-live="polite" hidden></p>
+
+        <a class="admin-back" href="products.html">&larr; All products</a>
+
+        <form class="admin-editor" id="productForm" novalidate hidden>
+          <div class="admin-editor__main">
+
+            <section class="admin-panel">
+              <h2 class="admin-panel__title">Product details</h2>
+              <div class="admin-grid">
+                <div class="admin-field admin-field--wide" data-field="name">
+                  <label class="admin-label" for="pName">Name</label>
+                  <input class="admin-input" id="pName" name="name" type="text" maxlength="255" required aria-required="true" aria-invalid="false" />
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+                <div class="admin-field admin-field--wide" data-field="slug">
+                  <label class="admin-label" for="pSlug">Slug (web address)</label>
+                  <input class="admin-input admin-input--mono" id="pSlug" name="slug" type="text" maxlength="255" required aria-required="true" aria-invalid="false" aria-describedby="pSlugHint" />
+                  <p class="admin-hint" id="pSlugHint">Lowercase letters, numbers and single hyphens. The product pages and saved carts use this, so only change it if you are sure.</p>
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+                <div class="admin-field admin-field--wide" data-field="description">
+                  <label class="admin-label" for="pDescription">Description</label>
+                  <textarea class="admin-input admin-textarea" id="pDescription" name="description" rows="6" maxlength="10000" aria-invalid="false"></textarea>
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+                <div class="admin-field" data-field="categoryId">
+                  <label class="admin-label" for="pCategory">Category</label>
+                  <select class="admin-input" id="pCategory" name="categoryId" aria-invalid="false">
+                    <option value="">No category</option>
+                  </select>
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+                <div class="admin-field" data-field="sku">
+                  <label class="admin-label" for="pSku">SKU (optional)</label>
+                  <input class="admin-input admin-input--mono" id="pSku" name="sku" type="text" maxlength="64" aria-invalid="false" />
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+              </div>
+            </section>
+
+            <!-- New product only: one image path. After creating, images are managed below. -->
+            <section class="admin-panel" id="mainImagePanel">
+              <h2 class="admin-panel__title">Image</h2>
+              <div class="admin-image-row">
+                <div class="admin-image-preview" id="pImagePreview" aria-hidden="true"></div>
+                <div class="admin-field admin-field--grow" data-field="mainImage">
+                  <label class="admin-label" for="pImage">Main image path</label>
+                  <input class="admin-input admin-input--mono" id="pImage" name="mainImage" type="text" maxlength="1000" placeholder="e.g. slatted/img-1.jfif" aria-invalid="false" aria-describedby="pImageHint" />
+                  <p class="admin-hint" id="pImageHint">The path of an image already in the website folder (uploading comes in a later step).</p>
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+              </div>
+            </section>
+
+            <section class="admin-panel admin-section" id="imagesPanel" hidden aria-labelledby="imagesTitle">
+              <div class="admin-panel__head">
+                <h2 class="admin-panel__title" id="imagesTitle">Images</h2>
+                <span class="admin-muted" id="imagesCount"></span>
+              </div>
+              <p class="admin-hint">Image paths point to files already in the website folder (no uploading). The <strong>primary</strong> image is shown first on the product page and as the list thumbnail. Removing an image only removes it from this product — the file is not deleted.</p>
+              <ol class="admin-gallery" id="imagesList"></ol>
+              <div class="admin-subform admin-image-add" id="imageAddForm">
+                <div class="admin-field admin-field--grow" data-field="url">
+                  <label class="admin-label" for="imgNewUrl">Add an image path</label>
+                  <input class="admin-input admin-input--mono" id="imgNewUrl" type="text" maxlength="1000" placeholder="e.g. images/beds/example.jpg" autocomplete="off" aria-invalid="false" />
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+                <div class="admin-field admin-field--grow" data-field="altText">
+                  <label class="admin-label" for="imgNewAlt">Alt text (optional)</label>
+                  <input class="admin-input" id="imgNewAlt" type="text" maxlength="255" autocomplete="off" aria-invalid="false" />
+                  <p class="admin-error" role="alert" hidden></p>
+                </div>
+                <button type="button" class="admin-btn admin-btn--primary" id="imgAddBtn">Add image</button>
+              </div>
+            </section>
+
+            <section class="admin-panel" id="variantsPanel" hidden>
+              <div class="admin-panel__head">
+                <h2 class="admin-panel__title">Sizes &amp; prices</h2>
+                <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="variantAddBtn">+ Add size</button>
+              </div>
+              <p class="admin-hint">These are the live prices customers pay. Changing a price here changes it on the shop straight away.</p>
+              <div class="admin-table-wrap">
+                <table class="admin-table admin-table--variants">
+                  <thead>
+                    <tr>
+                      <th scope="col">Size</th>
+                      <th scope="col">SKU</th>
+                      <th scope="col">Sale price</th>
+                      <th scope="col">Original price</th>
+                      <th scope="col">Savings</th>
+                      <th scope="col">Discount</th>
+                      <th scope="col">Currency</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Status</th>
+                      <th scope="col"><span class="admin-sr">Actions</span></th>
+                    </tr>
+                  </thead>
+                  <tbody id="variantRows"></tbody>
+                </table>
+              </div>
+              <p class="admin-muted" id="variantEmpty" hidden>This product has no sizes yet. Its price is the single price above.</p>
+              <div class="admin-subform" id="variantFormWrap" hidden></div>
+            </section>
+
+            <section class="admin-panel admin-section" id="inventoryPanel" hidden aria-labelledby="inventoryTitle">
+              <div class="admin-panel__head">
+                <h2 class="admin-panel__title" id="inventoryTitle">Inventory</h2>
+                <a class="admin-btn admin-btn--ghost admin-btn--sm" id="inventoryLink" href="inventory.html">Open in Inventory</a>
+              </div>
+              <p class="admin-hint">Read only. Stock is changed on the Inventory page. A size that is “Not tracked” can always be bought.</p>
+              <div class="admin-table-wrap">
+                <table class="admin-table admin-table--stock">
+                  <thead><tr><th scope="col">Size</th><th scope="col">Stock SKU</th><th scope="col">Current stock</th><th scope="col">Low-stock threshold</th><th scope="col">Tracking</th></tr></thead>
+                  <tbody id="inventoryRows"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="admin-panel admin-section" id="fabricsPanel" hidden aria-labelledby="fabricsTitle">
+              <div class="admin-panel__head">
+                <h2 class="admin-panel__title" id="fabricsTitle">Available fabrics</h2>
+                <span class="admin-muted" id="fabricsCount"></span>
+              </div>
+              <p class="admin-hint">Tick the fabrics this product offers, then press Save fabrics. Only the fabrics you add or remove change — every other link stays as it is. Fabric prices are not changed here.</p>
+              <div class="admin-chips" id="fabricsChosen"></div>
+              <div class="admin-toolbar admin-toolbar--two admin-map-toolbar">
+                <div class="admin-field admin-toolbar__search">
+                  <label class="admin-label" for="fabricsSearch">Search fabrics</label>
+                  <input class="admin-input" id="fabricsSearch" type="search" placeholder="Fabric name or collection" maxlength="100" autocomplete="off" />
+                </div>
+                <div class="admin-field">
+                  <label class="admin-label" for="fabricsShow">Show</label>
+                  <select class="admin-input" id="fabricsShow"><option value="all">All fabrics</option><option value="on">Offered</option><option value="off">Not offered</option></select>
+                </div>
+              </div>
+              <div class="admin-actions admin-map-bulk">
+                <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="fabricsTickAll">Tick all shown</button>
+                <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="fabricsUntickAll">Untick all shown</button>
+              </div>
+              <div class="admin-option-list" id="fabricsList" role="group" aria-label="Fabrics"></div>
+              <div class="admin-section__save">
+                <p class="admin-muted" id="fabricsPending" role="status" aria-live="polite"></p>
+                <button type="button" class="admin-btn admin-btn--ghost" id="fabricsReset">Undo changes</button>
+                <button type="button" class="admin-btn admin-btn--primary" id="fabricsSave">Save fabrics</button>
+              </div>
+            </section>
+
+            <section class="admin-panel admin-section" id="storagePanel" hidden aria-labelledby="storageTitle">
+              <h2 class="admin-panel__title" id="storageTitle">Storage options</h2>
+              <p class="admin-hint">Tick the storage choices this product offers. The default is the choice selected first. Storage prices are not changed here.</p>
+              <div class="admin-table-wrap">
+                <table class="admin-table admin-table--storage-map">
+                  <thead><tr><th scope="col">Option</th><th scope="col">Offered</th><th scope="col">Default</th></tr></thead>
+                  <tbody id="storageRows"></tbody>
+                </table>
+              </div>
+              <div class="admin-section__save">
+                <p class="admin-muted" id="storagePending" role="status" aria-live="polite"></p>
+                <button type="button" class="admin-btn admin-btn--ghost" id="storageReset">Undo changes</button>
+                <button type="button" class="admin-btn admin-btn--primary" id="storageSave">Save storage</button>
+              </div>
+            </section>
+
+          </div>
+
+          <aside class="admin-editor__side">
+            <section class="admin-panel">
+              <h2 class="admin-panel__title">Visibility</h2>
+              <label class="admin-switch">
+                <input type="checkbox" id="pActive" name="isActive" />
+                <span class="admin-switch__track" aria-hidden="true"></span>
+                <span><strong>Active</strong><small>Shown in the shop and can be bought.</small></span>
+              </label>
+              <label class="admin-switch">
+                <input type="checkbox" id="pFeatured" name="isFeatured" />
+                <span class="admin-switch__track" aria-hidden="true"></span>
+                <span><strong>Featured</strong><small>Marked as a featured product.</small></span>
+              </label>
+              <label class="admin-switch">
+                <input type="checkbox" id="pBestSeller" name="isBestSeller" />
+                <span class="admin-switch__track" aria-hidden="true"></span>
+                <span><strong>Best seller</strong><small>Marked as a best seller.</small></span>
+              </label>
+            </section>
+
+            <section class="admin-panel">
+              <h2 class="admin-panel__title">Price</h2>
+              <div class="admin-field" data-field="price">
+                <label class="admin-label" for="pPrice">Price (&pound;)</label>
+                <input class="admin-input" id="pPrice" name="price" type="text" inputmode="decimal" aria-invalid="false" aria-describedby="pPriceHint" />
+                <p class="admin-hint" id="pPriceHint"></p>
+                <p class="admin-error" role="alert" hidden></p>
+              </div>
+              <dl class="admin-facts" id="pPricingFacts"></dl>
+            </section>
+
+            <section class="admin-panel" id="pInfoPanel" hidden>
+              <h2 class="admin-panel__title">Information</h2>
+              <dl class="admin-facts" id="pInfo"></dl>
+            </section>
+
+            <div class="admin-savebar">
+              <button type="submit" class="admin-btn admin-btn--primary admin-btn--block" id="productSaveBtn">Save product</button>
+              <p class="admin-hint admin-savebar__hint" id="productSaveHint">Saves the product details, visibility and price. Images, sizes, fabrics and storage have their own save buttons.</p>
+              <a class="admin-btn admin-btn--ghost admin-btn--block" id="productViewLink" href="#" target="_blank" rel="noopener" hidden>View in shop</a>
+            </div>
+          </aside>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- Logged in, but not an admin. -->
+  <div class="admin-denied" id="adminDenied" hidden>
+    <div class="admin-login__card">
+      <img class="admin-login__logo" src="../images/img-2.png" alt="Rabbora Living" width="64" height="64" />
+      <h1 class="admin-login__heading">Access denied</h1>
+      <p class="admin-login__sub">This account does not have admin access.</p>
+      <div class="admin-actions admin-actions--center">
+        <a class="admin-btn admin-btn--primary" href="../index.html">Back to the shop</a>
+        <button type="button" class="admin-btn admin-btn--ghost" data-admin-logout>Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend not reachable. -->
+  <div class="admin-denied" id="adminOffline" hidden>
+    <div class="admin-login__card">
+      <h1 class="admin-login__heading">Admin panel unavailable</h1>
+      <p class="admin-login__sub"></p>
+      <div class="admin-actions admin-actions--center">
+        <button type="button" class="admin-btn admin-btn--primary" onclick="window.location.reload()">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../api-config.js"></script>
+  <script src="js/admin-auth.js?v=admin-3"></script>
+  <script src="js/product-edit.js?v=admin-4"></script>
+  <script src="js/product-options.js?v=admin-4"></script>
+</body>
+</html>

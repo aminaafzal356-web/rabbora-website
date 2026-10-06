@@ -526,7 +526,7 @@
   "chesterfield-3-seater-sofa": {
     "name": "Chesterfield 3-Seater Sofa",
     "price": 999.00,
-    "prev": 1099.0,
+    "prev": 1998.0,
     "monthly": 84,
     "rating": 5,
     "reviews": 143,
@@ -568,7 +568,7 @@
   "hampton-2-seater-sofa": {
     "name": "Hampton 2-Seater Sofa",
     "price": 799.00,
-    "prev": 899.0,
+    "prev": null,
     "monthly": 67,
     "rating": 4,
     "reviews": 52,
@@ -589,7 +589,7 @@
   "harlow-modular-sofa": {
     "name": "Harlow Modular Sofa",
     "price": 999.00,
-    "prev": null,
+    "prev": 1998.0,
     "monthly": 84,
     "rating": 5,
     "reviews": 67,
@@ -610,6 +610,54 @@
 };
 
   var SF_SIZE_OPTIONS = ["2 Seater Sofa", "3 Seater Sofa", "3+2 Seater", "Left Corner Sofa", "Right Corner Sofa"];
+
+  // Exact price of every size each sofa is sold in (current Pascal Beds
+  // prices, 26 Sep 2026). Only these sizes are shown for that sofa.
+  var SF_SIZE_PRICES = {
+    "chesterfield-3-seater-sofa": { "2 Seater Sofa": 999, "3 Seater Sofa": 1199 }, // Rabbora #1 = Pascal #3 PSCL Teddy-Cubex 3 Seater Square Panel Sofa (Teddy-Boucle Cream Fabric)
+    "chelsea-corner-sofa": { "2 Seater Sofa": 799, "3 Seater Sofa": 999, "Left Corner Sofa": 1499, "Right Corner Sofa": 1499 }, // Rabbora #2 = Pascal #8 PSCL Model A - Sprung Handmade Sofa
+    "hampton-2-seater-sofa": { "2 Seater Sofa": 799, "3 Seater Sofa": 949, "3+2 Seater": 1599, "Left Corner Sofa": 1499, "Right Corner Sofa": 1499 }, // Rabbora #3 = Pascal #2 PSCL Model C - Handmade Sofa with Comfort Dynamics
+    "harlow-modular-sofa": { "2 Seater Sofa": 999, "3 Seater Sofa": 1199 } // Rabbora #4 = Pascal #6 PSCL Teddy-Cubex Dark 3 Seater Square Panel Sofa (Teddy-Boucle Black Fabric)
+  };
+
+  // Original (crossed-out) price of each size, where Pascal shows one.
+  // Old (crossed-out) price per size. Only the 1st and 4th sofas are on a
+  // 50% sale: old price = sale price / 0.50 (sale price x 2).
+  var SF_SIZE_OLD_PRICES = {
+    "chesterfield-3-seater-sofa": { "2 Seater Sofa": 1998, "3 Seater Sofa": 2398 },
+    "harlow-modular-sofa": { "2 Seater Sofa": 1998, "3 Seater Sofa": 2398 }
+  };
+
+  // Sizes offered for one sofa, in the usual order.
+  function sfSizesFor(slug) {
+    var map = SF_SIZE_PRICES[slug];
+    if (!map) return SF_SIZE_OPTIONS.slice();
+    return SF_SIZE_OPTIONS.filter(function (size) { return typeof map[size] === "number"; });
+  }
+
+  // Price of one size; with no size selected, the sofa's "from" price.
+  function sfSizePrice(slug, product, size) {
+    // A sofa loaded from the backend API carries its own size prices.
+    if (size && product && product.sizePrices && typeof product.sizePrices[size] === "number") return product.sizePrices[size];
+    var map = SF_SIZE_PRICES[slug];
+    if (size && map && typeof map[size] === "number") return map[size];
+    return product.price;
+  }
+
+  // Crossed-out price for one size (or the "from" price's one).
+  function sfSizeOldPrice(slug, product, size, sizePrice) {
+    // A size listed in SF_SIZE_OLD_PRICES uses that old price.
+    var listed = (size && SF_SIZE_OLD_PRICES[slug]) ? SF_SIZE_OLD_PRICES[slug][size] : null;
+    if (typeof listed === "number") return listed > sizePrice ? listed : null;
+    if (size && product && product.sizeOldPrices) {
+      // Sofa from the backend API: each size has its own compare-at price.
+      var apiOld = product.sizeOldPrices[size];
+      return (apiOld && apiOld > sizePrice) ? apiOld : null;
+    }
+    var olds = SF_SIZE_OLD_PRICES[slug];
+    var old = (size && olds) ? olds[size] : (size && SF_SIZE_PRICES[slug] ? null : product.prev);
+    return (old && old > sizePrice) ? old : null;
+  }
 
 var FABRIC_COLLECTIONS = [
     {
@@ -1059,7 +1107,7 @@ var FABRIC_COLLECTIONS = [
     }
 
     function renderGallery() {
-      var product = SF_PRODUCTS[sfModalState.slug];
+      var product = sfCurrentProduct();
       if (!product) return;
 
       mainImage.src = product.images[sfModalState.imageIndex];
@@ -1091,11 +1139,193 @@ var FABRIC_COLLECTIONS = [
       }
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "bb-modal__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="bb-modal__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = sfMoney(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? sfMoney(oldPrice) : "";
+    }
+
+    function currentSizePriceRender() {
+      var product = sfCurrentProduct();
+      if (!product) { renderSelectedSizePrice(null); return; }
+      var sizePrice = sfSizePrice(sfModalState.slug, product, sfModalState.selectedSize);
+      var validOldPrice = sfSizeOldPrice(sfModalState.slug, product, sfModalState.selectedSize, sizePrice);
+      renderSelectedSizePrice(sfModalState.selectedSize, sizePrice, validOldPrice);
+      // Keep the main price at the top in step with the selected size.
+      if (priceEl) priceEl.textContent = sfMoney(sizePrice);
+      if (prevPriceEl) prevPriceEl.textContent = validOldPrice ? sfMoney(validOldPrice) : "";
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: sizePrice, sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: sfModalState.selectedSize, sizeOptions: sizeOptionsEl, sizeRow: sizePriceRow,
+        money: sfMoney
+      });
+    }
+
     function renderSizeOptions() {
       if (!sizeOptionsEl) return;
       sizeOptionsEl.innerHTML = "";
 
-      SF_SIZE_OPTIONS.forEach(function (size) {
+      // Sizes from the backend API when the sofa came from it;
+      // otherwise the existing size list as before.
+      var sfSizeProduct = sfCurrentProduct();
+      var sizes = (sfSizeProduct && sfSizeProduct.availableSizes)
+        ? sfSizeProduct.availableSizes.slice()
+        : sfSizesFor(sfModalState.slug);
+      if (sfModalState.selectedSize && sizes.indexOf(sfModalState.selectedSize) === -1) {
+        sfModalState.selectedSize = null;
+      }
+      sizes.forEach(function (size) {
         var isSelected = sfModalState.selectedSize === size;
 
         var btn = document.createElement("button");
@@ -1114,6 +1344,7 @@ var FABRIC_COLLECTIONS = [
           btn.setAttribute("aria-pressed", "true");
 
           updateSizeSelectedStatus();
+          currentSizePriceRender();
 
           if (purchaseMessage && purchaseMessage.classList.contains("is-error")) {
             purchaseMessage.textContent = "";
@@ -1211,7 +1442,7 @@ var FABRIC_COLLECTIONS = [
     }
 
     function renderRelated() {
-      var product = SF_PRODUCTS[sfModalState.slug];
+      var product = sfCurrentProduct();
       relatedEl.innerHTML = "";
       if (!product) return;
 
@@ -1237,7 +1468,7 @@ var FABRIC_COLLECTIONS = [
       starsEl.textContent = "";
       reviewCountEl.textContent = "No reviews yet";
       priceEl.textContent = sfMoney(product.price);
-      prevPriceEl.textContent = product.prev ? sfMoney(product.prev) : "";
+      prevPriceEl.textContent = (product.prev && product.prev > product.price) ? sfMoney(product.prev) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
 
@@ -1250,6 +1481,7 @@ var FABRIC_COLLECTIONS = [
 
       renderGallery();
       renderSizeOptions();
+      currentSizePriceRender();
       renderFabrics();
       renderRelated();
 
@@ -1277,6 +1509,165 @@ var FABRIC_COLLECTIONS = [
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
+    // ---- Backend Product Detail API ----
+    // The detail view first asks the backend for the product. Only the
+    // name, images, sizes, size prices, compare-at prices and (where this
+    // page shows them) dimensions come from the API. They are merged ON TOP
+    // of a copy of the existing product object from this file, so every
+    // frontend-only field stays exactly as it is. If the API fails, is
+    // unreachable, returns 404 or sends unexpected data, the original
+    // product object from this file is used exactly as before.
+    // Address from api-config.js (window.RabboraApi), which must load
+    // before this file: GET <API_URL>/products/slug/<slug>.
+    var RB_API_PRODUCT_URL = window.RabboraApi && typeof window.RabboraApi.url === "function"
+      ? window.RabboraApi.url("/products/slug/")
+      : null;
+    if (!RB_API_PRODUCT_URL) {
+      console.warn(
+        "[Rabbora Sofas] api-config.js is not loaded, so product details come from this file only. " +
+        "Add <script src=\"api-config.js\"></script> before sofas.js."
+      );
+    }
+    var RB_API_TIMEOUT_MS = 4000;
+    var rbApiCache = {};
+    var rbApiRouteId = 0;
+
+    function rbApiIsValid(apiProduct, slug) {
+      if (!apiProduct || apiProduct.slug !== slug) return false;
+      if (typeof apiProduct.name !== "string" || !apiProduct.name.trim()) return false;
+      if (!Array.isArray(apiProduct.images) || apiProduct.images.length === 0) return false;
+      if (!Array.isArray(apiProduct.variants) || apiProduct.variants.length === 0) return false;
+      var imagesOk = apiProduct.images.every(function (img) {
+        return img && typeof img.image_url === "string" && img.image_url.trim() !== "";
+      });
+      var variantsOk = apiProduct.variants.every(function (v) {
+        return v &&
+          typeof v.option_value === "string" && v.option_value !== "" &&
+          typeof v.option_label === "string" && v.option_label !== "" &&
+          typeof v.price === "number" && isFinite(v.price) && v.price > 0;
+      });
+      return imagesOk && variantsOk;
+    }
+
+    // Shallow copy, so the original product object in this file is never
+    // changed (grid cards, related products and the fallback keep using it).
+    function rbApiCopy(baseProduct) {
+      var copy = {};
+      Object.keys(baseProduct).forEach(function (key) { copy[key] = baseProduct[key]; });
+      return copy;
+    }
+
+    // Size data from the API variants, in the API's sort order. When
+    // needDimensions is true, every size must end up with a width/length
+    // (API value, or this file's existing value) or null is returned.
+    function rbApiSizeData(baseProduct, apiProduct, needDimensions) {
+      var variants = apiProduct.variants.slice().sort(function (a, b) {
+        return (a.sort_order || 0) - (b.sort_order || 0);
+      });
+      var data = {
+        sizes: [], labels: [], labelMap: {}, sizePrices: {}, sizeOldPrices: {}, dimensions: {},
+        images: apiProduct.images.map(function (img) { return img.image_url; })
+      };
+      var baseDims = baseProduct.dimensions && typeof baseProduct.dimensions === "object" ? baseProduct.dimensions : {};
+      Object.keys(baseDims).forEach(function (size) { data.dimensions[size] = baseDims[size]; });
+      var ok = true;
+      variants.forEach(function (v) {
+        data.sizes.push(v.option_value);
+        data.labels.push(v.option_label);
+        data.labelMap[v.option_value] = v.option_label;
+        data.sizePrices[v.option_value] = v.price;
+        data.sizeOldPrices[v.option_value] =
+          (typeof v.compare_at_price === "number" && v.compare_at_price > v.price) ? v.compare_at_price : null;
+        if (typeof v.width_cm === "number" && typeof v.length_cm === "number") {
+          data.dimensions[v.option_value] = { width: v.width_cm, length: v.length_cm };
+        }
+        var d = data.dimensions[v.option_value];
+        if (needDimensions && !(d && typeof d.width === "number" && typeof d.length === "number")) ok = false;
+      });
+      if (!ok) return null;
+      // Base (no size selected) price: this page's own base price when one
+      // of the API sizes has exactly that price (so the page shows the same
+      // "from" price as before); otherwise the API product price (its
+      // lowest size). The crossed-out price is that size's compare-at price.
+      var baseVariant = null;
+      if (typeof baseProduct.price === "number") {
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - baseProduct.price) < 0.001; })[0] || null;
+      }
+      if (baseVariant) {
+        data.price = baseVariant.price;
+      } else {
+        data.price = (typeof apiProduct.price === "number" && isFinite(apiProduct.price) && apiProduct.price > 0)
+          ? apiProduct.price : variants[0].price;
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - data.price) < 0.001; })[0] || variants[0];
+      }
+      data.oldPrice = data.sizeOldPrices[baseVariant.option_value];
+      // Some pages keep the crossed-out price on their first size even when
+      // another size is the base price; the page showed it before a size
+      // was chosen, so the first size's compare-at price is used then.
+      if (!data.oldPrice) {
+        var firstOld = data.sizeOldPrices[variants[0].option_value];
+        data.oldPrice = (firstOld && firstOld > data.price) ? firstOld : null;
+      }
+      return data;
+    }
+
+    // Page-specific merge: which API values go into which fields this
+    // page already reads.
+    function rbApiMerge(baseProduct, apiProduct) {
+      var d = rbApiSizeData(baseProduct, apiProduct, false);
+      if (!d) return null;
+      var merged = rbApiCopy(baseProduct);
+      merged.name = apiProduct.name;
+      merged.images = d.images;
+      merged.availableSizes = d.sizes;
+      merged.sizePrices = d.sizePrices;
+      merged.sizeOldPrices = d.sizeOldPrices;
+      merged.price = d.price;
+      // "prev" (the crossed-out price shown before a size is chosen) stays
+      // from this file; sized crossed-out prices come from the API.
+      return merged;
+    }
+
+    // Resolves with the merged API product, or null when the original
+    // product object should be used instead. Never rejects.
+    function rbApiFetch(baseProduct, slug) {
+      if (rbApiCache[slug]) return Promise.resolve(rbApiCache[slug]);
+      if (typeof fetch !== "function" || !RB_API_PRODUCT_URL) return Promise.resolve(null);
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var timeoutId = controller ? window.setTimeout(function () { controller.abort(); }, RB_API_TIMEOUT_MS) : null;
+      return fetch(RB_API_PRODUCT_URL + encodeURIComponent(slug), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (response) {
+          if (!response.ok) return null;
+          return response.json().catch(function () { return null; });
+        })
+        .then(function (data) {
+          var apiProduct = data && data.success === true ? data.product : null;
+          if (!rbApiIsValid(apiProduct, slug)) return null;
+          var merged = rbApiMerge(baseProduct, apiProduct);
+          if (merged) rbApiCache[slug] = merged;
+          return merged;
+        })
+        .catch(function () { return null; })
+        .then(function (result) {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          return result;
+        });
+    }
+
+    // The sofa the detail view is currently showing: the merged API
+    // product when it belongs to the current slug, otherwise the sofa from
+    // SF_PRODUCTS exactly as before. Every detail function below reads it.
+    var sfApiDetailProduct = null;
+    var sfApiDetailSlug = null;
+    function sfCurrentProduct() {
+      if (sfApiDetailProduct && sfApiDetailSlug === sfModalState.slug) return sfApiDetailProduct;
+      return SF_PRODUCTS[sfModalState.slug];
+    }
+
     function handleRoute() {
       // Defensive: always release the mobile-menu scroll lock and close
       // the drawer on every route change (see blanket-boxes.js for full
@@ -1294,6 +1685,7 @@ var FABRIC_COLLECTIONS = [
 
       var slug = currentSlugFromHash();
       if (!slug) {
+        rbApiRouteId++;
         sfModalState.slug = null;
         showCategory();
         return;
@@ -1301,18 +1693,26 @@ var FABRIC_COLLECTIONS = [
 
       var product = SF_PRODUCTS[slug];
       if (!product) {
+        rbApiRouteId++;
         showNotFound();
         return;
       }
 
-      sfModalState.slug = slug;
-      sfModalState.imageIndex = 0;
-      sfModalState.quantity = 1;
-      sfModalState.selectedSize = null;
-      sfModalState.selectedFabric = null;
-      sfModalState.selectedFabricSlug = null;
-      sfModalState.selectedFabricImage = null;
-      showDetail(product);
+      // Only the newest route may render (ignores late answers).
+      var requestId = ++rbApiRouteId;
+      rbApiFetch(product, slug).then(function (apiProduct) {
+        if (requestId !== rbApiRouteId) return;
+        sfApiDetailProduct = apiProduct;
+        sfApiDetailSlug = apiProduct ? slug : null;
+        sfModalState.slug = slug;
+        sfModalState.imageIndex = 0;
+        sfModalState.quantity = 1;
+        sfModalState.selectedSize = null;
+        sfModalState.selectedFabric = null;
+        sfModalState.selectedFabricSlug = null;
+        sfModalState.selectedFabricImage = null;
+        showDetail(apiProduct || product);
+      });
     }
 
     window.addEventListener("hashchange", handleRoute);
@@ -1326,7 +1726,7 @@ var FABRIC_COLLECTIONS = [
 
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
-        var product = SF_PRODUCTS[sfModalState.slug];
+        var product = sfCurrentProduct();
         if (!product) return;
         sfModalState.imageIndex = (sfModalState.imageIndex - 1 + product.images.length) % product.images.length;
         renderGallery();
@@ -1335,7 +1735,7 @@ var FABRIC_COLLECTIONS = [
 
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
-        var product = SF_PRODUCTS[sfModalState.slug];
+        var product = sfCurrentProduct();
         if (!product) return;
         sfModalState.imageIndex = (sfModalState.imageIndex + 1) % product.images.length;
         renderGallery();
@@ -1380,7 +1780,7 @@ var FABRIC_COLLECTIONS = [
 
     if (addToCartBtn) {
       addToCartBtn.addEventListener("click", function () {
-        var product = SF_PRODUCTS[sfModalState.slug];
+        var product = sfCurrentProduct();
         if (!product) return;
 
         // Both the sofa size and the fabric colour are required before
@@ -1414,7 +1814,7 @@ var FABRIC_COLLECTIONS = [
               url: "sofas.html#/" + sfModalState.slug,
               image: product.images && product.images.length ? product.images[0] : "",
               alt: product.name,
-              price: product.price,
+              price: sfSizePrice(sfModalState.slug, product, sfModalState.selectedSize),
               category: "Sofas",
               // fabricImage is a plain top-level field (not inside
               // variant) since checkout's buildVariantText() renders

@@ -25,7 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="account.css" />
+  <link rel="stylesheet" href="account.css?v=pw-toggle-3" />
+  <link rel="stylesheet" href="customer.css?v=customer-2" />
 
   <script type="application/ld+json">
   {
@@ -301,6 +302,15 @@
 
           <p class="login-form-status sr-only" id="loginFormStatus" role="status" aria-live="polite"></p>
 
+          <!-- Logged-in view: shown by account.js when /api/me or a login confirms the session. -->
+          <div class="login-account-view" id="loginAccountView" style="width: 100%; margin-top: 1.75rem;" hidden>
+            <button type="button" class="btn btn--forest login-button" id="logoutBtn">
+              <span class="login-button__text">Log out</span>
+              <span class="login-button__spinner" aria-hidden="true"></span>
+            </button>
+            <p class="login-error" id="logoutError" role="alert" hidden></p>
+          </div>
+
           <form class="login-form" id="loginForm" novalidate>
 
             <div class="login-field" id="loginEmailField">
@@ -377,6 +387,89 @@
             <a href="register.html">Create account</a>
           </p>
 
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ MY ACCOUNT (logged-in customers only) ============
+         Shown and filled by account-dashboard.js after account.js confirms
+         the login. Every detail is read from the backend each time; nothing
+         private is kept in the browser. Hidden again on logout. -->
+    <section class="section account-dash" id="accountDashboard" aria-labelledby="accountDashHeading" hidden>
+      <div class="container">
+
+        <div class="account-dash__head">
+          <p class="eyebrow">My Account</p>
+          <h2 class="account-dash__heading" id="accountDashHeading">Your details, addresses &amp; orders</h2>
+        </div>
+
+        <div class="account-dash__tabs" role="tablist" aria-label="My account">
+          <button type="button" class="account-dash__tab is-active" role="tab" id="accountTabDetails" aria-controls="accountPanelDetails" aria-selected="true" data-account-tab="details">Account details</button>
+          <button type="button" class="account-dash__tab" role="tab" id="accountTabAddresses" aria-controls="accountPanelAddresses" aria-selected="false" tabindex="-1" data-account-tab="addresses">Addresses</button>
+          <button type="button" class="account-dash__tab" role="tab" id="accountTabOrders" aria-controls="accountPanelOrders" aria-selected="false" tabindex="-1" data-account-tab="orders">My orders</button>
+        </div>
+
+        <p class="account-dash__status" id="accountDashStatus" role="status" aria-live="polite"></p>
+
+        <!-- Account details -->
+        <div class="account-dash__panel" role="tabpanel" id="accountPanelDetails" aria-labelledby="accountTabDetails">
+          <form class="account-dash__card" id="accountDetailsForm" novalidate>
+            <h3 class="account-dash__subheading">Account details</h3>
+            <div class="rb-fields">
+              <div class="rb-field" data-field="firstName">
+                <label class="rb-field__label" for="accountFirstName">First name</label>
+                <input class="rb-input" id="accountFirstName" name="firstName" type="text" autocomplete="given-name" maxlength="100" required aria-required="true" aria-invalid="false" aria-describedby="accountFirstNameError" />
+                <p class="rb-field__error" id="accountFirstNameError" role="alert" hidden></p>
+              </div>
+              <div class="rb-field" data-field="lastName">
+                <label class="rb-field__label" for="accountLastName">Last name</label>
+                <input class="rb-input" id="accountLastName" name="lastName" type="text" autocomplete="family-name" maxlength="100" required aria-required="true" aria-invalid="false" aria-describedby="accountLastNameError" />
+                <p class="rb-field__error" id="accountLastNameError" role="alert" hidden></p>
+              </div>
+              <div class="rb-field" data-field="email">
+                <label class="rb-field__label" for="accountEmail">Email address</label>
+                <input class="rb-input" id="accountEmail" name="email" type="email" autocomplete="email" readonly aria-describedby="accountEmailHint" />
+                <p class="rb-field__hint" id="accountEmailHint">Your login email can&rsquo;t be changed here.</p>
+              </div>
+              <div class="rb-field" data-field="phone">
+                <label class="rb-field__label" for="accountPhone">Phone number</label>
+                <input class="rb-input" id="accountPhone" name="phone" type="tel" autocomplete="tel" maxlength="20" aria-invalid="false" aria-describedby="accountPhoneError" />
+                <p class="rb-field__error" id="accountPhoneError" role="alert" hidden></p>
+              </div>
+            </div>
+            <div class="account-dash__actions">
+              <button type="submit" class="btn btn--forest">Save details</button>
+            </div>
+            <p class="account-dash__message" id="accountDetailsMessage" role="status" hidden></p>
+          </form>
+        </div>
+
+        <!-- Addresses -->
+        <div class="account-dash__panel" role="tabpanel" id="accountPanelAddresses" aria-labelledby="accountTabAddresses" hidden>
+          <div class="account-dash__card">
+            <h3 class="account-dash__subheading">Saved addresses</h3>
+            <div class="rb-address-grid" id="accountAddressList"></div>
+            <p class="account-dash__message" id="accountAddressMessage" role="status" hidden></p>
+            <button type="button" class="btn btn--outline-forest" id="accountAddAddressBtn">Add a new address</button>
+
+            <form class="rb-address-form" id="accountAddressForm" novalidate hidden>
+              <h4 class="rb-address-form__heading" id="accountAddressFormHeading">Add a new address</h4>
+              <div id="accountAddressFields"></div>
+              <div class="account-dash__actions">
+                <button type="submit" class="btn btn--forest">Save address</button>
+                <button type="button" class="btn btn--outline-forest" id="accountAddressCancel">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- My orders -->
+        <div class="account-dash__panel" role="tabpanel" id="accountPanelOrders" aria-labelledby="accountTabOrders" hidden>
+          <div class="account-dash__card">
+            <h3 class="account-dash__subheading">My orders</h3>
+            <div id="accountOrderList"></div>
+            <div id="accountOrderDetail" hidden></div>
+          </div>
         </div>
 
       </div>
@@ -494,10 +587,13 @@
     </svg>
   </a>
 
+  <script src="api-config.js"></script>
   <script src="search-index.js"></script>
-  <script src="wishlist-data.js"></script>
-  <script src="cart-data.js"></script>
+  <script src="wishlist-data.js?v=wishlist-sync-1"></script>
+  <script src="cart-data.js?v=cart-sync-1"></script>
   <script src="script.js"></script>
-  <script src="account.js"></script>
+  <script src="customer.js?v=customer-1"></script>
+  <script src="account-dashboard.js?v=customer-2"></script>
+  <script src="account.js?v=customer-1"></script>
 </body>
 </html>

@@ -25,10 +25,10 @@ var RAPID_DELIVERY_PRODUCTS =
   {
     "id": 1,
     "slug": "rapid-1",
-    "name": "Rabbora Athens Linear Bed",
+    "name": "Rabbora Athens Slatted Designer Ottoman Bed",
     "type": "Upholstered",
-    "price": 289.0,
-    "oldPrice": 400.0,
+    "price": 289,
+    "oldPrice": 400,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -81,18 +81,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/1.jfif",
-      "solid/2.jfif",
-      "solid/3.jfif"
+      "slatted/img-12.jfif",
+      "slatted/img-15.jfif",
+      "slatted/img-13.jfif",
+      "slatted/img-11.jfif",
+      "slatted/img-14.jfif"
     ]
   },
   {
     "id": 2,
     "slug": "rapid-2",
-    "name": "Rabbora Brooklyn Bed Frame",
+    "name": "Rabbora Brooklyn Slatted Bed",
     "type": "Upholstered",
-    "price": 299.0,
-    "oldPrice": 420.0,
+    "price": 299,
+    "oldPrice": 420,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -145,9 +147,10 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/4.jfif",
-      "solid/5.jfif",
-      "solid/6.jfif"
+      "slatted/40.png",
+      "slatted/41.png",
+      "slatted/43.png",
+      "slatted/42.png"
     ]
   },
   {
@@ -155,23 +158,21 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-3",
     "name": "Rabbora Chicago High Headboard Bed",
     "type": "Upholstered",
-    "price": 349.0,
-    "oldPrice": 420.0,
-    "monthlyPrice": 30,
+    "price": 449,
+    "oldPrice": 480,
+    "monthlyPrice": 38,
     "rating": 4,
     "reviewCount": 0,
-    "badge": "17% off",
+    "badge": "6% off",
     "shortInfo": "Upholstered bed frame available with rapid dispatch on selected sizes and fabrics.",
     "description": "A striking two-piece high headboard design brings a bold, statement presence to the bedroom while providing comfortable, supportive sleep.",
     "availableSizeLabels": [
-      "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -209,18 +210,19 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/7.jfif",
-      "solid/8.jfif",
-      "solid/9.jfif"
+      "high/13.jfif",
+      "high/14.jfif",
+      "high/15.jfif",
+      "high/16.jfif"
     ]
   },
   {
     "id": 4,
     "slug": "rapid-4",
-    "name": "Rabbora Empire Ottoman Bed",
+    "name": "Rabbora Empire Slatted Ottoman Bed",
     "type": "Ottoman",
-    "price": 289.0,
-    "oldPrice": 420.0,
+    "price": 289,
+    "oldPrice": 420,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -273,24 +275,25 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/10.jfif",
-      "solid/11.jfif",
-      "solid/12.jfif"
+      "slatted/img-17.jfif",
+      "slatted/img-19.jfif",
+      "slatted/img-18.jfif",
+      "slatted/img-12.jfif"
     ]
   },
   {
     "id": 5,
     "slug": "rapid-5",
-    "name": "Rabbora Hawaii Cream Bouclé Bed",
+    "name": "Rabbora Hawaii Cream Slatted Ottoman Bed",
     "type": "Ottoman",
-    "price": 239.0,
-    "oldPrice": 420.0,
+    "price": 239,
+    "oldPrice": 420,
     "monthlyPrice": 20,
     "rating": 4,
     "reviewCount": 0,
     "badge": "43% off",
     "shortInfo": "Bed frame with optional ottoman storage, available with rapid dispatch on selected sizes and fabrics.",
-    "description": "A soft, textured bouclé finish gives this bed a warm, inviting character, with the option of ottoman storage for practical everyday use.",
+    "description": "A soft, textured boucl\u00e9 finish gives this bed a warm, inviting character, with the option of ottoman storage for practical everyday use.",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -337,18 +340,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/13.jfif",
-      "solid/14.jfif",
-      "solid/15.jfif"
+      "slatted/84.png",
+      "slatted/85.jfif",
+      "slatted/86.png"
     ]
   },
   {
     "id": 6,
     "slug": "rapid-6",
-    "name": "Rabbora Kendal Wingback Bed",
+    "name": "Rabbora Kendal Slatted Wingback Bed",
     "type": "Upholstered",
-    "price": 299.0,
-    "oldPrice": 444.0,
+    "price": 299,
+    "oldPrice": 444,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -401,18 +404,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/16.jfif",
-      "solid/17.jfif",
-      "solid/18.jfif"
+      "slatted/img-35.png",
+      "slatted/img-34.png",
+      "slatted/img-33.png",
+      "slatted/img-32.png",
+      "slatted/img-36.png"
     ]
   },
   {
     "id": 7,
     "slug": "rapid-7",
-    "name": "Rabbora Lisbon Ottoman Bed",
+    "name": "Rabbora Lisbon Slatted Ottoman Bed",
     "type": "Ottoman",
-    "price": 349.0,
-    "oldPrice": 420.0,
+    "price": 349,
+    "oldPrice": 420,
     "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 0,
@@ -465,18 +470,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/19.jfif",
-      "solid/20.jfif",
-      "solid/21.jfif"
+      "slatted/99.jfif",
+      "slatted/101.png",
+      "slatted/100.png"
     ]
   },
   {
     "id": 8,
     "slug": "rapid-8",
-    "name": "Rabbora Málaga Designer Bed",
+    "name": "Rabbora Malaga Slatted Designer Bed",
     "type": "Upholstered",
-    "price": 275.0,
-    "oldPrice": 360.0,
+    "price": 275,
+    "oldPrice": 360,
     "monthlyPrice": 23,
     "rating": 4,
     "reviewCount": 0,
@@ -529,18 +534,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/22.jfif",
-      "solid/23.jfif",
-      "solid/24.jfif"
+      "slatted/93.png",
+      "slatted/95.jfif",
+      "slatted/94.jfif"
     ]
   },
   {
     "id": 9,
     "slug": "rapid-9",
-    "name": "Rabbora Manhattan Bed Frame",
+    "name": "Rabbora Manhattan Slatted Ottoman Bed",
     "type": "Upholstered",
-    "price": 249.0,
-    "oldPrice": 429.0,
+    "price": 249,
+    "oldPrice": 429,
     "monthlyPrice": 21,
     "rating": 4,
     "reviewCount": 0,
@@ -593,18 +598,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/25.jfif",
-      "solid/26.jfif",
-      "solid/27.jfif"
+      "slatted/img-1.jfif",
+      "slatted/img-6.jfif",
+      "slatted/img-5.jfif",
+      "slatted/img-4.jfif",
+      "slatted/img-2.jfif"
     ]
   },
   {
     "id": 10,
     "slug": "rapid-10",
-    "name": "Rabbora Milan Wingback Bed",
+    "name": "Rabbora Milan Slatted Wingback Ottoman Bed",
     "type": "Ottoman",
-    "price": 259.0,
-    "oldPrice": 420.0,
+    "price": 259,
+    "oldPrice": 420,
     "monthlyPrice": 22,
     "rating": 4,
     "reviewCount": 0,
@@ -657,18 +664,20 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/28.jfif",
-      "solid/29.jfif",
-      "solid/30.jfif"
+      "slatted/img-7.jfif",
+      "slatted/img-8.jfif",
+      "slatted/img-9.jfif",
+      "slatted/img-10.jfif",
+      "slatted/img-3.jfif"
     ]
   },
   {
     "id": 11,
     "slug": "rapid-11",
-    "name": "Rabbora Mona Lisa Bed",
+    "name": "Rabbora Mona Lisa Slatted Ottoman Bed",
     "type": "Ottoman",
-    "price": 299.0,
-    "oldPrice": 420.0,
+    "price": 299,
+    "oldPrice": 420,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -721,18 +730,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/31.jfif",
-      "solid/32.jfif",
-      "solid/33.jfif"
+      "slatted/105.jfif",
+      "slatted/106.jfif",
+      "slatted/107.jfif"
     ]
   },
   {
     "id": 12,
     "slug": "rapid-12",
-    "name": "Rabbora Nevada Bed Frame",
+    "name": "Rabbora Nevada Slatted Ottoman Bed",
     "type": "Upholstered",
-    "price": 299.0,
-    "oldPrice": 420.0,
+    "price": 299,
+    "oldPrice": 420,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -785,18 +794,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/34.jfif",
-      "solid/35.jfif",
-      "solid/36.jfif"
+      "slatted/48.png",
+      "slatted/50.png",
+      "slatted/49.png"
     ]
   },
   {
     "id": 13,
     "slug": "rapid-13",
-    "name": "Rabbora Orlando Ottoman Bed",
+    "name": "Rabbora Orlando Slatted Ottoman Bed",
     "type": "Ottoman",
     "price": 306.59,
-    "oldPrice": 420.0,
+    "oldPrice": 420,
     "monthlyPrice": 26,
     "rating": 4,
     "reviewCount": 0,
@@ -849,9 +858,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/37.jfif",
-      "solid/38.jfif",
-      "solid/39.jfif"
+      "slatted/img-30.png",
+      "slatted/img-28.png",
+      "slatted/img-29.png",
+      "slatted/img-31.png",
+      "slatted/img-27.png"
     ]
   },
   {
@@ -859,8 +870,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-14",
     "name": "Rabbora Princess Signature Bed",
     "type": "Upholstered",
-    "price": 349.0,
-    "oldPrice": 420.0,
+    "price": 349,
+    "oldPrice": 420,
     "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 0,
@@ -921,10 +932,10 @@ var RAPID_DELIVERY_PRODUCTS =
   {
     "id": 15,
     "slug": "rapid-15",
-    "name": "Rabbora Amalfi Italian Style Bed",
+    "name": "Rabbora Amalfi Slatted Italian Style Ottoman Bed",
     "type": "Ottoman",
-    "price": 299.0,
-    "oldPrice": 599.0,
+    "price": 299,
+    "oldPrice": 599,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -977,18 +988,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/43.jfif",
-      "solid/44.jfif",
-      "solid/45.jfif"
+      "slatted/168.jfif",
+      "slatted/169.png",
+      "slatted/170.jfif"
     ]
   },
   {
     "id": 16,
     "slug": "rapid-16",
-    "name": "Rabbora Teddy-Orlando Ottoman Bed",
+    "name": "Rabbora Teddy Orlando Slatted Ottoman Bed",
     "type": "Ottoman",
     "price": 306.59,
-    "oldPrice": 420.0,
+    "oldPrice": 420,
     "monthlyPrice": 26,
     "rating": 4,
     "reviewCount": 0,
@@ -1041,18 +1052,19 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/46.jfif",
-      "solid/47.jfif",
-      "solid/48.jfif"
+      "slatted/34.png",
+      "slatted/35.png",
+      "slatted/36.png",
+      "slatted/37.png"
     ]
   },
   {
     "id": 17,
     "slug": "rapid-17",
-    "name": "Rabbora Tokyo Sunrise Ottoman Bed",
+    "name": "Rabbora Tokyo Sunrise Slatted Ottoman Bed",
     "type": "Ottoman",
-    "price": 289.0,
-    "oldPrice": 420.0,
+    "price": 289,
+    "oldPrice": 420,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1105,18 +1117,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/49.jfif",
-      "solid/50.jfif",
-      "solid/51.jfif"
+      "slatted/90.png",
+      "slatted/91.jfif",
+      "slatted/92.jfif"
     ]
   },
   {
     "id": 18,
     "slug": "rapid-18",
-    "name": "Rabbora Torino Bumper Bed",
+    "name": "Rabbora Torino Slatted Designer Bed",
     "type": "Upholstered",
-    "price": 290.0,
-    "oldPrice": 396.0,
+    "price": 290,
+    "oldPrice": 396,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1169,18 +1181,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/52.jfif",
-      "solid/53.jfif",
-      "solid/54.jfif"
+      "slatted/80.png",
+      "slatted/122.png",
+      "slatted/81.png"
     ]
   },
   {
     "id": 19,
     "slug": "rapid-19",
-    "name": "Rabbora Washington Bed Frame",
+    "name": "Rabbora Washington Slatted Bed",
     "type": "Upholstered",
-    "price": 349.0,
-    "oldPrice": 599.0,
+    "price": 349,
+    "oldPrice": 599,
     "monthlyPrice": 30,
     "rating": 4,
     "reviewCount": 0,
@@ -1233,18 +1245,19 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/55.jfif",
-      "solid/56.jfif",
-      "solid/57.jfif"
+      "slatted/45.png",
+      "slatted/47.png",
+      "slatted/46.png",
+      "slatted/44.png"
     ]
   },
   {
     "id": 20,
     "slug": "rapid-20",
-    "name": "Rabbora Duchess of La Rosa Bed",
+    "name": "Rabbora Duchess Slatted La Rosa Bed",
     "type": "Upholstered",
-    "price": 299.0,
-    "oldPrice": 414.0,
+    "price": 299,
+    "oldPrice": 414,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1297,18 +1310,18 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/58.jfif",
-      "solid/59.jfif",
-      "solid/60.jfif"
+      "slatted/54.png",
+      "slatted/56.png",
+      "slatted/55.png"
     ]
   },
   {
     "id": 21,
     "slug": "rapid-21",
-    "name": "Rabbora Art Deco Bed",
+    "name": "Rabbora Art Deco Slatted Ottoman Bed",
     "type": "Upholstered",
-    "price": 252.0,
-    "oldPrice": 420.0,
+    "price": 252,
+    "oldPrice": 420,
     "monthlyPrice": 21,
     "rating": 4,
     "reviewCount": 0,
@@ -1361,9 +1374,11 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/61.jfif",
-      "solid/62.jfif",
-      "solid/63.jfif"
+      "slatted/img-22.jfif",
+      "slatted/img-24.jfif",
+      "slatted/img-25.jfif",
+      "slatted/img-26.jfif",
+      "slatted/img-23.jfif"
     ]
   },
   {
@@ -1371,8 +1386,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-22",
     "name": "Rabbora Art Deco Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 380.0,
+    "price": 294,
+    "oldPrice": 380,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1382,7 +1397,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1425,9 +1440,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/64.jfif",
-      "solid/65.jfif",
-      "solid/66.jfif"
+      "drawar/7.jfif",
+      "drawar/8.jfif",
+      "drawar/9.jfif"
     ]
   },
   {
@@ -1435,8 +1450,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-23",
     "name": "Rabbora Brooklyn Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 380.0,
+    "price": 304,
+    "oldPrice": 380,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1446,7 +1461,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1489,9 +1504,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/67.jfif",
-      "solid/68.jfif",
-      "solid/69.jfif"
+      "drawar/16.jfif",
+      "drawar/17.jfif",
+      "drawar/18.jfif"
     ]
   },
   {
@@ -1499,14 +1514,14 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-24",
     "name": "Rabbora Divan Hawaii Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 380.0,
+    "price": 299,
+    "oldPrice": 380,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
     "badge": "21% off",
     "shortInfo": "Storage bed with drawer storage, available with rapid dispatch on selected sizes and fabrics.",
-    "description": "A soft, textured bouclé-inspired divan design with the option of drawer storage, combining warmth and comfort with practical convenience.",
+    "description": "A soft, textured boucl\u00e9-inspired divan design with the option of drawer storage, combining warmth and comfort with practical convenience.",
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
@@ -1563,8 +1578,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-25",
     "name": "Rabbora Dover Designer Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 400.0,
+    "price": 294,
+    "oldPrice": 400,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1574,7 +1589,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1617,9 +1632,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/73.jfif",
-      "solid/74.jfif",
-      "solid/75.jfif"
+      "drawar/13.jfif",
+      "drawar/14.jfif",
+      "drawar/15.jfif"
     ]
   },
   {
@@ -1627,8 +1642,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-26",
     "name": "Rabbora Golden Skyline Storage Bed",
     "type": "Storage",
-    "price": 399.0,
-    "oldPrice": 499.0,
+    "price": 394,
+    "oldPrice": 499,
     "monthlyPrice": 34,
     "rating": 4,
     "reviewCount": 0,
@@ -1638,7 +1653,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1681,9 +1696,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/76.jfif",
-      "solid/77.jfif",
-      "solid/78.jfif"
+      "drawar/10.jfif",
+      "drawar/11.jfif",
+      "drawar/12.jfif"
     ]
   },
   {
@@ -1691,8 +1706,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-27",
     "name": "Rabbora Lyon Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 380.0,
+    "price": 294,
+    "oldPrice": 380,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1702,7 +1717,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1745,9 +1760,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/79.jfif",
-      "solid/80.jfif",
-      "solid/81.jfif"
+      "drawar/1.jfif",
+      "drawar/2.jfif",
+      "drawar/3.jfif"
     ]
   },
   {
@@ -1755,8 +1770,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-28",
     "name": "Rabbora Mayfair Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 380.0,
+    "price": 304,
+    "oldPrice": 380,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1766,7 +1781,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1809,9 +1824,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/82.jfif",
-      "solid/83.jfif",
-      "solid/84.jfif"
+      "drawar/19.jfif",
+      "drawar/20.jfif",
+      "drawar/21.jfif"
     ]
   },
   {
@@ -1819,8 +1834,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-29",
     "name": "Rabbora Mona Lisa Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 380.0,
+    "price": 294,
+    "oldPrice": 380,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1830,7 +1845,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1873,9 +1888,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/85.jfif",
-      "solid/86.jfif",
-      "solid/87.jfif"
+      "drawar/4.jfif",
+      "drawar/5.jfif",
+      "drawar/6.jfif"
     ]
   },
   {
@@ -1883,8 +1898,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-30",
     "name": "Rabbora Toronto Lux Storage Bed",
     "type": "Storage",
-    "price": 399.0,
-    "oldPrice": 499.0,
+    "price": 404,
+    "oldPrice": 499,
     "monthlyPrice": 34,
     "rating": 4,
     "reviewCount": 0,
@@ -1894,7 +1909,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -1937,9 +1952,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/88.jfif",
-      "solid/89.jfif",
-      "solid/90.jfif"
+      "drawar/22.jfif",
+      "drawar/23.jfif",
+      "drawar/24.jfif"
     ]
   },
   {
@@ -1947,8 +1962,8 @@ var RAPID_DELIVERY_PRODUCTS =
     "slug": "rapid-31",
     "name": "Rabbora Virginia Storage Bed",
     "type": "Storage",
-    "price": 299.0,
-    "oldPrice": 370.0,
+    "price": 304,
+    "oldPrice": 370,
     "monthlyPrice": 25,
     "rating": 4,
     "reviewCount": 0,
@@ -1958,7 +1973,7 @@ var RAPID_DELIVERY_PRODUCTS =
     "availableSizeLabels": [
       "Single 3ft",
       "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
@@ -2001,9 +2016,9 @@ var RAPID_DELIVERY_PRODUCTS =
     "warranty": "24 month warranty",
     "returns": "30-day easy returns on unused, unassembled beds.",
     "images": [
-      "solid/91.jfif",
-      "solid/92.jfif",
-      "solid/93.jfif"
+      "drawar/25.jfif",
+      "drawar/26.jfif",
+      "drawar/27.jfif"
     ]
   }
 ];
@@ -2169,6 +2184,102 @@ RD_FABRIC_COLLECTIONS.forEach(function (collection) {
   });
 });
 
+
+// Exact per-size prices, copied from the matching product on the Slatted
+// Ottoman, High Headboard and Storage Drawer pages (26 Sep 2026). A size
+// missing from a bed's list is not offered for that bed. Beds not listed
+// here keep the size differences below.
+var RAPID_DELIVERY_SIZE_PRICES = {
+  "rapid-1": { "Single": 289, "Small Double": 367.5, "Double": 399, "King": 439, "Super King": 469 }, // Rabbora Athens Slatted Designer Ottoman Bed
+  "rapid-2": { "Single": 299, "Small Double": 369, "Double": 399, "King": 419, "Super King": 479 }, // Rabbora Brooklyn Slatted Bed
+  "rapid-3": { "Small Double": 449, "Double": 489, "King": 529, "Super King": 549 }, // Rabbora Chicago High Headboard Bed
+  "rapid-4": { "Single": 289, "Small Double": 409, "Double": 449, "King": 458.99, "Super King": 499 }, // Rabbora Empire Slatted Ottoman Bed
+  "rapid-5": { "Single": 239, "Small Double": 379, "Double": 399, "King": 449, "Super King": 499 }, // Rabbora Hawaii Cream Slatted Ottoman Bed
+  "rapid-6": { "Single": 299, "Small Double": 409, "Double": 439, "King": 459, "Super King": 509 }, // Rabbora Kendal Slatted Wingback Bed
+  "rapid-7": { "Single": 349, "Small Double": 399, "Double": 449, "King": 489, "Super King": 549 }, // Rabbora Lisbon Slatted Ottoman Bed
+  "rapid-8": { "Single": 275, "Small Double": 339, "Double": 349, "King": 399, "Super King": 419 }, // Rabbora Malaga Slatted Designer Bed
+  "rapid-9": { "Single": 249, "Small Double": 388, "Double": 429, "King": 459, "Super King": 499 }, // Rabbora Manhattan Slatted Ottoman Bed
+  "rapid-10": { "Single": 259, "Small Double": 359, "Double": 399, "King": 439, "Super King": 469 }, // Rabbora Milan Slatted Wingback Ottoman Bed
+  "rapid-11": { "Single": 299, "Small Double": 399, "Double": 419, "King": 449, "Super King": 499 }, // Rabbora Mona Lisa Slatted Ottoman Bed
+  "rapid-12": { "Single": 299, "Small Double": 409, "Double": 429, "King": 459, "Super King": 499 }, // Rabbora Nevada Slatted Ottoman Bed
+  "rapid-13": { "Single": 306.59, "Small Double": 409, "Double": 449, "King": 489, "Super King": 539 }, // Rabbora Orlando Slatted Ottoman Bed
+  "rapid-15": { "Single": 299, "Small Double": 429, "Double": 459, "King": 499, "Super King": 529 }, // Rabbora Amalfi Slatted Italian Style Ottoman Bed
+  "rapid-16": { "Single": 306.59, "Small Double": 439, "Double": 489, "King": 509, "Super King": 559 }, // Rabbora Teddy Orlando Slatted Ottoman Bed
+  "rapid-17": { "Single": 289, "Small Double": 409, "Double": 425, "King": 459, "Super King": 485 }, // Rabbora Tokyo Sunrise Slatted Ottoman Bed
+  "rapid-18": { "Single": 290, "Small Double": 399, "Double": 399, "King": 449, "Super King": 499 }, // Rabbora Torino Slatted Designer Bed
+  "rapid-19": { "Single": 349, "Small Double": 449, "Double": 459, "King": 519, "Super King": 569 }, // Rabbora Washington Slatted Bed
+  "rapid-20": { "Single": 299, "Small Double": 349, "Double": 389, "King": 419, "Super King": 499 }, // Rabbora Duchess Slatted La Rosa Bed
+  "rapid-21": { "Single": 252, "Small Double": 383.99, "Double": 449, "King": 489, "Super King": 529 }, // Rabbora Art Deco Slatted Ottoman Bed
+  "rapid-22": { "Single": 294, "Small Double": 384, "Double": 394, "King": 444, "Super King": 480 }, // Rabbora Art Deco Storage Bed
+  "rapid-23": { "Single": 304, "Small Double": 394, "Double": 404, "King": 454, "Super King": 490 }, // Rabbora Brooklyn Storage Bed
+  "rapid-25": { "Single": 294, "Small Double": 384, "Double": 394, "King": 444, "Super King": 484 }, // Rabbora Dover Designer Storage Bed
+  "rapid-26": { "Single": 394, "Small Double": 444, "Double": 414, "King": 524, "Super King": 564 }, // Rabbora Golden Skyline Storage Bed
+  "rapid-27": { "Single": 294, "Small Double": 384, "Double": 394, "King": 444, "Super King": 480 }, // Rabbora Lyon Storage Bed
+  "rapid-28": { "Single": 304, "Small Double": 394, "Double": 404, "King": 454, "Super King": 490 }, // Rabbora Mayfair Storage Bed
+  "rapid-29": { "Single": 294, "Small Double": 384, "Double": 394, "King": 444, "Super King": 480 }, // Rabbora Mona Lisa Storage Bed
+  "rapid-30": { "Single": 404, "Small Double": 455, "Double": 455, "King": 475, "Super King": 525 }, // Rabbora Toronto Lux Storage Bed
+  "rapid-31": { "Single": 304, "Small Double": 384, "Double": 394, "King": 434, "Super King": 454 } // Rabbora Virginia Storage Bed
+};
+
+// Old (original / "was") price for each size. Single 3ft is not listed:
+// it keeps its existing old price. The other sizes are worked out from
+// their existing sale price:
+//   Small Double 21% off -> old = sale / 0.79
+//   Double       28% off -> old = sale / 0.72
+//   King         29% off -> old = sale / 0.71
+//   Super King   29% off -> old = sale / 0.71
+// Any number here can be changed in VS Code; a size left out shows the
+// page's old price exactly as before.
+var RAPID_DELIVERY_SIZE_OLD_PRICES = {
+  "rapid-1": { "Small Double": 465.19, "Double": 554.17, "King": 618.31, "Super King": 660.56 },
+  "rapid-2": { "Small Double": 467.09, "Double": 554.17, "King": 590.14, "Super King": 674.65 },
+  "rapid-3": { "Small Double": 568.35, "Double": 679.17, "King": 745.07, "Super King": 773.24 },
+  "rapid-4": { "Small Double": 517.72, "Double": 623.61, "King": 646.46, "Super King": 702.82 },
+  "rapid-5": { "Small Double": 479.75, "Double": 554.17, "King": 632.39, "Super King": 702.82 },
+  "rapid-6": { "Small Double": 517.72, "Double": 609.72, "King": 646.48, "Super King": 716.9 },
+  "rapid-7": { "Small Double": 505.06, "Double": 623.61, "King": 688.73, "Super King": 773.24 },
+  "rapid-8": { "Small Double": 429.11, "Double": 484.72, "King": 561.97, "Super King": 590.14 },
+  "rapid-9": { "Small Double": 491.14, "Double": 595.83, "King": 646.48, "Super King": 702.82 },
+  "rapid-10": { "Small Double": 454.43, "Double": 554.17, "King": 618.31, "Super King": 660.56 },
+  "rapid-11": { "Small Double": 505.06, "Double": 581.94, "King": 632.39, "Super King": 702.82 },
+  "rapid-12": { "Small Double": 517.72, "Double": 595.83, "King": 646.48, "Super King": 702.82 },
+  "rapid-13": { "Small Double": 517.72, "Double": 623.61, "King": 688.73, "Super King": 759.15 },
+  "rapid-14": { "Small Double": 391.14, "Double": 484.72, "King": 618.31, "Super King": 716.9 },
+  "rapid-15": { "Small Double": 543.04, "Double": 637.5, "King": 702.82, "Super King": 745.07 },
+  "rapid-16": { "Small Double": 555.7, "Double": 679.17, "King": 716.9, "Super King": 787.32 },
+  "rapid-17": { "Small Double": 517.72, "Double": 590.28, "King": 646.48, "Super King": 683.1 },
+  "rapid-18": { "Small Double": 505.06, "Double": 554.17, "King": 632.39, "Super King": 702.82 },
+  "rapid-19": { "Small Double": 568.35, "Double": 637.5, "King": 730.99, "Super King": 801.41 },
+  "rapid-20": { "Small Double": 441.77, "Double": 540.28, "King": 590.14, "Super King": 702.82 },
+  "rapid-21": { "Small Double": 486.06, "Double": 623.61, "King": 688.73, "Super King": 745.07 },
+  "rapid-22": { "Small Double": 486.08, "Double": 547.22, "King": 625.35, "Super King": 676.06 },
+  "rapid-23": { "Small Double": 498.73, "Double": 561.11, "King": 639.44, "Super King": 690.14 },
+  "rapid-24": { "Small Double": 327.85, "Double": 415.28, "King": 547.89, "Super King": 646.48 },
+  "rapid-25": { "Small Double": 486.08, "Double": 547.22, "King": 625.35, "Super King": 681.69 },
+  "rapid-26": { "Small Double": 562.03, "Double": 575, "King": 738.03, "Super King": 794.37 },
+  "rapid-27": { "Small Double": 486.08, "Double": 547.22, "King": 625.35, "Super King": 676.06 },
+  "rapid-28": { "Small Double": 498.73, "Double": 561.11, "King": 639.44, "Super King": 690.14 },
+  "rapid-29": { "Small Double": 486.08, "Double": 547.22, "King": 625.35, "Super King": 676.06 },
+  "rapid-30": { "Small Double": 575.95, "Double": 631.94, "King": 669.01, "Super King": 739.44 },
+  "rapid-31": { "Small Double": 486.08, "Double": 547.22, "King": 611.27, "Super King": 639.44 }
+};
+
+
+// Price of one size before add-ons. With no size selected this is the
+// bed's base price (its first, cheapest size).
+function rdSizePrice(product, size) {
+  var map = RAPID_DELIVERY_SIZE_PRICES[product.slug];
+  if (size && map && typeof map[size] === "number") return map[size];
+  var delta = size ? (RAPID_DELIVERY_SIZE_DELTAS[size] || 0) : 0;
+  return Math.max(0, product.price + delta);
+}
+
+// Button / table text for a size, e.g. "King 5ft".
+function rdSizeLabel(product, size) {
+  var i = product.availableSizes.indexOf(size);
+  return (product.availableSizeLabels && product.availableSizeLabels[i]) || size;
+}
+
 var RAPID_DELIVERY_SIZE_DELTAS = {
   "Single": -80,
   "Small Double": -40,
@@ -2326,9 +2437,9 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
     }
 
     function currentPrice(product) {
-      var delta = rd2State.selectedSize ? (RAPID_DELIVERY_SIZE_DELTAS[rd2State.selectedSize] || 0) : 0;
+      var sizeOnly = rdSizePrice(product, rd2State.selectedSize);
       var addons = rd2State.assembly === "yes" ? ASSEMBLY_PRICE : 0;
-      return Math.max(0, product.price + delta + addons);
+      return sizeOnly + addons;
     }
 
     // Shared helper for the five new single-select option groups — each
@@ -2406,6 +2517,161 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
       nextBtn.hidden = images.length < 2;
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "rd2-detail__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="rd2-detail__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = money(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? money(oldPrice) : "";
+    }
+
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
       product.availableSizes.forEach(function (size) {
@@ -2413,7 +2679,7 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
         btn.type = "button";
         btn.className = "rd2-option-pill";
         btn.setAttribute("aria-pressed", String(rd2State.selectedSize === size));
-        btn.textContent = size;
+        btn.textContent = rdSizeLabel(product, size);
         btn.addEventListener("click", function () {
           rd2State.selectedSize = size;
           messageEl.textContent = "";
@@ -2480,13 +2746,33 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
 
     function renderPrice(product) {
       priceEl.textContent = money(currentPrice(product));
-      prevPriceEl.textContent = product.oldPrice ? money(product.oldPrice) : "";
+      var sizePrice = rdSizePrice(product, rd2State.selectedSize);
+      // The stored oldPrice belongs to the base (first) size only.
+      var isBaseSize = !rd2State.selectedSize ||
+        (RAPID_DELIVERY_SIZE_PRICES[product.slug]
+          ? rd2State.selectedSize === product.availableSizes[0]
+          : sizePrice === product.price);
+      var validOldPrice = (isBaseSize && product.oldPrice && product.oldPrice > sizePrice) ? product.oldPrice : null;
+      // Small Double / Double / King / Super King: old price from
+      // RAPID_DELIVERY_SIZE_OLD_PRICES (Single keeps its existing old price).
+      var listedOld = (rd2State.selectedSize && rd2State.selectedSize !== "Single" && RAPID_DELIVERY_SIZE_OLD_PRICES[product.slug])
+        ? RAPID_DELIVERY_SIZE_OLD_PRICES[product.slug][rd2State.selectedSize] : null;
+      if (typeof listedOld === "number") validOldPrice = listedOld > sizePrice ? listedOld : null;
+      prevPriceEl.textContent = validOldPrice ? money(validOldPrice) : "";
+      renderSelectedSizePrice(rd2State.selectedSize, sizePrice, validOldPrice);
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: currentPrice(product), sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: rd2State.selectedSize, sizeOptions: sizeOptionsEl, sizeRow: sizePriceRow,
+        money: money
+      });
     }
 
     function renderDimensions(product) {
       var rows = product.availableSizes.map(function (size) {
         var d = product.dimensions[size];
-        return "<tr><td>" + size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
+        return "<tr><td>" + rdSizeLabel(product, size) + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
       }).join("");
       dimensionsEl.innerHTML =
         "<thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Width (cm)</th><th scope=\"col\">Length (cm)</th></tr></thead><tbody>" +

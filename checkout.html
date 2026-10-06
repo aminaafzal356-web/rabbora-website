@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Checkout | Rabbora Living</title>
-  <meta name="description" content="Complete your Rabbora Living order &mdash; secure checkout for handmade beds and furniture." />
+  <meta name="description" content="Choose your shipping address, review your order and place it with Rabbora Living." />
   <link rel="canonical" href="https://rabbora.co.uk/checkout.html" />
   <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Checkout | Rabbora Living" />
-  <meta property="og:description" content="Complete your Rabbora Living order." />
+  <meta property="og:description" content="Choose your shipping address, review your order and place it with Rabbora Living." />
   <meta property="og:url" content="https://rabbora.co.uk/checkout.html" />
   <meta property="og:site_name" content="Rabbora Living" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Checkout | Rabbora Living" />
-  <meta name="twitter:description" content="Complete your Rabbora Living order." />
+  <meta name="twitter:description" content="Place your Rabbora Living order." />
 
   <link rel="icon" href="images/img-2.png" />
 
@@ -25,7 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="checkout.css" />
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="stylesheet" href="customer.css?v=customer-2" />
 
   <script type="application/ld+json">
   {
@@ -33,12 +34,13 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rabbora.co.uk/" },
-      { "@type": "ListItem", "position": 2, "name": "Checkout", "item": "https://rabbora.co.uk/checkout.html" }
+      { "@type": "ListItem", "position": 2, "name": "Cart", "item": "https://rabbora.co.uk/cart.html" },
+      { "@type": "ListItem", "position": 3, "name": "Checkout", "item": "https://rabbora.co.uk/checkout.html" }
     ]
   }
   </script>
 </head>
-<body class="checkout-page">
+<body class="cart-page checkout-page">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -212,7 +214,7 @@
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
     <div class="mobile-nav__head">
-      <img src="images/logo.png" alt="Rabbora Living" width="120" height="120" />
+      <img src="images/img-2.png" alt="Rabbora Living" width="120" height="120" />
       <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">
         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
           <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
@@ -259,25 +261,10 @@
   
   <main id="main-content">
 
-    <section class="checkout-section">
+    <section class="cart-section ck-section">
+      <div class="container cart-section__inner">
 
-      <div class="checkout-background" aria-hidden="true">
-        <div class="checkout-parallax-layer checkout-parallax-layer--back" id="checkoutParallaxBack">
-          <div class="checkout-aurora checkout-aurora--one"></div>
-          <div class="checkout-aurora checkout-aurora--two"></div>
-          <div class="checkout-glow checkout-glow--one"></div>
-          <div class="checkout-glow checkout-glow--two"></div>
-        </div>
-        <div class="checkout-parallax-layer checkout-parallax-layer--mid" id="checkoutParallaxMid">
-          <div class="checkout-silk checkout-silk--one"></div>
-          <div class="checkout-silk checkout-silk--two"></div>
-        </div>
-        <div class="checkout-particles" id="checkoutParticles"></div>
-      </div>
-
-      <div class="container checkout-section__inner">
-
-        <div class="checkout-breadcrumb" aria-label="Breadcrumb">
+        <div class="cart-breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
           <span aria-hidden="true">/</span>
           <a href="cart.html">Cart</a>
@@ -285,209 +272,98 @@
           <span aria-current="page">Checkout</span>
         </div>
 
-        <h1 class="checkout-heading">Checkout</h1>
+        <h1 class="cart-heading">Checkout</h1>
+        <p class="cart-status" id="checkoutStatus" role="status" aria-live="polite"></p>
 
-        <!-- ============ PROGRESS INDICATOR ============ -->
-        <ol class="checkout-progress" aria-label="Checkout progress">
-          <li class="checkout-progress__step is-complete">
-            <span class="checkout-progress__dot" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span class="checkout-progress__label">Cart</span>
-          </li>
-          <li class="checkout-progress__step is-active" aria-current="step">
-            <span class="checkout-progress__dot" aria-hidden="true">2</span>
-            <span class="checkout-progress__label">Details</span>
-          </li>
-          <li class="checkout-progress__step">
-            <span class="checkout-progress__dot" aria-hidden="true">3</span>
-            <span class="checkout-progress__label">Delivery</span>
-          </li>
-          <li class="checkout-progress__step">
-            <span class="checkout-progress__dot" aria-hidden="true">4</span>
-            <span class="checkout-progress__label">Payment</span>
-          </li>
-        </ol>
+        <p class="ck-notice" id="checkoutNotice" role="alert" hidden></p>
 
-        <p class="checkout-secure-note">
-          <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l7 3.2v4.6c0 4.6-3 8.4-7 9.2-4-.8-7-4.6-7-9.2V5.2L10 2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-          Your information is protected
-        </p>
-
-        <!-- ============ EMPTY CART STATE ============ -->
-        <div class="checkout-empty" id="checkoutEmpty" hidden>
-          <div class="checkout-empty__icon" aria-hidden="true">
-            <svg width="40" height="40" viewBox="0 0 20 20">
-              <path d="M2 3h2l1.6 10.4a2 2 0 0 0 2 1.6h7a2 2 0 0 0 2-1.7L18 7H5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-              <circle cx="8.5" cy="18" r="1.1" fill="currentColor" />
-              <circle cx="15" cy="18" r="1.1" fill="currentColor" />
-            </svg>
+        <!-- ============ NOT LOGGED IN ============ -->
+        <div class="ck-panel ck-login" id="checkoutLogin" hidden>
+          <h2 class="ck-panel__heading">Please log in to check out</h2>
+          <p>Log in or create an account to place your order. Everything in your cart stays saved.</p>
+          <div class="ck-panel__actions">
+            <a href="account.html?next=checkout.html" class="btn btn--forest">Log in</a>
+            <a href="register.html" class="btn btn--outline-forest">Create an account</a>
           </div>
-          <h2 class="checkout-empty__heading">Your cart is empty</h2>
-          <p class="checkout-empty__body">Add something to your cart before checking out.</p>
-          <a href="index.html" class="btn btn--forest">Continue Shopping</a>
         </div>
 
-        <!-- ============ CHECKOUT LAYOUT ============ -->
-        <div class="checkout-layout" id="checkoutLayout" hidden>
+        <!-- ============ EMPTY CART ============ -->
+        <div class="ck-panel ck-empty" id="checkoutEmpty" hidden>
+          <h2 class="ck-panel__heading">Your cart is empty</h2>
+          <p class="ck-empty__note" id="checkoutEmptyNote" hidden></p>
+          <div class="ck-panel__actions">
+            <a href="index.html" class="btn btn--forest">Continue Shopping</a>
+            <a href="cart.html" class="btn btn--outline-forest">View cart</a>
+          </div>
+        </div>
 
-          <div class="checkout-main">
+        <!-- ============ CHECKOUT ============ -->
+        <div class="ck-layout" id="checkoutLayout" hidden>
 
-            <p class="checkout-form-message" id="checkoutFormMessage" role="alert" hidden></p>
+          <div class="ck-main">
 
-            <form id="checkoutForm" novalidate>
+            <section class="ck-step" aria-labelledby="checkoutStepAddress">
+              <h2 class="ck-step__heading" id="checkoutStepAddress"><span class="ck-step__num" aria-hidden="true">1</span> Shipping address</h2>
+              <div class="ck-address-list" id="checkoutAddressList" role="radiogroup" aria-labelledby="checkoutStepAddress"></div>
+              <p class="ck-message" id="checkoutAddressMessage" role="status" hidden></p>
+              <button type="button" class="btn btn--outline-forest" id="checkoutAddAddressBtn">Add a new address</button>
 
-              <!-- CUSTOMER INFORMATION -->
-              <section class="checkout-card checkout-reveal" data-delay="0" aria-labelledby="checkout-customer-heading">
-                <h2 id="checkout-customer-heading" class="checkout-card__heading">Customer Information</h2>
-                <div class="checkout-form-grid">
-                  <div class="checkout-field">
-                    <label for="co-first-name">First Name *</label>
-                    <input type="text" id="co-first-name" name="firstName" required autocomplete="given-name" />
-                    <span class="checkout-field__error" id="co-first-name-error" role="alert"></span>
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-last-name">Last Name *</label>
-                    <input type="text" id="co-last-name" name="lastName" required autocomplete="family-name" />
-                    <span class="checkout-field__error" id="co-last-name-error" role="alert"></span>
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-email">Email Address *</label>
-                    <input type="email" id="co-email" name="email" required autocomplete="email" placeholder="you@example.com" />
-                    <span class="checkout-field__error" id="co-email-error" role="alert"></span>
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-phone">Phone Number *</label>
-                    <input type="tel" id="co-phone" name="phone" required autocomplete="tel" placeholder="07123 456789" />
-                    <span class="checkout-field__error" id="co-phone-error" role="alert"></span>
-                  </div>
+              <form class="rb-address-form" id="checkoutAddressForm" novalidate hidden>
+                <h3 class="rb-address-form__heading">New shipping address</h3>
+                <div id="checkoutAddressFields"></div>
+                <div class="ck-form-actions">
+                  <button type="submit" class="btn btn--forest">Save &amp; use this address</button>
+                  <button type="button" class="btn btn--outline-forest" id="checkoutAddressCancel">Cancel</button>
                 </div>
-              </section>
+              </form>
+            </section>
 
-              <!-- DELIVERY ADDRESS -->
-              <section class="checkout-card checkout-reveal" data-delay="0.08" aria-labelledby="checkout-address-heading">
-                <h2 id="checkout-address-heading" class="checkout-card__heading">Delivery Address</h2>
-                <div class="checkout-form-grid">
-                  <div class="checkout-field checkout-field--full">
-                    <label for="co-address1">Address Line 1 *</label>
-                    <input type="text" id="co-address1" name="address1" required autocomplete="address-line1" />
-                    <span class="checkout-field__error" id="co-address1-error" role="alert"></span>
-                  </div>
-                  <div class="checkout-field checkout-field--full">
-                    <label for="co-address2">Address Line 2</label>
-                    <input type="text" id="co-address2" name="address2" autocomplete="address-line2" />
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-city">Town / City *</label>
-                    <input type="text" id="co-city" name="city" required autocomplete="address-level2" />
-                    <span class="checkout-field__error" id="co-city-error" role="alert"></span>
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-county">County</label>
-                    <input type="text" id="co-county" name="county" autocomplete="address-level1" />
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-postcode">Postcode *</label>
-                    <input type="text" id="co-postcode" name="postcode" required autocomplete="postal-code" placeholder="SW1A 1AA" />
-                    <span class="checkout-field__error" id="co-postcode-error" role="alert"></span>
-                  </div>
-                  <div class="checkout-field">
-                    <label for="co-country">Country *</label>
-                    <select id="co-country" name="country" required autocomplete="country-name">
-                      <option value="United Kingdom" selected>United Kingdom</option>
-                    </select>
-                    <span class="checkout-field__error" id="co-country-error" role="alert"></span>
-                  </div>
-                </div>
-              </section>
+            <section class="ck-step" aria-labelledby="checkoutStepShipping">
+              <h2 class="ck-step__heading" id="checkoutStepShipping"><span class="ck-step__num" aria-hidden="true">2</span> Delivery</h2>
+              <p class="ck-shipping" id="checkoutShippingText"></p>
+            </section>
 
-              <!-- DELIVERY METHOD -->
-              <section class="checkout-card checkout-reveal" data-delay="0.16" aria-labelledby="checkout-delivery-heading">
-                <h2 id="checkout-delivery-heading" class="checkout-card__heading">Delivery Method</h2>
-                <div class="checkout-delivery-option">
-                  <div class="checkout-delivery-option__radio" aria-hidden="true">
-                    <span></span>
-                  </div>
-                  <div class="checkout-delivery-option__body">
-                    <p class="checkout-delivery-option__title">Standard Mainland UK Delivery <strong>Free</strong></p>
-                    <p class="checkout-delivery-option__note">Delivery charges may vary for selected UK regions and remote postcodes.</p>
-                  </div>
-                </div>
-              </section>
-
-              <!-- PAYMENT METHOD (frontend UI only) -->
-              <section class="checkout-card checkout-reveal" data-delay="0.24" aria-labelledby="checkout-payment-heading">
-                <h2 id="checkout-payment-heading" class="checkout-card__heading">Payment Method</h2>
-                <p class="checkout-payment-note">Secure payment will be collected on the next step. Your card details are never stored on this site.</p>
-
-                <div class="checkout-payment-option">
-                  <div class="checkout-payment-option__radio" aria-hidden="true"><span></span></div>
-                  <div class="checkout-payment-option__body">
-                    <p class="checkout-payment-option__title">Card Payment</p>
-                    <div class="checkout-card-fields" aria-hidden="true">
-                      <div class="checkout-field checkout-field--full">
-                        <label for="co-card-number">Card Number</label>
-                        <input type="text" id="co-card-number" placeholder="•••• •••• •••• ••••" disabled autocomplete="off" />
-                      </div>
-                      <div class="checkout-field">
-                        <label for="co-card-expiry">Expiry</label>
-                        <input type="text" id="co-card-expiry" placeholder="MM / YY" disabled autocomplete="off" />
-                      </div>
-                      <div class="checkout-field">
-                        <label for="co-card-cvv">CVV</label>
-                        <input type="text" id="co-card-cvv" placeholder="•••" disabled autocomplete="off" />
-                      </div>
-                    </div>
-                    <p class="checkout-payment-placeholder-note">Card processing is not yet connected &mdash; this is a visual preview of the payment step.</p>
-                  </div>
-                </div>
-              </section>
-
-              <button type="submit" class="btn btn--forest checkout-place-order-btn" id="checkoutPlaceOrderBtn">Place Order</button>
-
-            </form>
+            <section class="ck-step" aria-labelledby="checkoutStepReview">
+              <h2 class="ck-step__heading" id="checkoutStepReview"><span class="ck-step__num" aria-hidden="true">3</span> Review your order</h2>
+              <div class="ck-lines" id="checkoutLines"></div>
+              <div class="ck-local-only" id="checkoutLocalOnly" hidden></div>
+              <div class="rb-field ck-notes" data-field="notes">
+                <label class="rb-field__label" for="checkoutNotes">Order notes (optional)</label>
+                <textarea class="rb-input rb-textarea" id="checkoutNotes" name="notes" rows="3" maxlength="1000" placeholder="Anything we should know about your delivery?"></textarea>
+              </div>
+            </section>
 
           </div>
 
-          <!-- ============ ORDER SUMMARY ============ -->
-          <aside class="checkout-summary checkout-reveal" data-delay="0.1" id="checkoutSummary" aria-labelledby="checkoutSummaryHeading">
-            <h2 class="checkout-summary__heading" id="checkoutSummaryHeading">Order Summary</h2>
+          <aside class="cart-summary ck-summary" aria-labelledby="checkoutSummaryHeading">
+            <h2 class="cart-summary__heading" id="checkoutSummaryHeading">Order Summary</h2>
 
-            <div class="checkout-summary__items" id="checkoutSummaryItems"></div>
-
-            <div class="checkout-summary__row">
+            <div class="cart-summary__row">
               <span>Subtotal</span>
-              <span class="checkout-summary__value" id="checkoutSubtotalValue">&pound;0.00</span>
+              <span class="cart-summary__value" id="checkoutSubtotal">&pound;0.00</span>
             </div>
-            <div class="checkout-summary__row">
-              <span>Delivery</span>
-              <span class="checkout-summary__value" id="checkoutDeliveryValue">&pound;0.00</span>
+            <div class="cart-summary__row">
+              <span>Shipping</span>
+              <span class="cart-summary__value" id="checkoutShipping">&pound;0.00</span>
             </div>
-            <div class="checkout-summary__row checkout-summary__row--total">
+            <div class="cart-summary__row cart-summary__row--total">
               <span>Total</span>
-              <span class="checkout-summary__value" id="checkoutTotalValue">&pound;0.00</span>
+              <span class="cart-summary__value" id="checkoutTotal">&pound;0.00</span>
             </div>
-            <p class="checkout-summary__note">The backend will verify the final total before payment is taken.</p>
 
-            <a href="cart.html" class="checkout-edit-cart-link">Edit Cart</a>
+            <div class="ck-summary__address" id="checkoutSummaryAddress"></div>
 
-            <div class="checkout-trust">
-              <div class="checkout-trust__item">
-                <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l7 3.2v4.6c0 4.6-3 8.4-7 9.2-4-.8-7-4.6-7-9.2V5.2L10 2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-                <span>Secure Checkout</span>
-              </div>
-              <div class="checkout-trust__item">
-                <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h10v8H3zM13 10h4l3 3v2h-7zM7 19a2 2 0 100-4 2 2 0 000 4zM17 19a2 2 0 100-4 2 2 0 000 4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" /></svg>
-                <span>UK Delivery</span>
-              </div>
-              <div class="checkout-trust__item">
-                <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 5.8v4.4l3 1.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>24 Month Warranty</span>
-              </div>
-            </div>
+            <p class="cart-summary__note">No payment is taken on this page. Your order is saved as unpaid and our team will contact you about payment.</p>
+
+            <button type="button" class="btn btn--forest cart-checkout-btn" id="checkoutPlaceOrder" disabled aria-disabled="true">Place order</button>
+            <p class="ck-message" id="checkoutPlaceMessage" role="alert" hidden></p>
+            <a href="cart.html" class="cart-continue-link">Back to cart</a>
           </aside>
 
         </div>
+
+        <!-- ============ ORDER CONFIRMATION ============ -->
+        <div class="ck-panel ck-confirmation" id="checkoutConfirmation" hidden></div>
 
       </div>
     </section>
@@ -604,10 +480,13 @@
     </svg>
   </a>
 
+  <script src="api-config.js"></script>
+
   <script src="search-index.js"></script>
-  <script src="wishlist-data.js"></script>
-  <script src="cart-data.js"></script>
+  <script src="wishlist-data.js?v=wishlist-sync-1"></script>
+  <script src="cart-data.js?v=cart-sync-1"></script>
   <script src="script.js"></script>
-  <script src="checkout.js"></script>
+  <script src="customer.js?v=customer-1"></script>
+  <script src="checkout.js?v=customer-2"></script>
 </body>
 </html>

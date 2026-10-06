@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Rabbora Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../images/img-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css?v=admin-3" />
+</head>
+<body class="admin admin--loading">
+
+  <a href="#adminContent" class="admin-skip">Skip to content</a>
+
+  <!-- Shown until GET /api/auth/me confirms an admin (admin-auth.js). -->
+  <div class="admin-boot" aria-hidden="true"><span class="admin-spinner"></span></div>
+
+  <div class="admin-layout" id="adminLayout">
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin navigation"></aside>
+    <div class="admin-scrim" id="adminScrim"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" class="admin-menu-toggle" id="adminMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="adminSidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="admin-topbar__title">
+          <p class="admin-eyebrow">Catalogue</p>
+          <h1 class="admin-page-title" id="adminPageTitle">Products</h1>
+        </div>
+        <div class="admin-user" id="adminUser"></div>
+      </header>
+
+      <main class="admin-content" id="adminContent">
+        <p class="admin-flash" id="adminFlash" role="status" aria-live="polite" hidden></p>
+
+        <section class="admin-panel">
+          <form class="admin-toolbar" id="productFilters" role="search" novalidate>
+            <div class="admin-field admin-toolbar__search">
+              <label class="admin-label" for="filterSearch">Search</label>
+              <input class="admin-input" id="filterSearch" name="search" type="search" placeholder="Name, slug or SKU" maxlength="100" autocomplete="off" />
+            </div>
+            <div class="admin-field">
+              <label class="admin-label" for="filterCategory">Category</label>
+              <select class="admin-input" id="filterCategory" name="categoryId">
+                <option value="">All categories</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label class="admin-label" for="filterStatus">Status</label>
+              <select class="admin-input" id="filterStatus" name="status">
+                <option value="all">All</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label class="admin-label" for="filterFlag">Flags</label>
+              <select class="admin-input" id="filterFlag" name="flag">
+                <option value="">Any</option>
+                <option value="featured">Featured</option>
+                <option value="bestSeller">Best seller</option>
+              </select>
+            </div>
+            <a class="admin-btn admin-btn--primary admin-toolbar__add" href="product.html?new=1">+ Add product</a>
+          </form>
+
+          <p class="admin-result-count" id="productCount" role="status" aria-live="polite"></p>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table admin-table--products">
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">SKU</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Featured</th>
+                  <th scope="col">Best seller</th>
+                  <th scope="col"><span class="admin-sr">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="productRows"></tbody>
+            </table>
+          </div>
+
+          <nav class="admin-pager" id="productPager" aria-label="Pages" hidden>
+            <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="pagerPrev">&larr; Previous</button>
+            <span class="admin-pager__info" id="pagerInfo"></span>
+            <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="pagerNext">Next &rarr;</button>
+          </nav>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Logged in, but not an admin. -->
+  <div class="admin-denied" id="adminDenied" hidden>
+    <div class="admin-login__card">
+      <img class="admin-login__logo" src="../images/img-2.png" alt="Rabbora Living" width="64" height="64" />
+      <h1 class="admin-login__heading">Access denied</h1>
+      <p class="admin-login__sub">This account does not have admin access.</p>
+      <div class="admin-actions admin-actions--center">
+        <a class="admin-btn admin-btn--primary" href="../index.html">Back to the shop</a>
+        <button type="button" class="admin-btn admin-btn--ghost" data-admin-logout>Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend not reachable. -->
+  <div class="admin-denied" id="adminOffline" hidden>
+    <div class="admin-login__card">
+      <h1 class="admin-login__heading">Admin panel unavailable</h1>
+      <p class="admin-login__sub"></p>
+      <div class="admin-actions admin-actions--center">
+        <button type="button" class="admin-btn admin-btn--primary" onclick="window.location.reload()">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../api-config.js"></script>
+  <script src="js/admin-auth.js?v=admin-3"></script>
+  <script src="js/products.js?v=admin-1"></script>
+</body>
+</html>

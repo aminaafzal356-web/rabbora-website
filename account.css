@@ -6558,3 +6558,31 @@ body.sf-drawer-open {
     display: none;
   }
 }
+/* Password show/hide icon (login + register) — driven only by each
+   button's aria-pressed (set by account.js / register.js), so CSS and
+   JS can never disagree:
+   "false" (password hidden)  -> eye icon
+   "true"  (password visible) -> eye-off icon */
+.login-password-toggle .login-password-toggle__icon-show {
+  display: block;
+}
+
+.login-password-toggle .login-password-toggle__icon-hide {
+  display: none;
+}
+
+.login-password-toggle[aria-pressed="true"] .login-password-toggle__icon-show {
+  display: none;
+}
+
+.login-password-toggle[aria-pressed="true"] .login-password-toggle__icon-hide {
+  display: block;
+}
+
+/* Microsoft Edge adds its own built-in "reveal password" eye inside
+   every password field, which appeared next to ours as a second eye.
+   Hide the browser's one so each field only has the site's toggle. */
+.login-input--password::-ms-reveal,
+.login-input--password::-ms-clear {
+  display: none;
+}

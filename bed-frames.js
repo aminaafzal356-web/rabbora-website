@@ -28,10 +28,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-1.jfif",
-    images: ["slatted/img-1.jfif", "slatted/img-6.jfif", "slatted/img-5.jfif"],
+    images: ["slatted/img-1.jfif", "slatted/img-6.jfif", "slatted/img-5.jfif", "slatted/img-4.jfif", "slatted/img-2.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-2",
@@ -42,10 +43,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-7.jfif",
-    images: ["slatted/img-7.jfif", "slatted/img-8.jfif", "slatted/img-9.jfif"],
+    images: ["slatted/img-7.jfif", "slatted/img-8.jfif", "slatted/img-9.jfif", "slatted/img-10.jfif", "slatted/img-3.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-3",
@@ -56,10 +58,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-12.jfif",
-    images: ["slatted/img-12.jfif", "slatted/img-15.jfif", "slatted/img-13.jfif"],
+    images: ["slatted/img-12.jfif", "slatted/img-15.jfif", "slatted/img-13.jfif", "slatted/img-11.jfif", "slatted/img-14.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-4",
@@ -70,10 +73,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-17.jfif",
-    images: ["slatted/img-17.jfif", "slatted/img-19.jfif", "slatted/img-18.jfif"],
+    images: ["slatted/img-17.jfif", "slatted/img-19.jfif", "slatted/img-18.jfif", "slatted/img-12.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-5",
@@ -84,10 +88,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-22.jfif",
-    images: ["slatted/img-22.jfif", "slatted/img-24.jfif", "slatted/img-25.jfif"],
+    images: ["slatted/img-22.jfif", "slatted/img-24.jfif", "slatted/img-25.jfif", "slatted/img-26.jfif", "slatted/img-23.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-6",
@@ -98,10 +103,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-30.png",
-    images: ["slatted/img-30.png", "slatted/img-28.png", "slatted/img-29.png"],
+    images: ["slatted/img-30.png", "slatted/img-28.png", "slatted/img-29.png", "slatted/img-31.png", "slatted/img-27.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-7",
@@ -112,10 +118,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/img-35.png",
-    images: ["slatted/img-35.png", "slatted/img-34.png", "slatted/img-33.png"],
+    images: ["slatted/img-35.png", "slatted/img-34.png", "slatted/img-33.png", "slatted/img-32.png", "slatted/img-36.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-8",
@@ -126,10 +133,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/34.png",
-    images: ["slatted/34.png", "slatted/35.png", "slatted/36.png"],
+    images: ["slatted/34.png", "slatted/35.png", "slatted/36.png", "slatted/37.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-9",
@@ -140,10 +148,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "slatted/38.png",
-    images: ["slatted/38.png", "slatted/39.png", "slatted/img-37.png"],
+    images: ["slatted/38.png", "slatted/39.png", "slatted/img-37.png", "slatted/img-39.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-10",
@@ -157,7 +166,8 @@ var BF_PRODUCTS = [
     images: ["solid/1.jfif", "solid/2.jfif", "solid/3.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-11",
@@ -171,7 +181,8 @@ var BF_PRODUCTS = [
     images: ["solid/4.jfif", "solid/5.jfif", "solid/6.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-12",
@@ -185,7 +196,8 @@ var BF_PRODUCTS = [
     images: ["solid/7.jfif", "solid/8.jfif", "solid/9.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-13",
@@ -199,7 +211,8 @@ var BF_PRODUCTS = [
     images: ["solid/10.jfif", "solid/11.jfif", "solid/12.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-14",
@@ -213,7 +226,8 @@ var BF_PRODUCTS = [
     images: ["solid/13.jfif", "solid/14.jfif", "solid/15.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-15",
@@ -227,7 +241,8 @@ var BF_PRODUCTS = [
     images: ["solid/16.jfif", "solid/17.jfif", "solid/18.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-16",
@@ -241,7 +256,8 @@ var BF_PRODUCTS = [
     images: ["solid/19.jfif", "solid/20.jfif", "solid/21.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-17",
@@ -255,7 +271,8 @@ var BF_PRODUCTS = [
     images: ["solid/22.jfif", "solid/23.jfif", "solid/24.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-18",
@@ -269,7 +286,8 @@ var BF_PRODUCTS = [
     images: ["solid/25.jfif", "solid/26.jfif", "solid/27.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Single", "Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Single 3ft", "Small Double 4ft", "Double 4ft 6\"", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-19",
@@ -280,10 +298,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "high/1.jfif",
-    images: ["high/1.jfif", "high/2.jfif", "high/3.jfif"],
+    images: ["high/1.jfif", "high/2.jfif", "high/3.jfif", "high/4.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Double", "King", "Super King"],
+    sizeLabels: ["Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-20",
@@ -294,10 +313,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "high/5.jfif",
-    images: ["high/5.jfif", "high/6.jfif", "high/7.jfif"],
+    images: ["high/5.jfif", "high/6.jfif", "high/7.jfif", "high/8.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Small Double 4ft", "Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-21",
@@ -308,24 +328,26 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "high/9.jfif",
-    images: ["high/9.jfif", "high/10.jfif", "high/11.jfif"],
+    images: ["high/9.jfif", "high/10.jfif", "high/11.jfif", "high/12.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Small Double 4ft", "Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-22",
     name: "Rabbora Chicago High Headboard Bed",
-    price: 349.0,
-    oldPrice: 420.0,
-    badge: "17% off",
+    price: 449.0,
+    oldPrice: 480.0,
+    badge: "6% off",
     rating: 5,
     reviewCount: 0,
     image: "high/13.jfif",
-    images: ["high/13.jfif", "high/14.jfif", "high/15.jfif"],
+    images: ["high/13.jfif", "high/14.jfif", "high/15.jfif", "high/16.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Small Double 4ft", "Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-23",
@@ -339,7 +361,8 @@ var BF_PRODUCTS = [
     images: ["high/17.jfif", "high/18.jfif", "high/19.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Small Double 4ft", "Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-24",
@@ -350,10 +373,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "high/20.jfif",
-    images: ["high/20.jfif", "high/21.jfif", "high/22.jfif"],
+    images: ["high/20.jfif", "high/21.jfif", "high/22.jfif", "high/23.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Small Double 4ft", "Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-25",
@@ -364,10 +388,11 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "high/24.jfif",
-    images: ["high/24.jfif", "high/25.jfif", "high/26.jfif"],
+    images: ["high/24.jfif", "high/25.jfif", "high/26.jfif", "high/27.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Double", "King", "Super King"],
+    sizeLabels: ["Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-26",
@@ -378,16 +403,17 @@ var BF_PRODUCTS = [
     rating: 5,
     reviewCount: 0,
     image: "high/28.jfif",
-    images: ["high/28.jfif", "high/29.jfif", "high/30.jfif"],
+    images: ["high/28.jfif", "high/29.jfif", "high/30.jfif", "high/31.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Small Double", "Double", "King", "Super King"],
+    sizeLabels: ["Small Double 4ft", "Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-27",
     name: "Rabbora Milano TV Bed",
-    price: 999,
-    oldPrice: 1399,
+    price: 999.0,
+    oldPrice: 1399.0,
     badge: "29% Off",
     rating: 5,
     reviewCount: 0,
@@ -395,13 +421,14 @@ var BF_PRODUCTS = [
     images: ["tv/img-1.jfif", "tv/img-22.png", "tv/img-23.png"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Double", "King", "Super King"],
+    sizeLabels: ["Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-28",
     name: "Rabbora Monaco TV Bed",
-    price: 990,
-    oldPrice: 1399,
+    price: 990.0,
+    oldPrice: 1399.0,
     badge: "29% Off",
     rating: 5,
     reviewCount: 0,
@@ -409,13 +436,14 @@ var BF_PRODUCTS = [
     images: ["tv/img-2.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Double", "King", "Super King"],
+    sizeLabels: ["Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-29",
     name: "Rabbora Windsor TV Bed",
-    price: 1099,
-    oldPrice: 1399,
+    price: 1099.0,
+    oldPrice: 1399.0,
     badge: "21% Off",
     rating: 5,
     reviewCount: 0,
@@ -423,13 +451,14 @@ var BF_PRODUCTS = [
     images: ["tv/img-3.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Double", "King", "Super King"],
+    sizeLabels: ["Double 4'6ft", "King 5ft", "Super King 6ft"]
   },
   {
     slug: "bed-frame-30",
     name: "Rabbora Kensington TV Bed",
-    price: 999,
-    oldPrice: 1399,
+    price: 999.0,
+    oldPrice: 1399.0,
     badge: "29% Off",
     rating: 5,
     reviewCount: 0,
@@ -437,9 +466,103 @@ var BF_PRODUCTS = [
     images: ["tv/img-4.jfif"],
     description: "Add a short product description here once real product details are available.",
     features: [],
-    sizes: ["Single", "Small Double", "Double", "King", "Super King"]
+    sizes: ["Double", "King", "Super King"],
+    sizeLabels: ["Double 4'6ft", "King 5ft", "Super King 6ft"]
   }
 ];
+
+// Exact per-size prices, copied from the same bed on its own category
+// page (Slatted Ottoman, Solid Base Ottoman, High Headboard, TV Beds).
+// A size missing from a bed's list is not offered for that bed.
+var BF_SIZE_PRICES = {
+  "bed-frame-1": { "Single": 249, "Small Double": 388, "Double": 429, "King": 459, "Super King": 499 }, // Rabbora Manhattan Slatted Ottoman Bed (SL chelsea-slatted-ottoman-bed)
+  "bed-frame-2": { "Single": 259, "Small Double": 359, "Double": 399, "King": 439, "Super King": 469 }, // Rabbora Milan Slatted Wingback Ottoman Bed (SL hampton-slatted-ottoman-bed)
+  "bed-frame-3": { "Single": 289, "Small Double": 367.5, "Double": 399, "King": 439, "Super King": 469 }, // Rabbora Athens Slatted Designer Ottoman Bed (SL monaco-ottoman-bed)
+  "bed-frame-4": { "Single": 289, "Small Double": 409, "Double": 449, "King": 458.99, "Super King": 499 }, // Rabbora Empire Slatted Ottoman Bed (SL windsor-slatted-ottoman-bed)
+  "bed-frame-5": { "Single": 252, "Small Double": 383.99, "Double": 449, "King": 489, "Super King": 529 }, // Rabbora Art Deco Slatted Ottoman Bed (SL kensington-slatted-ottoman-bed)
+  "bed-frame-6": { "Single": 306.59, "Small Double": 409, "Double": 449, "King": 489, "Super King": 539 }, // Rabbora Orlando Slatted Ottoman Bed (SL mayfair-ottoman-bed)
+  "bed-frame-7": { "Single": 299, "Small Double": 409, "Double": 439, "King": 459, "Super King": 509 }, // Rabbora Kendal Slatted Wingback Bed (SL richmond-slatted-ottoman-bed)
+  "bed-frame-8": { "Single": 306.59, "Small Double": 439, "Double": 489, "King": 509, "Super King": 559 }, // Rabbora Teddy Orlando Slatted Ottoman Bed (SL cambridge-slatted-ottoman-bed)
+  "bed-frame-9": { "Single": 449, "Small Double": 589, "Double": 599, "King": 649, "Super King": 699 }, // Rabbora Park Lane Ambassador Slatted Bed (SL victoria-ottoman-bed)
+  "bed-frame-10": { "Single": 249, "Small Double": 388, "Double": 429, "King": 459, "Super King": 499 }, // Rabbora Solid Ottoman Bed (SO solid-ottoman-bed-1)
+  "bed-frame-11": { "Single": 259, "Small Double": 359, "Double": 399, "King": 439, "Super King": 469 }, // Rabbora Luxury Solid Ottoman Bed (SO solid-ottoman-bed-2)
+  "bed-frame-12": { "Single": 289, "Small Double": 367.5, "Double": 399, "King": 439, "Super King": 469 }, // Rabbora Premium Ottoman Bed (SO solid-ottoman-bed-3)
+  "bed-frame-13": { "Single": 289, "Small Double": 409, "Double": 449, "King": 458.99, "Super King": 499 }, // Rabbora Classic Ottoman Bed (SO solid-ottoman-bed-4)
+  "bed-frame-14": { "Single": 252, "Small Double": 383.99, "Double": 449, "King": 489, "Super King": 529 }, // Rabbora Elegant Ottoman Bed (SO solid-ottoman-bed-5)
+  "bed-frame-15": { "Single": 299, "Small Double": 409, "Double": 439, "King": 459, "Super King": 509 }, // Rabbora Comfort Ottoman Bed (SO solid-ottoman-bed-6)
+  "bed-frame-16": { "Single": 299, "Small Double": 369, "Double": 399, "King": 419, "Super King": 479 }, // Rabbora Signature Ottoman Bed (SO solid-ottoman-bed-7)
+  "bed-frame-17": { "Single": 299, "Small Double": 409, "Double": 429, "King": 459, "Super King": 499 }, // Rabbora Modern Ottoman Bed (SO solid-ottoman-bed-8)
+  "bed-frame-18": { "Single": 389, "Small Double": 439, "Double": 449, "King": 499, "Super King": 549 }, // Rabbora Prestige Ottoman Bed (SO solid-ottoman-bed-9)
+  "bed-frame-19": { "Double": 799, "King": 849, "Super King": 899 }, // Rabbora Duke High & Wide Headboard Bed (HH high-headboard-bed-1)
+  "bed-frame-20": { "Small Double": 749, "Double": 799, "King": 849, "Super King": 899 }, // Rabbora Las Vegas High Headboard Bed (HH high-headboard-bed-2)
+  "bed-frame-21": { "Small Double": 699, "Double": 749, "King": 799, "Super King": 849 }, // Rabbora Athena High Headboard Bed (HH high-headboard-bed-3)
+  "bed-frame-22": { "Small Double": 449, "Double": 489, "King": 529, "Super King": 549 }, // Rabbora Chicago High Headboard Bed (HH high-headboard-bed-4)
+  "bed-frame-23": { "Small Double": 649, "Double": 699, "King": 799, "Super King": 849 }, // Rabbora Model Square Hotel Bed (HH high-headboard-bed-5)
+  "bed-frame-24": { "Small Double": 599, "Double": 649, "King": 699, "Super King": 749 }, // Rabbora Starlight Luxury Bed (HH high-headboard-bed-6)
+  "bed-frame-25": { "Double": 749, "King": 799, "Super King": 829 }, // Rabbora DaVinci Tall Headboard Bed (HH high-headboard-bed-7)
+  "bed-frame-26": { "Small Double": 749, "Double": 799, "King": 849, "Super King": 899 }, // Rabbora Geneva High & Wide Headboard Bed (HH high-headboard-bed-8)
+  "bed-frame-27": { "Double": 999, "King": 1099, "Super King": 1199 }, // Rabbora Milano TV Bed (TV tv-bed-1)
+  "bed-frame-28": { "Double": 990, "King": 1094, "Super King": 1190 }, // Rabbora Monaco TV Bed (TV tv-bed-2)
+  "bed-frame-29": { "Double": 1099, "King": 1299, "Super King": 1399 }, // Rabbora Windsor TV Bed (TV tv-bed-3)
+  "bed-frame-30": { "Double": 999, "King": 1099, "Super King": 1199 } // Rabbora Kensington TV Bed (TV tv-bed-4)
+};
+
+// Old (original / "was") price for each size. Single 3ft is not listed:
+// it keeps its existing old price. The other sizes are worked out from
+// their existing sale price:
+//   Small Double 21% off -> old = sale / 0.79
+//   Double       28% off -> old = sale / 0.72
+//   King         29% off -> old = sale / 0.71
+//   Super King   29% off -> old = sale / 0.71
+// Any number here can be changed in VS Code; a size left out shows the
+// page's old price exactly as before.
+var BF_SIZE_OLD_PRICES = {
+  "bed-frame-1": { "Small Double": 491.14, "Double": 595.83, "King": 646.48, "Super King": 702.82 },
+  "bed-frame-2": { "Small Double": 454.43, "Double": 554.17, "King": 618.31, "Super King": 660.56 },
+  "bed-frame-3": { "Small Double": 465.19, "Double": 554.17, "King": 618.31, "Super King": 660.56 },
+  "bed-frame-4": { "Small Double": 517.72, "Double": 623.61, "King": 646.46, "Super King": 702.82 },
+  "bed-frame-5": { "Small Double": 486.06, "Double": 623.61, "King": 688.73, "Super King": 745.07 },
+  "bed-frame-6": { "Small Double": 517.72, "Double": 623.61, "King": 688.73, "Super King": 759.15 },
+  "bed-frame-7": { "Small Double": 517.72, "Double": 609.72, "King": 646.48, "Super King": 716.9 },
+  "bed-frame-8": { "Small Double": 555.7, "Double": 679.17, "King": 716.9, "Super King": 787.32 },
+  "bed-frame-9": { "Small Double": 745.57, "Double": 831.94, "King": 914.08, "Super King": 984.51 },
+  "bed-frame-10": { "Small Double": 491.14, "Double": 595.83, "King": 646.48, "Super King": 702.82 },
+  "bed-frame-11": { "Small Double": 454.43, "Double": 554.17, "King": 618.31, "Super King": 660.56 },
+  "bed-frame-12": { "Small Double": 465.19, "Double": 554.17, "King": 618.31, "Super King": 660.56 },
+  "bed-frame-13": { "Small Double": 517.72, "Double": 623.61, "King": 646.46, "Super King": 702.82 },
+  "bed-frame-14": { "Small Double": 486.06, "Double": 623.61, "King": 688.73, "Super King": 745.07 },
+  "bed-frame-15": { "Small Double": 517.72, "Double": 609.72, "King": 646.48, "Super King": 716.9 },
+  "bed-frame-16": { "Small Double": 467.09, "Double": 554.17, "King": 590.14, "Super King": 674.65 },
+  "bed-frame-17": { "Small Double": 517.72, "Double": 595.83, "King": 646.48, "Super King": 702.82 },
+  "bed-frame-18": { "Small Double": 555.7, "Double": 623.61, "King": 702.82, "Super King": 773.24 },
+  "bed-frame-19": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "bed-frame-20": { "Small Double": 948.1, "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "bed-frame-21": { "Small Double": 884.81, "Double": 1040.28, "King": 1125.35, "Super King": 1195.77 },
+  "bed-frame-22": { "Small Double": 568.35, "Double": 679.17, "King": 745.07, "Super King": 773.24 },
+  "bed-frame-23": { "Small Double": 821.52, "Double": 970.83, "King": 1125.35, "Super King": 1195.77 },
+  "bed-frame-24": { "Small Double": 758.23, "Double": 901.39, "King": 984.51, "Super King": 1054.93 },
+  "bed-frame-25": { "Double": 1040.28, "King": 1125.35, "Super King": 1167.61 },
+  "bed-frame-26": { "Small Double": 948.1, "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "bed-frame-27": { "Double": 1387.5, "King": 1547.89, "Super King": 1688.73 },
+  "bed-frame-28": { "Double": 1375, "King": 1540.85, "Super King": 1676.06 },
+  "bed-frame-29": { "Double": 1526.39, "King": 1829.58, "Super King": 1970.42 },
+  "bed-frame-30": { "Double": 1387.5, "King": 1547.89, "Super King": 1688.73 }
+};
+
+
+// Price of one size (before add-ons); with no size, the base price.
+function bfSizePrice(product, size) {
+  var map = BF_SIZE_PRICES[product.slug];
+  if (size && map && typeof map[size] === "number") return map[size];
+  return product.price;
+}
+
+// Button text for a size, e.g. "King 5ft".
+function bfSizeLabel(product, size) {
+  var i = (product.sizes || []).indexOf(size);
+  return (product.sizeLabels && product.sizeLabels[i]) || size;
+}
+
 
 var BF_FABRIC_COLLECTIONS = [
     {
@@ -832,12 +955,169 @@ var BF_FABRIC_COLLECTIONS = [
       });
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "bb-modal__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="bb-modal__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = bfMoney(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? bfMoney(oldPrice) : "";
+    }
+
     function renderSizeOptions(product) {
       if (!sizeEl) return;
       sizeEl.innerHTML = "";
       var sizes = product.sizes || [];
       if (sizes.length === 0) {
         sizeEl.closest(".bb-modal__fabrics").hidden = true;
+        selectedSize = null;
+        renderSelectedSizePrice(null);
         return;
       }
       sizeEl.closest(".bb-modal__fabrics").hidden = false;
@@ -848,16 +1128,18 @@ var BF_FABRIC_COLLECTIONS = [
         var pill = document.createElement("button");
         pill.type = "button";
         pill.className = "mt-option-pill" + (size === selectedSize ? " is-active" : "");
-        pill.textContent = size;
+        pill.textContent = bfSizeLabel(product, size);
         pill.addEventListener("click", function () {
           selectedSize = size;
           Array.prototype.forEach.call(sizeEl.querySelectorAll(".mt-option-pill"), function (el) {
             el.classList.remove("is-active");
           });
           pill.classList.add("is-active");
+          renderPrice(product);
         });
         sizeEl.appendChild(pill);
       });
+      renderPrice(product);
     }
 
     var reviewsSummaryEl = document.getElementById("bfReviewsSummary");
@@ -1015,12 +1297,31 @@ var BF_FABRIC_COLLECTIONS = [
     // (£59.00) — every other new option stays £0 since no genuine
     // price data exists for them anywhere in the project.
     function currentPrice(product) {
-      return product.price + (assembly === "yes" ? ASSEMBLY_PRICE : 0);
+      return bfSizePrice(product, selectedSize) + (assembly === "yes" ? ASSEMBLY_PRICE : 0);
     }
 
     function renderPrice(product) {
       var priceEl = document.getElementById("bfDetailPrice");
       if (priceEl) priceEl.textContent = bfMoney(currentPrice(product));
+      var sizePrice = bfSizePrice(product, selectedSize);
+      // The stored oldPrice belongs to the first (cheapest) size only.
+      var isBaseSize = !selectedSize || selectedSize === (product.sizes || [])[0];
+      var validOldPrice = (isBaseSize && product.oldPrice && product.oldPrice > sizePrice) ? product.oldPrice : null;
+      // Small Double / Double / King / Super King: old price from
+      // BF_SIZE_OLD_PRICES (Single keeps its existing old price).
+      var listedOld = (selectedSize && selectedSize !== "Single" && BF_SIZE_OLD_PRICES[product.slug])
+        ? BF_SIZE_OLD_PRICES[product.slug][selectedSize] : null;
+      if (typeof listedOld === "number") validOldPrice = listedOld > sizePrice ? listedOld : null;
+      var prevPriceEl = document.getElementById("bfDetailPrevPrice");
+      if (prevPriceEl) prevPriceEl.textContent = validOldPrice ? bfMoney(validOldPrice) : "";
+      renderSelectedSizePrice(selectedSize, sizePrice, validOldPrice);
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: null,
+        finalPrice: currentPrice(product), sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: selectedSize, sizeOptions: sizeEl, sizeRow: sizePriceRow,
+        money: bfMoney
+      });
     }
 
     // Shared helper for the five new single-select option groups — each
@@ -1075,7 +1376,7 @@ var BF_FABRIC_COLLECTIONS = [
 
       renderPrice(product);
       var prevPriceEl = document.getElementById("bfDetailPrevPrice");
-      if (prevPriceEl) prevPriceEl.textContent = product.oldPrice ? bfMoney(product.oldPrice) : "";
+      if (prevPriceEl) prevPriceEl.textContent = (product.oldPrice && product.oldPrice > product.price) ? bfMoney(product.oldPrice) : "";
       document.getElementById("bfDetailDescription").textContent = product.description || "";
 
       var featuresEl = document.getElementById("bfDetailFeatures");

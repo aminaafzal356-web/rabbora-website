@@ -431,6 +431,7 @@
 
 .bs-detail__thumbs {
   display: flex;
+  flex-wrap: wrap; /* 5-photo galleries wrap instead of overflowing small phones */
   gap: 0.6rem;
   margin-top: 0.85rem;
 }

@@ -192,13 +192,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "Bring modern luxury into your bedroom with the Rabbora Milano TV Bed, combining elegant design, relaxing comfort and a built-in TV experience.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -252,13 +250,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Rabbora Monaco TV Bed creates a sophisticated bedroom retreat with its stylish finish, comfortable design and seamless entertainment experience.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -310,13 +306,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "Designed for those who appreciate timeless elegance, the Rabbora Windsor TV Bed blends premium bedroom style with convenient built-in entertainment.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -368,13 +362,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "Transform your bedroom with the Rabbora Kensington TV Bed, offering a luxurious statement design with comfort and entertainment beautifully combined.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -426,13 +418,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "The Mayfair TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -482,13 +472,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Richmond TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -538,13 +526,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "The Cambridge TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -594,13 +580,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "The Victoria TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -650,13 +634,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 32\", with a tailored handmade frame.",
     "description": "The Oxford TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -706,13 +688,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 40\", with a tailored handmade frame.",
     "description": "The Chester TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -762,13 +742,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 43\", with a tailored handmade frame.",
     "description": "The Kingston TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -818,13 +796,11 @@ var TV_BED_PRODUCTS =
     "shortInfo": "Built-in lift mechanism fits TVs up to 50\", with a tailored handmade frame.",
     "description": "The Brighton TV Bed conceals a smooth, quiet lift mechanism within the footboard, raising your television to the perfect viewing height at the touch of a button and lowering it out of sight when not in use. Built on a solid, supportive frame and finished with tailored upholstery, it brings entertainment and comfort together without cluttering the room.",
     "availableSizeLabels": [
-      "Small Double 4ft",
-      "Double 4ft 6\"",
+      "Double 4'6ft",
       "King 5ft",
       "Super King 6ft"
     ],
     "availableSizes": [
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -868,6 +844,55 @@ var TV_BED_SIZE_DELTAS = {
   "King": 95,
   "Super King": 170
 };
+
+// Exact per-size prices (current Pascal Beds prices for the matching
+// beds). A product listed here uses these prices instead of the deltas
+// above; products not listed keep using price + delta.
+var TV_BED_SIZE_PRICES = {
+  "tv-bed-1": { "Double": 999,  "King": 1099, "Super King": 1199 }, // Milano     = Bedflix Duke
+  "tv-bed-2": { "Double": 990,  "King": 1094, "Super King": 1190 }, // Monaco     = Bedflix Manhattan
+  "tv-bed-3": { "Double": 1099, "King": 1299, "Super King": 1399 }, // Windsor    = Bedflix TV Bed Frame
+  "tv-bed-4": { "Double": 999,  "King": 1099, "Super King": 1199 }  // Kensington = Bedflix Davinci
+};
+
+// Old (original / "was") price for each size. Single 3ft is not listed:
+// it keeps its existing old price. The other sizes are worked out from
+// their existing sale price:
+//   Small Double 21% off -> old = sale / 0.79
+//   Double       28% off -> old = sale / 0.72
+//   King         29% off -> old = sale / 0.71
+//   Super King   29% off -> old = sale / 0.71
+// Any number here can be changed in VS Code; a size left out shows the
+// page's old price exactly as before.
+var TV_BED_SIZE_OLD_PRICES = {
+  "tv-bed-1": { "Double": 1387.5, "King": 1547.89, "Super King": 1688.73 },
+  "tv-bed-2": { "Double": 1375, "King": 1540.85, "Super King": 1676.06 },
+  "tv-bed-3": { "Double": 1526.39, "King": 1829.58, "Super King": 1970.42 },
+  "tv-bed-4": { "Double": 1387.5, "King": 1547.89, "Super King": 1688.73 },
+  "tv-bed-5": { "Double": 1020.83, "King": 1169.01, "Super King": 1274.65 },
+  "tv-bed-6": { "Double": 1068.06, "King": 1216.9, "Super King": 1322.54 },
+  "tv-bed-7": { "Double": 1115.28, "King": 1264.79, "Super King": 1370.42 },
+  "tv-bed-8": { "Double": 1162.5, "King": 1312.68, "Super King": 1418.31 },
+  "tv-bed-9": { "Double": 1209.72, "King": 1360.56, "Super King": 1466.2 },
+  "tv-bed-10": { "Double": 1256.94, "King": 1408.45, "Super King": 1514.08 },
+  "tv-bed-11": { "Double": 1304.17, "King": 1456.34, "Super King": 1561.97 },
+  "tv-bed-12": { "Double": 1351.39, "King": 1504.23, "Super King": 1609.86 }
+};
+
+
+// Price of one size before add-ons. With no size selected this is the
+// product's base (Double) price.
+// A product loaded from the backend API carries its own per-size prices
+// in product.sizePrices; those are used first. Every other product
+// (including TV beds 5-12, which are not in the database) keeps the
+// original price list / size-difference rule below unchanged.
+function tvSizePrice(product, size) {
+  if (size && product.sizePrices && typeof product.sizePrices[size] === "number") return product.sizePrices[size];
+  var map = TV_BED_SIZE_PRICES[product.slug];
+  if (size && map && typeof map[size] === "number") return map[size];
+  var delta = size ? (TV_BED_SIZE_DELTAS[size] || 0) : 0;
+  return Math.max(0, product.price + delta);
+}
 
 (function () {
   "use strict";
@@ -1010,9 +1035,8 @@ var TV_BED_SIZE_DELTAS = {
     }
 
     function currentPrice(product) {
-      var delta = tvState.selectedSize ? (TV_BED_SIZE_DELTAS[tvState.selectedSize] || 0) : 0;
       var addons = tvState.assembly === "yes" ? ASSEMBLY_PRICE : 0;
-      return Math.max(0, product.price + delta + addons);
+      return tvSizePrice(product, tvState.selectedSize) + addons;
     }
 
     // Fabric Colour — new on this page (the container already existed
@@ -1170,14 +1194,169 @@ var TV_BED_SIZE_DELTAS = {
       nextBtn.hidden = images.length < 2;
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "tv-detail__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="tv-detail__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = money(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? money(oldPrice) : "";
+    }
+
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
-      product.availableSizes.forEach(function (size) {
+      product.availableSizes.forEach(function (size, index) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "tv-option-pill";
         btn.setAttribute("aria-pressed", String(tvState.selectedSize === size));
-        btn.textContent = size;
+        btn.textContent = (product.availableSizeLabels && product.availableSizeLabels[index]) || size;
         btn.addEventListener("click", function () {
           tvState.selectedSize = size;
           messageEl.textContent = "";
@@ -1193,13 +1372,39 @@ var TV_BED_SIZE_DELTAS = {
 
     function renderPrice(product) {
       priceEl.textContent = money(currentPrice(product));
-      prevPriceEl.textContent = product.oldPrice ? money(product.oldPrice) : "";
+      var sizePrice = tvSizePrice(product, tvState.selectedSize);
+      var validOldPrice;
+      if (product.sizeOldPrices) {
+        // Product from the backend API: each size has its own
+        // compare_at_price (only shown when it is higher than the price).
+        var apiOldPrice = tvState.selectedSize ? product.sizeOldPrices[tvState.selectedSize] : product.oldPrice;
+        validOldPrice = (apiOldPrice && apiOldPrice > sizePrice) ? apiOldPrice : null;
+      } else {
+        // The stored oldPrice belongs to the base (Double) price only.
+        var isBaseSize = !tvState.selectedSize || sizePrice === product.price;
+        validOldPrice = (isBaseSize && product.oldPrice && product.oldPrice > sizePrice) ? product.oldPrice : null;
+      }
+      // Small Double / Double / King / Super King: old price from
+      // TV_BED_SIZE_OLD_PRICES (Single keeps its existing old price).
+      var listedOld = (tvState.selectedSize && tvState.selectedSize !== "Single" && TV_BED_SIZE_OLD_PRICES[product.slug])
+        ? TV_BED_SIZE_OLD_PRICES[product.slug][tvState.selectedSize] : null;
+      if (typeof listedOld === "number") validOldPrice = listedOld > sizePrice ? listedOld : null;
+      prevPriceEl.textContent = validOldPrice ? money(validOldPrice) : "";
+      renderSelectedSizePrice(tvState.selectedSize, sizePrice, validOldPrice);
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: currentPrice(product), sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: tvState.selectedSize, sizeOptions: sizeOptionsEl, sizeRow: sizePriceRow,
+        money: money
+      });
     }
 
     function renderDimensions(product) {
-      var rows = product.availableSizes.map(function (size) {
+      var rows = product.availableSizes.map(function (size, index) {
         var d = product.dimensions[size];
-        return "<tr><td>" + size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
+        var label = (product.availableSizeLabels && product.availableSizeLabels[index]) || size;
+        return "<tr><td>" + label + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
       }).join("");
       dimensionsEl.innerHTML =
         "<thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Width (cm)</th><th scope=\"col\">Length (cm)</th></tr></thead><tbody>" +
@@ -1323,13 +1528,151 @@ var TV_BED_SIZE_DELTAS = {
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
+    // ---- Backend Product Detail API ----
+    // The detail view first asks the backend for the product. Only name,
+    // images, sizes, size prices, compare-at prices and dimensions come
+    // from the API; they are merged ON TOP of the existing product object
+    // from TV_BED_PRODUCTS, so every frontend-only field (features, tvInfo,
+    // maxScreenSize, monthlyPrice, delivery, warranty, returns ...) stays.
+    // If the API fails, is unreachable, returns 404 or sends unexpected
+    // data, the original TV_PRODUCTS_BY_SLUG product is used exactly as
+    // before (TV beds 5-12 always end up here, as they are not in the
+    // database).
+    // Address from api-config.js (window.RabboraApi), which must load
+    // before this file: GET <API_URL>/products/slug/<slug>.
+    var TV_PRODUCT_API_URL = window.RabboraApi && typeof window.RabboraApi.url === "function"
+      ? window.RabboraApi.url("/products/slug/")
+      : null;
+    if (!TV_PRODUCT_API_URL) {
+      console.warn(
+        "[Rabbora TV Beds] api-config.js is not loaded, so product details come from this file only. " +
+        "Add <script src=\"api-config.js\"></script> before tv-beds.js."
+      );
+    }
+    var TV_PRODUCT_API_TIMEOUT_MS = 4000;
+    var tvApiProductCache = {};
+    var tvRouteRequestId = 0;
+
+    function isValidApiProduct(apiProduct, slug) {
+      if (!apiProduct || apiProduct.slug !== slug) return false;
+      if (typeof apiProduct.name !== "string" || !apiProduct.name.trim()) return false;
+      if (!Array.isArray(apiProduct.images) || apiProduct.images.length === 0) return false;
+      if (!Array.isArray(apiProduct.variants) || apiProduct.variants.length === 0) return false;
+      var imagesOk = apiProduct.images.every(function (img) {
+        return img && typeof img.image_url === "string" && img.image_url.trim() !== "";
+      });
+      var variantsOk = apiProduct.variants.every(function (v) {
+        return v &&
+          typeof v.option_value === "string" && v.option_value !== "" &&
+          typeof v.option_label === "string" && v.option_label !== "" &&
+          typeof v.price === "number" && isFinite(v.price) && v.price > 0;
+      });
+      return imagesOk && variantsOk;
+    }
+
+    // Returns a NEW object: a copy of the original JS product with the API
+    // values placed on top. The original TV_BED_PRODUCTS entry is never
+    // changed, so the grid, related cards and fallback stay exactly as they
+    // were.
+    function mergeApiProduct(baseProduct, apiProduct) {
+      var merged = {};
+      Object.keys(baseProduct).forEach(function (key) {
+        merged[key] = baseProduct[key];
+      });
+
+      var variants = apiProduct.variants.slice().sort(function (a, b) {
+        return (a.sort_order || 0) - (b.sort_order || 0);
+      });
+
+      merged.name = apiProduct.name;
+      merged.images = apiProduct.images.map(function (img) { return img.image_url; });
+      merged.availableSizes = variants.map(function (v) { return v.option_value; });
+      merged.availableSizeLabels = variants.map(function (v) { return v.option_label; });
+
+      merged.sizePrices = {};
+      merged.sizeOldPrices = {};
+      var dimensions = {};
+      Object.keys(baseProduct.dimensions || {}).forEach(function (size) {
+        dimensions[size] = baseProduct.dimensions[size];
+      });
+      variants.forEach(function (v) {
+        merged.sizePrices[v.option_value] = v.price;
+        merged.sizeOldPrices[v.option_value] =
+          (typeof v.compare_at_price === "number" && v.compare_at_price > v.price) ? v.compare_at_price : null;
+        if (typeof v.width_cm === "number" && typeof v.length_cm === "number") {
+          dimensions[v.option_value] = { width: v.width_cm, length: v.length_cm };
+        }
+      });
+      merged.dimensions = dimensions;
+
+      // Base (no size selected) price and crossed-out price: the API's
+      // product price (its lowest size) and that size's compare-at price.
+      merged.price = (typeof apiProduct.price === "number" && isFinite(apiProduct.price) && apiProduct.price > 0)
+        ? apiProduct.price
+        : variants[0].price;
+      var baseVariant = variants.filter(function (v) { return v.price === merged.price; })[0] || variants[0];
+      merged.oldPrice = merged.sizeOldPrices[baseVariant.option_value];
+
+      // Every size key must still have a dimensions row, because
+      // renderDimensions() reads product.dimensions[size] for each size.
+      var dimensionsOk = merged.availableSizes.every(function (size) {
+        var d = merged.dimensions[size];
+        return d && typeof d.width === "number" && typeof d.length === "number";
+      });
+      return dimensionsOk ? merged : null;
+    }
+
+    // Resolves with the merged API product, or null when the original JS
+    // product should be used instead. Never rejects.
+    function fetchApiProduct(baseProduct, slug) {
+      if (tvApiProductCache[slug]) return Promise.resolve(tvApiProductCache[slug]);
+      if (typeof fetch !== "function" || !TV_PRODUCT_API_URL) return Promise.resolve(null);
+
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var timeoutId = controller
+        ? window.setTimeout(function () { controller.abort(); }, TV_PRODUCT_API_TIMEOUT_MS)
+        : null;
+
+      return fetch(TV_PRODUCT_API_URL + encodeURIComponent(slug), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (response) {
+          if (!response.ok) return null;
+          return response.json().catch(function () { return null; });
+        })
+        .then(function (data) {
+          var apiProduct = data && data.success === true ? data.product : null;
+          if (!isValidApiProduct(apiProduct, slug)) return null;
+          var merged = mergeApiProduct(baseProduct, apiProduct);
+          if (merged) tvApiProductCache[slug] = merged;
+          return merged;
+        })
+        .catch(function () {
+          return null;
+        })
+        .then(function (result) {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          return result;
+        });
+    }
+
     function handleRoute() {
       var hash = window.location.hash;
-      if (!hash || hash === "#") { showCategory(); return; }
+      if (!hash || hash === "#") { tvRouteRequestId++; showCategory(); return; }
       var slug = hash.replace(/^#\/?/, "");
-      if (!slug) { showCategory(); return; }
+      if (!slug) { tvRouteRequestId++; showCategory(); return; }
       var product = TV_PRODUCTS_BY_SLUG[slug];
-      if (product) { showDetail(product); } else { showNotFound(); }
+      if (!product) { tvRouteRequestId++; showNotFound(); return; }
+
+      // Only the newest route may render: if the hash changes again while
+      // a request is still running, the older answer is ignored.
+      var requestId = ++tvRouteRequestId;
+      fetchApiProduct(product, slug).then(function (apiProduct) {
+        if (requestId !== tvRouteRequestId) return;
+        showDetail(apiProduct || product);
+      });
     }
 
     window.addEventListener("hashchange", handleRoute);

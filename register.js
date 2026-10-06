@@ -1,57 +1,97 @@
+/* =========================================================
+   RABBORA LIVING — CREATE ACCOUNT (register.html)
+   ---------------------------------------------------------
+   Form validation and submit handling for the registration
+   form only. The page's background animation is run by
+   account.js (loaded before this file), exactly as on the
+   login page; the header, search, wishlist and cart counts
+   are run by script.js.
+
+   The form is sent to the backend (POST /api/auth/register). Nothing
+   on this page is ever saved in the browser — no localStorage,
+   no sessionStorage, no cookies — and the password is only sent
+   to the API, never stored or shown.
+   ========================================================= */
+
 (function () {
   "use strict";
 
+  // Backend registration endpoint (backend/routes/auth.js), address from
+  // api-config.js (window.RabboraApi), which must load before this file.
+  var REGISTER_API_URL = window.RabboraApi && window.RabboraApi.API_URL
+    ? window.RabboraApi.API_URL + "/auth/register"
+    : null;
+  if (!REGISTER_API_URL) {
+    console.error(
+      "[Rabbora Register] api-config.js is not loaded on this page, so the backend address is unknown. " +
+      "Add <script src=\"api-config.js\"></script> before register.js."
+    );
+  }
+
+  // Messages shown under the form.
+  var MSG_SUCCESS = "Account created successfully. You can now log in.";
+  var MSG_DUPLICATE = "An account with this email address already exists.";
+  var MSG_CHECK_FIELDS = "Please check the highlighted fields.";
+  var MSG_SERVER = "We couldn't create your account right now. Please try again later.";
+  var MSG_NETWORK = "We couldn't reach the server. Please check your connection and try again.";
+
+  // Same rules as the login form in account.js.
   var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var MIN_PASSWORD_LENGTH = 8;
+
+  // Phone: digits with optional spaces, brackets, dashes and a leading +,
+  // 10 to 15 digits in total (e.g. 07123 456789, +44 7123 456789).
+  var PHONE_ALLOWED = /^\+?[0-9\s()\-]+$/;
+  var PHONE_MIN_DIGITS = 10;
+  var PHONE_MAX_DIGITS = 15;
+
+  var FIELDS = {
+    firstName: { field: "registerFirstNameField", input: "registerFirstName", error: "registerFirstNameError" },
+    lastName: { field: "registerLastNameField", input: "registerLastName", error: "registerLastNameError" },
+    email: { field: "registerEmailField", input: "registerEmail", error: "registerEmailError" },
+    phone: { field: "registerPhoneField", input: "registerPhone", error: "registerPhoneError" },
+    password: { field: "registerPasswordField", input: "registerPassword", error: "registerPasswordError" },
+    confirmPassword: { field: "registerConfirmPasswordField", input: "registerConfirmPassword", error: "registerConfirmPasswordError" }
+  };
+
+  // Order the fields appear on the page (used to focus the first error).
+  var FIELD_ORDER = ["firstName", "lastName", "email", "phone", "password", "confirmPassword"];
 
   function qs(selector, scope) {
     return (scope || document).querySelector(selector);
   }
 
+  function inputOf(key) {
+    return document.getElementById(FIELDS[key].input);
+  }
+
   /**
-   * ===========================================================
-   * FUTURE BACKEND INTEGRATION POINT
-   * ===========================================================
-   * This is the one function that needs to change when a real
-   * registration backend exists. Right now there is no backend
-   * to call, so this deliberately does NOT pretend to succeed —
-   * it rejects with a clear "not yet connected" error every time.
+   * Sends the new account to the backend.
+   * "details" is { firstName, lastName, email, phone, password } —
+   * confirmPassword is only checked in the browser and is not sent.
+   * The backend hashes the password and creates the account.
    *
-   * When a real endpoint exists, replace the body of this
-   * function with something like:
-   *
-   *   return fetch("/api/register", {
-   *     method: "POST",
-   *     headers: { "Content-Type": "application/json" },
-   *     credentials: "include",
-   *     body: JSON.stringify({
-   *       firstName: formData.firstName,
-   *       lastName: formData.lastName,
-   *       email: formData.email,
-   *       password: formData.password
-   *     })
-   *   }).then(function (response) {
-   *     if (!response.ok) {
-   *       return response.json().then(function (data) {
-   *         throw new Error((data && data.message) || "Registration failed.");
-   *       });
-   *     }
-   *     return response.json(); // e.g. { user: {...} }
-   *   });
-   *
-   * The backend is responsible for hashing/storing the password,
-   * checking for an existing account, and issuing a session once
-   * registration succeeds — nothing here should ever store or
-   * compare a real password itself.
-   *
-   * Returns a Promise that resolves with a user object on success,
-   * or rejects with an Error whose message is safe to show the user.
+   * Resolves with { ok, status, data } for any HTTP answer (201, 400,
+   * 409, 500 …). Rejects only when the server can't be reached at all.
    */
-  function registerUser(formData) {
-    return new Promise(function (resolve, reject) {
-      window.setTimeout(function () {
-        reject(new Error("Account creation is not available yet — this account system isn't connected to a server."));
-      }, 700);
+  function registerAccount(details) {
+    // No backend address (api-config.js missing): treated like "server
+    // not reachable", so the page shows its normal connection message.
+    if (!REGISTER_API_URL) return Promise.reject(new Error("API address not configured"));
+
+    return fetch(REGISTER_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(details)
+    }).then(function (response) {
+      return response.json()
+        .catch(function () { return {}; })
+        .then(function (data) {
+          return { ok: response.ok, status: response.status, data: data || {} };
+        });
     });
   }
 
@@ -60,223 +100,186 @@
     if (statusEl) statusEl.textContent = message;
   }
 
-  function setFieldError(fieldId, inputId, errorId, message) {
-    var field = document.getElementById(fieldId);
-    var input = inputId ? document.getElementById(inputId) : null;
-    var errorEl = document.getElementById(errorId);
-    if (!field || !errorEl) return;
+  // Same visual behaviour as the login form: red message under the
+  // field, aria-invalid, and the subtle shake on every new error.
+  function setFieldError(key, message) {
+    var ids = FIELDS[key];
+    var field = document.getElementById(ids.field);
+    var input = document.getElementById(ids.input);
+    var errorEl = document.getElementById(ids.error);
+    if (!field || !input || !errorEl) return;
 
     if (message) {
-      if (input) input.setAttribute("aria-invalid", "true");
+      input.setAttribute("aria-invalid", "true");
       errorEl.textContent = message;
       errorEl.hidden = false;
-
-      // Subtle shake, restarted cleanly on every new error so repeated
-      // invalid submissions still visibly re-trigger it.
       field.classList.remove("is-shaking");
-      // Force a reflow so removing/re-adding the class actually restarts
-      // the CSS animation instead of being a no-op.
       void field.offsetWidth;
       field.classList.add("is-shaking");
     } else {
-      if (input) input.setAttribute("aria-invalid", "false");
+      input.setAttribute("aria-invalid", "false");
       errorEl.textContent = "";
       errorEl.hidden = true;
     }
   }
 
-  function validateFirstName(input) {
-    var value = input.value.trim();
-    if (!value) {
-      setFieldError("registerFirstNameField", "registerFirstName", "registerFirstNameError", "Enter your first name.");
-      return false;
-    }
-    setFieldError("registerFirstNameField", "registerFirstName", "registerFirstNameError", "");
-    return true;
+  function setFormError(message) {
+    var el = document.getElementById("registerFormError");
+    if (!el) return;
+    el.style.color = "";
+    el.textContent = message || "";
+    el.hidden = !message;
   }
 
-  function validateLastName(input) {
-    var value = input.value.trim();
-    if (!value) {
-      setFieldError("registerLastNameField", "registerLastName", "registerLastNameError", "Enter your last name.");
-      return false;
-    }
-    setFieldError("registerLastNameField", "registerLastName", "registerLastNameError", "");
-    return true;
+  // Success message in the same place as the form error, in the site's
+  // green, with a link to the login page.
+  function setFormSuccess(message) {
+    var el = document.getElementById("registerFormError");
+    if (!el) return;
+    el.style.color = "var(--color-forest)";
+    el.textContent = message + " ";
+    var link = document.createElement("a");
+    link.href = "account.html";
+    link.textContent = "Log in";
+    link.style.fontWeight = "700";
+    link.style.textDecoration = "underline";
+    el.appendChild(link);
+    el.hidden = false;
   }
 
-  function validateEmail(input) {
-    var value = input.value.trim();
-    if (!value) {
-      setFieldError("registerEmailField", "registerEmail", "registerEmailError", "Enter your email address.");
-      return false;
-    }
-    if (!EMAIL_PATTERN.test(value)) {
-      setFieldError("registerEmailField", "registerEmail", "registerEmailError", "Enter a valid email address.");
-      return false;
-    }
-    setFieldError("registerEmailField", "registerEmail", "registerEmailError", "");
-    return true;
+  // Clears every field's error message (used after a successful sign-up).
+  function clearFieldErrors() {
+    FIELD_ORDER.forEach(function (key) { setFieldError(key, ""); });
   }
 
-  function validatePassword(input) {
-    var value = input.value;
-    if (!value) {
-      setFieldError("registerPasswordField", "registerPassword", "registerPasswordError", "Enter a password.");
-      return false;
+  // ---- Validators: each returns an error message, or "" when valid ----
+
+  function checkFirstName(value) {
+    return value.trim() ? "" : "Enter your first name.";
+  }
+
+  function checkLastName(value) {
+    return value.trim() ? "" : "Enter your last name.";
+  }
+
+  function checkEmail(value) {
+    var v = value.trim();
+    if (!v) return "Enter your email address.";
+    if (!EMAIL_PATTERN.test(v)) return "Enter a valid email address.";
+    return "";
+  }
+
+  function checkPhone(value) {
+    var v = value.trim();
+    if (!v) return "Enter your phone number.";
+    var digits = v.replace(/\D/g, "");
+    if (!PHONE_ALLOWED.test(v) || digits.length < PHONE_MIN_DIGITS || digits.length > PHONE_MAX_DIGITS) {
+      return "Enter a valid phone number.";
     }
+    return "";
+  }
+
+  function checkPassword(value) {
+    if (!value) return "Enter a password.";
     if (value.length < MIN_PASSWORD_LENGTH) {
-      setFieldError(
-        "registerPasswordField",
-        "registerPassword",
-        "registerPasswordError",
-        "Password must be at least " + MIN_PASSWORD_LENGTH + " characters."
-      );
-      return false;
+      return "Password must be at least " + MIN_PASSWORD_LENGTH + " characters.";
     }
-    setFieldError("registerPasswordField", "registerPassword", "registerPasswordError", "");
-    return true;
+    return "";
   }
 
-  function validateConfirmPassword(passwordInput, confirmInput) {
-    var value = confirmInput.value;
-    if (!value) {
-      setFieldError("registerConfirmPasswordField", "registerConfirmPassword", "registerConfirmPasswordError", "Confirm your password.");
-      return false;
-    }
-    if (value !== passwordInput.value) {
-      setFieldError("registerConfirmPasswordField", "registerConfirmPassword", "registerConfirmPasswordError", "Passwords do not match.");
-      return false;
-    }
-    setFieldError("registerConfirmPasswordField", "registerConfirmPassword", "registerConfirmPasswordError", "");
-    return true;
+  function checkConfirmPassword(value) {
+    if (!value) return "Confirm your password.";
+    var password = inputOf("password") ? inputOf("password").value : "";
+    if (value !== password) return "Passwords do not match.";
+    return "";
   }
 
-  function validateTerms(checkbox) {
-    if (!checkbox.checked) {
-      setFieldError("registerTermsField", "registerTerms", "registerTermsError", "You must agree to the Terms & Conditions and Privacy Policy to continue.");
-      return false;
-    }
-    setFieldError("registerTermsField", "registerTerms", "registerTermsError", "");
-    return true;
+  var CHECKS = {
+    firstName: checkFirstName,
+    lastName: checkLastName,
+    email: checkEmail,
+    phone: checkPhone,
+    password: checkPassword,
+    confirmPassword: checkConfirmPassword
+  };
+
+  function validateField(key) {
+    var input = inputOf(key);
+    if (!input) return true;
+    var message = CHECKS[key](input.value);
+    setFieldError(key, message);
+    return !message;
   }
 
-  /**
-   * A simple, purely client-side strength heuristic for UI feedback
-   * only — this never leaves the browser and the password itself is
-   * never logged or stored anywhere.
-   */
-  function calculatePasswordStrength(password) {
-    if (!password) return "";
+  // Validate on blur; once a field shows an error, re-check it as the
+  // customer types so the message clears as soon as it's fixed.
+  function initLiveValidation() {
+    FIELD_ORDER.forEach(function (key) {
+      var input = inputOf(key);
+      if (!input) return;
 
-    var score = 0;
-    if (password.length >= 8) score++;
-    if (password.length >= 12) score++;
-    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
-    if (/\d/.test(password)) score++;
-    if (/[^A-Za-z0-9]/.test(password)) score++;
+      input.addEventListener("blur", function () {
+        // Don't flag an untouched, empty field just for tabbing past it.
+        if (input.value === "" && input.getAttribute("aria-invalid") !== "true") return;
+        validateField(key);
+      });
 
-    if (score <= 2) return "weak";
-    if (score <= 3) return "medium";
-    return "strong";
-  }
-
-  function updatePasswordStrength(password) {
-    var strengthEl = document.getElementById("registerPasswordStrength");
-    var labelEl = document.getElementById("registerPasswordStrengthLabel");
-    if (!strengthEl || !labelEl) return;
-
-    var strength = calculatePasswordStrength(password);
-    strengthEl.setAttribute("data-strength", strength);
-
-    var labels = { weak: "Weak", medium: "Medium", strong: "Strong" };
-    labelEl.textContent = password ? (labels[strength] || "") : "";
-  }
-
-  function initPasswordToggle(toggleId, inputId) {
-    var toggle = document.getElementById(toggleId);
-    var input = document.getElementById(inputId);
-    if (!toggle || !input) return;
-
-    var showIcon = qs(".register-password-toggle__icon-show", toggle);
-    var hideIcon = qs(".register-password-toggle__icon-hide", toggle);
-
-    toggle.addEventListener("click", function () {
-      var isVisible = input.type === "text";
-      input.type = isVisible ? "password" : "text";
-      toggle.setAttribute("aria-pressed", String(!isVisible));
-      toggle.setAttribute("aria-label", isVisible ? "Show password" : "Hide password");
-      if (showIcon) showIcon.hidden = !isVisible ? false : true;
-      if (hideIcon) hideIcon.hidden = !isVisible ? true : false;
-      // Keep focus on the field itself, not the toggle button, so
-      // typing can continue immediately.
-      input.focus();
+      input.addEventListener("input", function () {
+        setFormError("");
+        if (input.getAttribute("aria-invalid") === "true") validateField(key);
+        // Changing the password re-checks an already-typed confirmation.
+        if (key === "password") {
+          var confirm = inputOf("confirmPassword");
+          if (confirm && confirm.value) validateField("confirmPassword");
+        }
+      });
     });
   }
 
-  function initLiveValidation() {
-    var firstNameInput = document.getElementById("registerFirstName");
-    var lastNameInput = document.getElementById("registerLastName");
-    var emailInput = document.getElementById("registerEmail");
-    var passwordInput = document.getElementById("registerPassword");
-    var confirmInput = document.getElementById("registerConfirmPassword");
-    var termsCheckbox = document.getElementById("registerTerms");
+  // Show/hide buttons for Password and Confirm Password. Each button
+  // only controls its own field. As on the login page, the button's
+  // aria-pressed is the single source of truth and account.css shows
+  // the eye icon for "false" and the eye-off icon for "true".
+  // Each toggle's sync function, so the form can put both password
+  // fields back to hidden after a successful sign-up.
+  var passwordToggleSyncs = [];
 
-    if (firstNameInput) {
-      firstNameInput.addEventListener("blur", function () { validateFirstName(firstNameInput); });
-      firstNameInput.addEventListener("input", function () {
-        if (firstNameInput.getAttribute("aria-invalid") === "true") validateFirstName(firstNameInput);
-      });
-    }
+  function initPasswordToggles() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-password-toggle]"), function (toggle) {
+      var input = document.getElementById(toggle.getAttribute("data-password-toggle"));
+      if (!input) return;
+      // "password" or "confirm password", taken from the button's label.
+      var name = (toggle.getAttribute("aria-label") || "Show password").replace(/^(Show|Hide) /, "");
 
-    if (lastNameInput) {
-      lastNameInput.addEventListener("blur", function () { validateLastName(lastNameInput); });
-      lastNameInput.addEventListener("input", function () {
-        if (lastNameInput.getAttribute("aria-invalid") === "true") validateLastName(lastNameInput);
-      });
-    }
+      function syncToggle() {
+        var isVisible = input.type === "text";
+        toggle.setAttribute("aria-pressed", String(isVisible));
+        toggle.setAttribute("aria-label", (isVisible ? "Hide " : "Show ") + name);
+      }
 
-    if (emailInput) {
-      emailInput.addEventListener("blur", function () { validateEmail(emailInput); });
-      emailInput.addEventListener("input", function () {
-        if (emailInput.getAttribute("aria-invalid") === "true") validateEmail(emailInput);
+      // Keep focus in the field when clicked with a mouse, so its blur
+      // validation doesn't fire just because the eye was clicked.
+      toggle.addEventListener("mousedown", function (event) {
+        event.preventDefault();
       });
-    }
 
-    if (passwordInput) {
-      passwordInput.addEventListener("input", function () {
-        updatePasswordStrength(passwordInput.value);
-        if (passwordInput.getAttribute("aria-invalid") === "true") validatePassword(passwordInput);
-        // Re-check confirm-password live too, since its validity
-        // depends on this field's current value.
-        if (confirmInput && confirmInput.getAttribute("aria-invalid") === "true") {
-          validateConfirmPassword(passwordInput, confirmInput);
-        }
+      toggle.addEventListener("click", function () {
+        input.type = input.type === "text" ? "password" : "text";
+        syncToggle();
+        input.focus();
       });
-      passwordInput.addEventListener("blur", function () { validatePassword(passwordInput); });
-    }
 
-    if (confirmInput) {
-      confirmInput.addEventListener("blur", function () {
-        if (passwordInput) validateConfirmPassword(passwordInput, confirmInput);
+      syncToggle();
+      passwordToggleSyncs.push(function () {
+        input.type = "password";
+        syncToggle();
       });
-      confirmInput.addEventListener("input", function () {
-        if (confirmInput.getAttribute("aria-invalid") === "true" && passwordInput) {
-          validateConfirmPassword(passwordInput, confirmInput);
-        }
-      });
-    }
-
-    if (termsCheckbox) {
-      termsCheckbox.addEventListener("change", function () {
-        validateTerms(termsCheckbox);
-      });
-    }
+    });
   }
 
   function setLoadingState(isLoading) {
     var btn = document.getElementById("registerSubmitBtn");
-    var textEl = btn ? qs(".register-button__text", btn) : null;
+    var textEl = btn ? qs(".login-button__text", btn) : null;
     if (!btn) return;
 
     btn.disabled = isLoading;
@@ -287,208 +290,101 @@
 
   function initForm() {
     var form = document.getElementById("registerForm");
-    var firstNameInput = document.getElementById("registerFirstName");
-    var lastNameInput = document.getElementById("registerLastName");
-    var emailInput = document.getElementById("registerEmail");
-    var passwordInput = document.getElementById("registerPassword");
-    var confirmInput = document.getElementById("registerConfirmPassword");
-    var termsCheckbox = document.getElementById("registerTerms");
-    if (!form || !firstNameInput || !lastNameInput || !emailInput || !passwordInput || !confirmInput || !termsCheckbox) return;
+    if (!form) return;
 
     var isSubmitting = false;
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
-
-      // Prevent duplicate submissions if the button is somehow
-      // triggered again before the previous attempt finishes.
       if (isSubmitting) return;
 
-      var firstNameValid = validateFirstName(firstNameInput);
-      var lastNameValid = validateLastName(lastNameInput);
-      var emailValid = validateEmail(emailInput);
-      var passwordValid = validatePassword(passwordInput);
-      var confirmValid = validateConfirmPassword(passwordInput, confirmInput);
-      var termsValid = validateTerms(termsCheckbox);
+      setFormError("");
+      var firstInvalid = null;
+      FIELD_ORDER.forEach(function (key) {
+        var ok = validateField(key);
+        if (!ok && !firstInvalid) firstInvalid = inputOf(key);
+      });
 
-      var allValid = firstNameValid && lastNameValid && emailValid && passwordValid && confirmValid && termsValid;
-
-      if (!allValid) {
-        announce("Please fix the highlighted fields and try again.");
-        var firstInvalid =
-          !firstNameValid ? firstNameInput :
-          !lastNameValid ? lastNameInput :
-          !emailValid ? emailInput :
-          !passwordValid ? passwordInput :
-          !confirmValid ? confirmInput :
-          termsCheckbox;
+      if (firstInvalid) {
+        announce("Please fix the highlighted fields.");
         firstInvalid.focus();
         return;
       }
 
       isSubmitting = true;
       setLoadingState(true);
-      announce("Creating your account\u2026");
+      announce("Creating your account…");
 
-      var formData = {
-        firstName: firstNameInput.value.trim(),
-        lastName: lastNameInput.value.trim(),
-        email: emailInput.value.trim(),
-        password: passwordInput.value
+      var details = {
+        firstName: inputOf("firstName").value.trim(),
+        lastName: inputOf("lastName").value.trim(),
+        email: inputOf("email").value.trim().toLowerCase(),
+        phone: inputOf("phone").value.trim(),
+        password: inputOf("password").value
       };
 
-      registerUser(formData)
-        .then(function (user) {
-          // Only reached once a real backend genuinely confirms
-          // success. Never fabricate this path — there is no backend
-          // to call yet, so this branch cannot currently run, and it
-          // must stay that way until a real API is connected.
-          announce("Account created. Redirecting\u2026");
-          // Future: show a brief success/checkmark state here, then
-          // redirect — e.g. window.location.href = "account.html";
+      registerAccount(details)
+        .then(function (result) {
+          var data = result.data;
+
+          // 201 — account created.
+          if (result.ok) {
+            form.reset();
+            passwordToggleSyncs.forEach(function (sync) { sync(); });
+            clearFieldErrors();
+            announce(MSG_SUCCESS);
+            setFormSuccess(MSG_SUCCESS);
+            return;
+          }
+
+          // 409 — this email is already registered.
+          if (result.status === 409) {
+            var duplicateMessage = data.message || MSG_DUPLICATE;
+            setFieldError("email", duplicateMessage);
+            announce(duplicateMessage);
+            setFormError(duplicateMessage);
+            inputOf("email").focus();
+            return;
+          }
+
+          // 400 — the backend rejected some fields; show each message
+          // under its own field, using the same keys as this form.
+          if (result.status === 400) {
+            var firstInvalid = null;
+            var fieldErrors = data.errors && typeof data.errors === "object" ? data.errors : {};
+            FIELD_ORDER.forEach(function (key) {
+              if (typeof fieldErrors[key] === "string" && fieldErrors[key]) {
+                setFieldError(key, fieldErrors[key]);
+                if (!firstInvalid) firstInvalid = inputOf(key);
+              }
+            });
+            var checkMessage = data.message || MSG_CHECK_FIELDS;
+            announce(checkMessage);
+            setFormError(checkMessage);
+            if (firstInvalid) firstInvalid.focus();
+            return;
+          }
+
+          // Anything else (500 etc.) — a safe, general message only.
+          announce(MSG_SERVER);
+          setFormError(MSG_SERVER);
         })
-        .catch(function (error) {
-          var message = error && error.message ? error.message : "Something went wrong. Please try again.";
-          announce(message);
+        .catch(function () {
+          // The server couldn't be reached (backend not running, no
+          // connection, or the request was blocked by the browser).
+          announce(MSG_NETWORK);
+          setFormError(MSG_NETWORK);
         })
         .finally(function () {
+          details = null;
           isSubmitting = false;
           setLoadingState(false);
         });
     });
   }
 
-  /**
-   * ===========================================================
-   * AMBIENT BACKGROUND — 'Luxury Silk / Flowing Fabric + Aurora
-   * Light', identical visual family and mechanism to login.js,
-   * fully isolated with register-scoped selectors so this file
-   * never touches or depends on anything in login.js.
-   * ===========================================================
-   * The aurora, glow, silk, shimmer and light-ray shapes are pure
-   * CSS on static markup already in register.html — nothing here
-   * creates or touches them. This section only does two small,
-   * independent things, each of which fails silently (does
-   * nothing at all) if its target element is missing:
-   *
-   *   1. Populates a handful of floating particle dots into the
-   *      already-existing #registerParticles container.
-   *   2. On desktop only, applies a small parallax offset to each
-   *      of the three depth layers (back/mid/front) as the mouse
-   *      moves — each at a different speed. The register card
-   *      itself is never touched by this.
-   */
-
-  function initRegisterParticles() {
-    var particlesContainer = document.getElementById("registerParticles");
-    if (!particlesContainer) return;
-
-    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
-
-    var particleCount = 13;
-    // Fixed, hand-placed spread concentrated toward the edges of the
-    // viewport rather than pure randomness, so particles never drift
-    // across the card and stay a genuinely secondary background detail.
-    var positions = [
-      { top: "6%", left: "10%" },
-      { top: "14%", left: "92%" },
-      { top: "24%", left: "4%" },
-      { top: "34%", left: "96%" },
-      { top: "46%", left: "6%" },
-      { top: "58%", left: "94%" },
-      { top: "68%", left: "8%" },
-      { top: "78%", left: "90%" },
-      { top: "88%", left: "18%" },
-      { top: "92%", left: "62%" },
-      { top: "4%", left: "48%" },
-      { top: "96%", left: "40%" },
-      { top: "50%", left: "95%" }
-    ];
-
-    var fragment = document.createDocumentFragment();
-
-    for (var p = 0; p < particleCount; p++) {
-      var particle = document.createElement("span");
-      particle.className = "register-particle";
-      var pos = positions[p % positions.length];
-      particle.style.top = pos.top;
-      particle.style.left = pos.left;
-      particle.style.setProperty("--particle-size", (3 + (p % 3)) + "px");
-      // Spec range: particles 10-20s.
-      particle.style.setProperty("--particle-duration", (10 + p * 0.77) + "s");
-      particle.style.setProperty("--particle-delay", (p * -1.6) + "s");
-      fragment.appendChild(particle);
-    }
-
-    particlesContainer.appendChild(fragment);
-  }
-
-  function initRegisterParallax() {
-    var backLayer = document.getElementById("registerParallaxBack");
-    var midLayer = document.getElementById("registerParallaxMid");
-    var frontLayer = document.getElementById("registerParallaxFront");
-
-    if (!backLayer && !midLayer && !frontLayer) return;
-
-    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
-
-    // Desktop-with-a-real-mouse only — never enabled on touch devices.
-    // Mobile/tablet get the CSS-only animation with no parallax at all.
-    var isDesktopPointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!isDesktopPointer) return;
-
-    var LAYERS = [
-      { el: backLayer, maxPx: 5 },
-      { el: midLayer, maxPx: 9 },
-      { el: frontLayer, maxPx: 14 }
-    ].filter(function (layer) {
-      return !!layer.el;
-    });
-
-    var ticking = false;
-    var latestEvent = null;
-
-    function applyParallax() {
-      ticking = false;
-      if (!latestEvent) return;
-
-      var xRatio = (latestEvent.clientX / window.innerWidth) - 0.5; // -0.5..0.5
-      var yRatio = (latestEvent.clientY / window.innerHeight) - 0.5;
-
-      LAYERS.forEach(function (layer) {
-        var offsetX = xRatio * -2 * layer.maxPx;
-        var offsetY = yRatio * -2 * layer.maxPx;
-        layer.el.style.transform = "translate3d(" + offsetX.toFixed(1) + "px, " + offsetY.toFixed(1) + "px, 0)";
-      });
-    }
-
-    window.addEventListener("mousemove", function (event) {
-      latestEvent = event;
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(applyParallax);
-      }
-    });
-
-    window.addEventListener("mouseleave", function () {
-      latestEvent = null;
-      LAYERS.forEach(function (layer) {
-        layer.el.style.transform = "translate3d(0, 0, 0)";
-      });
-    });
-  }
-
-  function initRegisterBackground() {
-    initRegisterParticles();
-    initRegisterParallax();
-  }
-
   function initRegisterPage() {
-    initRegisterBackground();
-    initPasswordToggle("registerPasswordToggle", "registerPassword");
-    initPasswordToggle("registerConfirmPasswordToggle", "registerConfirmPassword");
+    initPasswordToggles();
     initLiveValidation();
     initForm();
   }

@@ -508,6 +508,26 @@
 
   var BB_WIDTH_OPTIONS = ["3ft Wide", "4ft Wide", "4.6ft Wide", "5ft Wide", "6ft Wide"];
 
+  // Exact per-width prices (current Pascal Beds prices). #2 Chesterfield
+  // uses Pascal's Grand Golden Footstool prices; the others use Pascal's
+  // blanket box prices (every Pascal blanket box costs the same per width). A box not listed here keeps one price
+  // for every width (product.price).
+  var BB_WIDTH_PRICES = {
+    "manhattan-style-blanket-box": { "3ft Wide": 200, "4ft Wide": 240, "4.6ft Wide": 280, "5ft Wide": 290, "6ft Wide": 300 }, // Rabbora #1 = Pascal Washington Style Blanket Box
+    "chesterfield-blanket-box": { "3ft Wide": 329, "4ft Wide": 360, "4.6ft Wide": 380, "5ft Wide": 400, "6ft Wide": 420 }, // Rabbora #2 = Pascal The Grand Golden Footstool by PSCL
+    "luxury-storage-blanket-box": { "3ft Wide": 200, "4ft Wide": 240, "4.6ft Wide": 280, "5ft Wide": 290, "6ft Wide": 300 }, // Rabbora #3 = Pascal Plain Top Style Blanket Box
+    "ottoman-style-blanket-box": { "3ft Wide": 200, "4ft Wide": 240, "4.6ft Wide": 280, "5ft Wide": 290, "6ft Wide": 300 }, // Rabbora #4 = Pascal Linear Style Blanket Box
+    "premium-fabric-blanket-box": { "3ft Wide": 200, "4ft Wide": 240, "4.6ft Wide": 280, "5ft Wide": 290, "6ft Wide": 300 }  // Rabbora #5 = Pascal Manhattan Style Blanket Box
+  };
+
+  // Price of one width. With no width selected this is the base price.
+  function bbWidthPrice(slug, product, width) {
+    var map = BB_WIDTH_PRICES[slug];
+    if (width && map && typeof map[width] === "number") return map[width];
+    return product.price;
+  }
+
+
   var FABRIC_COLLECTIONS = [
     {
       name: "Plush",
@@ -661,8 +681,8 @@
   "manhattan-style-blanket-box": {
     "name": "Manhattan Style Blanket Box",
     "price": 200.0,
-    "prev": 210.0,
-    "monthly": 11,
+    "prev": null,
+    "monthly": 17,
     "rating": 5,
     "reviews": 86,
     "description": "The Manhattan Style Blanket Box brings a clean, contemporary look to any bedroom. Its tailored fabric finish and understated silhouette make it equally at home in a minimal city flat or a spacious main suite, while the deep interior keeps spare bedding, cushions and throws neatly out of sight.",
@@ -695,8 +715,8 @@
   "chesterfield-blanket-box": {
     "name": "Chesterfield Blanket Box",
     "price": 329.0,
-    "prev": 405.0,
-    "monthly": 14,
+    "prev": null,
+    "monthly": 28,
     "rating": 5,
     "reviews": 54,
     "description": "The Chesterfield Blanket Box pairs traditional deep-button detailing with practical everyday storage. It brings warmth and character to a bedroom while offering a sturdy, padded seat and generous space for bedding underneath.",
@@ -761,8 +781,8 @@
   "ottoman-style-blanket-box": {
     "name": "Ottoman Style Blanket Box",
     "price": 200.0,
-    "prev": 220.0,
-    "monthly": 13,
+    "prev": null,
+    "monthly": 17,
     "rating": 4,
     "reviews": 39,
     "description": "The Ottoman Style Blanket Box brings a soft, textured finish to everyday storage. Its neutral tones and compact footprint make it a versatile addition to bedrooms of any size, with a practical lift-up lid for easy access.",
@@ -795,7 +815,7 @@
     "name": "Premium Fabric Blanket Box",
     "price": 200.0,
     "prev": null,
-    "monthly": 14,
+    "monthly": 17,
     "rating": 5,
     "reviews": 67,
     "description": "The Premium Fabric Blanket Box is finished in a soft, plush upholstery that feels as good as it looks. It offers a roomy interior for duvets and pillows, with tailored seams and a considered profile that suits a range of bedroom styles.",
@@ -1054,6 +1074,180 @@
       }
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = widthOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "bb-modal__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="bb-modal__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = bbMoney(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? bbMoney(oldPrice) : "";
+    }
+
+    function currentSizePriceRender() {
+      var product = BB_PRODUCTS[bbModalState.slug];
+      if (!product) { renderSelectedSizePrice(null); return; }
+      var sizePrice = bbWidthPrice(bbModalState.slug, product, bbModalState.selectedWidth);
+      // The stored prev (old) price belongs to the base price only.
+      var validOldPrice = (sizePrice === product.price && product.prev && product.prev > sizePrice) ? product.prev : null;
+      renderSelectedSizePrice(bbModalState.selectedWidth, sizePrice, validOldPrice);
+      // Keep the main price at the top in step with the selected width.
+      if (priceEl) priceEl.textContent = bbMoney(sizePrice);
+      if (prevPriceEl) prevPriceEl.textContent = validOldPrice ? bbMoney(validOldPrice) : "";
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: sizePrice, sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: bbModalState.selectedWidth, sizeOptions: widthOptionsEl, sizeRow: sizePriceRow,
+        money: bbMoney, noSizeLabel: true
+      });
+    }
+
     function renderWidthOptions() {
       if (!widthOptionsEl) return;
       widthOptionsEl.innerHTML = "";
@@ -1077,6 +1271,7 @@
           btn.setAttribute("aria-pressed", "true");
 
           updateWidthSelectedStatus();
+          currentSizePriceRender();
 
           if (purchaseMessage && purchaseMessage.classList.contains("is-error")) {
             purchaseMessage.textContent = "";
@@ -1204,7 +1399,7 @@
       starsEl.textContent = "";
       reviewCountEl.textContent = "No reviews yet";
       priceEl.textContent = bbMoney(product.price);
-      prevPriceEl.textContent = product.prev ? bbMoney(product.prev) : "";
+      prevPriceEl.textContent = (product.prev && product.prev > product.price) ? bbMoney(product.prev) : "";
       monthlyEl.textContent = "or from \u00A3" + product.monthly + "/month";
       descriptionEl.textContent = product.description;
 
@@ -1217,6 +1412,7 @@
 
       renderGallery();
       renderWidthOptions();
+      currentSizePriceRender();
       renderFabrics();
       renderRelated();
 
@@ -1388,7 +1584,7 @@
               url: "blanket-boxes.html#/" + bbModalState.slug,
               image: product.images && product.images.length ? product.images[0] : "",
               alt: product.name,
-              price: product.price,
+              price: bbWidthPrice(bbModalState.slug, product, bbModalState.selectedWidth),
               category: "Blanket Boxes",
               // fabricImage is a plain top-level field (not inside
               // variant) since checkout's buildVariantText() renders

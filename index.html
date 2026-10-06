@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=hero-stack-4" />
+  <link rel="stylesheet" href="style.css?v=hero-original-1" />
 </head>
 <body>
 
@@ -250,7 +250,7 @@
   </div>
 
   <!-- Trust bar -->
-  <div class="trust-bar">
+  <div class="trust-bar" data-marquee>
     <div class="container">
       <ul class="trust-bar__list">
         <li class="trust-bar__item trust-bar__item--rating">
@@ -326,30 +326,24 @@
         <div class="hero__stage">
           <div class="hero__cards" id="heroSlideshow" aria-live="off">
             <figure class="hero__card" data-pos="0">
-              <img src="images/img-136.png" alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents" width="2000" height="1400" fetchpriority="high" decoding="async" />
+              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-136.png" alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents" width="2000" height="1400" fetchpriority="high" decoding="async" /></a>
             </figure>
             <figure class="hero__card" data-pos="1" aria-hidden="true">
-              <img src="images/1.jfif" alt="Upholstered luxury bed frame in a forest-green bedroom" width="1200" height="900" decoding="async" />
+              <a href="bed-frames.html" class="hero__card-link"><img src="images/1.jfif" alt="Upholstered luxury bed frame in a forest-green bedroom" width="1200" height="900" decoding="async" /></a>
             </figure>
             <figure class="hero__card" data-pos="2" aria-hidden="true">
-              <img src="images/img-139.png" alt="Bedroom styled with a forest-green bed frame and brass side table" width="1600" height="1300" decoding="async" />
+              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-139.png" alt="Bedroom styled with a forest-green bed frame and brass side table" width="1600" height="1300" decoding="async" /></a>
             </figure>
             <figure class="hero__card" data-pos="3" aria-hidden="true">
-              <img src="images/img-137.png" alt="Ottoman storage bed with the base lifted to show internal storage" width="1200" height="900" decoding="async" />
+              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-137.png" alt="Ottoman storage bed with the base lifted to show internal storage" width="1200" height="900" decoding="async" /></a>
             </figure>
             <figure class="hero__card" data-pos="4" aria-hidden="true">
-              <img src="images/img-140.png" alt="Tailored upholstered bed frame with a tall headboard" width="1200" height="900" decoding="async" />
+              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-140.png" alt="Tailored upholstered bed frame with a tall headboard" width="1200" height="900" decoding="async" /></a>
             </figure>
             <figure class="hero__card" data-pos="5" aria-hidden="true">
-              <img src="images/img-141.png" alt="Layered luxury mattress on a bed frame" width="1200" height="900" decoding="async" />
+              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-141.png" alt="Layered luxury mattress on a bed frame" width="1200" height="900" decoding="async" /></a>
             </figure>
           </div>
-          <button type="button" class="hero__arrow hero__arrow--prev" aria-label="Previous image">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
-          </button>
-          <button type="button" class="hero__arrow hero__arrow--next" aria-label="Next image">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
-          </button>
         </div>
       </div>
     </section>
@@ -735,9 +729,9 @@
     <!-- ============ PROMOTIONAL / EDITORIAL SECTION ============ -->
     <section class="section promo">
       <div class="container promo__grid">
-        <div class="promo__image">
+        <a href="bed-frames.html" class="promo__image">
           <img src="images/img-3.jfif" alt="Bedroom styled with a forest-green bed frame and brass side table" loading="lazy" width="1600" height="1300" />
-        </div>
+        </a>
         <div class="promo__content">
           <p class="eyebrow">Editorial</p>
           <h2>Designed Around Your Bedroom</h2>
@@ -951,9 +945,11 @@
     </svg>
   </a>
 
+  <script src="api-config.js"></script>
+
   <script src="search-index.js"></script>
-  <script src="wishlist-data.js"></script>
-  <script src="cart-data.js"></script>
-  <script src="script.js?v=hero-stack-4"></script>
+  <script src="wishlist-data.js?v=wishlist-sync-1"></script>
+  <script src="cart-data.js?v=cart-sync-1"></script>
+  <script src="script.js?v=hero-original-1"></script>
 </body>
 </html>

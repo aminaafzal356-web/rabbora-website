@@ -1,787 +1,544 @@
+/*!
+ * Rabbora Living — product reviews (product detail views)
+ * ---------------------------------------------------------------
+ * Loaded on the 8 category pages after the page's own script. When a
+ * product is open ("page.html#/<slug>"), this file:
+ *   - shows the published reviews, the average rating and the count
+ *     (also in the page's existing stars / "No reviews yet" spot);
+ *   - lets a logged-in customer write a review, and edit or delete
+ *     their own review.
+ *
+ * Backend (backend/routes/reviews.js):
+ *   GET    /api/reviews?product=<slug>&page=N   published reviews + average + total
+ *   POST   /api/reviews        { productId, rating, title, body }  -> published at once
+ *   PATCH  /api/reviews/:id    { rating, title, body }  (own review)
+ *   DELETE /api/reviews/:id    (own review)
+ * A new review is published straight away (no admin approval) and the
+ * list, average and count are reloaded right after it is saved. An
+ * admin can hide a review from the admin panel; hidden reviews are
+ * never shown publicly.
+ *
+ * The backend has no "my reviews" endpoint, so the id of a review
+ * written in this browser is remembered (localStorage
+ * "rabboraMyReviews", review id + text only) to allow editing or
+ * deleting it. It is cleared on logout.
+ *
+ * Needs api-config.js and customer.js loaded first.
+ */
 (function () {
   "use strict";
 
-  var state = {
-    wishlist: new Set(),
-    cartCount: 0
+  var C = window.RabboraCustomer;
+  if (!C) {
+    console.error("[Rabbora Reviews] customer.js is not loaded on this page — add it before reviews.js.");
+    return;
+  }
+
+  var MY_REVIEWS_KEY = "rabboraMyReviews";
+  var PAGE_SIZE = 10;
+
+  // The page's existing rating spot in the product detail view.
+  var starsEl = document.querySelector('[id$="DetailStars"], #sfModalStars');
+  if (!starsEl) return;
+  var countEl = document.getElementById(starsEl.id.replace(/Stars$/, "ReviewCount"));
+  var infoEl = starsEl.closest('[class*="__info"]') || starsEl.parentElement;
+  var layoutEl = infoEl && infoEl.parentElement;
+  if (!layoutEl || !layoutEl.parentElement) return;
+
+  // ---------------------------------------------------------------
+  // Remembered own reviews (no private data: review id, text, rating)
+  // ---------------------------------------------------------------
+
+  function readMine() {
+    try {
+      var raw = window.localStorage.getItem(MY_REVIEWS_KEY);
+      var parsed = raw ? JSON.parse(raw) : {};
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function writeMine(map) {
+    try {
+      if (Object.keys(map).length) window.localStorage.setItem(MY_REVIEWS_KEY, JSON.stringify(map));
+      else window.localStorage.removeItem(MY_REVIEWS_KEY);
+    } catch (err) {
+      // Storage disabled: the review can still be written, just not edited later here.
+    }
+  }
+
+  function rememberReview(review) {
+    var map = readMine();
+    map[review.productId] = {
+      id: review.id,
+      userId: review.userId,
+      productId: review.productId,
+      rating: review.rating,
+      title: review.title,
+      body: review.body,
+      isApproved: review.isApproved,
+      createdAt: review.createdAt
+    };
+    writeMine(map);
+  }
+
+  function forgetReview(productId) {
+    var map = readMine();
+    delete map[productId];
+    writeMine(map);
+  }
+
+  // Logged out (possibly in another tab): never show the previous account's review.
+  if (!C.isLoggedInHere()) writeMine({});
+
+  // ---------------------------------------------------------------
+  // Panel (added once, below the product's main details)
+  // ---------------------------------------------------------------
+
+  var panel = document.createElement("div");
+  panel.className = "container rb-reviews";
+  panel.id = "rbReviews";
+  panel.hidden = true;
+  panel.setAttribute("aria-labelledby", "rbReviewsHeading");
+  panel.innerHTML =
+    '<div class="rb-reviews__head">' +
+      '<div>' +
+        '<p class="eyebrow">Reviews</p>' +
+        '<h2 class="rb-reviews__heading" id="rbReviewsHeading">Customer Reviews</h2>' +
+      "</div>" +
+      '<p class="rb-reviews__summary" id="rbReviewsSummary"></p>' +
+    "</div>" +
+    '<div class="rb-reviews__list" id="rbReviewsList"></div>' +
+    '<button type="button" class="rb-link-btn rb-reviews__more" id="rbReviewsMore" hidden>Show more reviews</button>' +
+    '<div class="rb-reviews__mine" id="rbReviewsMine" hidden></div>' +
+    '<div class="rb-reviews__write" id="rbReviewsWrite">' +
+      '<button type="button" class="btn btn--outline-forest" id="rbReviewsWriteBtn" hidden>Write a review</button>' +
+      '<p class="rb-reviews__login" id="rbReviewsLogin" hidden>Please <a href="account.html">log in</a> to write a review.</p>' +
+      '<form class="rb-review-form" id="rbReviewForm" novalidate hidden>' +
+        '<h3 class="rb-review-form__heading" id="rbReviewFormHeading">Write a review</h3>' +
+        '<div class="rb-field" data-field="rating">' +
+          '<p class="rb-field__label" id="rbReviewRatingLabel">Your rating</p>' +
+          '<div class="rb-stars-input" role="radiogroup" aria-labelledby="rbReviewRatingLabel">' +
+            [5, 4, 3, 2, 1].map(function (n) {
+              return '<input type="radio" id="rbReviewRating' + n + '" name="rating" value="' + n + '" />' +
+                '<label for="rbReviewRating' + n + '" title="' + n + " star" + (n === 1 ? "" : "s") + '">★<span class="sr-only">' + n + " star" + (n === 1 ? "" : "s") + "</span></label>";
+            }).join("") +
+          "</div>" +
+          '<p class="rb-field__error" role="alert" hidden></p>' +
+        "</div>" +
+        '<div class="rb-field" data-field="title">' +
+          '<label class="rb-field__label" for="rbReviewTitle">Title (optional)</label>' +
+          '<input class="rb-input" id="rbReviewTitle" name="title" type="text" maxlength="150" aria-invalid="false" />' +
+          '<p class="rb-field__error" role="alert" hidden></p>' +
+        "</div>" +
+        '<div class="rb-field" data-field="body">' +
+          '<label class="rb-field__label" for="rbReviewBody">Your review</label>' +
+          '<textarea class="rb-input rb-textarea" id="rbReviewBody" name="body" rows="4" minlength="10" maxlength="2000" required aria-required="true" aria-invalid="false"></textarea>' +
+          '<p class="rb-field__hint">At least 10 characters.</p>' +
+          '<p class="rb-field__error" role="alert" hidden></p>' +
+        "</div>" +
+        '<div class="rb-review-form__actions">' +
+          '<button type="submit" class="btn btn--forest" id="rbReviewSubmit">Submit review</button>' +
+          '<button type="button" class="btn btn--outline-forest" id="rbReviewCancel">Cancel</button>' +
+        "</div>" +
+      "</form>" +
+    "</div>" +
+    '<p class="rb-reviews__message" id="rbReviewsMessage" role="status" aria-live="polite" hidden></p>';
+  layoutEl.parentElement.insertBefore(panel, layoutEl.nextSibling);
+
+  var els = {
+    summary: document.getElementById("rbReviewsSummary"),
+    list: document.getElementById("rbReviewsList"),
+    more: document.getElementById("rbReviewsMore"),
+    mine: document.getElementById("rbReviewsMine"),
+    writeBtn: document.getElementById("rbReviewsWriteBtn"),
+    login: document.getElementById("rbReviewsLogin"),
+    form: document.getElementById("rbReviewForm"),
+    formHeading: document.getElementById("rbReviewFormHeading"),
+    submit: document.getElementById("rbReviewSubmit"),
+    cancel: document.getElementById("rbReviewCancel"),
+    message: document.getElementById("rbReviewsMessage")
   };
 
-  function qs(selector, scope) {
-    return (scope || document).querySelector(selector);
+  var state = {
+    slug: null,
+    productId: null,
+    reviews: [],
+    total: 0,
+    average: null,
+    page: 1,
+    myReview: null,     // own review for this product (verified for this account)
+    editing: false,
+    requestId: 0,
+    currentUserId: null // from GET /api/users/me, only when needed
+  };
+
+  // ---------------------------------------------------------------
+  // Helpers
+  // ---------------------------------------------------------------
+
+  function starsText(rating) {
+    var n = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+    return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
   }
 
-  function qsa(selector, scope) {
-    return Array.prototype.slice.call((scope || document).querySelectorAll(selector));
+  function setMessage(text, isError) {
+    els.message.textContent = text || "";
+    els.message.hidden = !text;
+    els.message.classList.toggle("is-error", !!isError);
   }
 
-  function hasWishlistStore() {
-    return !!(window.RabboraWishlist && typeof window.RabboraWishlist.toggle === "function");
+  function currentSlug() {
+    var slug = (window.location.hash || "").replace(/^#\/?/, "").split(/[?&#]/)[0];
+    return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ? slug : null;
   }
 
-  function updateWishlistCount() {
-    var countEl = document.getElementById("wishlistCount");
-    var count = hasWishlistStore() ? window.RabboraWishlist.count() : state.wishlist.size;
-    if (countEl) countEl.textContent = String(count);
-
-    var headerBtn = document.getElementById("wishlistBtn");
-    if (headerBtn) {
-      headerBtn.setAttribute("aria-label", "Wishlist, " + count + " items");
-    }
+  function reviewHtml(review, isMine) {
+    return (
+      '<article class="rb-review' + (isMine ? " is-mine" : "") + '">' +
+        '<div class="rb-review__top">' +
+          '<span class="rb-review__stars" aria-label="' + review.rating + ' out of 5 stars">' + starsText(review.rating) + "</span>" +
+          '<span class="rb-review__author">' + C.escapeHtml(review.author || "Rabbora customer") + "</span>" +
+          '<span class="rb-review__date">' + C.escapeHtml(C.formatDate(review.createdAt)) + "</span>" +
+        "</div>" +
+        (review.title ? '<h3 class="rb-review__title">' + C.escapeHtml(review.title) + "</h3>" : "") +
+        '<p class="rb-review__body">' + C.escapeHtml(review.body) + "</p>" +
+      "</article>"
+    );
   }
 
-  function initWishlist() {
-    if (!hasWishlistStore()) {
-      console.error(
-        "[Rabbora Wishlist] window.RabboraWishlist is not available on this page. " +
-        "Wishlist saves will NOT persist (in-memory fallback only) until this is fixed. " +
-        "Check that <script src=\"wishlist-data.js\"></script> is present on this page, " +
-        "loads before this script, and returns 200 (not 404) — open the Network tab and reload."
-      );
-    }
+  // ---------------------------------------------------------------
+  // The page's own rating spot
+  // ---------------------------------------------------------------
 
-    if (hasWishlistStore()) {
-      window.RabboraWishlist.syncButtons(document);
-    }
+  var lastCountText = null;
 
-    document.addEventListener("click", function (event) {
-      var btn = event.target.closest(".product-card__wishlist");
-      if (!btn) return;
-
-      var card = btn.closest(".product-card");
-      var productId = card ? (card.dataset.productId || card.dataset.slug) : null;
-      var isPressed = btn.getAttribute("aria-pressed") === "true";
-
-      if (hasWishlistStore() && productId) {
-        var product = window.RabboraWishlist.fromCard(card, productId);
-        var result = window.RabboraWishlist.toggle(product);
-        btn.setAttribute("aria-pressed", String(result.added));
-        btn.setAttribute("aria-label", result.added ? "Remove from wishlist" : "Add to wishlist");
-      } else {
-        btn.setAttribute("aria-pressed", String(!isPressed));
-        btn.setAttribute("aria-label", isPressed ? "Add to wishlist" : "Remove from wishlist");
-        if (productId) {
-          if (isPressed) {
-            state.wishlist.delete(productId);
-          } else {
-            state.wishlist.add(productId);
-          }
-        }
+  function applyRatingToPage() {
+    if (!state.productId || !state.total) {
+      if (lastCountText !== null) {
+        // The last approved review was just removed: back to the page's own text.
+        starsEl.textContent = "";
+        if (countEl) countEl.textContent = "No reviews yet";
       }
-
-      updateWishlistCount();
-    });
-
-    var headerWishlistBtn = document.getElementById("wishlistBtn");
-    if (headerWishlistBtn) {
-      headerWishlistBtn.addEventListener("click", function () {
-        window.location.href = "wishlist.html";
-      });
+      lastCountText = null;
+      return; // keep the page's own "No reviews yet"
     }
-
-    if (hasWishlistStore()) {
-      window.addEventListener(window.RabboraWishlist.EVENT_NAME, function () {
-        updateWishlistCount();
-        window.RabboraWishlist.syncButtons(document);
-      });
-    }
+    var text = state.average + " (" + state.total + " review" + (state.total === 1 ? "" : "s") + ")";
+    lastCountText = text;
+    starsEl.textContent = starsText(state.average);
+    if (countEl) countEl.textContent = text;
   }
 
-  function hasCartStore() {
-    return !!(window.RabboraCart && typeof window.RabboraCart.count === "function");
-  }
-
-  function updateCartCount() {
-    var countEl = document.getElementById("cartCount");
-    var count = hasCartStore() ? window.RabboraCart.count() : 0;
-    if (countEl) countEl.textContent = String(count);
-
-    var headerBtn = document.getElementById("cartBtn");
-    if (headerBtn) {
-      headerBtn.setAttribute("aria-label", "Shopping cart, " + count + " items");
-    }
-  }
-
-  function initCart() {
-    var cartBtn = document.getElementById("cartBtn");
-    var cartCountEl = document.getElementById("cartCount");
-    if (!cartBtn || !cartCountEl) return;
-
-    updateCartCount();
-
-    if (hasCartStore()) {
-      window.addEventListener(window.RabboraCart.EVENT_NAME, updateCartCount);
-    }
-
-    cartBtn.addEventListener("click", function () {
-      window.location.href = "cart.html";
-    });
-  }
-
-  function initDesktopDropdown() {
-    var toggle = document.getElementById("bedFramesToggle");
-    var dropdownWrap = toggle ? toggle.closest(".has-dropdown") : null;
-    if (!toggle || !dropdownWrap) return;
-
-    var closeTimer = null;
-
-    function openDropdown() {
-      if (closeTimer) {
-        clearTimeout(closeTimer);
-        closeTimer = null;
+  // The page rewrites "No reviews yet" whenever it opens a product; put
+  // the real figures back if they belong to the product still shown.
+  if (countEl && typeof MutationObserver === "function") {
+    new MutationObserver(function () {
+      if (lastCountText && countEl.textContent !== lastCountText && state.slug === currentSlug()) {
+        applyRatingToPage();
       }
-      dropdownWrap.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
-    }
-
-    function closeDropdownNow() {
-      dropdownWrap.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    }
-
-    function closeDropdownSoon() {
-      closeTimer = setTimeout(closeDropdownNow, 150);
-    }
-
-    dropdownWrap.addEventListener("mouseenter", openDropdown);
-    dropdownWrap.addEventListener("mouseleave", closeDropdownSoon);
-
-    toggle.addEventListener("click", function (event) {
-      event.preventDefault();
-      var isOpen = dropdownWrap.classList.contains("is-open");
-      if (isOpen) {
-        closeDropdownNow();
-      } else {
-        openDropdown();
-      }
-    });
-
-    toggle.addEventListener("focus", openDropdown);
-
-    dropdownWrap.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeDropdownNow();
-        toggle.focus();
-      }
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!dropdownWrap.contains(event.target)) {
-        closeDropdownNow();
-      }
-    });
+    }).observe(countEl, { childList: true, characterData: true, subtree: true });
   }
 
-  function initMobileAccordion() {
-    var accordions = qsa(".mobile-accordion");
+  // ---------------------------------------------------------------
+  // Rendering
+  // ---------------------------------------------------------------
 
-    accordions.forEach(function (accordion) {
-      var toggleBtn = qs(".mobile-accordion__toggle", accordion);
-      if (!toggleBtn) return;
-
-      toggleBtn.addEventListener("click", function () {
-        var isOpen = accordion.classList.contains("is-open");
-        accordion.classList.toggle("is-open", !isOpen);
-        toggleBtn.setAttribute("aria-expanded", String(!isOpen));
-        toggleBtn.setAttribute("aria-label", (!isOpen ? "Collapse" : "Expand") + " Bed Frames");
-      });
-    });
-  }
-
-  function buildSearchIndex() {
-    return (typeof GLOBAL_SEARCH_INDEX !== "undefined") ? GLOBAL_SEARCH_INDEX : [];
-  }
-
-  var SEARCH_INDEX = buildSearchIndex();
-
-  var SEARCH_RESULTS_LIMIT = 8;
-
-  function formatPrice(value) {
-    return "\u00A3" + value;
-  }
-
-  function searchProducts(query) {
-    var normalized = query.trim().toLowerCase();
-    if (!normalized) return [];
-
-    return SEARCH_INDEX.filter(function (item) {
-      var haystack = (item.name + " " + item.category + " " + (item.keywords || "")).toLowerCase();
-      return haystack.indexOf(normalized) !== -1;
-    }).slice(0, SEARCH_RESULTS_LIMIT);
-  }
-
-  function createSuggestionItem(item) {
-    var suggestion = document.createElement("a");
-    suggestion.className = "search-suggestion";
-    suggestion.href = item.url;
-    suggestion.setAttribute("role", "option");
-    var imageHtml = item.image
-      ? '<img src="' + item.image + '" alt="" loading="lazy" width="48" height="48" />'
-      : "";
-    var priceHtml = (item.price !== null && item.price !== undefined)
-      ? '<span class="search-suggestion__price">' + formatPrice(item.price) + "</span>"
-      : "";
-    suggestion.innerHTML =
-      '<span class="search-suggestion__image">' + imageHtml + "</span>" +
-      '<span class="search-suggestion__body">' +
-        '<span class="search-suggestion__name">' + item.name + "</span>" +
-        '<span class="search-suggestion__category">' + item.category + "</span>" +
-        priceHtml +
-      "</span>";
-    return suggestion;
-  }
-
-  function initMainNavReveal() {
-    var nav = document.querySelector(".main-nav");
-    if (!nav) return;
-
-    var TOP_HOTSPOT_PX = 30;
-    var desktopQuery = window.matchMedia("(min-width: 1024px)");
-    var isNavHidden = false;
-
-    function show() {
-      isNavHidden = false;
-      nav.classList.remove("is-nav-hidden");
-    }
-
-    function hide() {
-      if (!desktopQuery.matches) return;
-      isNavHidden = true;
-      nav.classList.add("is-nav-hidden");
-    }
-
-    function handleScroll() {
-      if (window.scrollY <= 0) {
-        show();
-      } else {
-        hide();
-      }
-    }
-
-    document.addEventListener("mousemove", function (event) {
-      if (event.clientY <= TOP_HOTSPOT_PX) show();
-    });
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    function handleViewportChange(event) {
-      if (!event.matches) show();
-    }
-    desktopQuery.addEventListener
-      ? desktopQuery.addEventListener("change", handleViewportChange)
-      : desktopQuery.addListener(handleViewportChange);
-  }
-
-  function initSearchCategoryMenu() {
-    var toggle = document.getElementById("searchCategoryToggle");
-    var list = document.getElementById("searchCategoryList");
-    if (!toggle || !list) return;
-
-    if (toggle.dataset.navMenuInitialized === "true") return;
-    toggle.dataset.navMenuInitialized = "true";
-
-    function close() {
-      list.classList.remove("is-open");
-      list.setAttribute("data-state", "closed");
-      toggle.setAttribute("aria-expanded", "false");
-    }
-    function open() {
-      list.classList.add("is-open");
-      list.setAttribute("data-state", "open");
-      toggle.setAttribute("aria-expanded", "true");
-    }
-
-    close();
-
-    toggle.addEventListener("click", function (event) {
-      event.stopPropagation();
-      if (list.classList.contains("is-open")) { close(); } else { open(); }
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!list.contains(event.target) && event.target !== toggle) close();
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") close();
-    });
-
-    window.addEventListener("pageshow", function (event) {
-      if (event.persisted) close();
-    });
-  }
-
-  function initHeaderSearch() {
-    var form = document.getElementById("searchForm");
-    var input = document.getElementById("search-input");
-    var suggestionsPanel = document.getElementById("searchSuggestions");
-    var mobileToggle = document.getElementById("mobileSearchToggle");
-
-    if (!form || !input || !suggestionsPanel) return;
-
-    function openSuggestions() {
-      suggestionsPanel.hidden = false;
-      input.setAttribute("aria-expanded", "true");
-    }
-
-    function closeSuggestions() {
-      suggestionsPanel.hidden = true;
-      input.setAttribute("aria-expanded", "false");
-    }
-
-    function renderResults(query) {
-      var results = searchProducts(query);
-      suggestionsPanel.innerHTML = "";
-
-      if (!query.trim()) {
-        closeSuggestions();
-        return;
-      }
-
-      if (results.length === 0) {
-        var empty = document.createElement("p");
-        empty.className = "search-suggestions__empty";
-        empty.textContent = "No products found for \u201c" + query.trim() + "\u201d.";
-        suggestionsPanel.appendChild(empty);
-        openSuggestions();
-        return;
-      }
-
-      var fragment = document.createDocumentFragment();
-      results.forEach(function (product) {
-        fragment.appendChild(createSuggestionItem(product));
-      });
-      suggestionsPanel.appendChild(fragment);
-
-      var viewAll = document.createElement("button");
-      viewAll.type = "submit";
-      viewAll.className = "search-suggestions__viewall";
-      viewAll.textContent = "View all results for \u201c" + query.trim() + "\u201d";
-      suggestionsPanel.appendChild(viewAll);
-
-      openSuggestions();
-    }
-
-    input.addEventListener("input", function () {
-      renderResults(input.value);
-    });
-
-    input.addEventListener("focus", function () {
-      if (input.value.trim()) renderResults(input.value);
-    });
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      renderResults(input.value);
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!form.contains(event.target)) {
-        closeSuggestions();
-      }
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeSuggestions();
-      }
-    });
-
-    if (mobileToggle) {
-      mobileToggle.addEventListener("click", function () {
-        var isActive = form.classList.contains("is-mobile-active");
-        form.classList.toggle("is-mobile-active", !isActive);
-        mobileToggle.setAttribute("aria-expanded", String(!isActive));
-        if (!isActive) {
-          input.focus();
-        } else {
-          closeSuggestions();
-        }
-      });
-    }
-  }
-
-  function initFooterYear() {
-    var yearEl = document.getElementById("footerYear");
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-  }
-
-  function initScrollReveal() {
-    var targets = qsa(".reveal, .reveal-fade-up, .reveal--image");
-    if (targets.length === 0) return;
-
-    targets.forEach(function (el) {
-      var delay = el.getAttribute("data-delay");
-      if (delay) el.style.setProperty("--reveal-delay", delay + "s");
-    });
-
-    if (!("IntersectionObserver" in window)) {
-      targets.forEach(function (el) {
-        el.classList.add("is-visible");
-      });
+  function renderList() {
+    if (!state.total) {
+      els.summary.textContent = "";
+      els.list.innerHTML = '<p class="rb-reviews__empty">No reviews yet. Be the first to review this product.</p>';
+      els.more.hidden = true;
       return;
     }
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    targets.forEach(function (el) {
-      observer.observe(el);
-    });
+    els.summary.innerHTML =
+      '<span class="rb-reviews__summary-stars" aria-hidden="true">' + starsText(state.average) + "</span> " +
+      "<strong>" + C.escapeHtml(state.average) + "</strong> out of 5 &middot; " +
+      state.total + " review" + (state.total === 1 ? "" : "s");
+    var myId = state.myReview ? state.myReview.id : null;
+    els.list.innerHTML = state.reviews.map(function (r) { return reviewHtml(r, r.id === myId); }).join("");
+    els.more.hidden = state.reviews.length >= state.total;
   }
 
-  function initMobileNav() {
-    var hamburgerBtn = document.getElementById("hamburgerBtn");
-    var closeBtn = document.getElementById("mobileNavClose");
-    var overlay = document.getElementById("mobileNavOverlay");
-    var drawer = document.getElementById("mobileNav");
-
-    if (!hamburgerBtn || !drawer || !overlay) return;
-
-    function openDrawer() {
-      drawer.classList.add("is-open");
-      overlay.classList.add("is-visible");
-      drawer.setAttribute("aria-hidden", "false");
-      hamburgerBtn.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
+  function renderMine() {
+    var mine = state.myReview;
+    if (!mine) {
+      els.mine.hidden = true;
+      els.mine.innerHTML = "";
+      return;
     }
+    // On the loaded page, or (when not every review is loaded yet) still
+    // marked as shown by the server.
+    var published = state.reviews.some(function (r) { return r.id === mine.id; }) ||
+      (mine.isApproved !== false && state.reviews.length < state.total);
+    els.mine.innerHTML =
+      '<div class="rb-reviews__mine-head">' +
+        '<h3 class="rb-reviews__mine-heading">Your review</h3>' +
+        '<span class="rb-badge ' + (published ? "rb-badge--delivered" : "rb-badge--pending") + '">' +
+          (published ? "Published" : "Hidden") +
+        "</span>" +
+      "</div>" +
+      (published ? "" : '<p class="rb-reviews__mine-note">Our team has hidden this review from the shop. Only you can see it.</p>') +
+      reviewHtml({ rating: mine.rating, title: mine.title, body: mine.body, author: "You", createdAt: mine.createdAt }, true) +
+      '<div class="rb-reviews__mine-actions">' +
+        '<button type="button" class="rb-link-btn" id="rbReviewEdit">Edit review</button>' +
+        '<button type="button" class="rb-link-btn rb-link-btn--danger" id="rbReviewDelete">Delete review</button>' +
+      "</div>";
+    els.mine.hidden = false;
+  }
 
-    function closeDrawer() {
-      drawer.classList.remove("is-open");
-      overlay.classList.remove("is-visible");
-      drawer.setAttribute("aria-hidden", "true");
-      hamburgerBtn.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
+  function renderWriteArea() {
+    var loggedIn = C.isLoggedInHere();
+    els.login.hidden = loggedIn;
+    els.writeBtn.hidden = !loggedIn || !!state.myReview || !els.form.hidden;
+    if (!loggedIn) els.form.hidden = true;
+  }
+
+  function renderAll() {
+    renderList();
+    renderMine();
+    renderWriteArea();
+    applyRatingToPage();
+  }
+
+  // ---------------------------------------------------------------
+  // Loading
+  // ---------------------------------------------------------------
+
+  function fetchReviews(slug, page) {
+    return C.request("/reviews?product=" + encodeURIComponent(slug) + "&page=" + page + "&limit=" + PAGE_SIZE);
+  }
+
+  function currentUserId() {
+    if (state.currentUserId) return Promise.resolve(state.currentUserId);
+    return C.request("/users/me").then(function (result) {
+      if (result.ok && result.data && result.data.user) {
+        state.currentUserId = result.data.user.id;
+        return state.currentUserId;
+      }
+      return null;
+    });
+  }
+
+  // The own review remembered for this product, only if it belongs to
+  // the account that is logged in now.
+  function loadMine(productId) {
+    var stored = readMine()[productId];
+    if (!stored || !C.isLoggedInHere()) return Promise.resolve(null);
+    return currentUserId().then(function (userId) {
+      return userId && stored.userId === userId ? stored : null;
+    });
+  }
+
+  function load() {
+    var slug = currentSlug();
+    state.requestId += 1;
+    var requestId = state.requestId;
+    closeForm();
+    setMessage("");
+    if (!slug) {
+      state.slug = null;
+      state.productId = null;
+      panel.hidden = true;
+      return;
     }
+    state.slug = slug;
+    state.productId = null;
+    state.myReview = null;
 
-    hamburgerBtn.addEventListener("click", openDrawer);
-    overlay.addEventListener("click", closeDrawer);
-    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && drawer.classList.contains("is-open")) {
-        closeDrawer();
-      }
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth >= 1024 && drawer.classList.contains("is-open")) {
-        closeDrawer();
-      }
-    });
-  }
-
-  /* =========================================================
-     REVIEWS HERO — premium "champagne dust" particle layer.
-     Same mechanism as about.js's hero particles: a fixed set of
-     small glowing particles generated once on load (randomised
-     size/position/speed/opacity, three depth tiers), animated
-     purely via CSS keyframes. Only per-frame JS work is a very
-     subtle rAF-throttled mouse parallax on the whole layer.
-     ========================================================= */
-  function initHeroParticles() {
-    var layer = document.getElementById("reviewsHeroParticles");
-    if (!layer) return;
-
-    var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    var count = isDesktop ? 50 : 24;
-
-    var TIERS = [
-      { share: 0.5, size: [1.5, 2.5], opacity: [0.18, 0.35], duration: [16, 22], glow: false },
-      { share: 0.35, size: [2.5, 3.5], opacity: [0.35, 0.55], duration: [11, 16], glow: false },
-      { share: 0.15, size: [3.5, 5], opacity: [0.55, 0.8], duration: [8, 11], glow: true }
-    ];
-
-    function rand(min, max) {
-      return min + Math.random() * (max - min);
-    }
-
-    var fragment = document.createDocumentFragment();
-    var built = 0;
-
-    TIERS.forEach(function (tier) {
-      var tierCount = Math.round(count * tier.share);
-      for (var i = 0; i < tierCount && built < count; i++, built++) {
-        var el = document.createElement("span");
-        el.className = "reviews-hero__particle" + (tier.glow ? " reviews-hero__particle--glow" : "");
-        el.style.setProperty("--x", rand(0, 100) + "%");
-        el.style.setProperty("--size", rand(tier.size[0], tier.size[1]).toFixed(1) + "px");
-        el.style.setProperty("--max-opacity", rand(tier.opacity[0], tier.opacity[1]).toFixed(2));
-        el.style.setProperty("--dur", rand(tier.duration[0], tier.duration[1]).toFixed(1) + "s");
-        el.style.setProperty("--delay", (-rand(0, tier.duration[1])).toFixed(1) + "s");
-        el.style.setProperty("--rise", -rand(90, 220).toFixed(0) + "px");
-        el.style.setProperty("--sway", (Math.random() < 0.5 ? -1 : 1) * rand(6, 22).toFixed(0) + "px");
-        fragment.appendChild(el);
-      }
-    });
-
-    layer.appendChild(fragment);
-
-    if (prefersReduced || !isDesktop) return;
-
-    var heroSection = document.getElementById("reviewsHero");
-    if (!heroSection) return;
-
-    var ticking = false;
-    var pendingX = 0;
-    var pendingY = 0;
-
-    function apply() {
-      layer.style.setProperty("--particle-parallax-x", pendingX.toFixed(1) + "px");
-      layer.style.setProperty("--particle-parallax-y", pendingY.toFixed(1) + "px");
-      ticking = false;
-    }
-
-    heroSection.addEventListener("mousemove", function (event) {
-      var rect = heroSection.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      var relX = (event.clientX - rect.left) / rect.width - 0.5;
-      var relY = (event.clientY - rect.top) / rect.height - 0.5;
-      pendingX = relX * 10;
-      pendingY = relY * 10;
-      if (!ticking) {
-        window.requestAnimationFrame(apply);
-        ticking = true;
-      }
-    });
-
-    heroSection.addEventListener("mouseleave", function () {
-      pendingX = 0;
-      pendingY = 0;
-      window.requestAnimationFrame(apply);
-    });
-  }
-
-  /* =========================================================
-     REVIEWS DATA
-     ---------------------------------------------------------
-     FRONTEND DEMO DATA — not real customer submissions. This
-     array is shaped to match a future GET /api/reviews response
-     so the backend can drop straight in later:
-
-       { id, productId, productName, customerName, rating,
-         title, comment, date, verified }
-
-     Replace this array with the API response once the Node.js /
-     PostgreSQL backend exists — nothing else in this file should
-     need to change.
-     ========================================================= */
-  var REVIEWS_DATA = [
-    { id: 1, productId: "bed-frames", productName: "Bed Frame", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-20", verified: true },
-    { id: 2, productId: "bed-frames", productName: "Bed Frame", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-15", verified: true },
-    { id: 3, productId: "bed-frames", productName: "Bed Frame", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-08", verified: false },
-    { id: 4, productId: "ottoman-beds", productName: "Slatted Ottoman Bed", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-30", verified: true },
-    { id: 5, productId: "ottoman-beds", productName: "Slatted Ottoman Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-22", verified: true },
-    { id: 6, productId: "ottoman-beds", productName: "Slatted Ottoman Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-15", verified: false },
-    { id: 7, productId: "solid-base-ottomans", productName: "Solid Ottoman Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-05", verified: true },
-    { id: 8, productId: "solid-base-ottomans", productName: "Solid Ottoman Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-28", verified: true },
-    { id: 9, productId: "solid-base-ottomans", productName: "Solid Ottoman Bed", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-18", verified: false },
-    { id: 10, productId: "solid-base-ottomans", productName: "Solid Ottoman Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-05", verified: true },
-    { id: 11, productId: "storage-drawers", productName: "Drawer Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-10-22", verified: true },
-    { id: 12, productId: "storage-drawers", productName: "Drawer Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-20", verified: false },
-    { id: 13, productId: "storage-drawers", productName: "Drawer Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-15", verified: true },
-    { id: 14, productId: "tv-beds", productName: "TV Bed", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-08", verified: true },
-    { id: 15, productId: "tv-beds", productName: "TV Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-30", verified: false },
-    { id: 16, productId: "tv-beds", productName: "TV Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-22", verified: true },
-    { id: 17, productId: "kids-beds", productName: "Kids’ Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-15", verified: true },
-    { id: 18, productId: "kids-beds", productName: "Kids’ Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-05", verified: false },
-    { id: 19, productId: "kids-beds", productName: "Kids’ Bed", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-28", verified: true },
-    { id: 20, productId: "high-headboard-beds", productName: "High Headboard Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-18", verified: true },
-    { id: 21, productId: "high-headboard-beds", productName: "High Headboard Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-05", verified: false },
-    { id: 22, productId: "high-headboard-beds", productName: "High Headboard Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-10-22", verified: true },
-    { id: 23, productId: "mattresses", productName: "Mattress", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-20", verified: true },
-    { id: 24, productId: "mattresses", productName: "Mattress", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-15", verified: false },
-    { id: 25, productId: "mattresses", productName: "Mattress", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-08", verified: true },
-    { id: 26, productId: "sofas", productName: "Sofa", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-30", verified: true },
-    { id: 27, productId: "sofas", productName: "Sofa", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-22", verified: false },
-    { id: 28, productId: "sofas", productName: "Sofa", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-15", verified: true },
-    { id: 29, productId: "sofas", productName: "Sofa", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-12-05", verified: true },
-    { id: 30, productId: "blanket-boxes", productName: "Blanket Box", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-28", verified: false },
-    { id: 31, productId: "blanket-boxes", productName: "Blanket Box", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-18", verified: true },
-    { id: 32, productId: "blanket-boxes", productName: "Blanket Box", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-11-05", verified: true },
-    { id: 33, productId: "rapid-delivery-beds", productName: "Rapid Delivery Bed", customerName: "Demo Customer", rating: 5, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2025-10-22", verified: false },
-    { id: 34, productId: "rapid-delivery-beds", productName: "Rapid Delivery Bed", customerName: "Demo Customer", rating: 3, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-20", verified: true },
-    { id: 35, productId: "rapid-delivery-beds", productName: "Rapid Delivery Bed", customerName: "Demo Customer", rating: 4, title: "Sample review title", comment: "Sample review text — replace with real customer reviews once the backend is connected.", date: "2026-01-15", verified: true }
-  ];
-
-  var PRODUCT_LABELS = {
-    "bed-frames": "Bed Frames",
-    "ottoman-beds": "Slatted Ottoman Storage",
-    "solid-base-ottomans": "Solid Ottoman Storage",
-    "storage-drawers": "Storage with Drawers",
-    "tv-beds": "TV Beds",
-    "kids-beds": "Kids\u2019 Beds",
-    "high-headboard-beds": "High Headboard Beds",
-    "mattresses": "Luxury Mattresses",
-    "sofas": "Sofas",
-    "blanket-boxes": "Blanket Boxes",
-    "rapid-delivery-beds": "Rapid Delivery Beds"
-  };
-
-  function starString(rating) {
-    var full = Math.round(rating);
-    var out = "";
-    for (var i = 0; i < 5; i++) out += i < full ? "\u2605" : "\u2606";
-    return out;
-  }
-
-  function formatDate(iso) {
-    var d = new Date(iso + "T00:00:00");
-    if (isNaN(d.getTime())) return iso;
-    return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
-  }
-
-  function initReviewsSummary() {
-    var avgEl = document.getElementById("reviewsAvgScore");
-    var starsEl = document.getElementById("reviewsAvgStars");
-    var countEl = document.getElementById("reviewsCountLabel");
-    var breakdownEl = document.getElementById("reviewsBreakdown");
-    if (!avgEl) return;
-
-    var total = REVIEWS_DATA.length;
-    var sum = REVIEWS_DATA.reduce(function (acc, r) { return acc + r.rating; }, 0);
-    var avg = total ? sum / total : 0;
-
-    avgEl.textContent = total ? avg.toFixed(1) + " / 5" : "\u2014";
-    if (starsEl) starsEl.textContent = starString(avg);
-    if (countEl) countEl.textContent = "Based on " + total + " customer review" + (total === 1 ? "" : "s");
-
-    if (breakdownEl) {
-      breakdownEl.innerHTML = "";
-      for (var star = 5; star >= 1; star--) {
-        var countForStar = REVIEWS_DATA.filter(function (r) { return r.rating === star; }).length;
-        var pct = total ? Math.round((countForStar / total) * 100) : 0;
-
-        var row = document.createElement("div");
-        row.className = "reviews-summary__bar-row";
-        row.innerHTML =
-          '<span class="reviews-summary__bar-label">' + star + ' \u2605</span>' +
-          '<span class="reviews-summary__bar-track"><span class="reviews-summary__bar-fill" style="--bar-pct:' + pct + '%"></span></span>' +
-          '<span class="reviews-summary__bar-count">' + countForStar + '</span>';
-        breakdownEl.appendChild(row);
-      }
-    }
-  }
-
-  function buildReviewCard(review) {
-    var card = document.createElement("article");
-    card.className = "review-summary-card reveal";
-    card.innerHTML =
-      '<div class="review-summary-card__stars" aria-hidden="true">' + starString(review.rating) + '</div>' +
-      '<h3 class="review-summary-card__title">' + review.title + '</h3>' +
-      '<p class="review-summary-card__comment">' + review.comment + '</p>' +
-      '<div class="review-summary-card__meta">' +
-        '<span class="review-summary-card__name">' + review.customerName + '</span>' +
-        (review.verified ? '<span class="review-summary-card__verified">\u2713 Verified Purchase</span>' : '') +
-      '</div>' +
-      '<div class="review-summary-card__footer">' +
-        '<span class="review-summary-card__product">' + (PRODUCT_LABELS[review.productId] || review.productName) + '</span>' +
-        '<span class="review-summary-card__date">' + formatDate(review.date) + '</span>' +
-      '</div>';
-    return card;
-  }
-
-  function initReviewsList() {
-    var grid = document.getElementById("reviewsGrid");
-    var emptyState = document.getElementById("reviewsEmptyState");
-    var starPills = document.querySelectorAll(".reviews-filters__pill");
-    var productSelect = document.getElementById("reviewsProductFilter");
-    var sortSelect = document.getElementById("reviewsSort");
-    if (!grid) return;
-
-    var state = { star: "all", product: "all", sort: "newest" };
-
-    function render() {
-      var filtered = REVIEWS_DATA.filter(function (r) {
-        if (state.star !== "all" && String(r.rating) !== state.star) return false;
-        if (state.product !== "all" && r.productId !== state.product) return false;
-        return true;
-      });
-
-      filtered.sort(function (a, b) {
-        if (state.sort === "highest") return b.rating - a.rating;
-        if (state.sort === "lowest") return a.rating - b.rating;
-        return new Date(b.date) - new Date(a.date); // newest first
-      });
-
-      grid.innerHTML = "";
-      if (filtered.length === 0) {
-        if (emptyState) emptyState.hidden = false;
+    fetchReviews(slug, 1).then(function (result) {
+      if (requestId !== state.requestId) return;
+      if (result.status === 404) {
+        // Not in the backend catalogue yet: keep the page as it was.
+        panel.hidden = true;
         return;
       }
-      if (emptyState) emptyState.hidden = true;
-
-      var fragment = document.createDocumentFragment();
-      filtered.forEach(function (review, index) {
-        var card = buildReviewCard(review);
-        card.style.setProperty("--reveal-delay", (Math.min(index, 5) * 0.08).toFixed(2) + "s");
-        fragment.appendChild(card);
+      if (!result.ok || !result.data) {
+        panel.hidden = false;
+        els.summary.textContent = "";
+        els.list.innerHTML = "";
+        els.more.hidden = true;
+        els.mine.hidden = true;
+        els.writeBtn.hidden = true;
+        els.login.hidden = true;
+        setMessage(C.errorMessage(result, "Reviews can't be loaded right now."), true);
+        return;
+      }
+      var data = result.data;
+      state.productId = data.productId;
+      state.reviews = data.reviews || [];
+      state.total = data.total || 0;
+      state.average = data.average;
+      state.page = 1;
+      panel.hidden = false;
+      return loadMine(state.productId).then(function (mine) {
+        if (requestId !== state.requestId) return;
+        state.myReview = mine;
+        renderAll();
       });
-      grid.appendChild(fragment);
-
-      initScrollReveal();
-    }
-
-    starPills.forEach(function (pill) {
-      pill.addEventListener("click", function () {
-        starPills.forEach(function (p) { p.classList.remove("is-active"); });
-        pill.classList.add("is-active");
-        state.star = pill.getAttribute("data-star-filter");
-        render();
-      });
-    });
-
-    if (productSelect) {
-      productSelect.addEventListener("change", function () {
-        state.product = productSelect.value;
-        render();
-      });
-    }
-
-    if (sortSelect) {
-      sortSelect.addEventListener("change", function () {
-        state.sort = sortSelect.value;
-        render();
-      });
-    }
-
-    render();
-  }
-
-  function initWriteReviewButton() {
-    var btn = document.getElementById("writeReviewBtn");
-    if (!btn) return;
-    // Placeholder for now — will open a real review submission flow
-    // once the backend (POST /api/reviews) exists.
-    btn.addEventListener("click", function () {
-      window.location.href = "contact.html";
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    initMainNavReveal();
-    initMobileNav();
-    initWishlist();
-    initCart();
-    initDesktopDropdown();
-    initSearchCategoryMenu();
-    initHeaderSearch();
-    initMobileAccordion();
-    initFooterYear();
-    updateWishlistCount();
-    initHeroParticles();
-    initReviewsSummary();
-    initReviewsList();
-    initWriteReviewButton();
-    initScrollReveal();
+  function loadMore() {
+    var slug = state.slug;
+    var next = state.page + 1;
+    els.more.disabled = true;
+    fetchReviews(slug, next).then(function (result) {
+      els.more.disabled = false;
+      if (slug !== state.slug) return;
+      if (result.ok && result.data) {
+        state.page = next;
+        state.reviews = state.reviews.concat(result.data.reviews || []);
+        renderList();
+        renderMine();
+        return;
+      }
+      setMessage(C.errorMessage(result, "More reviews can't be loaded right now."), true);
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // Write / edit / delete
+  // ---------------------------------------------------------------
+
+  function openForm(review) {
+    state.editing = !!review;
+    els.form.reset();
+    els.formHeading.textContent = review ? "Edit your review" : "Write a review";
+    els.submit.textContent = review ? "Save changes" : "Submit review";
+    if (review) {
+      var radio = els.form.querySelector('input[name="rating"][value="' + review.rating + '"]');
+      if (radio) radio.checked = true;
+      els.form.elements.title.value = review.title || "";
+      els.form.elements.body.value = review.body || "";
+    }
+    C.showFieldErrors(els.form, {});
+    els.form.hidden = false;
+    els.writeBtn.hidden = true;
+    var first = els.form.querySelector('input[name="rating"]:checked') || els.form.querySelector('input[name="rating"]');
+    if (first) first.focus();
+  }
+
+  function closeForm() {
+    els.form.hidden = true;
+    state.editing = false;
+    renderWriteArea();
+  }
+
+  function readForm() {
+    var checked = els.form.querySelector('input[name="rating"]:checked');
+    return {
+      rating: checked ? Number(checked.value) : null,
+      title: els.form.elements.title.value.trim(),
+      body: els.form.elements.body.value.trim()
+    };
+  }
+
+  function validate(data) {
+    var errors = {};
+    if (!data.rating) errors.rating = "Please choose a star rating.";
+    if (data.title.length > 150) errors.title = "Please keep the title under 150 characters.";
+    if (data.body.length < 10) errors.body = "Please write at least 10 characters.";
+    else if (data.body.length > 2000) errors.body = "Please keep your review under 2,000 characters.";
+    return errors;
+  }
+
+  function sessionEnded(result) {
+    if (result.status !== 401) return false;
+    writeMine({});
+    state.myReview = null;
+    closeForm();
+    renderAll();
+    setMessage(C.errorMessage(result), true);
+    return true;
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+    var data = readForm();
+    if (!C.showFieldErrors(els.form, validate(data))) return;
+    var editing = state.editing && state.myReview;
+    var body = { rating: data.rating, title: data.title || null, body: data.body };
+    var call = editing
+      ? C.request("/reviews/" + encodeURIComponent(state.myReview.id), { method: "PATCH", body: body })
+      : C.request("/reviews", { method: "POST", body: { productId: state.productId, rating: body.rating, title: body.title, body: body.body } });
+
+    els.submit.disabled = true;
+    setMessage(editing ? "Saving your changes…" : "Sending your review…");
+    call.then(function (result) {
+      els.submit.disabled = false;
+      if (result.ok && result.data && result.data.review) {
+        rememberReview(result.data.review);
+        state.myReview = readMine()[result.data.review.productId] || null;
+        closeForm();
+        setMessage(editing
+          ? "Your changes have been saved."
+          : (result.data.message || "Thank you! Your review has been published."));
+        // Reload so the review, the average and the count show at once.
+        return reloadKeepMessage();
+      }
+      if (sessionEnded(result)) return;
+      if (editing && result.status === 404) {
+        forgetReview(state.productId);
+        state.myReview = null;
+        closeForm();
+        renderAll();
+        setMessage("This review no longer exists.", true);
+        return;
+      }
+      C.showFieldErrors(els.form, C.fieldErrors(result));
+      // e.g. 409 "You have already reviewed this product."
+      setMessage(C.errorMessage(result, "We couldn't save your review."), true);
+    });
+  }
+
+  // After a review is written, edited or deleted the public list changes.
+  function reloadKeepMessage() {
+    var text = els.message.textContent;
+    var isError = els.message.classList.contains("is-error");
+    return fetchReviews(state.slug, 1).then(function (result) {
+      if (result.ok && result.data) {
+        state.reviews = result.data.reviews || [];
+        state.total = result.data.total || 0;
+        state.average = result.data.average;
+        state.page = 1;
+      }
+      renderAll();
+      setMessage(text, isError);
+    });
+  }
+
+  function deleteMine() {
+    if (!state.myReview || !window.confirm("Delete your review?")) return;
+    var id = state.myReview.id;
+    C.request("/reviews/" + encodeURIComponent(id), { method: "DELETE" }).then(function (result) {
+      if (result.ok || result.status === 404) {
+        forgetReview(state.productId);
+        state.myReview = null;
+        setMessage("Your review has been deleted.");
+        return reloadKeepMessage();
+      }
+      if (sessionEnded(result)) return;
+      setMessage(C.errorMessage(result, "We couldn't delete your review."), true);
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // Events
+  // ---------------------------------------------------------------
+
+  els.writeBtn.addEventListener("click", function () { openForm(null); });
+  els.cancel.addEventListener("click", closeForm);
+  els.form.addEventListener("submit", submitForm);
+  els.more.addEventListener("click", loadMore);
+  els.mine.addEventListener("click", function (event) {
+    if (event.target.closest("#rbReviewEdit")) openForm(state.myReview);
+    else if (event.target.closest("#rbReviewDelete")) deleteMine();
   });
+
+  // Runs after the page's own hashchange handler (this file loads last).
+  window.addEventListener("hashchange", function () {
+    window.setTimeout(load, 0);
+  });
+  load();
 })();

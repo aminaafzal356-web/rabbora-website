@@ -182,8 +182,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
     "description": "A luxurious statement bed designed around an impressive high and wide headboard, creating a sophisticated bedroom focal point with an elegant and refined presence.",
     "sizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -195,10 +193,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -241,7 +235,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
     "description": "A striking high-headboard design created to bring a luxurious hotel-inspired atmosphere to the bedroom while offering an elegant and comfortable place to rest.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -254,10 +247,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -301,7 +290,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
     "description": "An elegant high-headboard bed designed to create a sophisticated bedroom centrepiece with graceful proportions, refined styling and comfortable sleeping space.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -314,10 +302,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -350,17 +334,16 @@ var HH_BED_PRODUCTS =
     "id": 4,
     "slug": "high-headboard-bed-4",
     "name": "Rabbora Chicago High Headboard Bed",
-    "price": 349.0,
-    "oldPrice": 420.0,
-    "monthly": 30,
+    "price": 449.0,
+    "oldPrice": 480.0,
+    "monthly": 38,
     "rating": 5,
     "reviews": 59,
-    "badge": "17% off",
+    "badge": "6% off",
     "headboardHeight": "130cm",
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
     "description": "A sophisticated high-headboard design that gives the bedroom a strong and elegant focal point while creating a comfortable and inviting sleeping environment.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -373,10 +356,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -419,7 +398,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
     "description": "A bold hotel-inspired bed featuring a distinctive structured profile, designed to bring a luxurious and sophisticated character to the modern bedroom.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -432,10 +410,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -477,7 +451,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
     "description": "A glamorous bedroom centrepiece designed to create an elegant and luxurious atmosphere, bringing refined character and sophisticated style to your bedroom.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -490,10 +463,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -536,8 +505,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
     "description": "A grand tall-headboard design created to make an impressive statement in the bedroom while offering an elegant appearance and comfortable sleeping space.",
     "sizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -549,10 +516,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -595,7 +558,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
     "description": "A luxurious high and wide headboard design created to give the bedroom a dramatic focal point with sophisticated styling and an elegant, comfortable feel.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -608,10 +570,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -654,8 +612,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
     "description": "A grand hotel-inspired design featuring a wide statement headboard, created to bring an impressive and luxurious character to the bedroom.",
     "sizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -667,10 +623,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -712,7 +664,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
     "description": "A refined high-headboard bed designed to create an elegant bedroom focal point while bringing a sophisticated and luxurious feel to the space.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -725,10 +676,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -771,8 +718,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
     "description": "A striking tall-headboard design created to give the bedroom a contemporary luxury appearance with an impressive presence and elegant proportions.",
     "sizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -784,10 +729,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -830,8 +771,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 150cm tall, with deep-buttoned detailing.",
     "description": "A premium statement bed designed to bring a sophisticated and luxurious finish to the bedroom, combining an impressive profile with an elegant upholstered appearance.",
     "sizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -843,10 +782,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -878,9 +813,9 @@ var HH_BED_PRODUCTS =
     "id": 13,
     "slug": "high-headboard-bed-13",
     "name": "Rabbora Silver Fern High Headboard Bed",
-    "price": 799.00,
+    "price": 549.0,
     "oldPrice": 900.0,
-    "monthly": 67,
+    "monthly": 46,
     "rating": 5,
     "reviews": 176,
     "badge": "39% off",
@@ -888,7 +823,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 130cm tall, with deep-buttoned detailing.",
     "description": "An elegant high-headboard design created to add a refined and luxurious focal point to the bedroom while providing a comfortable and inviting sleeping space.",
     "sizes": [
-      "Single",
       "Small Double",
       "Double",
       "King",
@@ -901,10 +835,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -937,9 +867,9 @@ var HH_BED_PRODUCTS =
     "id": 14,
     "slug": "high-headboard-bed-14",
     "name": "Rabbora Marble Bahamas Wide Headboard Bed",
-    "price": 549.00,
-    "oldPrice": 900.00,
-    "monthly": 46,
+    "price": 799.0,
+    "oldPrice": 1000.0,
+    "monthly": 67,
     "rating": 5,
     "reviews": 189,
     "badge": "20% off",
@@ -947,8 +877,6 @@ var HH_BED_PRODUCTS =
     "shortInfo": "Statement upholstered headboard standing 140cm tall, with deep-buttoned detailing.",
     "description": "A luxurious wide-headboard design created to give the bedroom a sophisticated hotel-inspired presence with an elegant and impressive overall appearance.",
     "sizes": [
-      "Single",
-      "Small Double",
       "Double",
       "King",
       "Super King"
@@ -960,10 +888,6 @@ var HH_BED_PRODUCTS =
       "Sprung slatted base for a comfortable, breathable sleep surface"
     ],
     "dimensions": {
-      "Single": {
-        "width": 105,
-        "length": 206
-      },
       "Small Double": {
         "width": 136,
         "length": 206
@@ -995,11 +919,78 @@ var HH_BED_PRODUCTS =
 ];
 
 var HH_BED_SIZE_DELTAS = {
-  "Single": -110,
   "Small Double": -55,
   "Double": 0,
   "King": 105,
   "Super King": 185
+};
+
+
+// Exact per-size prices (current Pascal Beds prices, Rabbora record #N =
+// Pascal high headboard row #N). A size missing from a bed's map is not
+// sold for that bed and is not in its "sizes" list either.
+var HH_BED_SIZE_PRICES = {
+  "high-headboard-bed-1": { "Double": 799, "King": 849, "Super King": 899 }, // DUKE OF PSCL Luxury Hotel Style Wide 3 Piece
+  "high-headboard-bed-2": { "Small Double": 749, "Double": 799, "King": 849, "Super King": 899 }, // Las Vegas Luxury
+  "high-headboard-bed-3": { "Small Double": 699, "Double": 749, "King": 799, "Super King": 849 }, // Athena
+  "high-headboard-bed-4": { "Small Double": 449, "Double": 489, "King": 529, "Super King": 549 }, // Chicago
+  "high-headboard-bed-5": { "Small Double": 649, "Double": 699, "King": 799, "Super King": 849 }, // Model Square Hotel Style
+  "high-headboard-bed-6": { "Small Double": 599, "Double": 649, "King": 699, "Super King": 749 }, // Starlight Luxury Mirrored
+  "high-headboard-bed-7": { "Double": 749, "King": 799, "Super King": 829 }, // DaVinci Tall headboard
+  "high-headboard-bed-8": { "Small Double": 749, "Double": 799, "King": 849, "Super King": 899 }, // Geneva High & Wide
+  "high-headboard-bed-9": { "Double": 749, "King": 799, "Super King": 849 }, // THE BAHAMAS Luxury Hotel Style Wide 2 Piece
+  "high-headboard-bed-10": { "Small Double": 549, "Double": 599, "King": 659, "Super King": 699 }, // Riviera
+  "high-headboard-bed-11": { "Double": 799, "King": 849, "Super King": 899 }, // New York Tall headboard
+  "high-headboard-bed-12": { "Double": 1199, "King": 1349, "Super King": 1699 }, // The Grand (With metal lining)
+  "high-headboard-bed-13": { "Small Double": 549, "Double": 599, "King": 659, "Super King": 699 }, // Silver Fern
+  "high-headboard-bed-14": { "Double": 799, "King": 849, "Super King": 899 }  // PSCL Ascot / Marble Bahamas (same prices)
+};
+
+// Old (original / "was") price for each size. Single 3ft is not listed:
+// it keeps its existing old price. The other sizes are worked out from
+// their existing sale price:
+//   Small Double 21% off -> old = sale / 0.79
+//   Double       28% off -> old = sale / 0.72
+//   King         29% off -> old = sale / 0.71
+//   Super King   29% off -> old = sale / 0.71
+// Any number here can be changed in VS Code; a size left out shows the
+// page's old price exactly as before.
+var HH_BED_SIZE_OLD_PRICES = {
+  "high-headboard-bed-1": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "high-headboard-bed-2": { "Small Double": 948.1, "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "high-headboard-bed-3": { "Small Double": 884.81, "Double": 1040.28, "King": 1125.35, "Super King": 1195.77 },
+  "high-headboard-bed-4": { "Small Double": 568.35, "Double": 679.17, "King": 745.07, "Super King": 773.24 },
+  "high-headboard-bed-5": { "Small Double": 821.52, "Double": 970.83, "King": 1125.35, "Super King": 1195.77 },
+  "high-headboard-bed-6": { "Small Double": 758.23, "Double": 901.39, "King": 984.51, "Super King": 1054.93 },
+  "high-headboard-bed-7": { "Double": 1040.28, "King": 1125.35, "Super King": 1167.61 },
+  "high-headboard-bed-8": { "Small Double": 948.1, "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "high-headboard-bed-9": { "Double": 1040.28, "King": 1125.35, "Super King": 1195.77 },
+  "high-headboard-bed-10": { "Small Double": 694.94, "Double": 831.94, "King": 928.17, "Super King": 984.51 },
+  "high-headboard-bed-11": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 },
+  "high-headboard-bed-12": { "Double": 1665.28, "King": 1900, "Super King": 2392.96 },
+  "high-headboard-bed-13": { "Small Double": 694.94, "Double": 831.94, "King": 928.17, "Super King": 984.51 },
+  "high-headboard-bed-14": { "Double": 1109.72, "King": 1195.77, "Super King": 1266.2 }
+};
+
+
+// Price of one size before add-ons. With no size selected this is the
+// product's base price (its cheapest size, = product.price).
+function hhSizePrice(product, size) {
+  // A product loaded from the backend API carries its own size prices.
+  if (size && product.sizePrices && typeof product.sizePrices[size] === "number") return product.sizePrices[size];
+  var map = HH_BED_SIZE_PRICES[product.slug];
+  if (size && map && typeof map[size] === "number") return map[size];
+  var delta = size ? (HH_BED_SIZE_DELTAS[size] || 0) : 0;
+  return Math.max(0, product.price + delta);
+}
+
+// Text shown on the size buttons and in the dimensions table. The cart
+// still saves the plain size name (e.g. "King").
+var HH_BED_SIZE_LABELS = {
+  "Small Double": "Small Double 4ft",
+  "Double": "Double 4'6ft",
+  "King": "King 5ft",
+  "Super King": "Super King 6ft"
 };
 
 (function () {
@@ -1167,9 +1158,8 @@ var HH_BED_SIZE_DELTAS = {
     var ASSEMBLY_PRICE = 59;
 
     function currentPrice(product) {
-      var delta = hhState.selectedSize ? (HH_BED_SIZE_DELTAS[hhState.selectedSize] || 0) : 0;
       var addons = assembly === "yes" ? ASSEMBLY_PRICE : 0;
-      return Math.max(0, product.price + delta + addons);
+      return hhSizePrice(product, hhState.selectedSize) + addons;
     }
 
     // Renders the gallery using each product's own "gallery" array —
@@ -1197,6 +1187,161 @@ var HH_BED_SIZE_DELTAS = {
       });
     }
 
+
+    // ---- Selected-size price (shown directly below the size buttons) ----
+    // Always shows the price of the size that is currently selected, and
+    // nothing while no size is selected. The crossed-out price is only
+    // shown when the product data has a real original price for that
+    // size (the stored oldPrice belongs to the base size, i.e. the size
+    // with no price difference) and it is higher than the price.
+    // ---- Price area: selected size, current price, crossed-out old
+    // price, "% off" and monthly amount ----
+    // Same presentation on every product page. Nothing here changes a
+    // price: every number comes from this page's existing price logic.
+    // - Old price: only the real old/compare-at price of the selected size
+    //   (API compare_at_price, or this file's own fallback rule). None ->
+    //   no crossed-out price and no "% off".
+    // - Paid add-ons (e.g. Assembly): the old price belongs to the size
+    //   price only, so it stays on the size-price line and is not shown
+    //   next to the final price while an add-on is included.
+    // - "% off" = round((old - price) / old * 100), from real prices only.
+    // - Monthly = final displayed price / 12, rounded up to the next whole
+    //   pound (the rule every existing "or from £X/month" value follows,
+    //   e.g. £249 -> £21). Add-ons included. No finance provider named.
+    function rbDiscountPercent(oldPrice, price) {
+      if (!oldPrice || !price || oldPrice <= price) return null;
+      var pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+      return pct > 0 ? pct : null;
+    }
+
+    function rbMonthlyAmount(price) {
+      // In pence, so e.g. 300 / 12 stays exactly 25.
+      return Math.ceil(Math.round(price * 100) / 1200);
+    }
+
+    // "% off" text beside a crossed-out price (created once, by script,
+    // so no HTML/CSS file has to change).
+    function rbDiscountEl(container, afterEl) {
+      if (!container) return null;
+      var el = container.querySelector("[data-rb-discount]");
+      if (!el) {
+        el = document.createElement("span");
+        el.setAttribute("data-rb-discount", "");
+        el.style.marginLeft = "0.5rem";
+        el.style.fontSize = "0.8rem";
+        el.style.fontWeight = "600";
+        if (afterEl && afterEl.parentNode === container) {
+          container.insertBefore(el, afterEl.nextSibling);
+        } else {
+          container.appendChild(el);
+        }
+      }
+      return el;
+    }
+
+    // Label of the size button that is currently selected, exactly as it
+    // appears on the button (e.g. "Double 4ft 6\"").
+    function rbSelectedSizeLabel(sizeOptionsContainer) {
+      if (!sizeOptionsContainer) return "";
+      var btn = sizeOptionsContainer.querySelector('[aria-pressed="true"], .is-active');
+      return btn ? btn.textContent.trim() : "";
+    }
+
+    // "Selected: Double 4ft 6"" line just above the size buttons.
+    function rbRenderSizeLabel(sizeOptionsContainer, sizeKey) {
+      if (!sizeOptionsContainer || !sizeOptionsContainer.parentNode) return;
+      var labelEl = sizeOptionsContainer.previousElementSibling;
+      if (!labelEl || !labelEl.hasAttribute("data-rb-size-label")) {
+        labelEl = document.createElement("p");
+        labelEl.setAttribute("data-rb-size-label", "");
+        labelEl.setAttribute("aria-live", "polite");
+        labelEl.style.margin = "0 0 0.5rem";
+        labelEl.style.fontSize = "0.85rem";
+        labelEl.style.fontWeight = "600";
+        sizeOptionsContainer.parentNode.insertBefore(labelEl, sizeOptionsContainer);
+      }
+      function update() {
+        var label = sizeKey ? (rbSelectedSizeLabel(sizeOptionsContainer) || String(sizeKey)) : "";
+        labelEl.textContent = label ? "Selected: " + label : "";
+        labelEl.hidden = !label;
+      }
+      update();
+      // When a product first opens, the price is drawn just before its
+      // size buttons are, so read the button label again once they exist.
+      setTimeout(update, 0);
+    }
+
+    // o = { priceEl, prevEl, monthlyEl, finalPrice, sizePrice, oldPrice,
+    //       sizeKey, sizeOptions, sizeRow, money, noSizeLabel }
+    function rbUpdatePriceArea(o) {
+      var validOld = (o.oldPrice && o.oldPrice > o.sizePrice) ? o.oldPrice : null;
+      var hasAddons = Math.round(o.finalPrice * 100) !== Math.round(o.sizePrice * 100);
+
+      // Main (final) price: crossed-out old price + "% off" only while no
+      // paid add-on is included.
+      var mainOld = (validOld && !hasAddons) ? validOld : null;
+      if (o.prevEl) {
+        o.prevEl.textContent = mainOld ? o.money(mainOld) : "";
+        var mainPctEl = rbDiscountEl(o.prevEl.parentNode, o.prevEl);
+        var mainPct = rbDiscountPercent(mainOld, o.finalPrice);
+        if (mainPctEl) mainPctEl.textContent = mainPct ? mainPct + "% off" : "";
+      }
+
+      // Monthly amount from the final displayed price. Pages without a
+      // monthly line get one right under the main price row.
+      var monthlyEl = o.monthlyEl;
+      if (!monthlyEl && o.priceEl && o.priceEl.parentNode && o.priceEl.parentNode.parentNode) {
+        var row = o.priceEl.parentNode;
+        monthlyEl = row.nextElementSibling && row.nextElementSibling.hasAttribute("data-rb-monthly")
+          ? row.nextElementSibling : null;
+        if (!monthlyEl) {
+          monthlyEl = document.createElement("p");
+          monthlyEl.className = "product-card__monthly bb-modal__monthly";
+          monthlyEl.setAttribute("data-rb-monthly", "");
+          row.parentNode.insertBefore(monthlyEl, row.nextSibling);
+        }
+      }
+      if (monthlyEl && typeof o.finalPrice === "number" && isFinite(o.finalPrice) && o.finalPrice > 0) {
+        monthlyEl.textContent = "or from £" + rbMonthlyAmount(o.finalPrice) + "/month";
+      }
+
+      // Size-price line (below the size buttons): selected size, size
+      // price, its real old price and "% off".
+      if (o.sizeRow) {
+        var rowPctEl = rbDiscountEl(o.sizeRow, null);
+        var rowPct = o.sizeKey ? rbDiscountPercent(validOld, o.sizePrice) : null;
+        if (rowPctEl) rowPctEl.textContent = rowPct ? rowPct + "% off" : "";
+        if (!o.noSizeLabel) rbRenderSizeLabel(o.sizeOptions, o.sizeKey);
+      }
+    }
+
+    var sizePriceRow = null;
+    function renderSelectedSizePrice(sizeKey, sizePrice, oldPrice) {
+      var anchor = sizeOptionsEl;
+      if (!anchor || !anchor.parentNode) return;
+      if (!sizePriceRow) {
+        sizePriceRow = document.createElement("div");
+        sizePriceRow.className = "hh-detail__price-row";
+        sizePriceRow.setAttribute("data-size-price", "");
+        sizePriceRow.setAttribute("aria-live", "polite");
+        sizePriceRow.style.marginTop = "0.75rem";
+        sizePriceRow.innerHTML =
+          '<span class="hh-detail__price"></span>' +
+          '<span class="product-card__price-prev"></span>';
+      }
+      if (anchor.nextSibling !== sizePriceRow) {
+        anchor.parentNode.insertBefore(sizePriceRow, anchor.nextSibling);
+      }
+      if (!sizeKey) {
+        sizePriceRow.style.display = "none";
+        return;
+      }
+      sizePriceRow.style.display = "";
+      sizePriceRow.children[0].textContent = money(sizePrice);
+      sizePriceRow.children[1].textContent =
+        (oldPrice && oldPrice > sizePrice) ? money(oldPrice) : "";
+    }
+
     function renderSizeOptions(product) {
       sizeOptionsEl.innerHTML = "";
       product.sizes.forEach(function (size) {
@@ -1204,7 +1349,7 @@ var HH_BED_SIZE_DELTAS = {
         btn.type = "button";
         btn.className = "hh-option-pill";
         btn.setAttribute("aria-pressed", String(hhState.selectedSize === size));
-        btn.textContent = size;
+        btn.textContent = (product.sizeLabels && product.sizeLabels[size]) || HH_BED_SIZE_LABELS[size] || size;
         btn.addEventListener("click", function () {
           hhState.selectedSize = size;
           messageEl.textContent = "";
@@ -1220,13 +1365,37 @@ var HH_BED_SIZE_DELTAS = {
 
     function renderPrice(product) {
       priceEl.textContent = money(currentPrice(product));
-      prevPriceEl.textContent = product.oldPrice ? money(product.oldPrice) : "";
+      var sizePrice = hhSizePrice(product, hhState.selectedSize);
+      var validOldPrice;
+      if (product.sizeOldPrices) {
+        // Product from the backend API: each size has its own compare-at price.
+        var apiOldPrice = hhState.selectedSize ? product.sizeOldPrices[hhState.selectedSize] : product.oldPrice;
+        validOldPrice = (apiOldPrice && apiOldPrice > sizePrice) ? apiOldPrice : null;
+      } else {
+        // The stored oldPrice belongs to the base (cheapest) size only.
+        var isBaseSize = !hhState.selectedSize || sizePrice === product.price;
+        validOldPrice = (isBaseSize && product.oldPrice && product.oldPrice > sizePrice) ? product.oldPrice : null;
+      }
+      // Small Double / Double / King / Super King: old price from
+      // HH_BED_SIZE_OLD_PRICES (Single keeps its existing old price).
+      var listedOld = (hhState.selectedSize && hhState.selectedSize !== "Single" && HH_BED_SIZE_OLD_PRICES[product.slug])
+        ? HH_BED_SIZE_OLD_PRICES[product.slug][hhState.selectedSize] : null;
+      if (typeof listedOld === "number") validOldPrice = listedOld > sizePrice ? listedOld : null;
+      prevPriceEl.textContent = validOldPrice ? money(validOldPrice) : "";
+      renderSelectedSizePrice(hhState.selectedSize, sizePrice, validOldPrice);
+      // Price area: size label, old price, "% off" and monthly amount.
+      rbUpdatePriceArea({
+        priceEl: priceEl, prevEl: prevPriceEl, monthlyEl: monthlyEl,
+        finalPrice: currentPrice(product), sizePrice: sizePrice, oldPrice: validOldPrice,
+        sizeKey: hhState.selectedSize, sizeOptions: sizeOptionsEl, sizeRow: sizePriceRow,
+        money: money
+      });
     }
 
     function renderDimensions(product) {
       var rows = product.sizes.map(function (size) {
         var d = product.dimensions[size];
-        return "<tr><td>" + size + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
+        return "<tr><td>" + ((product.sizeLabels && product.sizeLabels[size]) || HH_BED_SIZE_LABELS[size] || size) + "</td><td>" + d.width + "</td><td>" + d.length + "</td></tr>";
       }).join("");
       dimensionsEl.innerHTML =
         "<thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Width (cm)</th><th scope=\"col\">Length (cm)</th></tr></thead><tbody>" +
@@ -1487,13 +1656,171 @@ var HH_BED_SIZE_DELTAS = {
       window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
     }
 
+    // ---- Backend Product Detail API ----
+    // The detail view first asks the backend for the product. Only the
+    // name, images, sizes, size prices, compare-at prices and (where this
+    // page shows them) dimensions come from the API. They are merged ON TOP
+    // of a copy of the existing product object from this file, so every
+    // frontend-only field stays exactly as it is. If the API fails, is
+    // unreachable, returns 404 or sends unexpected data, the original
+    // product object from this file is used exactly as before.
+    // Address from api-config.js (window.RabboraApi), which must load
+    // before this file: GET <API_URL>/products/slug/<slug>.
+    var RB_API_PRODUCT_URL = window.RabboraApi && typeof window.RabboraApi.url === "function"
+      ? window.RabboraApi.url("/products/slug/")
+      : null;
+    if (!RB_API_PRODUCT_URL) {
+      console.warn(
+        "[Rabbora High Headboard Beds] api-config.js is not loaded, so product details come from this file only. " +
+        "Add <script src=\"api-config.js\"></script> before high-headboard-beds.js."
+      );
+    }
+    var RB_API_TIMEOUT_MS = 4000;
+    var rbApiCache = {};
+    var rbApiRouteId = 0;
+
+    function rbApiIsValid(apiProduct, slug) {
+      if (!apiProduct || apiProduct.slug !== slug) return false;
+      if (typeof apiProduct.name !== "string" || !apiProduct.name.trim()) return false;
+      if (!Array.isArray(apiProduct.images) || apiProduct.images.length === 0) return false;
+      if (!Array.isArray(apiProduct.variants) || apiProduct.variants.length === 0) return false;
+      var imagesOk = apiProduct.images.every(function (img) {
+        return img && typeof img.image_url === "string" && img.image_url.trim() !== "";
+      });
+      var variantsOk = apiProduct.variants.every(function (v) {
+        return v &&
+          typeof v.option_value === "string" && v.option_value !== "" &&
+          typeof v.option_label === "string" && v.option_label !== "" &&
+          typeof v.price === "number" && isFinite(v.price) && v.price > 0;
+      });
+      return imagesOk && variantsOk;
+    }
+
+    // Shallow copy, so the original product object in this file is never
+    // changed (grid cards, related products and the fallback keep using it).
+    function rbApiCopy(baseProduct) {
+      var copy = {};
+      Object.keys(baseProduct).forEach(function (key) { copy[key] = baseProduct[key]; });
+      return copy;
+    }
+
+    // Size data from the API variants, in the API's sort order. When
+    // needDimensions is true, every size must end up with a width/length
+    // (API value, or this file's existing value) or null is returned.
+    function rbApiSizeData(baseProduct, apiProduct, needDimensions) {
+      var variants = apiProduct.variants.slice().sort(function (a, b) {
+        return (a.sort_order || 0) - (b.sort_order || 0);
+      });
+      var data = {
+        sizes: [], labels: [], labelMap: {}, sizePrices: {}, sizeOldPrices: {}, dimensions: {},
+        images: apiProduct.images.map(function (img) { return img.image_url; })
+      };
+      var baseDims = baseProduct.dimensions && typeof baseProduct.dimensions === "object" ? baseProduct.dimensions : {};
+      Object.keys(baseDims).forEach(function (size) { data.dimensions[size] = baseDims[size]; });
+      var ok = true;
+      variants.forEach(function (v) {
+        data.sizes.push(v.option_value);
+        data.labels.push(v.option_label);
+        data.labelMap[v.option_value] = v.option_label;
+        data.sizePrices[v.option_value] = v.price;
+        data.sizeOldPrices[v.option_value] =
+          (typeof v.compare_at_price === "number" && v.compare_at_price > v.price) ? v.compare_at_price : null;
+        if (typeof v.width_cm === "number" && typeof v.length_cm === "number") {
+          data.dimensions[v.option_value] = { width: v.width_cm, length: v.length_cm };
+        }
+        var d = data.dimensions[v.option_value];
+        if (needDimensions && !(d && typeof d.width === "number" && typeof d.length === "number")) ok = false;
+      });
+      if (!ok) return null;
+      // Base (no size selected) price: this page's own base price when one
+      // of the API sizes has exactly that price (so the page shows the same
+      // "from" price as before); otherwise the API product price (its
+      // lowest size). The crossed-out price is that size's compare-at price.
+      var baseVariant = null;
+      if (typeof baseProduct.price === "number") {
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - baseProduct.price) < 0.001; })[0] || null;
+      }
+      if (baseVariant) {
+        data.price = baseVariant.price;
+      } else {
+        data.price = (typeof apiProduct.price === "number" && isFinite(apiProduct.price) && apiProduct.price > 0)
+          ? apiProduct.price : variants[0].price;
+        baseVariant = variants.filter(function (v) { return Math.abs(v.price - data.price) < 0.001; })[0] || variants[0];
+      }
+      data.oldPrice = data.sizeOldPrices[baseVariant.option_value];
+      // Some pages keep the crossed-out price on their first size even when
+      // another size is the base price; the page showed it before a size
+      // was chosen, so the first size's compare-at price is used then.
+      if (!data.oldPrice) {
+        var firstOld = data.sizeOldPrices[variants[0].option_value];
+        data.oldPrice = (firstOld && firstOld > data.price) ? firstOld : null;
+      }
+      return data;
+    }
+
+    // Page-specific merge: which API values go into which fields this
+    // page already reads.
+    function rbApiMerge(baseProduct, apiProduct) {
+      var d = rbApiSizeData(baseProduct, apiProduct, true);
+      if (!d) return null;
+      var merged = rbApiCopy(baseProduct);
+      merged.name = apiProduct.name;
+      // This page's gallery reads "gallery"; "image" (card photo, also used
+      // by the cart) is kept from this file.
+      merged.gallery = d.images;
+      merged.sizes = d.sizes;
+      merged.sizeLabels = d.labelMap;
+      merged.sizePrices = d.sizePrices;
+      merged.sizeOldPrices = d.sizeOldPrices;
+      merged.dimensions = d.dimensions;
+      merged.price = d.price;
+      merged.oldPrice = d.oldPrice;
+      return merged;
+    }
+
+    // Resolves with the merged API product, or null when the original
+    // product object should be used instead. Never rejects.
+    function rbApiFetch(baseProduct, slug) {
+      if (rbApiCache[slug]) return Promise.resolve(rbApiCache[slug]);
+      if (typeof fetch !== "function" || !RB_API_PRODUCT_URL) return Promise.resolve(null);
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var timeoutId = controller ? window.setTimeout(function () { controller.abort(); }, RB_API_TIMEOUT_MS) : null;
+      return fetch(RB_API_PRODUCT_URL + encodeURIComponent(slug), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (response) {
+          if (!response.ok) return null;
+          return response.json().catch(function () { return null; });
+        })
+        .then(function (data) {
+          var apiProduct = data && data.success === true ? data.product : null;
+          if (!rbApiIsValid(apiProduct, slug)) return null;
+          var merged = rbApiMerge(baseProduct, apiProduct);
+          if (merged) rbApiCache[slug] = merged;
+          return merged;
+        })
+        .catch(function () { return null; })
+        .then(function (result) {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          return result;
+        });
+    }
+
     function handleRoute() {
       var hash = window.location.hash;
-      if (!hash || hash === "#") { showCategory(); return; }
+      if (!hash || hash === "#") { rbApiRouteId++; showCategory(); return; }
       var slug = hash.replace(/^#\/?/, "");
-      if (!slug) { showCategory(); return; }
+      if (!slug) { rbApiRouteId++; showCategory(); return; }
       var product = HH_PRODUCTS_BY_SLUG[slug];
-      if (product) { showDetail(product); } else { showNotFound(); }
+      if (!product) { rbApiRouteId++; showNotFound(); return; }
+      // Only the newest route may render (ignores late answers).
+      var requestId = ++rbApiRouteId;
+      rbApiFetch(product, slug).then(function (apiProduct) {
+        if (requestId !== rbApiRouteId) return;
+        showDetail(apiProduct || product);
+      });
     }
 
     window.addEventListener("hashchange", handleRoute);
