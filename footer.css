@@ -1,0 +1,539 @@
+/* =====================================================================
+   Rabbora Living — global footer (used by footer.js on every page)
+   Self-contained: it does not depend on the page's own stylesheet, so
+   the footer looks exactly the same everywhere. Colours/fonts follow the
+   Rabbora design tokens (with fallbacks for pages that don't load them).
+   ===================================================================== */
+
+.rb-footer {
+  --rbf-bg: #12281f;
+  --rbf-bg-2: #163126;
+  --rbf-ivory: #f1ebde;
+  --rbf-text: rgba(241, 235, 222, 0.74);
+  --rbf-muted: rgba(241, 235, 222, 0.55);
+  --rbf-line: rgba(241, 235, 222, 0.12);
+  --rbf-brass: #c7a06b;
+  --rbf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --rbf-display: var(--font-display, "Instrument Serif", Georgia, serif);
+  --rbf-body: var(--font-body, "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  --rbf-mono: var(--font-mono, "IBM Plex Mono", ui-monospace, monospace);
+
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--rbf-bg-2) 0%, var(--rbf-bg) 100%);
+  color: var(--rbf-text);
+  font-family: var(--rbf-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-top: 1px solid rgba(199, 160, 107, 0.35);
+  overflow-wrap: anywhere;
+}
+
+.rb-footer *,
+.rb-footer *::before,
+.rb-footer *::after {
+  box-sizing: border-box;
+}
+
+.rb-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rb-footer p {
+  margin: 0;
+}
+
+.rb-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rb-footer a:focus-visible,
+.rb-footer summary:focus-visible,
+.rb-footer__contact:focus-visible {
+  outline: 2px solid var(--rbf-brass);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.rb-footer__inner {
+  width: 100%;
+  max-width: var(--container, 1240px);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- grid ---------- */
+
+.rb-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 28px 0 8px;
+}
+
+/* ---------- brand ---------- */
+
+.rb-footer__brand {
+  padding-bottom: 18px;
+}
+
+.rb-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rb-footer__logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--rbf-ivory);
+}
+
+.rb-footer__wordmark {
+  font-family: var(--rbf-display);
+  font-size: 1.65rem;
+  line-height: 1;
+  color: var(--rbf-ivory);
+  letter-spacing: 0.01em;
+}
+
+.rb-footer__tm {
+  font-family: var(--rbf-body);
+  font-size: 0.55em;
+  vertical-align: super;
+  margin-left: 1px;
+  color: var(--rbf-brass);
+}
+
+.rb-footer__tagline {
+  margin-top: 12px !important;
+  font-family: var(--rbf-display);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--rbf-ivory);
+}
+
+.rb-footer__about {
+  margin-top: 6px !important;
+  font-size: 0.84rem;
+  color: var(--rbf-muted);
+  max-width: 34ch;
+}
+
+/* ---------- headings ---------- */
+
+.rb-footer__heading {
+  margin: 0;
+  font-family: var(--rbf-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rbf-brass);
+}
+
+/* ---------- link groups (accordions on phones) ---------- */
+
+.rb-footer__group {
+  border-top: 1px solid var(--rbf-line);
+}
+
+.rb-footer__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 12px 0;
+  cursor: pointer;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rb-footer__summary::-webkit-details-marker {
+  display: none;
+}
+
+.rb-footer__summary::marker {
+  content: "";
+}
+
+.rb-footer__icon--chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--rbf-ivory);
+  opacity: 0.7;
+  transition: transform 0.3s var(--rbf-ease);
+}
+
+.rb-footer__group[open] > .rb-footer__summary .rb-footer__icon--chevron {
+  transform: rotate(180deg);
+}
+
+.rb-footer__links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  padding: 0 0 14px !important;
+}
+
+.rb-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  font-size: 0.88rem;
+  color: var(--rbf-text);
+  transition: color 0.25s var(--rbf-ease), transform 0.25s var(--rbf-ease);
+}
+
+.rb-footer__links a:hover,
+.rb-footer__links a[aria-current="page"] {
+  color: var(--rbf-ivory);
+}
+
+.rb-footer__links a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--rbf-brass);
+  text-underline-offset: 4px;
+}
+
+/* ---------- contact ---------- */
+
+.rb-footer__contact {
+  border-top: 1px solid var(--rbf-line);
+  padding: 16px 0 18px;
+  outline: none;
+}
+
+.rb-footer__contact-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 10px !important;
+}
+
+.rb-footer__contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  color: var(--rbf-ivory);
+  font-size: 0.95rem;
+  transition: color 0.25s var(--rbf-ease);
+}
+
+.rb-footer__contact-list a:hover {
+  color: var(--rbf-brass);
+}
+
+.rb-footer__icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.rb-footer__contact-list .rb-footer__icon {
+  color: var(--rbf-brass);
+}
+
+.rb-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px !important;
+}
+
+.rb-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--rbf-line);
+  border-radius: 50%;
+  color: var(--rbf-ivory);
+  transition: border-color 0.3s var(--rbf-ease), background-color 0.3s var(--rbf-ease), transform 0.3s var(--rbf-ease);
+}
+
+.rb-footer__social a:hover {
+  border-color: var(--rbf-brass);
+  background-color: rgba(199, 160, 107, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ---------- payments ---------- */
+
+.rb-footer__payments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rbf-line);
+  text-align: center;
+}
+
+.rb-footer__secure {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--rbf-ivory);
+}
+
+.rb-footer__secure .rb-footer__icon {
+  color: var(--rbf-brass);
+}
+
+.rb-footer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.rb-footer__badge {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(241, 235, 222, 0.22);
+  border-radius: 6px;
+  background: rgba(241, 235, 222, 0.05);
+  font-family: var(--rbf-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--rbf-ivory);
+  white-space: nowrap;
+}
+
+.rb-footer__badge--visa,
+.rb-footer__badge--amex {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- bottom bar + developer credit ---------- */
+
+.rb-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0 18px;
+  border-top: 1px solid var(--rbf-line);
+  text-align: center;
+}
+
+.rb-footer__copy {
+  font-size: 0.76rem;
+  color: var(--rbf-muted);
+}
+
+.rb-footer__credit {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--rbf-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--rbf-muted);
+  opacity: 0.72;
+  transition: opacity 0.45s var(--rbf-ease), transform 0.45s var(--rbf-ease), color 0.45s var(--rbf-ease);
+}
+
+.rb-footer__credit:hover,
+.rb-footer__credit:focus-within {
+  opacity: 1;
+  color: var(--rbf-text);
+  transform: translateY(-1px);
+}
+
+.rb-footer__dot {
+  color: var(--rbf-brass);
+}
+
+.rb-footer__credit-link {
+  position: relative;
+  padding-bottom: 2px;
+  color: var(--rbf-ivory) !important;
+  background-image: linear-gradient(90deg, var(--rbf-brass), rgba(199, 160, 107, 0.4));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.5s var(--rbf-ease), text-shadow 0.5s var(--rbf-ease), color 0.5s var(--rbf-ease);
+}
+
+.rb-footer__credit:hover .rb-footer__credit-link,
+.rb-footer__credit-link:focus-visible {
+  background-size: 100% 1px;
+  text-shadow: 0 0 14px rgba(199, 160, 107, 0.35);
+  color: #fff !important;
+}
+
+/* ---------- tablet ---------- */
+
+@media (min-width: 600px) {
+  .rb-footer__inner {
+    padding: 0 24px;
+  }
+
+  .rb-footer__links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rb-footer__contact {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    column-gap: 24px;
+  }
+
+  .rb-footer__contact .rb-footer__heading {
+    grid-column: 1 / -1;
+  }
+
+  .rb-footer__social {
+    justify-content: flex-end;
+  }
+}
+
+/* ---------- desktop: four columns ---------- */
+
+@media (min-width: 900px) {
+  .rb-footer__inner {
+    padding: 0 32px;
+  }
+
+  .rb-footer__grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 40px;
+    padding: 56px 0 36px;
+  }
+
+  .rb-footer__brand {
+    padding-bottom: 0;
+  }
+
+  .rb-footer__group,
+  .rb-footer__contact {
+    border-top: 0;
+    padding: 0;
+  }
+
+  .rb-footer__contact {
+    display: block;
+  }
+
+  .rb-footer__summary {
+    min-height: 0;
+    padding: 4px 0 14px;
+    cursor: default;
+  }
+
+  .rb-footer__icon--chevron {
+    display: none;
+  }
+
+  .rb-footer__links {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 !important;
+  }
+
+  .rb-footer__links a {
+    min-height: 32px;
+  }
+
+  .rb-footer__links a:hover {
+    transform: translateX(3px);
+  }
+
+  .rb-footer__contact .rb-footer__heading {
+    padding: 4px 0 4px;
+  }
+
+  .rb-footer__social {
+    justify-content: flex-start;
+    margin-top: 16px !important;
+  }
+
+  .rb-footer__payments {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0;
+    text-align: left;
+  }
+
+  .rb-footer__badges {
+    justify-content: flex-end;
+  }
+
+  .rb-footer__bottom {
+    padding: 16px 0 22px;
+  }
+}
+
+/* ---------- motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .rb-footer *,
+  .rb-footer__credit {
+    transition: none !important;
+  }
+
+  .rb-footer__social a:hover,
+  .rb-footer__links a:hover,
+  .rb-footer__credit:hover,
+  .rb-footer__credit:focus-within {
+    transform: none;
+  }
+}
+
+@media print {
+  .rb-footer {
+    background: none;
+    color: #000;
+    border-top: 1px solid #000;
+  }
+
+  .rb-footer__social,
+  .rb-footer__payments {
+    display: none;
+  }
+}
+
+.rb-footer__noscript {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.rb-footer__noscript a {
+  color: var(--rbf-ivory);
+  text-decoration: underline;
+}
+
+.rb-footer__heading,
+.rb-footer h2 {
+  line-height: 1.4;
+}
+
+/* Phones: keep the developer credit clear of the floating WhatsApp button. */
+@media (max-width: 899px) {
+  body:has(.whatsapp-float) .rb-footer__bottom {
+    padding-bottom: 84px;
+  }
+}
+
+@media (max-width: 399px) {
+  .rb-footer__credit {
+    letter-spacing: 0.04em;
+  }
+}
