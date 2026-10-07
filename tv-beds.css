@@ -27,13 +27,6 @@
   object-position: center;
 }
 
-@media (max-width: 767px) {
-  .tv-hero__image {
-    object-fit: contain;
-  }
-}
-
-
 .tv-hero__overlay {
   position: absolute;
   inset: 0;
@@ -906,4 +899,30 @@
   font-size: 0.75rem;
   font-style: italic;
   color: rgba(35, 35, 32, 0.4);
+}
+
+/* ---- Mobile hero (768px and below ONLY — desktop is untouched) ----
+   The photo now fills the whole hero edge to edge (cover), so there are
+   no dark green bands above/below it. The slow zoom animation is off on
+   phones (scaling the photo up made it look soft), the overlay is
+   lighter so the photo reads clearly, and the hero height follows its
+   content instead of a tall fixed minimum. Text stays readable through
+   its existing text-shadow and the light overlay. */
+@media (max-width: 768px) {
+  .tv-hero {
+    min-height: 0;
+  }
+
+  .tv-hero__image {
+    object-fit: cover;
+    object-position: center center;
+    animation: none;
+    transform: none;
+    opacity: 1;
+    filter: none;
+  }
+
+  .tv-hero__overlay {
+    background: linear-gradient(180deg, rgba(18, 40, 31, 0.32) 0%, rgba(18, 40, 31, 0.2) 45%, rgba(18, 40, 31, 0.4) 100%);
+  }
 }
