@@ -918,3 +918,35 @@
 .bb-lightbox__close:hover {
   background-color: rgba(255, 255, 255, 0.28);
 }
+/* =====================================================================
+   PASTE THIS AT THE VERY END OF kids-beds.css
+   Mobile hero fix (768px and below ONLY — desktop is untouched).
+   - Photo fills the whole hero edge to edge (cover): no dark green
+     bands/block above or below it, even if an earlier mobile rule set
+     object-fit: contain.
+   - Slow zoom animation off on phones (scaling the photo up made it soft).
+   - No opacity / filter / transform on the photo.
+   - Lighter overlay so the photo reads clearly; text stays readable
+     through its existing text-shadow.
+   - Hero height follows its content instead of a tall fixed minimum.
+   Placed at the end of the file so it wins over the earlier hero rules.
+   ===================================================================== */
+@media (max-width: 768px) {
+  .kb-hero {
+    min-height: 0;
+    height: auto;
+  }
+
+  .kb-hero__image {
+    object-fit: cover;
+    object-position: center center;
+    animation: none;
+    transform: none;
+    opacity: 1;
+    filter: none;
+  }
+
+  .kb-hero__overlay {
+    background: linear-gradient(180deg, rgba(18, 40, 31, 0.32) 0%, rgba(18, 40, 31, 0.2) 45%, rgba(18, 40, 31, 0.4) 100%);
+  }
+}
