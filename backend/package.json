@@ -1,22 +1,21 @@
 {
-  "name": "rabbora-backend",
+  "name": "apitest",
   "version": "1.0.0",
-  "description": "Rabbora Living backend API",
+  "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "connect-pg-simple": "^10.0.0",
     "express": "^5.2.1",
-    "express-session": "^1.19.0",
+    "express-session": "1.19",
+    "nodemailer": "^7.0.13",
     "pg": "^8.23.0"
-  },
-  "private": true,
-  "engines": {
-    "node": ">=20.12"
   }
 }

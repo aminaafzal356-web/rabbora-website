@@ -573,6 +573,17 @@
       });
     });
 
+    // After a request is saved, the form asks for every swatch to be
+    // cleared (see initFabricForm).
+    document.addEventListener("rabbora:fabric-samples-reset", function () {
+      selected = [];
+      swatches.forEach(function (btn) {
+        btn.setAttribute("aria-pressed", "false");
+      });
+      updateStatus();
+      syncFormFields();
+    });
+
     updateStatus();
     syncFormFields();
   }
@@ -608,22 +619,118 @@
           messageEl.textContent = "Please complete all required fields correctly.";
         }
         messageEl.classList.add("is-error");
-        firstInvalid.focus();
+        if (firstInvalid === samplesInput) {
+          var grid = document.getElementById("fabricGrid");
+          if (grid) grid.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          firstInvalid.focus();
+        }
         return;
       }
 
-      // Placeholder submission handler.
-      // Replace with a real API call once the sample-request backend
-      // is connected, e.g.:
-      //   fetch("/api/fabric-samples", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify(Object.fromEntries(new FormData(form)))
-      //   });
-
-      messageEl.textContent = "Thanks \u2014 your free sample request has been received.";
-      messageEl.classList.add("is-success");
+      submitRequest();
     });
+
+    // ---- Real submission: POST /api/fabric-samples ----
+    // "Thanks" is shown only after the backend confirms the request is
+    // saved in the database. The button is locked while sending, so a
+    // double click can't send the request twice (the backend also
+    // ignores an identical request sent again within 2 minutes).
+    var submitBtn = qs(".fabric-form__submit", form);
+    var submitLabel = submitBtn ? submitBtn.textContent : "";
+    var sending = false;
+    var api = window.RabboraApi && typeof window.RabboraApi.request === "function" ? window.RabboraApi : null;
+    var FIELD_INPUTS = {
+      name: "fabric-name",
+      email: "fabric-email",
+      phone: "fabric-phone",
+      postcode: "fabric-postcode",
+      address: "fabric-address",
+      notes: "fabric-notes",
+      selectedFabrics: "fabric-samples"
+    };
+
+    function setSending(isSending) {
+      sending = isSending;
+      if (!submitBtn) return;
+      submitBtn.disabled = isSending;
+      submitBtn.setAttribute("aria-busy", String(isSending));
+      submitBtn.textContent = isSending ? "Sending\u2026" : submitLabel;
+    }
+
+    function showError(text) {
+      messageEl.textContent = text;
+      messageEl.classList.remove("is-success");
+      messageEl.classList.add("is-error");
+    }
+
+    function submitRequest() {
+      if (sending) return;
+      if (!api) {
+        showError("We can't send your request right now. Please try again later.");
+        return;
+      }
+
+      var samplesInput = document.getElementById("fabric-samples");
+      var fabrics = (samplesInput ? samplesInput.value : "")
+        .split(",")
+        .map(function (name) { return name.trim(); })
+        .filter(Boolean);
+      var consent = document.getElementById("fabric-marketing-consent");
+
+      var payload = {
+        name: document.getElementById("fabric-name").value.trim(),
+        email: document.getElementById("fabric-email").value.trim(),
+        phone: document.getElementById("fabric-phone").value.trim(),
+        postcode: document.getElementById("fabric-postcode").value.trim(),
+        address: document.getElementById("fabric-address").value.trim(),
+        notes: document.getElementById("fabric-notes").value.trim(),
+        selectedFabrics: fabrics,
+        marketingConsent: !!(consent && consent.checked)
+      };
+
+      setSending(true);
+      messageEl.textContent = "";
+
+      api.request("/fabric-samples", { method: "POST", body: payload }).then(function (result) {
+        setSending(false);
+
+        if (result.ok && result.data && result.data.success) {
+          form.reset();
+          document.dispatchEvent(new CustomEvent("rabbora:fabric-samples-reset"));
+          qsa("[aria-invalid]", form).forEach(function (field) {
+            field.setAttribute("aria-invalid", "false");
+          });
+          messageEl.textContent = "Thanks \u2014 your free sample request has been received." +
+            (result.data.requestId ? " Your reference is #" + result.data.requestId + "." : "");
+          messageEl.classList.remove("is-error");
+          messageEl.classList.add("is-success");
+          return;
+        }
+
+        if (result.status === 400 && result.data && Array.isArray(result.data.errors) && result.data.errors.length) {
+          var first = null;
+          result.data.errors.forEach(function (err) {
+            var input = document.getElementById(FIELD_INPUTS[err.field] || "");
+            if (input) {
+              input.setAttribute("aria-invalid", "true");
+              if (!first) first = input;
+            }
+          });
+          showError(result.data.errors[0].message || "Please complete all required fields correctly.");
+          if (first && first.type !== "hidden") first.focus();
+          return;
+        }
+
+        if (result.status === 0) {
+          showError("We can't reach our server right now. Please check your connection and try again.");
+        } else if (result.status === 429) {
+          showError((result.data && result.data.message) || "Too many requests. Please wait a few minutes and try again.");
+        } else {
+          showError("Sorry \u2014 we couldn't save your request. Please try again in a moment.");
+        }
+      });
+    }
   }
 
   function initScrollReveal() {

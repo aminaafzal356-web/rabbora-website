@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabric Sample Requests | Rabbora Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../images/img-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css?v=admin-3" />
+</head>
+<body class="admin admin--loading">
+
+  <a href="#adminContent" class="admin-skip">Skip to content</a>
+
+  <!-- Shown until GET /api/auth/me confirms an admin (admin-auth.js). -->
+  <div class="admin-boot" aria-hidden="true"><span class="admin-spinner"></span></div>
+
+  <div class="admin-layout" id="adminLayout">
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin navigation"></aside>
+    <div class="admin-scrim" id="adminScrim"></div>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button type="button" class="admin-menu-toggle" id="adminMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="adminSidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="admin-topbar__title">
+          <p class="admin-eyebrow">Website forms</p>
+          <h1 class="admin-page-title" id="adminPageTitle">Fabric Sample Requests</h1>
+        </div>
+        <div class="admin-user" id="adminUser"></div>
+      </header>
+
+      <main class="admin-content" id="adminContent">
+        <p class="admin-flash" id="adminFlash" role="status" aria-live="polite" hidden></p>
+        <section class="admin-stats admin-stats--compact" id="listSummary" aria-label="Summary"></section>
+
+        <section class="admin-panel admin-editor-panel admin-detail" id="detailPanel" hidden tabindex="-1"></section>
+
+        <section class="admin-panel">
+          <div class="admin-toolbar admin-toolbar--two">
+            <div class="admin-field admin-toolbar__search">
+              <label class="admin-label" for="listSearch">Search</label>
+              <input class="admin-input" id="listSearch" type="search" placeholder="Name, email, phone, postcode, fabric or request #" maxlength="100" autocomplete="off" />
+            </div>
+            <div class="admin-field">
+              <label class="admin-label" for="listStatus">Status</label>
+              <select class="admin-input" id="listStatus"><option value="all">All</option><option value="new">New</option><option value="read">Read</option><option value="in_progress">In progress</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select>
+            </div>
+          </div>
+          <p class="admin-result-count" id="listCount" role="status" aria-live="polite"></p>
+          <p class="admin-hint admin-inv-note">Requests sent from the <strong>Fabric Samples</strong> page, newest first. Open a request to see the full address and notes and to change its status.</p>
+          <div class="admin-table-wrap">
+            <table class="admin-table admin-table--enquiries">
+              <thead><tr><th scope="col">Request ID</th><th scope="col">Customer Name</th><th scope="col">Email</th><th scope="col">Phone</th><th scope="col">Postcode</th><th scope="col">Selected Fabrics</th><th scope="col">Status</th><th scope="col">Date</th><th scope="col"><span class="admin-sr">Actions</span></th></tr></thead>
+              <tbody id="listRows"></tbody>
+            </table>
+          </div>
+          <nav class="admin-pager" id="listPager" aria-label="Pages" hidden>
+            <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="pagerPrev">&larr; Previous</button>
+            <span class="admin-pager__info" id="pagerInfo"></span>
+            <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" id="pagerNext">Next &rarr;</button>
+          </nav>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Logged in, but not an admin. -->
+  <div class="admin-denied" id="adminDenied" hidden>
+    <div class="admin-login__card">
+      <img class="admin-login__logo" src="../images/img-2.png" alt="Rabbora Living" width="64" height="64" />
+      <h1 class="admin-login__heading">Access denied</h1>
+      <p class="admin-login__sub">This account does not have admin access.</p>
+      <div class="admin-actions admin-actions--center">
+        <a class="admin-btn admin-btn--primary" href="../index.html">Back to the shop</a>
+        <button type="button" class="admin-btn admin-btn--ghost" data-admin-logout>Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend not reachable. -->
+  <div class="admin-denied" id="adminOffline" hidden>
+    <div class="admin-login__card">
+      <h1 class="admin-login__heading">Admin panel unavailable</h1>
+      <p class="admin-login__sub"></p>
+      <div class="admin-actions admin-actions--center">
+        <button type="button" class="admin-btn admin-btn--primary" onclick="window.location.reload()">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../api-config.js"></script>
+  <script src="js/admin-auth.js?v=admin-4"></script>
+  <script src="js/fabric-sample-requests.js?v=1"></script>
+</body>
+</html>

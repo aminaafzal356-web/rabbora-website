@@ -29,6 +29,8 @@ if (fs.existsSync(envPath) && typeof process.loadEnvFile === "function") {
 const db = require("./config/db");
 const { sessionMiddleware, IS_PRODUCTION } = require("./config/session");
 const authRoutes = require("./routes/auth");
+const passwordResetRoutes = require("./routes/passwordReset");
+const enquiryRoutes = require("./routes/enquiries");
 const productRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const categoryRoutes = require("./routes/categories");
@@ -178,6 +180,17 @@ app.get("/api/db-test", async (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes);
 
+// Forgot / reset password: POST /api/auth/forgot-password,
+// POST /api/auth/reset-password/validate, POST /api/auth/reset-password
+// (routes/passwordReset.js; needs database/password_resets.sql).
+app.use("/api/auth", passwordResetRoutes);
+app.use("/api", passwordResetRoutes);
+
+// Website forms: POST /api/fabric-samples, POST /api/contact
+// (routes/enquiries.js; needs database/enquiries.sql). Admins read them
+// at /api/admin/fabric-sample-requests and /api/admin/contact-messages.
+app.use("/api", enquiryRoutes);
+
 // Categories, products (with size pricing), fabric/storage catalogues
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
@@ -235,4 +248,6 @@ app.listen(PORT, (err) => {
   const stripeState = require("./config/stripe").describe();
   console.log(stripeState.line);
   stripeState.warnings.forEach((w) => console.warn("Stripe warning: " + w));
+  // Password reset emails: on / off — never prints the SMTP password.
+  console.log(require("./services/emailService").describe());
 });

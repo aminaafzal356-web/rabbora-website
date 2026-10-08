@@ -17,6 +17,13 @@
 //   GET /api/admin/customers/:id     one account: addresses, orders, wishlist / review counts
 //   GET /api/admin/reviews           every review + counts (?search=&status=pending|approved&page=)
 //   GET /api/admin/reviews/:id       one review
+//   GET   /api/admin/fabric-sample-requests       Fabric Samples form requests + status counts
+//                                                (?search=&status=new|read|in_progress|completed|cancelled&page=&limit=)
+//   GET   /api/admin/fabric-sample-requests/:id   one request
+//   PATCH /api/admin/fabric-sample-requests/:id   { status }
+//   GET   /api/admin/contact-messages             Contact form messages + status counts (same filters)
+//   GET   /api/admin/contact-messages/:id         one message
+//   PATCH /api/admin/contact-messages/:id         { status }
 //
 // Changes use the existing admin endpoints:
 //   POST  /api/products, PATCH /api/products/:id,
@@ -35,6 +42,7 @@
 
 const express = require("express");
 const c = require("../controllers/adminController");
+const enquiries = require("../controllers/enquiryController");
 const { requireAdmin } = require("../middleware/auth");
 
 const router = express.Router();
@@ -54,5 +62,13 @@ router.get("/customers", c.listCustomers);
 router.get("/customers/:id", c.getCustomer);
 router.get("/reviews", c.listReviews);
 router.get("/reviews/:id", c.getReview);
+
+// Website forms (database/enquiries.sql)
+router.get("/fabric-sample-requests", enquiries.adminListFabricSampleRequests);
+router.get("/fabric-sample-requests/:id", enquiries.adminGetFabricSampleRequest);
+router.patch("/fabric-sample-requests/:id", enquiries.adminUpdateFabricSampleRequest);
+router.get("/contact-messages", enquiries.adminListContactMessages);
+router.get("/contact-messages/:id", enquiries.adminGetContactMessage);
+router.patch("/contact-messages/:id", enquiries.adminUpdateContactMessage);
 
 module.exports = router;
