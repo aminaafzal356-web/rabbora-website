@@ -7,7 +7,7 @@
  *   <script src="footer.js?v=footer-1"></script>
  *
  * and this file builds the same footer into it. To change a link, the
- * phone number, the email or the Click Empire address, edit CONFIG below
+ * phone number, the email or the developer credit, edit CONFIG below
  * — every page updates at once.
  *
  * Other pages can show the same contact details with
@@ -25,11 +25,12 @@
   var CONFIG = {
     phoneDisplay: "+44 7853 444640",
     phoneHref: "tel:+447853444640",
-    // TEMPORARY address — replace with the final Rabbora email.
-    email: "info@rabbora.co.uk",
-    // TODO: put the Click Empire website address here (e.g. "https://…").
-    // While it is "#", the link is shown but does nothing.
-    clickEmpireUrl: "#",
+    // Main contact email: shown (as a mailto: link) in the footer and in
+    // every [data-rb-contact="email"] link on the site.
+    email: "uf@info.rabbora.co.uk",
+    // Developer credit: "Developed by Amina Afzal · Panzex" (opens in a new tab).
+    creditName: "Panzex",
+    creditUrl: "https://panzex.com",
 
     // Only pages that exist in the project. Add a line when a new page
     // exists, e.g. { label: "Privacy Policy", href: "privacy-policy.html" }.
@@ -114,9 +115,8 @@
 
   function render() {
     var year = new Date().getFullYear();
-    var credit = CONFIG.clickEmpireUrl && CONFIG.clickEmpireUrl !== "#"
-      ? '<a class="rb-footer__credit-link" href="' + esc(CONFIG.clickEmpireUrl) + '" target="_blank" rel="noopener">Click Empire</a>'
-      : '<a class="rb-footer__credit-link" href="#" data-rb-placeholder-link title="Click Empire">Click Empire</a>';
+    var credit = '<a class="rb-footer__credit-link" href="' + esc(CONFIG.creditUrl) + '" target="_blank" rel="noopener noreferrer"' +
+      ' aria-label="' + esc(CONFIG.creditName) + ' (opens in a new tab)">' + esc(CONFIG.creditName) + "</a>";
 
     return (
       '<div class="rb-footer__inner">' +
