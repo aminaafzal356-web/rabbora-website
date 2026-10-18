@@ -16,6 +16,7 @@
     "express": "^5.2.1",
     "express-session": "1.19",
     "nodemailer": "^7.0.13",
-    "pg": "^8.23.0"
+    "pg": "^8.23.0",
+    "stripe": "^23.0.0"
   }
 }
