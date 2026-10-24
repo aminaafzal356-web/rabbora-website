@@ -69,7 +69,12 @@ if (IS_PRODUCTION) {
 // is not shared with it.
 // The live site's address can be added in backend/.env as
 // FRONTEND_ORIGIN=https://www.example.co.uk (comma-separate several).
-const ALLOWED_ORIGINS = ["http://localhost:5500", "http://127.0.0.1:5500"].concat(
+const ALLOWED_ORIGINS = [
+  "http://localhost:5500",
+  "http://127.0.0.1:5500",
+  "http://localhost:5501",
+  "http://127.0.0.1:5501"
+].concat(
   (process.env.FRONTEND_ORIGIN || "")
     .split(",")
     .map((value) => value.trim())

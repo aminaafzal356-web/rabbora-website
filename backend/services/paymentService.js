@@ -46,16 +46,53 @@ function log(message, details) {
 
 // ---------- database check (migration applied?) ----------
 
+// Checks the table the order queries really use. "orders" is resolved
+// through the connection's search_path, exactly like "SELECT ... FROM
+// orders" elsewhere in this file. (The old check compared against
+// current_schema(), which is only the FIRST existing schema on the
+// search_path; if that schema has no orders table, the check counted 0
+// even though the orders table was readable and writable.) pg_attribute
+// is read from the catalog directly, so it is not filtered by privileges
+// the way information_schema.columns is.
+const STRIPE_COLUMNS_SQL = `
+  SELECT to_regclass('orders')::text AS table_name,
+         current_database() AS database_name,
+         current_user AS database_user,
+         current_schema() AS first_schema,
+         (SELECT count(*)::int
+            FROM pg_attribute a
+           WHERE a.attrelid = to_regclass('orders')
+             AND a.attnum > 0 AND NOT a.attisdropped
+             AND a.attname IN ('stripe_checkout_session_id', 'stripe_payment_intent_id')) AS stripe_columns`;
+
+// Runs the check on any queryable (the pool, or one client in a test).
+// Returns plain facts only: names and counts, never host, password or keys.
+async function stripeColumnsReport(queryable) {
+  const r = await queryable.query(STRIPE_COLUMNS_SQL);
+  const row = r.rows[0];
+  return {
+    ok: !!row.table_name && row.stripe_columns === 2,
+    tableName: row.table_name,
+    database: row.database_name,
+    databaseUser: row.database_user,
+    firstSchema: row.first_schema,
+    stripeColumns: row.stripe_columns,
+  };
+}
+
 let schemaReady = false;
 async function ensureSchema() {
   if (schemaReady) return;
-  const r = await db.query(
-    `SELECT count(*)::int AS n FROM information_schema.columns
-      WHERE table_schema = current_schema() AND table_name = 'orders'
-        AND column_name IN ('stripe_checkout_session_id', 'stripe_payment_intent_id')`
-  );
-  if (r.rows[0].n !== 2) {
-    console.error("[payments] The orders table has no Stripe columns yet. Run backend/database/stripe_payments.sql (no restart needed).");
+  const report = await stripeColumnsReport(db);
+  if (!report.ok) {
+    // Safe diagnostics: which database/user/table the BACKEND sees.
+    console.error(
+      "[payments] Stripe columns not found by the backend connection. " +
+      `database=${report.database} user=${report.databaseUser} ` +
+      `table=${report.tableName || "NOT FOUND"} first_schema=${report.firstSchema} ` +
+      `stripe_columns_found=${report.stripeColumns} (need 2). ` +
+      "If the columns exist in pgAdmin/Supabase, this backend is connected to a different database or schema — check DB_HOST, DB_NAME, DB_USER in backend/.env."
+    );
     throw paymentsOff();
   }
   schemaReady = true;
@@ -144,16 +181,22 @@ async function applyPaidLocked(client, order, session, source) {
     });
     return { result: "order_closed", orderId: order.id };
   }
+  // A paid order moves from 'pending' to 'confirmed' (the first status after
+  // pending in the existing workflow, shown as "Order confirmed" on the
+  // success page). Any other status the admin has already set is kept.
+  // Cancelled/refunded were excluded above, so they can never become paid here.
   const u = await client.query(
     `UPDATE orders
-        SET payment_status = 'paid', stripe_checkout_session_id = $1, stripe_payment_intent_id = $2,
+        SET payment_status = 'paid',
+            status = CASE WHEN status = 'pending' THEN 'confirmed' ELSE status END,
+            stripe_checkout_session_id = $1, stripe_payment_intent_id = $2,
             updated_at = CURRENT_TIMESTAMP
       WHERE id = $3 AND payment_status = 'unpaid'
-      RETURNING id`,
+      RETURNING id, status`,
     [session.id, pi, order.id]
   );
   if (!u.rows[0]) return { result: "already_paid", orderId: order.id };
-  log("order marked paid", { order: order.order_number, session: session.id, paymentIntent: pi, source });
+  log("order marked paid", { order: order.order_number, status: u.rows[0].status, session: session.id, paymentIntent: pi, source });
   return { result: "paid", orderId: order.id };
 }
 
@@ -183,7 +226,10 @@ async function markPaidFromSession(session, source) {
 // another customer's order looks exactly like a missing one.
 async function createCheckoutSession(user, orderId, returnBase) {
   const stripe = stripeConfig.getStripe();
-  if (!stripe) throw paymentsOff();
+  if (!stripe) {
+    log("Stripe client not available: STRIPE_SECRET_KEY is missing or not an sk_test_/sk_live_ key in backend/.env");
+    throw paymentsOff();
+  }
   await ensureSchema();
 
   const outcome = await withTransaction(async (client) => {
@@ -241,9 +287,16 @@ async function createCheckoutSession(user, orderId, returnBase) {
     // can never open a second session. It includes the previous session,
     // so a new session is made after the old one expired.
     const fingerprint = crypto.createHash("sha256").update(JSON.stringify(params)).digest("hex").slice(0, 24);
-    const session = await stripe.checkout.sessions.create(params, {
-      idempotencyKey: `rabbora-order-${order.id}-${previous || "first"}-${fingerprint}`,
-    });
+    let session;
+    try {
+      session = await stripe.checkout.sessions.create(params, {
+        idempotencyKey: `rabbora-order-${order.id}-${previous || "first"}-${fingerprint}`,
+      });
+    } catch (err) {
+      // Stripe's own error type/code only (never the request, keys or card data).
+      log("Stripe refused to create the checkout session", { order: order.order_number, error: err.type || "error", code: err.code || null, status: err.statusCode || null });
+      throw err;
+    }
     await client.query(
       "UPDATE orders SET stripe_checkout_session_id = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2",
       [session.id, order.id]
@@ -396,4 +449,5 @@ module.exports = {
   handleEvent,
   paymentStatus,
   lineItemsFor,
+  stripeColumnsReport,
 };

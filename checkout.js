@@ -372,7 +372,12 @@
         announce("");
         return;
       }
-      if (!r.cart.items.length) return showEmpty();
+      // Only show "empty" when the basket really is empty. Items that the
+      // backend cannot order yet (not in its product list) are still in
+      // this browser's cart, which is what the header count shows, so the
+      // basket is shown with them listed as "Not included in this order".
+      // Place order stays disabled until there is an orderable line.
+      if (!r.cart.items.length && !localOnlyLines().length) return showEmpty();
       showView("checkout");
       renderCart(r.cart);
       announce("");
