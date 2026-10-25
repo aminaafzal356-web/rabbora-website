@@ -4,9 +4,9 @@
 // own source, .env files, node_modules, database scripts, tests and git
 // data are never served, whatever URL is requested.
 //
-// The frontend folder is the repository root (one level above backend/).
-// It can be overridden with FRONTEND_DIR in backend/.env if the host
-// deploys the backend folder on its own.
+// The frontend folder is the repository root (the folder that contains
+// backend/). The website files must be inside the deployed folder: on a
+// host that deploys only backend/, they are not present and nothing is served.
 
 const fs = require("fs");
 const path = require("path");
@@ -30,14 +30,32 @@ const ALLOWED_EXTENSIONS = new Set([
   ".mp4", ".webm",
 ]);
 
-function defaultFrontendDir() {
-  return path.resolve(__dirname, "..", "..");
+// The folder that contains backend/ (the repository root when the whole
+// repository is deployed).
+function defaultBackendDir() {
+  return path.resolve(__dirname, "..");
 }
 
-// Returns the folder to serve, or null when it does not contain the homepage.
-function resolveFrontendDir(env = process.env) {
-  const dir = env.FRONTEND_DIR ? path.resolve(env.FRONTEND_DIR) : defaultFrontendDir();
-  return fs.existsSync(path.join(dir, "index.html")) ? dir : null;
+// Every folder that may hold the website, in the order they are tried.
+// FRONTEND_DIR (relative to backend/, or absolute) comes first when set.
+// Then the repository root, then the working directory and its parent,
+// because hosts start the app from different folders.
+function frontendCandidates({
+  env = process.env,
+  backendDir = defaultBackendDir(),
+  cwd = process.cwd(),
+} = {}) {
+  const list = [];
+  if (env.FRONTEND_DIR) list.push(path.resolve(backendDir, env.FRONTEND_DIR));
+  list.push(path.resolve(backendDir, ".."));
+  list.push(cwd);
+  list.push(path.resolve(cwd, ".."));
+  return [...new Set(list)];
+}
+
+// Returns the first candidate folder that contains index.html, or null.
+function resolveFrontendDir(options = {}) {
+  return frontendCandidates(options).find((dir) => fs.existsSync(path.join(dir, "index.html"))) || null;
 }
 
 // Decodes the URL path safely. Returns null for a malformed URL.
@@ -81,4 +99,10 @@ function createSiteMiddleware(frontendDir) {
   return [guard];
 }
 
-module.exports = { createSiteMiddleware, resolveFrontendDir, BLOCKED_FIRST_SEGMENTS, ALLOWED_EXTENSIONS };
+module.exports = {
+  createSiteMiddleware,
+  resolveFrontendDir,
+  frontendCandidates,
+  BLOCKED_FIRST_SEGMENTS,
+  ALLOWED_EXTENSIONS,
+};

@@ -43,7 +43,7 @@ const inventoryRoutes = require("./routes/inventory");
 const adminRoutes = require("./routes/admin");
 const paymentRoutes = require("./routes/payments");
 const { apiNotFound, errorHandler } = require("./middleware/errorHandler");
-const { createSiteMiddleware, resolveFrontendDir } = require("./middleware/staticSite");
+const { createSiteMiddleware, resolveFrontendDir, frontendCandidates } = require("./middleware/staticSite");
 
 const PORT = Number(process.env.PORT) || 5000;
 
@@ -144,8 +144,10 @@ if (frontendDir) {
   console.log(`Website files served from: ${frontendDir}`);
 } else {
   console.warn(
-    "Website files NOT served: no index.html found in the frontend folder. " +
-    "Set FRONTEND_DIR in backend/.env to the folder that contains index.html."
+    "Website files NOT served: no index.html found. Looked in: " +
+    frontendCandidates().join(", ") + ". " +
+    "Deploy the whole repository (the folder that contains index.html and backend/), " +
+    "or set FRONTEND_DIR in the host's environment variables."
   );
 }
 

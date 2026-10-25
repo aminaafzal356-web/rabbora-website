@@ -15,9 +15,10 @@
  *      in the page <head>, if present.
  *   3. Local development (page opened on localhost / 127.0.0.1 / as a
  *      file): http://localhost:5000 — the Rabbora backend.
- *   4. Anywhere else (the live site): the site's own address, so the
- *      live frontend never calls localhost. Change this later with
- *      option 1 or 2 if the live API runs on another address.
+ *   4. The live site (rabbora.co.uk / www.rabbora.co.uk): no map entry,
+ *      so step 5 is used and the API is the same site.
+ *   5. Anywhere else: the site's own address, so a deployed frontend
+ *      never calls localhost.
  *
  * Nothing here changes any page, price, cart or design. It only adds
  * window.RabboraApi:
@@ -33,6 +34,9 @@
   "use strict";
 
   var DEV_BASE_URL = "http://localhost:5000";
+  // Live site: the API is served from the same Express server as the
+  // website, so the live site uses its own address (step 5 below).
+  var PRODUCTION_API_BY_HOST = {};
   var REQUEST_TIMEOUT_MS = 15000;
 
   function trimTrailingSlash(value) {
@@ -62,6 +66,8 @@
     var fromMeta = readMetaBaseUrl();
     if (fromMeta) return trimTrailingSlash(fromMeta);
     if (isLocalPage()) return DEV_BASE_URL;
+    var host = (window.location && window.location.hostname || "").toLowerCase();
+    if (Object.prototype.hasOwnProperty.call(PRODUCTION_API_BY_HOST, host)) return PRODUCTION_API_BY_HOST[host];
     return trimTrailingSlash(window.location.origin);
   }
 
