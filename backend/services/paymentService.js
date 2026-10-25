@@ -173,6 +173,24 @@ async function applyPaidLocked(client, order, session, source) {
         order: order.order_number, kept: order.stripe_payment_intent_id, extra: pi, session: session.id, source,
       });
     }
+    // Repair: an order that is paid but still "pending" (paid before the
+    // status change existed) becomes "confirmed". Only this exact pair of
+    // values; every other status (confirmed, processing, shipped, delivered,
+    // cancelled, refunded) is left as it is. The session has already passed
+    // sessionMatches() above, so it is this order's own verified Stripe session.
+    if (order.status === "pending") {
+      const repaired = await client.query(
+        `UPDATE orders
+            SET status = 'confirmed', updated_at = CURRENT_TIMESTAMP
+          WHERE id = $1 AND payment_status = 'paid' AND status = 'pending'
+          RETURNING id`,
+        [order.id]
+      );
+      if (repaired.rows[0]) {
+        log("paid order repaired from pending to confirmed", { order: order.order_number, session: session.id, source });
+        return { result: "repaired", orderId: order.id };
+      }
+    }
     return { result: "already_paid", orderId: order.id };
   }
   if (order.payment_status !== "unpaid" || ["cancelled", "refunded"].includes(order.status)) {
@@ -426,12 +444,17 @@ async function paymentStatus(user, orderId) {
   const row = r.rows[0];
   if (!row) throw notFound("Order not found.");
   let verified = false;
-  if (stripe && row.payment_status === "unpaid" && row.stripe_checkout_session_id) {
+  // Ask Stripe about the order's own saved session when it is unpaid, or
+  // paid but still pending (the case the repair in applyPaidLocked fixes).
+  // Stripe's answer is the only proof: a session id from the browser is never used.
+  const needsCheck = row.payment_status === "unpaid" ||
+    (row.payment_status === "paid" && row.status === "pending");
+  if (stripe && needsCheck && row.stripe_checkout_session_id) {
     try {
       const session = await stripe.checkout.sessions.retrieve(row.stripe_checkout_session_id);
       if (session.payment_status === "paid") {
         const outcome = await markPaidFromSession(session, "return");
-        verified = outcome.result === "paid" || outcome.result === "already_paid";
+        verified = ["paid", "already_paid", "repaired"].includes(outcome.result);
       }
     } catch (err) {
       log("could not check the session on return", { order: row.order_number, error: err.type || err.code || "error" });
@@ -444,6 +467,7 @@ async function paymentStatus(user, orderId) {
 module.exports = {
   createCheckoutSession,
   markPaidFromSession,
+  applyPaidLocked, // exported for tests/payments-repair.test.js
   expireOpenSession,
   verifyWebhook,
   handleEvent,

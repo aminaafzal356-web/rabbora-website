@@ -43,6 +43,7 @@ const inventoryRoutes = require("./routes/inventory");
 const adminRoutes = require("./routes/admin");
 const paymentRoutes = require("./routes/payments");
 const { apiNotFound, errorHandler } = require("./middleware/errorHandler");
+const { createSiteMiddleware, resolveFrontendDir } = require("./middleware/staticSite");
 
 const PORT = Number(process.env.PORT) || 5000;
 
@@ -69,12 +70,7 @@ if (IS_PRODUCTION) {
 // is not shared with it.
 // The live site's address can be added in backend/.env as
 // FRONTEND_ORIGIN=https://www.example.co.uk (comma-separate several).
-const ALLOWED_ORIGINS = [
-  "http://localhost:5500",
-  "http://127.0.0.1:5500",
-  "http://localhost:5501",
-  "http://127.0.0.1:5501"
-].concat(
+const ALLOWED_ORIGINS = ["http://localhost:5500", "http://127.0.0.1:5500"].concat(
   (process.env.FRONTEND_ORIGIN || "")
     .split(",")
     .map((value) => value.trim())
@@ -137,6 +133,21 @@ app.post("/api/payments/stripe/webhook", express.raw({ type: "application/json",
 
 // Parse JSON request bodies (limit protects against huge bodies).
 app.use(express.json({ limit: "200kb" }));
+
+// The website itself (HTML, CSS, JS, images) from the repository root.
+// Mounted BEFORE the session middleware so page and image requests do not
+// look up a login session in the database. The /api routes below are
+// never handled here (the guard only serves website file types).
+const frontendDir = resolveFrontendDir();
+if (frontendDir) {
+  app.use(...createSiteMiddleware(frontendDir));
+  console.log(`Website files served from: ${frontendDir}`);
+} else {
+  console.warn(
+    "Website files NOT served: no index.html found in the frontend folder. " +
+    "Set FRONTEND_DIR in backend/.env to the folder that contains index.html."
+  );
+}
 
 // Login sessions (stored in PostgreSQL, cookie "rabbora.sid").
 app.use(sessionMiddleware);
