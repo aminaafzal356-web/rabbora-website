@@ -548,3 +548,65 @@
 .reviews-cta .btn {
   margin-top: 1.5rem;
 }
+/* ---- Customer review cards and status (reviews-page.js) ---- */
+.reviews-card {
+  background-color: var(--color-white, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reviews-card__stars {
+  margin: 0;
+  color: var(--color-brass);
+  letter-spacing: 0.1em;
+  font-size: 1.1rem;
+}
+
+.reviews-card__title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--color-forest-dark);
+}
+
+.reviews-card__body {
+  margin: 0;
+  line-height: 1.6;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.reviews-card__meta,
+.reviews-card__product {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.reviews-card__product a {
+  color: var(--color-forest-dark);
+  text-decoration: underline;
+}
+
+.reviews-status {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.reviews-status--error {
+  color: #9b2c2c;
+}
+
+.reviews-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.reviews-more[hidden],
+.reviews-status[hidden] {
+  display: none;
+}

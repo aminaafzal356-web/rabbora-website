@@ -10,13 +10,12 @@
  *
  * Backend (backend/routes/reviews.js):
  *   GET    /api/reviews?product=<slug>&page=N   published reviews + average + total
- *   POST   /api/reviews        { productId, rating, title, body }  -> published at once
+ *   POST   /api/reviews        { productId, rating, title, body }  -> saved, shown after admin approval
  *   PATCH  /api/reviews/:id    { rating, title, body }  (own review)
  *   DELETE /api/reviews/:id    (own review)
- * A new review is published straight away (no admin approval) and the
- * list, average and count are reloaded right after it is saved. An
- * admin can hide a review from the admin panel; hidden reviews are
- * never shown publicly.
+ * A new review waits for admin approval before it is shown. The list,
+ * average and count are reloaded after it is saved. Only approved
+ * reviews are shown publicly.
  *
  * The backend has no "my reviews" endpoint, so the id of a review
  * written in this browser is remembered (localStorage
@@ -275,10 +274,10 @@
       '<div class="rb-reviews__mine-head">' +
         '<h3 class="rb-reviews__mine-heading">Your review</h3>' +
         '<span class="rb-badge ' + (published ? "rb-badge--delivered" : "rb-badge--pending") + '">' +
-          (published ? "Published" : "Hidden") +
+          (published ? "Published" : "Not published yet") +
         "</span>" +
       "</div>" +
-      (published ? "" : '<p class="rb-reviews__mine-note">Our team has hidden this review from the shop. Only you can see it.</p>') +
+      (published ? "" : '<p class="rb-reviews__mine-note">This review will appear on the site once our team has approved it. Only you can see it for now.</p>') +
       reviewHtml({ rating: mine.rating, title: mine.title, body: mine.body, author: "You", createdAt: mine.createdAt }, true) +
       '<div class="rb-reviews__mine-actions">' +
         '<button type="button" class="rb-link-btn" id="rbReviewEdit">Edit review</button>' +
@@ -473,7 +472,7 @@
         closeForm();
         setMessage(editing
           ? "Your changes have been saved."
-          : (result.data.message || "Thank you! Your review has been published."));
+          : (result.data.message || "Thank you! Your review will appear once our team has approved it."));
         // Reload so the review, the average and the count show at once.
         return reloadKeepMessage();
       }

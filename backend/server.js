@@ -44,6 +44,7 @@ const adminRoutes = require("./routes/admin");
 const paymentRoutes = require("./routes/payments");
 const { apiNotFound, errorHandler } = require("./middleware/errorHandler");
 const { createSiteMiddleware, resolveFrontendDir, frontendCandidates } = require("./middleware/staticSite");
+const { buildAllowedOrigins, createOriginGuard } = require("./middleware/originCheck");
 
 const PORT = Number(process.env.PORT) || 5000;
 
@@ -59,72 +60,26 @@ if (IS_PRODUCTION) {
   app.set("trust proxy", 1);
 }
 
-// ---------- CORS (local development) ----------
+// ---------- Websites allowed to call the API (CORS + cross-site protection) ----------
 
-// The frontend runs on a different address (VS Code Live Server)
-// than this API, so the browser only lets it call the API when the
-// response says that address is allowed.
-// Log-in sessions need the page to be opened on http://localhost:5500
-// (same site as the API on localhost:5000). 127.0.0.1:5500 stays
-// allowed only so registration keeps working there; the login cookie
-// is not shared with it.
-// The live site's address can be added in backend/.env as
-// FRONTEND_ORIGIN=https://www.example.co.uk (comma-separate several).
-const ALLOWED_ORIGINS = ["http://localhost:5500", "http://127.0.0.1:5500"].concat(
-  (process.env.FRONTEND_ORIGIN || "")
-    .split(",")
-    .map((value) => value.trim())
-    .filter(Boolean)
-);
+// The allowed list is in middleware/originCheck.js. In development it includes
+// the Live Server frontend (localhost:5500) and this server itself
+// (localhost:PORT and 127.0.0.1:PORT). In production (NODE_ENV=production) it
+// contains only the addresses in FRONTEND_ORIGIN.
+const originConfig = buildAllowedOrigins({
+  port: PORT,
+  isProduction: IS_PRODUCTION,
+  frontendOrigin: process.env.FRONTEND_ORIGIN,
+});
+const ALLOWED_ORIGINS = originConfig.origins;
+if (originConfig.ignored.length) {
+  console.warn("FRONTEND_ORIGIN entries ignored (not http or https addresses): " + originConfig.ignored.join(", "));
+}
 
 app.set("allowedOrigins", ALLOWED_ORIGINS);
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-
-  // Tells caches the answer depends on the Origin header.
-  res.setHeader("Vary", "Origin");
-
-  if (origin && ALLOWED_ORIGINS.includes(origin)) {
-    // An exact origin (never "*") — required when cookies are sent.
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    // Lets the browser send and receive the session cookie with
-    // fetch(..., { credentials: "include" }).
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    // PATCH/DELETE: cart, addresses, wishlist ...; PUT: admin option lists.
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
-    // Browsers ask again at most every 10 minutes.
-    res.setHeader("Access-Control-Max-Age", "600");
-
-    // Browser preflight ("may I send this POST?") — answer it here.
-    if (req.method === "OPTIONS") {
-      return res.sendStatus(204);
-    }
-  }
-
-  next();
-});
-
-// ---------- Cross-site request protection ----------
-
-// Requests that change something (log in, log out, register ...)
-// are refused when a browser sends them from a website that is not
-// ours. Together with the SameSite=Lax cookie this protects against
-// CSRF. Requests without an Origin header (Postman, curl) are allowed.
-app.use((req, res, next) => {
-  const changesData = !["GET", "HEAD", "OPTIONS"].includes(req.method);
-  const origin = req.headers.origin;
-
-  if (changesData && origin && !ALLOWED_ORIGINS.includes(origin)) {
-    return res.status(403).json({
-      success: false,
-      message: "Request not allowed from this website.",
-    });
-  }
-
-  next();
-});
+// CORS answers and refusal of cross-site data changes (see the module).
+app.use(...createOriginGuard(ALLOWED_ORIGINS));
 
 // Stripe webhook: needs the RAW body for the signature check, so it is
 // registered BEFORE express.json(). Stripe sends no Origin header and no

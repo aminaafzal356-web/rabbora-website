@@ -59,12 +59,24 @@
     return location.protocol === "file:" || host === "localhost" || host === "127.0.0.1" || host === "";
   }
 
+  function isServedFromApiPort() {
+    var location = window.location || {};
+    var host = location.hostname || "";
+    return location.protocol !== "file:" &&
+      location.port === "5000" &&
+      (host === "localhost" || host === "127.0.0.1");
+  }
+
   function resolveBaseUrl() {
     if (typeof window.RABBORA_API_BASE_URL === "string" && window.RABBORA_API_BASE_URL.trim()) {
       return trimTrailingSlash(window.RABBORA_API_BASE_URL.trim());
     }
     var fromMeta = readMetaBaseUrl();
     if (fromMeta) return trimTrailingSlash(fromMeta);
+    // The API server also serves the website on port 5000 (local development).
+    // A page opened there calls its own address, so the browser treats the
+    // request as same-site and the login cookie is kept.
+    if (isServedFromApiPort()) return trimTrailingSlash(window.location.origin);
     if (isLocalPage()) return DEV_BASE_URL;
     var host = (window.location && window.location.hostname || "").toLowerCase();
     if (Object.prototype.hasOwnProperty.call(PRODUCTION_API_BY_HOST, host)) return PRODUCTION_API_BY_HOST[host];
