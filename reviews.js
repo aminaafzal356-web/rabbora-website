@@ -10,12 +10,13 @@
  *
  * Backend (backend/routes/reviews.js):
  *   GET    /api/reviews?product=<slug>&page=N   published reviews + average + total
- *   POST   /api/reviews        { productId, rating, title, body }  -> saved, shown after admin approval
+ *   POST   /api/reviews        { productId, rating, title, body }  -> published at once
  *   PATCH  /api/reviews/:id    { rating, title, body }  (own review)
  *   DELETE /api/reviews/:id    (own review)
- * A new review waits for admin approval before it is shown. The list,
- * average and count are reloaded after it is saved. Only approved
- * reviews are shown publicly.
+ * A new review is published straight away (no admin approval) and the
+ * list, average and count are reloaded right after it is saved. An
+ * admin can hide a review from the admin panel; hidden reviews are
+ * never shown publicly.
  *
  * The backend has no "my reviews" endpoint, so the id of a review
  * written in this browser is remembered (localStorage
@@ -37,7 +38,7 @@
   var PAGE_SIZE = 10;
 
   // The page's existing rating spot in the product detail view.
-  var starsEl = document.querySelector('[id$="DetailStars"], #sfModalStars');
+  var starsEl = document.querySelector('[id$="DetailStars"], #sfModalStars, #bbModalStars');
   if (!starsEl) return;
   var countEl = document.getElementById(starsEl.id.replace(/Stars$/, "ReviewCount"));
   var infoEl = starsEl.closest('[class*="__info"]') || starsEl.parentElement;
@@ -213,15 +214,23 @@
 
   var lastCountText = null;
 
+  // "Add a Review" button shown where a product has no reviews yet.
+  var ADD_REVIEW_HTML = '<button type="button" class="rb-link-btn rb-add-review" data-add-review>Add a Review</button>';
+
+  function showAddPrompt() {
+    if (!countEl || countEl.querySelector("[data-add-review]")) return;
+    countEl.innerHTML = ADD_REVIEW_HTML;
+  }
+
   function applyRatingToPage() {
     if (!state.productId || !state.total) {
       if (lastCountText !== null) {
-        // The last approved review was just removed: back to the page's own text.
+        // The last approved review was just removed: back to the add prompt.
         starsEl.textContent = "";
-        if (countEl) countEl.textContent = "No reviews yet";
+        showAddPrompt();
       }
       lastCountText = null;
-      return; // keep the page's own "No reviews yet"
+      return; // keep the page's own empty-state spot (turned into "Add a Review")
     }
     var text = state.average + " (" + state.total + " review" + (state.total === 1 ? "" : "s") + ")";
     lastCountText = text;
@@ -233,11 +242,13 @@
   // the real figures back if they belong to the product still shown.
   if (countEl && typeof MutationObserver === "function") {
     new MutationObserver(function () {
+      if (countEl.textContent.trim() === "No reviews yet") { showAddPrompt(); return; }
       if (lastCountText && countEl.textContent !== lastCountText && state.slug === currentSlug()) {
         applyRatingToPage();
       }
     }).observe(countEl, { childList: true, characterData: true, subtree: true });
   }
+  if (countEl && countEl.textContent.trim() === "No reviews yet") showAddPrompt();
 
   // ---------------------------------------------------------------
   // Rendering
@@ -246,7 +257,7 @@
   function renderList() {
     if (!state.total) {
       els.summary.textContent = "";
-      els.list.innerHTML = '<p class="rb-reviews__empty">No reviews yet. Be the first to review this product.</p>';
+      els.list.innerHTML = '<p class="rb-reviews__empty">' + ADD_REVIEW_HTML + '</p>';
       els.more.hidden = true;
       return;
     }
@@ -274,10 +285,10 @@
       '<div class="rb-reviews__mine-head">' +
         '<h3 class="rb-reviews__mine-heading">Your review</h3>' +
         '<span class="rb-badge ' + (published ? "rb-badge--delivered" : "rb-badge--pending") + '">' +
-          (published ? "Published" : "Not published yet") +
+          (published ? "Published" : "Hidden") +
         "</span>" +
       "</div>" +
-      (published ? "" : '<p class="rb-reviews__mine-note">This review will appear on the site once our team has approved it. Only you can see it for now.</p>') +
+      (published ? "" : '<p class="rb-reviews__mine-note">Our team has hidden this review from the shop. Only you can see it.</p>') +
       reviewHtml({ rating: mine.rating, title: mine.title, body: mine.body, author: "You", createdAt: mine.createdAt }, true) +
       '<div class="rb-reviews__mine-actions">' +
         '<button type="button" class="rb-link-btn" id="rbReviewEdit">Edit review</button>' +
@@ -472,7 +483,7 @@
         closeForm();
         setMessage(editing
           ? "Your changes have been saved."
-          : (result.data.message || "Thank you! Your review will appear once our team has approved it."));
+          : (result.data.message || "Thank you! Your review will appear on the site once our team has approved it."));
         // Reload so the review, the average and the count show at once.
         return reloadKeepMessage();
       }
@@ -525,6 +536,33 @@
   // ---------------------------------------------------------------
   // Events
   // ---------------------------------------------------------------
+
+  // "Add a Review" (anywhere on this product's page): logged-out customers
+  // see the login message; logged-in customers get the form, scrolled into view.
+  function startWriting() {
+    if (!C.isLoggedInHere()) {
+      els.login.hidden = false;
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      var link = els.login.querySelector("a");
+      if (link) link.focus();
+      return;
+    }
+    if (state.myReview) {
+      els.mine.scrollIntoView({ behavior: "smooth", block: "center" });
+      setMessage("You have already reviewed this product. You can edit your review below.", false);
+      return;
+    }
+    openForm(null);
+    els.form.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  document.addEventListener("click", function (event) {
+    var trigger = event.target && event.target.closest ? event.target.closest("[data-add-review]") : null;
+    if (!trigger) return;
+    event.preventDefault();
+    startWriting();
+  });
 
   els.writeBtn.addEventListener("click", function () { openForm(null); });
   els.cancel.addEventListener("click", closeForm);

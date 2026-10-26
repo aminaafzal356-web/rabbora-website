@@ -7,7 +7,7 @@
   <!-- Preload the first hero slide as early as possible so the browser
        starts fetching it before anything else — this removes the green
        background flash before the first hero image appears. -->
-  <link rel="preload" as="image" href="images/img-136.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/img-3.jfif" imagesizes="100vw" fetchpriority="high" />
 
   <title>Rabbora Living | Luxury Beds Designed for Exceptional Comfort</title>
   <meta name="description" content="Discover beautifully crafted beds, ottomans and bedroom furniture designed to bring comfort, elegance and character to your home. Made in Britain." />
@@ -197,6 +197,7 @@
           <li><a href="sofas.html">Sofas</a></li>
           <li><a href="blanket-boxes.html">Blanket Boxes</a></li>
           <li><a href="fabric-samples.html">Fabric Samples</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
@@ -245,6 +246,7 @@
         <li><a href="sofas.html">Sofas</a></li>
         <li><a href="blanket-boxes.html">Blanket Boxes</a></li>
         <li><a href="fabric-samples.html">Fabric Samples</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
@@ -293,58 +295,71 @@
   <main id="main-content">
 
     <!-- ============ HERO ============ -->
-    <!-- One unified hero: fixed text column on the left, a stack of six
-         layered image cards on the right. script.js (initHeroSlideshow)
-         only changes each card's data-pos (0 = front, 1-5 = behind) and
-         the active pagination number; CSS animates the stack. -->
-    <section class="hero" aria-roledescription="carousel" aria-label="Featured luxury beds">
-      <svg class="hero__bg-curve" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M760,0 C 900,140 980,420 1180,600 C 1270,680 1360,730 1440,750 L1440,0 Z"></path>
-      </svg>
-
-      <div class="hero__grid">
-        <div class="hero__text">
-          <p class="eyebrow hero__eyebrow">Luxury Bedroom Collection</p>
-          <h1 class="hero__heading">Luxury Beds <span>Designed for</span> <span>Exceptional Comfort</span></h1>
-          <div class="hero__lead">
-            <p class="hero__body">Handcrafted beds to bring elegance and style to your bedroom.</p>
-            <svg class="hero__lead-arrow" viewBox="0 0 28 14" aria-hidden="true"><path d="M1 7h25M20 1l6 6-6 6"></path></svg>
-          </div>
-          <div class="hero__ctas">
-            <a href="best-sellers.html" class="btn btn--primary">Explore Best Sellers</a>
-            <a href="bed-frames.html" class="btn btn--outline-forest">Shop Bed Frames</a>
-          </div>
-          <div class="hero__pager" role="group" aria-label="Choose hero image">
-            <button type="button" class="hero__page is-active" data-index="0" aria-label="Show image 1 of 6" aria-current="true">01</button>
-            <button type="button" class="hero__page" data-index="1" aria-label="Show image 2 of 6">02</button>
-            <button type="button" class="hero__page" data-index="2" aria-label="Show image 3 of 6">03</button>
-            <button type="button" class="hero__page" data-index="3" aria-label="Show image 4 of 6">04</button>
-            <button type="button" class="hero__page" data-index="4" aria-label="Show image 5 of 6">05</button>
-            <button type="button" class="hero__page" data-index="5" aria-label="Show image 6 of 6">06</button>
-          </div>
+    <!-- Full-screen image slider (4 furniture photos, crossfade + slow zoom).
+         All text and buttons sit in .hs-copy BELOW the images, never on them.
+         Styles and behaviour: style.css and script.js (initHeroSlider). -->
+    <section class="hs-hero" aria-label="Featured luxury beds">
+      <div class="hs-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Featured luxury beds">
+        <div class="hs-slides">
+          <figure class="hs-slide is-active" data-index="0" aria-hidden="false">
+            <a href="bed-frames.html" class="hs-slide__link" tabindex="0">
+              <img src="images/img-3.jfif"
+                   sizes="100vw" width="1254" height="1254" fetchpriority="high" decoding="async"
+                   alt="Luxury bedroom with a cream upholstered bed frame, green throws and a bright window" />
+            </a>
+          </figure>
+          <figure class="hs-slide" data-index="1" aria-hidden="true" inert>
+            <a href="bed-frames.html" class="hs-slide__link" tabindex="-1">
+              <img src="images/img-9.jfif"
+                   sizes="100vw" width="1254" height="1254" loading="lazy" decoding="async"
+                   alt="Black boucle bed frame with cream bedding in a dark, warmly lit luxury bedroom" />
+            </a>
+          </figure>
+          <figure class="hs-slide" data-index="2" aria-hidden="true" inert>
+            <a href="bed-frames.html" class="hs-slide__link" tabindex="-1">
+              <img src="images/img-16.jfif"
+                   sizes="100vw" width="1402" height="1122" loading="lazy" decoding="async"
+                   alt="Navy and cream bedroom with a light upholstered bed frame and a round mirror" />
+            </a>
+          </figure>
+          <figure class="hs-slide" data-index="3" aria-hidden="true" inert>
+            <a href="bed-frames.html" class="hs-slide__link" tabindex="-1">
+              <img src="images/img-18.jfif"
+                   sizes="100vw" width="1448" height="1086" loading="lazy" decoding="async"
+                   alt="Beige channelled upholstered bed frame in a bright room with garden views" />
+            </a>
+          </figure>
         </div>
 
-        <div class="hero__stage">
-          <div class="hero__cards" id="heroSlideshow" aria-live="off">
-            <figure class="hero__card" data-pos="0">
-              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-136.png" alt="Luxury bedroom featuring a forest-green upholstered bed frame with brass accents" width="2000" height="1400" fetchpriority="high" decoding="async" /></a>
-            </figure>
-            <figure class="hero__card" data-pos="1" aria-hidden="true">
-              <a href="bed-frames.html" class="hero__card-link"><img src="images/1.jfif" alt="Upholstered luxury bed frame in a forest-green bedroom" width="1200" height="900" decoding="async" /></a>
-            </figure>
-            <figure class="hero__card" data-pos="2" aria-hidden="true">
-              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-139.png" alt="Bedroom styled with a forest-green bed frame and brass side table" width="1600" height="1300" decoding="async" /></a>
-            </figure>
-            <figure class="hero__card" data-pos="3" aria-hidden="true">
-              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-137.png" alt="Ottoman storage bed with the base lifted to show internal storage" width="1200" height="900" decoding="async" /></a>
-            </figure>
-            <figure class="hero__card" data-pos="4" aria-hidden="true">
-              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-140.png" alt="Tailored upholstered bed frame with a tall headboard" width="1200" height="900" decoding="async" /></a>
-            </figure>
-            <figure class="hero__card" data-pos="5" aria-hidden="true">
-              <a href="bed-frames.html" class="hero__card-link"><img src="images/img-141.png" alt="Layered luxury mattress on a bed frame" width="1200" height="900" decoding="async" /></a>
-            </figure>
+        <button type="button" class="hs-arrow hs-arrow--prev" aria-label="Previous image">
+          <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3L5 9l6 6"/></svg>
+        </button>
+        <button type="button" class="hs-arrow hs-arrow--next" aria-label="Next image">
+          <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 3l6 6-6 6"/></svg>
+        </button>
+
+        <div class="hs-controls">
+          <div class="hs-dots" role="group" aria-label="Choose image">
+            <button type="button" class="hs-dot" aria-label="Show image 1 of 4" aria-current="true"></button>
+            <button type="button" class="hs-dot" aria-label="Show image 2 of 4" aria-current="false"></button>
+            <button type="button" class="hs-dot" aria-label="Show image 3 of 4" aria-current="false"></button>
+            <button type="button" class="hs-dot" aria-label="Show image 4 of 4" aria-current="false"></button>
           </div>
+          <button type="button" class="hs-pause" aria-label="Pause slideshow" aria-pressed="false">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="hs-copy">
+        <p class="hs-eyebrow hs-anim hs-anim--eyebrow">Luxury Bedroom Collection</p>
+        <h1 class="hs-heading hs-anim hs-anim--heading">Luxury Beds <span>Designed for</span> <span>Exceptional Comfort</span></h1>
+        <div class="hs-lead hs-anim hs-anim--lead">
+          <p>Handcrafted beds to bring elegance and style to your bedroom.</p>
+        </div>
+        <div class="hs-ctas">
+          <a href="best-sellers.html" class="hs-cta hs-cta--primary hs-anim hs-anim--cta-1">Explore Best Sellers</a>
+          <a href="bed-frames.html" class="hs-cta hs-cta--outline hs-anim hs-anim--cta-2">Shop Bed Frames</a>
         </div>
       </div>
     </section>

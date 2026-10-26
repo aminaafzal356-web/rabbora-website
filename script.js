@@ -461,107 +461,103 @@
     });
   }
 
-  // Home hero image stack. The six .hero__card elements are never
-  // re-created: each tick only rewrites their data-pos attribute
-  // (0 = front, 1-5 = behind) and the active pagination number, and
-  // CSS transforms animate the stack. Auto-advances every 4.5s; the
-  // pager and arrows jump straight to an image and restart the timer.
-  function initHeroSlideshow() {
-    var stack = document.getElementById("heroSlideshow");
-    if (!stack) return;
+  // Homepage hero: full-screen image slider (4 slides, crossfade, autoplay 5.5 s).
+  // Replaces the old 6-card hero stack. Only ONE slider and ONE timer exist.
+  function initHeroSlider() {
+    "use strict";
 
-    var hero = stack.closest(".hero");
-    var cards = Array.prototype.slice.call(stack.querySelectorAll(".hero__card"));
-    var pages = hero ? Array.prototype.slice.call(hero.querySelectorAll(".hero__page")) : [];
-    var prevBtn = hero ? hero.querySelector(".hero__arrow--prev") : null;
-    var nextBtn = hero ? hero.querySelector(".hero__arrow--next") : null;
-    var total = cards.length;
-    if (total < 2) return;
+    var root = document.getElementById("heroSlider");
+    if (!root) return;
 
-    var INTERVAL_MS = 4500;
+    var INTERVAL_MS = 5500;
+    var slides = Array.prototype.slice.call(root.querySelectorAll(".hs-slide"));
+    var dots = Array.prototype.slice.call(root.querySelectorAll(".hs-dot"));
+    var prevBtn = root.querySelector(".hs-arrow--prev");
+    var nextBtn = root.querySelector(".hs-arrow--next");
+    var pauseBtn = root.querySelector(".hs-pause");
+    if (slides.length < 2) return;
+
+    var reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     var current = 0;
-    var timerId = null;
+    var userPaused = false;   // set by the pause button
+    var hovering = false;     // pointer is over the slider
+    var focusedIn = false;    // keyboard focus is inside the slider
+    var timer = null;
 
-    function render() {
-      cards.forEach(function (card, i) {
-        var pos = (i - current + total) % total;
-        card.setAttribute("data-pos", String(pos));
-        var cardLink = card.querySelector(".hero__card-link");
-        if (pos === 0) {
-          card.removeAttribute("aria-hidden");
-          if (cardLink) cardLink.removeAttribute("tabindex");
-        } else {
-          card.setAttribute("aria-hidden", "true");
-          // Cards behind the front one stay clickable with a mouse, but
-          // are skipped by the keyboard since they are aria-hidden.
-          if (cardLink) cardLink.setAttribute("tabindex", "-1");
-        }
-      });
-      pages.forEach(function (page, i) {
+    function setSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, i) {
         var active = i === current;
-        page.classList.toggle("is-active", active);
-        if (active) {
-          page.setAttribute("aria-current", "true");
-        } else {
-          page.removeAttribute("aria-current");
-        }
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", active ? "false" : "true");
+        if (active) slide.removeAttribute("inert"); else slide.setAttribute("inert", "");
+      });
+      dots.forEach(function (dot, i) {
+        dot.setAttribute("aria-current", i === current ? "true" : "false");
       });
     }
 
-    function goTo(index) {
-      current = (index + total) % total;
-      render();
+    function autoAdvanceAllowed() {
+      return !reduceMotion && !userPaused && !hovering && !focusedIn && !document.hidden;
     }
 
     function stop() {
-      if (!timerId) return;
-      window.clearInterval(timerId);
-      timerId = null;
+      if (timer) window.clearInterval(timer);
+      timer = null;
     }
 
     function start() {
-      if (timerId) return;
-      timerId = window.setInterval(function () {
-        goTo(current + 1);
+      stop();
+      if (!autoAdvanceAllowed()) return;
+      timer = window.setInterval(function () {
+        if (autoAdvanceAllowed()) setSlide(current + 1);
       }, INTERVAL_MS);
     }
 
-    function restart() {
-      stop();
-      start();
+    function go(index) {
+      setSlide(index);
+      start(); // a manual choice restarts the timer
     }
 
-    pages.forEach(function (page, i) {
-      page.addEventListener("click", function () {
-        goTo(i);
-        restart();
-      });
+    // ---- controls ----
+    if (prevBtn) prevBtn.addEventListener("click", function () { go(current - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { go(current + 1); });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () { go(i); });
     });
 
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        goTo(current - 1);
-        restart();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        goTo(current + 1);
-        restart();
-      });
-    }
-
-    render();
-    start();
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        stop();
-      } else {
-        start();
+    if (pauseBtn) {
+      if (reduceMotion) {
+        pauseBtn.hidden = true; // nothing moves, so there is nothing to pause
       }
+      pauseBtn.addEventListener("click", function () {
+        userPaused = !userPaused;
+        pauseBtn.setAttribute("aria-pressed", userPaused ? "true" : "false");
+        pauseBtn.setAttribute("aria-label", userPaused ? "Play slideshow" : "Pause slideshow");
+        pauseBtn.innerHTML = userPaused
+          ? '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>'
+          : '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg>';
+        start();
+      });
+    }
+
+    // ---- pause while the user is interacting with the hero ----
+    root.addEventListener("mouseenter", function () { hovering = true; start(); });
+    root.addEventListener("mouseleave", function () { hovering = false; start(); });
+    root.addEventListener("focusin", function () { focusedIn = true; start(); });
+    root.addEventListener("focusout", function (event) {
+      if (!root.contains(event.relatedTarget)) { focusedIn = false; start(); }
     });
+    document.addEventListener("visibilitychange", start);
+
+    // ---- keyboard: left / right arrows when the slider has focus ----
+    root.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") { go(current - 1); }
+      else if (event.key === "ArrowRight") { go(current + 1); }
+    });
+
+    setSlide(0);
+    start();
   }
 
   function buildSearchIndex() {
@@ -986,7 +982,7 @@
     initMobileNav();
     initMobileAccordion();
     initNewsletterForm();
-    initHeroSlideshow();
+    initHeroSlider();
     initTrustMarquee();
     initFooterYear();
     updateWishlistCount();

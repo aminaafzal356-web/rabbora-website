@@ -1174,7 +1174,7 @@ var BF_FABRIC_COLLECTIONS = [
           reviewsListEl.innerHTML = "";
           var emptyMsg = document.createElement("p");
           emptyMsg.className = "mt-detail__reviews-empty";
-          emptyMsg.textContent = "No reviews yet. Be the first to review this bed frame.";
+          emptyMsg.innerHTML = '<button type="button" class="rb-link-btn rb-add-review" data-add-review>Add a Review</button>';
           reviewsListEl.appendChild(emptyMsg);
         }
         return;
