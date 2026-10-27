@@ -88,4 +88,30 @@ function describe() {
   return `Email: ON — SMTP ${s.host}:${s.port} (${s.secure ? "SSL" : "STARTTLS"})${s.user ? ", login set" : ""}.`;
 }
 
-module.exports = { sendEmail, isConfigured, describe };
+// Start-up warnings for password reset emails. Only fixed text is returned
+// (variable names, never values): no password, address or link is printed.
+function configWarnings() {
+  const s = readSettings();
+  const warnings = [];
+  const siteUrl = String(process.env.SITE_URL || "").trim();
+  const production = process.env.NODE_ENV === "production";
+
+  if (!s.host || !s.from) {
+    warnings.push("SMTP_HOST or EMAIL_FROM is missing in backend/.env: password reset emails will NOT be sent.");
+  } else if (s.user && !s.pass) {
+    warnings.push("SMTP_USER is set but SMTP_PASSWORD is empty: the mail server will probably refuse the login.");
+  }
+
+  if (!siteUrl) {
+    if (production) {
+      warnings.push("SITE_URL is not set: password reset emails will NOT be sent. Set it to the live website address (https://rabbora.co.uk).");
+    } else {
+      warnings.push("SITE_URL is not set: password reset links will point to http://localhost:5500.");
+    }
+  } else if (production && /localhost|127\.0\.0\.1/i.test(siteUrl)) {
+    warnings.push("SITE_URL points to localhost on a production server: password reset links will not work for customers.");
+  }
+  return warnings;
+}
+
+module.exports = { sendEmail, isConfigured, describe, configWarnings };

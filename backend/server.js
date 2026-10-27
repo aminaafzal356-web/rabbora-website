@@ -222,5 +222,7 @@ app.listen(PORT, (err) => {
   console.log(stripeState.line);
   stripeState.warnings.forEach((w) => console.warn("Stripe warning: " + w));
   // Password reset emails: on / off — never prints the SMTP password.
-  console.log(require("./services/emailService").describe());
+  const emailService = require("./services/emailService");
+  console.log(emailService.describe());
+  emailService.configWarnings().forEach((w) => console.warn("Password reset warning: " + w));
 });

@@ -7,49 +7,6 @@
     return (scope || document).querySelector(selector);
   }
 
-  /**
-   * ===========================================================
-   * FUTURE BACKEND INTEGRATION POINT
-   * ===========================================================
-   * This is the one function that needs to change when a real
-   * password-reset backend exists. Right now there is no backend
-   * to call, so this deliberately does NOT pretend to succeed —
-   * it rejects with a clear "not yet connected" error every time,
-   * and the success state is never shown as a result.
-   *
-   * When a real endpoint exists, replace the body of this
-   * function with something like:
-   *
-   *   return fetch("/api/password-reset/request", {
-   *     method: "POST",
-   *     headers: { "Content-Type": "application/json" },
-   *     body: JSON.stringify({ email: email })
-   *   }).then(function (response) {
-   *     if (!response.ok) {
-   *       return response.json().then(function (data) {
-   *         throw new Error((data && data.message) || "Could not send the reset link.");
-   *       });
-   *     }
-   *     return response.json(); // e.g. { sent: true }
-   *   });
-   *
-   * A real backend should respond the same way whether or not the
-   * email address has an account (to avoid revealing which emails
-   * are registered) — that's a backend concern, not something to
-   * work around here. This function never creates, stores, or
-   * even sees a reset token; that belongs entirely to the server.
-   *
-   * Returns a Promise that resolves on success, or rejects with an
-   * Error whose message is safe to show the user.
-   */
-  function requestPasswordReset(email) {
-    return new Promise(function (resolve, reject) {
-      window.setTimeout(function () {
-        reject(new Error("Password reset isn't available yet — this account system isn't connected to a server."));
-      }, 700);
-    });
-  }
-
   function announce(message) {
     var statusEl = document.getElementById("forgotFormStatus");
     if (statusEl) statusEl.textContent = message;
@@ -137,55 +94,6 @@
 
     var heading = qs(".forgot-success__heading", successState);
     if (heading) heading.focus();
-  }
-
-  function initForm() {
-    var form = document.getElementById("forgotForm");
-    var emailInput = document.getElementById("forgotEmail");
-    if (!form || !emailInput) return;
-
-    var isSubmitting = false;
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      // Prevent duplicate submissions if the button is somehow
-      // triggered again before the previous attempt finishes.
-      if (isSubmitting) return;
-
-      var emailValid = validateEmail(emailInput);
-
-      if (!emailValid) {
-        announce("Please enter a valid email address.");
-        emailInput.focus();
-        return;
-      }
-
-      isSubmitting = true;
-      setLoadingState(true);
-      announce("Sending reset instructions\u2026");
-
-      var email = emailInput.value.trim();
-
-      requestPasswordReset(email)
-        .then(function () {
-          // Only reached once a real backend genuinely confirms the
-          // request. Never fabricate this path — there is no backend
-          // to call yet, so this branch cannot currently run, and it
-          // must stay that way until a real API is connected.
-          announce("Reset instructions sent. Check your email.");
-          showSuccessState(email);
-        })
-        .catch(function (error) {
-          var message = error && error.message ? error.message : "Something went wrong. Please try again.";
-          announce(message);
-          setFieldError("forgotEmailField", "forgotEmail", "forgotEmailError", message);
-        })
-        .finally(function () {
-          isSubmitting = false;
-          setLoadingState(false);
-        });
-    });
   }
 
   /**
@@ -318,7 +226,6 @@
   function initForgotPage() {
     initForgotBackground();
     initLiveValidation();
-    initForm();
   }
 
   if (document.readyState === "loading") {
