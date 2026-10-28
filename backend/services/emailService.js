@@ -25,8 +25,14 @@ const SEND_TIMEOUT_MS = 20000;
 let transporter = null;
 let transporterKey = "";
 
+// Hosts that mean "this server itself". Never valid for the live site:
+// a leftover development value (e.g. localhost:1025 from a local mail
+// catcher) must not be used in production.
+const LOOPBACK_HOST = /^(localhost|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|::1|\[::1\]|0\.0\.0\.0)$/i;
+
 function readSettings() {
-  const port = Number(process.env.SMTP_PORT) || 587;
+  const rawPort = String(process.env.SMTP_PORT || "").trim();
+  const port = rawPort ? Number(rawPort) : 587;
   const secureRaw = String(process.env.SMTP_SECURE || "").trim().toLowerCase();
   return {
     host: String(process.env.SMTP_HOST || "").trim(),
@@ -66,10 +72,31 @@ function getTransporter() {
   return transporter;
 }
 
-// Sends one email. Resolves with true when the provider accepted it,
-// false when SMTP is not configured. Throws on a sending error (the
-// caller decides what to log — never the content).
+// In production, returns a secret-free reason why SMTP must not be used,
+// or "" when the settings are usable. Outside production returns "".
+function productionProblem(s = readSettings()) {
+  if (process.env.NODE_ENV !== "production") return "";
+  if (!s.host || !s.from) return "SMTP_HOST or EMAIL_FROM is missing.";
+  if (LOOPBACK_HOST.test(s.host)) {
+    return "SMTP_HOST points to this server (localhost). Set it to the mail provider's host (for Hostinger: smtp.hostinger.com) in the hosting environment.";
+  }
+  if (!Number.isInteger(s.port) || s.port < 1 || s.port > 65535) return "SMTP_PORT is not a valid port number.";
+  if (!s.user || !s.pass) return "SMTP_USER or SMTP_PASSWORD is missing.";
+  return "";
+}
+
+// Sends one email. Resolves with true when the provider accepted it.
+// Resolves with false when SMTP is not configured outside production.
+// Throws when the settings are unusable in production (code SMTP_CONFIG,
+// nothing is sent) or when the provider refuses the message. The caller
+// decides what to log — never the content or the password.
 async function sendEmail({ to, subject, text, html }) {
+  const problem = productionProblem();
+  if (problem) {
+    const err = new Error(problem);
+    err.code = "SMTP_CONFIG";
+    throw err;
+  }
   if (!isConfigured()) {
     console.warn("[email] SMTP is not configured (SMTP_HOST / EMAIL_FROM in backend/.env) — email not sent.");
     return false;
@@ -84,6 +111,10 @@ function describe() {
   const s = readSettings();
   if (!s.host || !s.from) {
     return "Email: OFF — set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD and EMAIL_FROM in backend/.env to send password reset emails.";
+  }
+  if (productionProblem(s)) {
+    // Never say "ON" for settings that the production check refuses.
+    return "Email: NOT USABLE in production — see the password reset warning below.";
   }
   return `Email: ON — SMTP ${s.host}:${s.port} (${s.secure ? "SSL" : "STARTTLS"})${s.user ? ", login set" : ""}.`;
 }
@@ -101,6 +132,8 @@ function configWarnings() {
   } else if (s.user && !s.pass) {
     warnings.push("SMTP_USER is set but SMTP_PASSWORD is empty: the mail server will probably refuse the login.");
   }
+  const smtpProblem = productionProblem(s);
+  if (smtpProblem) warnings.push("Production email settings are unusable, so password reset emails will NOT be sent: " + smtpProblem);
 
   if (!siteUrl) {
     if (production) {
@@ -114,4 +147,4 @@ function configWarnings() {
   return warnings;
 }
 
-module.exports = { sendEmail, isConfigured, describe, configWarnings };
+module.exports = { sendEmail, isConfigured, describe, configWarnings, productionProblem };
