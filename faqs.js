@@ -195,7 +195,7 @@
     "returns-request": { text: "Returns &amp; Refunds page", href: "returns.html" },
     "returns-refunds": { text: "Returns &amp; Refunds page", href: "returns.html" },
     "account-create": { text: "Create Account page", href: "register.html" },
-    "account-forgot": { text: "Forgot Password page", href: "forgot-password.html" },
+    "account-forgot": { text: "Forgot Password page", href: "forget-password.html" },
     "care-contact": { text: "Contact Us page", href: "contact.html" }
   };
 

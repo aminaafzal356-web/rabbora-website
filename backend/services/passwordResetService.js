@@ -140,11 +140,15 @@ async function requestPasswordReset(rawEmail) {
     [email]
   );
   const user = result.rows[0];
-  if (!user) return; // unknown or disabled account: nothing is sent
+  if (!user) {
+    // Same answer to the visitor either way; logged without the address.
+    console.log("[password-reset] No active account matches this request — no email sent.");
+    return;
+  }
 
   const base = siteUrl();
   if (!base) {
-    console.error("[password-reset] SITE_URL is not set in backend/.env — reset email not sent.");
+    console.error("[password-reset] SITE_URL is not set in the hosting environment — reset email not sent.");
     return;
   }
 
@@ -171,7 +175,8 @@ async function requestPasswordReset(rawEmail) {
 
   try {
     const sent = await sendEmail({ to: email, ...message });
-    if (sent) console.log(`[password-reset] Reset email sent (user id ${user.id}).`);
+    if (sent) console.log(`[password-reset] Reset email accepted by the mail server (user id ${user.id}).`);
+    else console.error(`[password-reset] Reset email NOT sent: SMTP is not configured (user id ${user.id}).`);
   } catch (err) {
     // Provider error: log the reason only (never the link or address).
     console.error(`[password-reset] Could not send reset email (user id ${user.id}):`, err.code || "", err.responseCode || "", err.message);

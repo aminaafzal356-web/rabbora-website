@@ -7,11 +7,6 @@
     return (scope || document).querySelector(selector);
   }
 
-  function announce(message) {
-    var statusEl = document.getElementById("forgotFormStatus");
-    if (statusEl) statusEl.textContent = message;
-  }
-
   function setFieldError(fieldId, inputId, errorId, message) {
     var field = document.getElementById(fieldId);
     var input = document.getElementById(inputId);
@@ -63,37 +58,6 @@
         validateEmail(emailInput);
       }
     });
-  }
-
-  function setLoadingState(isLoading) {
-    var btn = document.getElementById("forgotSubmitBtn");
-    var textEl = btn ? qs(".forgot-button__text", btn) : null;
-    if (!btn) return;
-
-    btn.disabled = isLoading;
-    btn.classList.toggle("is-loading", isLoading);
-    btn.setAttribute("aria-busy", String(isLoading));
-    if (textEl) textEl.textContent = isLoading ? "Sending..." : "Send reset link";
-  }
-
-  /**
-   * Shows the success panel in place of the request form. This is
-   * only ever called from the .then() of a genuinely successful
-   * requestPasswordReset() call — never speculatively, and never
-   * just because the form was submitted.
-   */
-  function showSuccessState(email) {
-    var requestState = document.getElementById("forgotRequestState");
-    var successState = document.getElementById("forgotSuccessState");
-    var emailEl = document.getElementById("forgotSuccessEmail");
-    if (!requestState || !successState) return;
-
-    if (emailEl) emailEl.textContent = email;
-    requestState.hidden = true;
-    successState.hidden = false;
-
-    var heading = qs(".forgot-success__heading", successState);
-    if (heading) heading.focus();
   }
 
   /**

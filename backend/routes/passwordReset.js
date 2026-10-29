@@ -78,7 +78,10 @@ router.post(
 
     // More than 3 requests an hour for one address: silently ignored
     // (stops someone flooding a customer's inbox).
-    if (!limiters.forgotEmail.hit(email).allowed) return;
+    if (!limiters.forgotEmail.hit(email).allowed) {
+      console.log("[password-reset] Request skipped: this address already got 3 reset emails this hour — no email sent.");
+      return;
+    }
 
     setImmediate(() => {
       resetService.requestPasswordReset(email).catch((err) => {
