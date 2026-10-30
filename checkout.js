@@ -159,13 +159,50 @@
     return lines;
   }
 
+  // Customer-facing labels for the options a basket line carries. Internal
+  // keys (image paths, fabric slugs, raw prices) are not shown.
+  var CHECKOUT_OPTION_LABELS = {
+    size: "Size", width: "Width", dimensions: "Dimensions", firmness: "Firmness",
+    fabric: "Fabric", diamantes: "Diamantes", buttons: "Buttons",
+    ottomanStorage: "Storage base", footstoolBlanketBox: "Footstool or blanket box",
+    headboardHeight: "Headboard", customRequest: "Custom request",
+    assembly: "Assembly", deliveryDelay: "Delayed delivery"
+  };
+  var CHECKOUT_HIDDEN_OPTIONS = { fabricSlug: true, fabricImage: true, footstoolBlanketBoxType: true, assemblyPrice: true, deliveryDate: true, requiredDeliveryDate: true };
+
+  function checkoutOptions(options) {
+    var out = {};
+    if (!options || typeof options !== "object") return out;
+    Object.keys(options).forEach(function (key) {
+      var value = options[key];
+      if (CHECKOUT_HIDDEN_OPTIONS[key] || value === null || value === undefined || value === "" || typeof value === "object") return;
+      var label = CHECKOUT_OPTION_LABELS[key] || key;
+      var text = String(value);
+      if (text === "yes") {
+        text = "Yes";
+        if (key === "assembly" && options.assemblyPrice) text += " (+" + C.money(options.assemblyPrice) + ")";
+        if (key === "footstoolBlanketBox" && options.footstoolBlanketBoxType) text += " (" + String(options.footstoolBlanketBoxType) + ")";
+        if (key === "deliveryDelay") {
+          var date = options.deliveryDate || options.requiredDeliveryDate;
+          if (date) text += " (from " + String(date) + ")";
+        }
+      } else if (text === "no") {
+        text = "No";
+      } else if (key === "headboardHeight") {
+        text = text === "normal" ? "Standard height" : (text === "increase" ? "Increased height" : (text === "decrease" ? "Decreased height" : text));
+      }
+      out[label] = text;
+    });
+    return out;
+  }
+
   function cartLineHtml(item) {
     var f = item.frontend_item || {};
     return C.lineHtml({
       image: f.image || item.image || (item.product && item.product.main_image) || "",
       name: item.name || f.name,
       alt: item.alt || item.name,
-      options: item.options,
+      options: checkoutOptions(item.options),
       quantity: item.quantity,
       unitPrice: item.unit_price,
       lineTotal: item.line_total
@@ -490,10 +527,17 @@
   // Payment (Stripe Checkout)
   // ---------------------------------------------------------------
 
+  // Tells the customer what happens next when online payment is on.
+  function updatePaymentNote() {
+    var note = document.getElementById("checkoutPaymentNote");
+    if (note) note.textContent = "You will pay by card on Stripe\u2019s secure page after you place your order. No payment is taken until then.";
+  }
+
   function loadPaymentConfig() {
     return C.request("/payments/stripe/config").then(function (result) {
       if (result.ok && result.data) {
         state.payments = { enabled: !!result.data.enabled, mode: result.data.mode || null };
+        if (state.payments.enabled) updatePaymentNote();
       }
     }).catch(function () { return null; });
   }

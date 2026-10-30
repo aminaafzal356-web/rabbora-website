@@ -27,6 +27,7 @@
 
   <link rel="stylesheet" href="cart.css" />
   <link rel="stylesheet" href="customer.css?v=customer-2" />
+  <link rel="stylesheet" href="checkout.css?v=checkout-redesign-1" />
 
   <script type="application/ld+json">
   {
@@ -367,40 +368,61 @@
               <p class="ck-shipping" id="checkoutShippingText"></p>
             </section>
 
-            <section class="ck-step" aria-labelledby="checkoutStepReview">
-              <h2 class="ck-step__heading" id="checkoutStepReview"><span class="ck-step__num" aria-hidden="true">3</span> Review your order</h2>
-              <div class="ck-lines" id="checkoutLines"></div>
-              <div class="ck-local-only" id="checkoutLocalOnly" hidden></div>
+            <section class="ck-step ck-payment" aria-labelledby="checkoutStepPayment">
+              <h2 class="ck-step__heading" id="checkoutStepPayment"><span class="ck-step__num" aria-hidden="true">3</span> Secure payment</h2>
+              <div class="ck-payment__card">
+                <p class="ck-payment__lead" id="checkoutPaymentLead">Your order is saved first. You then pay by card on Stripe&rsquo;s encrypted payment page.</p>
+                <ul class="ck-trust">
+                  <li>Encrypted, secure checkout</li>
+                  <li>Card details are entered on Stripe&rsquo;s page. Rabbora never sees or stores them.</li>
+                  <li>Your order stays saved even if payment is not completed.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="ck-step" aria-labelledby="checkoutStepNotes">
+              <h2 class="ck-step__heading" id="checkoutStepNotes"><span class="ck-step__num" aria-hidden="true">4</span> Order notes <span class="ck-step__sub">(optional)</span></h2>
               <div class="rb-field ck-notes" data-field="notes">
-                <label class="rb-field__label" for="checkoutNotes">Order notes (optional)</label>
-                <textarea class="rb-input rb-textarea" id="checkoutNotes" name="notes" rows="3" maxlength="1000" placeholder="Anything we should know about your delivery?"></textarea>
+                <label class="rb-field__label" for="checkoutNotes">Anything we should know about your delivery?</label>
+                <textarea class="rb-input rb-textarea" id="checkoutNotes" name="notes" rows="3" maxlength="1000" placeholder="e.g. access instructions, preferred delivery day"></textarea>
               </div>
             </section>
 
           </div>
 
-          <aside class="cart-summary ck-summary" aria-labelledby="checkoutSummaryHeading">
-            <h2 class="cart-summary__heading" id="checkoutSummaryHeading">Order Summary</h2>
+          <aside class="ck-summary" aria-labelledby="checkoutSummaryHeading">
+            <h2 class="ck-summary__heading" id="checkoutSummaryHeading">Your order</h2>
 
-            <div class="cart-summary__row">
-              <span>Subtotal</span>
-              <span class="cart-summary__value" id="checkoutSubtotal">&pound;0.00</span>
-            </div>
-            <div class="cart-summary__row">
-              <span>Shipping</span>
-              <span class="cart-summary__value" id="checkoutShipping">&pound;0.00</span>
-            </div>
-            <div class="cart-summary__row cart-summary__row--total">
-              <span>Total</span>
-              <span class="cart-summary__value" id="checkoutTotal">&pound;0.00</span>
-            </div>
+            <div class="ck-lines" id="checkoutLines"></div>
+            <div class="ck-local-only" id="checkoutLocalOnly" hidden></div>
+
+            <dl class="ck-totals">
+              <div class="ck-totals__row">
+                <dt>Subtotal</dt>
+                <dd id="checkoutSubtotal">&pound;0.00</dd>
+              </div>
+              <div class="ck-totals__row">
+                <dt>Delivery</dt>
+                <dd id="checkoutShipping">Free</dd>
+              </div>
+              <div class="ck-totals__row ck-totals__row--total">
+                <dt>Total</dt>
+                <dd id="checkoutTotal">&pound;0.00</dd>
+              </div>
+            </dl>
 
             <div class="ck-summary__address" id="checkoutSummaryAddress"></div>
 
-            <p class="cart-summary__note">No payment is taken on this page. Your order is saved as unpaid and our team will contact you about payment.</p>
+            <p class="ck-summary__note" id="checkoutPaymentNote">No payment is taken on this page. Your order is saved as unpaid and our team will contact you about payment.</p>
 
-            <button type="button" class="btn btn--forest cart-checkout-btn" id="checkoutPlaceOrder" disabled aria-disabled="true">Place order</button>
+            <button type="button" class="btn btn--forest ck-place-btn" id="checkoutPlaceOrder" disabled aria-disabled="true">Place order</button>
             <p class="ck-message" id="checkoutPlaceMessage" role="alert" hidden></p>
+
+            <ul class="ck-trust ck-trust--compact" aria-label="Why shop with Rabbora Living">
+              <li>Free Mainland UK delivery</li>
+              <li>Handmade in the UK</li>
+              <li>24-month warranty</li>
+            </ul>
             <a href="cart.html" class="cart-continue-link">Back to cart</a>
           </aside>
 
@@ -444,6 +466,6 @@
   <script src="cart-data.js?v=cart-sync-1"></script>
   <script src="script.js"></script>
   <script src="customer.js?v=customer-1"></script>
-  <script src="checkout.js?v=customer-2"></script>
+  <script src="checkout.js?v=checkout-redesign-1"></script>
 </body>
 </html>
