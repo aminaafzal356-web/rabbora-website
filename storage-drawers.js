@@ -478,7 +478,6 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
     imageIndex: 0,
     quantity: 1,
     selectedFabric: null,
-    ottomanStorage: null,
     footstoolBlanketBox: null,
     headboardCustom: null,
     customRequest: "",
@@ -513,8 +512,6 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
     var storageInfoEl = document.getElementById("sdDetailStorageInfo");
     var sizeOptionsBlock = document.getElementById("sdSizeOptions") ? document.getElementById("sdSizeOptions").closest(".bb-modal__fabrics") : null;
     var fabricsEl = document.getElementById("sdModalFabrics");
-    var ottomanStorageEl = document.getElementById("sdOttomanStorageOptions");
-    var ottomanStorageMsg = document.getElementById("sdOttomanStorageMessage");
     var footstoolEl = document.getElementById("sdFootstoolOptions");
     var footstoolMsg = document.getElementById("sdFootstoolMessage");
     var headboardCustomEl = document.getElementById("sdHeadboardCustomOptions");
@@ -925,7 +922,6 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
       });
     }
 
-    initRadioPillGroup(ottomanStorageEl, "ottomanStorage", ottomanStorageMsg);
     initRadioPillGroup(footstoolEl, "footstoolBlanketBox", footstoolMsg);
     initRadioPillGroup(headboardCustomEl, "headboardCustom", headboardCustomMsg);
     initRadioPillGroup(assemblyEl, "assembly", assemblyMsg, function () {
@@ -1000,20 +996,19 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
         messageEl.classList.remove("is-error");
       }
 
-      sdState.ottomanStorage = null;
       sdState.footstoolBlanketBox = null;
       sdState.headboardCustom = null;
       sdState.customRequest = "";
       sdState.assembly = null;
       sdState.deliveryDelay = null;
       sdState.deliveryDate = "";
-      [ottomanStorageEl, footstoolEl, headboardCustomEl, assemblyEl, deliveryDelayEl].forEach(function (group) {
+      [footstoolEl, headboardCustomEl, assemblyEl, deliveryDelayEl].forEach(function (group) {
         if (!group) return;
         Array.prototype.forEach.call(group.querySelectorAll(".mt-option-pill"), function (el) {
           el.setAttribute("aria-pressed", "false");
         });
       });
-      [ottomanStorageMsg, footstoolMsg, headboardCustomMsg, assemblyMsg, deliveryDelayMsg].forEach(function (msg) {
+      [footstoolMsg, headboardCustomMsg, assemblyMsg, deliveryDelayMsg].forEach(function (msg) {
         if (msg) msg.textContent = "";
       });
       if (customRequestEl) customRequestEl.value = "";
@@ -1275,11 +1270,6 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
         sizeOptionsEl.scrollIntoView({ behavior: "smooth", block: "center" });
         return false;
       }
-      if (!sdState.ottomanStorage) {
-        ottomanStorageMsg.textContent = "Please select an option.";
-        ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        return false;
-      }
       if (!sdState.footstoolBlanketBox) {
         footstoolMsg.textContent = "Please select an option.";
         footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -1324,7 +1314,6 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
               variant: {
                 size: sdState.selectedSize,
                 fabric: sdState.selectedFabric || null,
-                ottomanStorage: sdState.ottomanStorage,
                 footstoolBlanketBox: sdState.footstoolBlanketBox,
                 headboardHeight: sdState.headboardCustom,
                 customRequest: sdState.customRequest || null,
@@ -1352,14 +1341,71 @@ SD_FABRIC_COLLECTIONS.forEach(function (collection) {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function sdCartLine() {
+      return {
+        id: "storage-drawer-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "storage-drawers.html#/" + currentProduct.slug,
+        image: currentProduct.image || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "Storage Beds With Drawers",
+        variant: {
+          size: sdState.selectedSize,
+          fabric: sdState.selectedFabric || null,
+          footstoolBlanketBox: sdState.footstoolBlanketBox,
+          headboardHeight: sdState.headboardCustom,
+          customRequest: sdState.customRequest || null,
+          assembly: sdState.assembly,
+          assemblyPrice: sdState.assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: sdState.deliveryDelay,
+          deliveryDate: sdState.deliveryDelay === "yes" ? (sdState.deliveryDate || null) : null
+        }
+      };
+    }
+
     if (buyNowBtn) {
+      var sdBuyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
+        if (sdBuyNowBusy) return;
         if (!currentProduct) return;
         if (!validateRequiredOptions()) return;
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          if (messageEl) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          }
+          return;
+        }
+
+        sdBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
         if (messageEl) {
           messageEl.classList.remove("is-error");
-          messageEl.textContent = "Taking you to checkout for " + sdState.quantity + " item(s)...";
+          messageEl.textContent = "Preparing your order…";
         }
+
+        window.RabboraCart.prepareBuyNow(sdCartLine(), sdState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            if (messageEl) {
+              messageEl.classList.add("is-error");
+              messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            }
+            sdBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
 

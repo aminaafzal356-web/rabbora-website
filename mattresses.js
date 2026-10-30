@@ -2372,8 +2372,30 @@
       });
     }
 
+    // The basket line exactly as Add to Cart stores it (keep the two in sync).
+    function mtCartLine(product) {
+      var firmness = mtState.selectedFirmness || product.firmness[0];
+      return {
+        id: "mattress-" + product.slug,
+        slug: product.slug,
+        name: product.name,
+        url: "mattresses.html#/" + product.slug,
+        image: product.images && product.images.length ? product.images[0] : "",
+        alt: product.name,
+        price: currentPrice(product),
+        category: "Luxury Mattresses",
+        variant: {
+          size: mtState.selectedSize,
+          dimensions: MATTRESS_SIZE_DIMENSIONS[mtState.selectedSize] || "",
+          firmness: firmness
+        }
+      };
+    }
+
     if (buyNowBtn) {
+      var mtBuyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
+        if (mtBuyNowBusy) return;
         var product = mtDetailProduct();
         if (!product) return;
 
@@ -2387,9 +2409,34 @@
           purchaseMessage.classList.add("is-error");
           return;
         }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
 
+        mtBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
         purchaseMessage.classList.remove("is-error");
-        purchaseMessage.textContent = "Taking you to checkout for " + mtState.quantity + " \u00d7 " + product.name + "...";
+        purchaseMessage.textContent = "Preparing your order\u2026";
+
+        window.RabboraCart.prepareBuyNow(mtCartLine(product), mtState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            purchaseMessage.classList.add("is-error");
+            purchaseMessage.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            mtBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
 

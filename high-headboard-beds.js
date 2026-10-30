@@ -1964,12 +1964,67 @@ var HH_BED_SIZE_LABELS = {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function hhCartLine() {
+      var fabricName = selectedFabricName();
+      return {
+        id: "high-headboard-bed-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "high-headboard-beds.html#/" + currentProduct.slug,
+        image: currentProduct.image || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "High Headboard Beds",
+        variant: {
+          size: hhState.selectedSize,
+          fabric: fabricName || null,
+          ottomanStorage: ottomanStorage,
+          footstoolBlanketBox: footstoolBlanketBox,
+          headboardHeight: headboardCustom,
+          customRequest: customRequest || null,
+          assembly: assembly,
+          assemblyPrice: assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: deliveryDelay,
+          deliveryDate: deliveryDelay === "yes" ? (deliveryDate || null) : null
+        }
+      };
+    }
+
     if (buyNowBtn) {
+      var hhBuyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
+        if (hhBuyNowBusy) return;
         if (!currentProduct) return;
         if (!validateRequiredOptions()) return;
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        hhBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
         messageEl.classList.remove("is-error");
-        messageEl.textContent = "Taking you to checkout for " + hhState.quantity + " \u00d7 " + currentProduct.name + "...";
+        messageEl.textContent = "Preparing your order\u2026";
+
+        window.RabboraCart.prepareBuyNow(hhCartLine(), hhState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            hhBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
 

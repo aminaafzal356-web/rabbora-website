@@ -1599,6 +1599,100 @@ BS_FABRIC_COLLECTIONS.forEach(function (collection) {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function bsCartLine() {
+      return {
+        id: currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "best-sellers.html#/" + currentProduct.slug,
+        image: currentProduct.image || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "Best Sellers",
+        variant: {
+          size: bsSizeInfo(currentProduct) ? bsState.selectedSize : null,
+          fabric: bsState.selectedFabric || null,
+          ottomanStorage: bsState.ottomanStorage,
+          footstoolBlanketBox: bsState.footstoolBlanketBox,
+          headboardHeight: bsState.headboardCustom,
+          customRequest: bsState.customRequest || null,
+          assembly: bsState.assembly,
+          assemblyPrice: bsState.assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: bsState.deliveryDelay,
+          deliveryDate: bsState.deliveryDelay === "yes" ? (bsState.deliveryDate || null) : null
+        }
+      };
+    }
+
+    var bsBuyNowBtn = document.getElementById("bsBuyNow");
+    if (bsBuyNowBtn) {
+      var bsBuyNowBusy = false;
+      bsBuyNowBtn.addEventListener("click", function () {
+        if (bsBuyNowBusy) return;
+        if (!currentProduct) return;
+        // Same required options and messages as Add to Basket.
+        if (bsSizeInfo(currentProduct) && !bsState.selectedSize) {
+          if (sizeMessageEl) sizeMessageEl.textContent = "Please select a size.";
+          sizeOptionsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!bsState.ottomanStorage) {
+          ottomanStorageMsg.textContent = "Please select an option.";
+          ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!bsState.footstoolBlanketBox) {
+          footstoolMsg.textContent = "Please select an option.";
+          footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!bsState.headboardCustom) {
+          headboardCustomMsg.textContent = "Please select an option.";
+          headboardCustomEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!bsState.assembly) {
+          assemblyMsg.textContent = "Please select an option.";
+          assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!bsState.deliveryDelay) {
+          deliveryDelayMsg.textContent = "Please select an option.";
+          deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        bsBuyNowBusy = true;
+        bsBuyNowBtn.disabled = true;
+        bsBuyNowBtn.setAttribute("aria-busy", "true");
+        messageEl.classList.remove("is-error");
+        messageEl.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(bsCartLine(), bsState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            bsBuyNowBusy = false;
+            bsBuyNowBtn.disabled = false;
+            bsBuyNowBtn.removeAttribute("aria-busy");
+          });
+      });
+    }
+
     if (addBtn) {
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;

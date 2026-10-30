@@ -1841,9 +1841,70 @@ var FABRIC_COLLECTIONS = [
       });
     }
 
+    // The basket line exactly as Add to Cart stores it (keep the two in sync).
+    function sfCartLine(product) {
+      return {
+        id: "sofa-" + sfModalState.slug,
+        slug: sfModalState.slug,
+        name: product.name,
+        url: "sofas.html#/" + sfModalState.slug,
+        image: product.images && product.images.length ? product.images[0] : "",
+        alt: product.name,
+        price: sfSizePrice(sfModalState.slug, product, sfModalState.selectedSize),
+        category: "Sofas",
+        fabricImage: sfModalState.selectedFabricImage,
+        variant: {
+          size: sfModalState.selectedSize,
+          fabric: sfModalState.selectedFabric
+        }
+      };
+    }
+
     if (buyNowBtn) {
+      var sfBuyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
-        purchaseMessage.textContent = "Taking you to checkout for " + sfModalState.quantity + " item(s)...";
+        if (sfBuyNowBusy) return;
+        var product = sfCurrentProduct();
+        if (!product) return;
+
+        if (!sfModalState.selectedSize) {
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Please select a sofa size.";
+          return;
+        }
+        if (!sfModalState.selectedFabric || !sfModalState.selectedFabricSlug) {
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Please select a fabric colour.";
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        sfBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
+        purchaseMessage.classList.remove("is-error");
+        purchaseMessage.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(sfCartLine(product), sfModalState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            purchaseMessage.classList.add("is-error");
+            purchaseMessage.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            sfBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
   }

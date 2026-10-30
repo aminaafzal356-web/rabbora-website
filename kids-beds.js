@@ -1402,12 +1402,67 @@ function kbSizePrice(product, size) {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function kbCartLine() {
+      var resolvedImage = (currentProduct.images && currentProduct.images[0]) || "";
+      var fabricName = selectedFabricName();
+      return {
+        id: "kids-bed-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "kids-beds.html#/" + currentProduct.slug,
+        image: resolvedImage || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "Kids\u2019 Beds",
+        variant: {
+          size: kbState.selectedSize,
+          fabric: fabricName || null,
+          footstoolBlanketBox: kbState.footstoolBlanketBox,
+          headboardHeight: kbState.headboardCustom,
+          customRequest: kbState.customRequest || null,
+          assembly: kbState.assembly,
+          assemblyPrice: kbState.assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: kbState.deliveryDelay,
+          deliveryDate: kbState.deliveryDelay === "yes" ? (kbState.deliveryDate || null) : null
+        }
+      };
+    }
+
     if (buyNowBtn) {
+      var kbBuyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
+        if (kbBuyNowBusy) return;
         if (!currentProduct) return;
         if (!validateRequiredOptions()) return;
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        kbBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
         messageEl.classList.remove("is-error");
-        messageEl.textContent = "Taking you to checkout for " + kbState.quantity + " \u00d7 " + currentProduct.name + "...";
+        messageEl.textContent = "Preparing your order\u2026";
+
+        window.RabboraCart.prepareBuyNow(kbCartLine(), kbState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            kbBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
 

@@ -2979,6 +2979,103 @@ var RAPID_DELIVERY_SIZE_DELTAS = {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function rd2CartLine() {
+      var fabric = RD_FABRIC_COLLECTIONS_FLAT[rd2State.selectedFabricIndex];
+      return {
+        id: "rapid-delivery-bed-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "rapid-delivery-beds.html#/" + currentProduct.slug,
+        image: currentProduct.images[0] || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "Rapid Delivery Beds",
+        variant: {
+          size: rd2State.selectedSize,
+          fabric: fabric.name,
+          fabricSlug: fabric.slug,
+          fabricImage: fabric.image,
+          ottomanStorage: rd2State.ottomanStorage,
+          footstoolBlanketBox: rd2State.footstoolBlanketBox,
+          headboardHeight: rd2State.headboardCustom,
+          customRequest: rd2State.customRequest || null,
+          assembly: rd2State.assembly,
+          assemblyPrice: rd2State.assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: rd2State.deliveryDelay,
+          deliveryDate: rd2State.deliveryDelay === "yes" ? (rd2State.deliveryDate || null) : null
+        }
+      };
+    }
+
+    var rd2BuyNowBtn = document.getElementById("rd2BuyNow");
+    if (rd2BuyNowBtn) {
+      var rd2BuyNowBusy = false;
+      rd2BuyNowBtn.addEventListener("click", function () {
+        if (rd2BuyNowBusy) return;
+        if (!currentProduct) return;
+        // Same required options and messages as Add to Basket.
+        if (!rd2State.selectedSize) {
+          messageEl.textContent = "Please select a size.";
+          messageEl.classList.add("is-error");
+          return;
+        }
+        if (!rd2State.ottomanStorage) {
+          ottomanStorageMsg.textContent = "Please select an option.";
+          ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!rd2State.footstoolBlanketBox) {
+          footstoolMsg.textContent = "Please select an option.";
+          footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!rd2State.headboardCustom) {
+          headboardCustomMsg.textContent = "Please select an option.";
+          headboardCustomEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!rd2State.assembly) {
+          assemblyMsg.textContent = "Please select an option.";
+          assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!rd2State.deliveryDelay) {
+          deliveryDelayMsg.textContent = "Please select an option.";
+          deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        rd2BuyNowBusy = true;
+        rd2BuyNowBtn.disabled = true;
+        rd2BuyNowBtn.setAttribute("aria-busy", "true");
+        messageEl.classList.remove("is-error");
+        messageEl.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(rd2CartLine(), rd2State.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            rd2BuyNowBusy = false;
+            rd2BuyNowBtn.disabled = false;
+            rd2BuyNowBtn.removeAttribute("aria-busy");
+          });
+      });
+    }
+
     if (addBtn) {
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;

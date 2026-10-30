@@ -1612,9 +1612,70 @@
       });
     }
 
+    // The basket line exactly as Add to Cart stores it (keep the two in sync).
+    function bbCartLine(product) {
+      return {
+        id: "blanket-box-" + bbModalState.slug,
+        slug: bbModalState.slug,
+        name: product.name,
+        url: "blanket-boxes.html#/" + bbModalState.slug,
+        image: product.images && product.images.length ? product.images[0] : "",
+        alt: product.name,
+        price: bbWidthPrice(bbModalState.slug, product, bbModalState.selectedWidth),
+        category: "Blanket Boxes",
+        fabricImage: bbModalState.selectedFabricImage,
+        variant: {
+          width: bbModalState.selectedWidth,
+          fabric: bbModalState.selectedFabric
+        }
+      };
+    }
+
     if (buyNowBtn) {
+      var bbBuyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
-        purchaseMessage.textContent = "Taking you to checkout for " + bbModalState.quantity + " item(s)...";
+        if (bbBuyNowBusy) return;
+        var product = BB_PRODUCTS[bbModalState.slug];
+        if (!product) return;
+
+        if (!bbModalState.selectedWidth) {
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Please select a blanket box width.";
+          return;
+        }
+        if (!bbModalState.selectedFabric || !bbModalState.selectedFabricSlug) {
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Please select a fabric colour.";
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        bbBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
+        purchaseMessage.classList.remove("is-error");
+        purchaseMessage.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(bbCartLine(product), bbModalState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            purchaseMessage.classList.add("is-error");
+            purchaseMessage.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            bbBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
   }

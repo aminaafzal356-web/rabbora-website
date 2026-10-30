@@ -1732,6 +1732,94 @@ function tvSizePrice(product, size) {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function tvCartLine() {
+      return {
+        id: "tv-bed-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "tv-beds.html#/" + currentProduct.slug,
+        image: (currentProduct.images && currentProduct.images[0]) || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "TV Beds",
+        variant: {
+          size: tvState.selectedSize,
+          fabric: selectedFabricName() || null,
+          footstoolBlanketBox: tvState.footstoolBlanketBox,
+          headboardHeight: tvState.headboardCustom,
+          customRequest: tvState.customRequest || null,
+          assembly: tvState.assembly,
+          assemblyPrice: tvState.assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: tvState.deliveryDelay,
+          deliveryDate: tvState.deliveryDelay === "yes" ? (tvState.deliveryDate || null) : null
+        }
+      };
+    }
+
+    var tvBuyNowBtn = document.getElementById("tvBuyNow");
+    if (tvBuyNowBtn) {
+      var tvBuyNowBusy = false;
+      tvBuyNowBtn.addEventListener("click", function () {
+        if (tvBuyNowBusy) return;
+        if (!currentProduct) return;
+        // Same required options and messages as Add to Basket.
+        if (!tvState.selectedSize) {
+          messageEl.textContent = "Please select a size.";
+          messageEl.classList.add("is-error");
+          return;
+        }
+        if (!tvState.footstoolBlanketBox) {
+          footstoolMsg.textContent = "Please select an option.";
+          footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!tvState.headboardCustom) {
+          headboardCustomMsg.textContent = "Please select an option.";
+          headboardCustomEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!tvState.assembly) {
+          assemblyMsg.textContent = "Please select an option.";
+          assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!tvState.deliveryDelay) {
+          deliveryDelayMsg.textContent = "Please select an option.";
+          deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        tvBuyNowBusy = true;
+        tvBuyNowBtn.disabled = true;
+        tvBuyNowBtn.setAttribute("aria-busy", "true");
+        messageEl.classList.remove("is-error");
+        messageEl.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(tvCartLine(), tvState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            tvBuyNowBusy = false;
+            tvBuyNowBtn.disabled = false;
+            tvBuyNowBtn.removeAttribute("aria-busy");
+          });
+      });
+    }
+
     if (addBtn) {
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;

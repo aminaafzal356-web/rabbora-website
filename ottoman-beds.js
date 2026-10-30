@@ -7830,6 +7830,109 @@ OTTOMAN_FABRIC_COLLECTIONS.forEach(function (collection) {
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function obCartLine() {
+      var fabricName = selectedFabricName();
+      return {
+        id: "ottoman-bed-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "ottoman-beds.html#/" + currentProduct.slug,
+        image: currentProduct.images && currentProduct.images.length ? currentProduct.images[0] : "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "Slatted Ottoman Beds",
+        variant: {
+          size: obState.selectedSize,
+          fabric: fabricName,
+          diamantes: obState.diamantes ? "Yes" : null,
+          buttons: obState.buttons ? "Yes" : null,
+          ottomanStorage: obState.selectedOttoman,
+          footstoolBlanketBox: obState.matching,
+          footstoolBlanketBoxType: obState.matching === "yes" ? obState.matchingType : null,
+          headboardHeight: obState.headboardCustom,
+          customRequest: obState.customRequest || null,
+          assembly: obState.assembly,
+          assemblyPrice: obState.assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: obState.deliveryDelay,
+          deliveryDate: obState.deliveryDelay === "yes" ? (obState.deliveryDate || null) : null
+        }
+      };
+    }
+
+    var obBuyNowBtn = document.getElementById("obBuyNow");
+    if (obBuyNowBtn) {
+      var obBuyNowBusy = false;
+      obBuyNowBtn.addEventListener("click", function () {
+        if (obBuyNowBusy) return;
+        if (!currentProduct) return;
+        // Same required options, price check and messages as Add to Basket.
+        if (!obState.selectedSize) {
+          purchaseMessage.textContent = "Please select a size.";
+          purchaseMessage.classList.add("is-error");
+          return;
+        }
+        if (!obState.selectedOttoman) {
+          ottomanStorageMsg.textContent = "Please select an option.";
+          ottomanOptionsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!obState.matching) {
+          footstoolMsg.textContent = "Please select an option.";
+          matchingOptionsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!obState.headboardCustom) {
+          headboardCustomMsg.textContent = "Please select an option.";
+          headboardCustomEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!obState.assembly) {
+          assemblyMsg.textContent = "Please select an option.";
+          assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!obState.deliveryDelay) {
+          deliveryDelayMsg.textContent = "Please select an option.";
+          deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!isValidPrice(currentPrice(currentProduct))) {
+          purchaseMessage.textContent = "Sorry, we couldn't work out a price for this size. Please choose another size or contact us.";
+          purchaseMessage.classList.add("is-error");
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          purchaseMessage.classList.add("is-error");
+          purchaseMessage.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        obBuyNowBusy = true;
+        obBuyNowBtn.disabled = true;
+        obBuyNowBtn.setAttribute("aria-busy", "true");
+        purchaseMessage.classList.remove("is-error");
+        purchaseMessage.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(obCartLine(), obState.quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            purchaseMessage.classList.add("is-error");
+            purchaseMessage.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            obBuyNowBusy = false;
+            obBuyNowBtn.disabled = false;
+            obBuyNowBtn.removeAttribute("aria-busy");
+          });
+      });
+    }
+
     if (addToCartBtn) {
       addToCartBtn.addEventListener("click", function () {
         if (!currentProduct) return;

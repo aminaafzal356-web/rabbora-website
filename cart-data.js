@@ -613,8 +613,57 @@
     if (event.key === STORAGE_KEY) notify();
   });
 
+  /**
+   * Buy Now. The selected product + variant becomes ONE basket line with
+   * the chosen quantity. Unlike add(), the quantity is SET, not added, so
+   * repeated clicks never double it. For a logged-in customer the line is
+   * saved to the backend first, and the promise resolves { ok: true } only
+   * once the backend holds it, so the caller may open checkout.html. The
+   * backend checks the unit price against the database (routes/cart.js).
+   * A guest's line stays in this browser; checkout asks them to log in.
+   */
+  function prepareBuyNow(product, quantityWanted) {
+    if (!product || product.id === undefined || product.id === null || !product.name) {
+      return Promise.resolve({ ok: false, message: "Please choose your options before you buy." });
+    }
+    var qty = sanitizeQuantity(quantityWanted === undefined ? 1 : quantityWanted);
+    var lineId = buildLineId(product.id, product.variant);
+
+    var items = readAll();
+    var line = items.find(function (item) { return item.lineId === lineId; });
+    if (line) {
+      line.quantity = qty;
+      writeAll(items);
+      notify();
+      // Queues the backend update (PATCH when the line is already on the server).
+      serverSaveLine(lineId);
+    } else {
+      // add() writes the line locally and queues the backend save (POST).
+      add(product, qty);
+    }
+
+    if (!api || !isLoggedInHere()) {
+      return Promise.resolve({ ok: true, guest: true });
+    }
+    if (isLocalOnly(lineId)) {
+      return Promise.resolve({ ok: false, message: "This item can't be bought online yet. Please contact us." });
+    }
+
+    // The queue runs in order, so this resolves after the save above has
+    // finished. Then the line must carry the backend's id.
+    return enqueue(function () { return null; }).then(function () {
+      var now = readAll().find(function (item) { return item.lineId === lineId; });
+      if (now && now.serverItemId) return { ok: true };
+      if (isLocalOnly(lineId)) {
+        return { ok: false, message: "This item can't be bought online yet. Please contact us." };
+      }
+      return { ok: false, message: "We couldn't save this item to your basket. Please check your connection and try again." };
+    });
+  }
+
   window.RabboraCart = {
     STORAGE_KEY: STORAGE_KEY,
+    prepareBuyNow: prepareBuyNow,
     EVENT_NAME: EVENT_NAME,
     getAll: getAll,
     has: has,

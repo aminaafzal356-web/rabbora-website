@@ -2933,6 +2933,100 @@ var SOLID_OTTOMAN_PRODUCTS =
       });
     }
 
+    // The basket line exactly as Add to Basket stores it (keep the two in sync).
+    function soCartLine() {
+      var fabricName = selectedFabricName();
+      var sizeIndex = SO_SIZE_KEYS.indexOf(selectedSizeKey);
+      return {
+        id: "solid-base-ottoman-" + currentProduct.slug,
+        slug: currentProduct.slug,
+        name: currentProduct.name,
+        url: "solid-base-ottomans.html#/" + currentProduct.slug,
+        image: (currentProduct.images && currentProduct.images[0]) || "",
+        alt: currentProduct.name,
+        price: currentPrice(currentProduct),
+        category: "Solid Base Ottomans",
+        variant: {
+          size: selectedSizeKey || currentProduct.sizeKey || currentProduct.size || null,
+          fabric: fabricName,
+          diamantes: diamantes ? "Yes" : null,
+          buttons: buttons ? "Yes" : null,
+          ottomanStorage: ottomanStorage,
+          footstoolBlanketBox: footstoolBlanketBox,
+          headboardHeight: headboardHeight,
+          customRequest: customRequest || null,
+          assembly: assembly,
+          assemblyPrice: assembly === "yes" ? ASSEMBLY_PRICE : 0,
+          deliveryDelay: deliveryDelay,
+          deliveryDate: deliveryDelay === "yes" ? (deliveryDate || null) : null
+        }
+      };
+    }
+
+    var buyNowBtn = document.getElementById("soBuyNow");
+    if (buyNowBtn) {
+      var soBuyNowBusy = false;
+      buyNowBtn.addEventListener("click", function () {
+        if (soBuyNowBusy) return;
+        if (!currentProduct) return;
+
+        // Same required options and messages as Add to Basket.
+        if (!ottomanStorage) {
+          ottomanStorageMsg.textContent = "Please select an option.";
+          ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!footstoolBlanketBox) {
+          footstoolMsg.textContent = "Please select an option.";
+          footstoolEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!headboardHeight) {
+          headboardMsg.textContent = "Please select an option.";
+          headboardEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!assembly) {
+          assemblyMsg.textContent = "Please select an option.";
+          assemblyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!deliveryDelay) {
+          deliveryDelayMsg.textContent = "Please select an option.";
+          deliveryDelayEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        if (!window.RabboraCart || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          messageEl.classList.add("is-error");
+          messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+          return;
+        }
+
+        soBuyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
+        messageEl.classList.remove("is-error");
+        messageEl.textContent = "Preparing your order…";
+
+        window.RabboraCart.prepareBuyNow(soCartLine(), quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            messageEl.classList.add("is-error");
+            messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+            soBuyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
+      });
+    }
+
     if (addBtn) {
       addBtn.addEventListener("click", function () {
         if (!currentProduct) return;

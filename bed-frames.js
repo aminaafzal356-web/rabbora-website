@@ -1174,7 +1174,7 @@ var BF_FABRIC_COLLECTIONS = [
           reviewsListEl.innerHTML = "";
           var emptyMsg = document.createElement("p");
           emptyMsg.className = "mt-detail__reviews-empty";
-          emptyMsg.innerHTML = '<button type="button" class="rb-link-btn rb-add-review" data-add-review>Add a Review</button>';
+          emptyMsg.textContent = "No reviews yet. Be the first to review this bed frame.";
           reviewsListEl.appendChild(emptyMsg);
         }
         return;
@@ -1537,6 +1537,16 @@ var BF_FABRIC_COLLECTIONS = [
     // never enforced a Size requirement, so that behaviour is left
     // unchanged here.
     function validateRequiredOptions() {
+      // A fabric colour is required (like the blanket box and sofa pages).
+      // Clicking the selected swatch clears it, so it is checked here too.
+      if (!selectedFabric || !selectedFabricSlug) {
+        if (messageEl) {
+          messageEl.textContent = "Please select a fabric colour.";
+          messageEl.classList.add("is-error");
+        }
+        if (fabricsEl) fabricsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
       if (!ottomanStorage) {
         ottomanStorageMsg.textContent = "Please select an option.";
         ottomanStorageEl.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -1565,25 +1575,10 @@ var BF_FABRIC_COLLECTIONS = [
       return true;
     }
 
-    function addCurrentToCart() {
-      if (!currentProduct) return;
-      if (!validateRequiredOptions()) return;
-
-      if (!hasCartStore()) {
-        console.error(
-          "[Rabbora Cart] window.RabboraCart is not available on this page. " +
-          "Check that <script src=\"cart-data.js\"></script> is present and loads before this script."
-        );
-        if (messageEl) {
-          messageEl.textContent = "Sorry, something went wrong adding this to your cart. Please refresh and try again.";
-          messageEl.classList.add("is-error");
-        }
-        return;
-      }
-
+    // The product line exactly as the basket stores it (Add to Cart and Buy Now).
+    function currentCartProduct() {
       var unitPrice = currentPrice(currentProduct);
-
-      window.RabboraCart.add({
+      return {
         id: currentProduct.slug,
         slug: currentProduct.slug,
         name: currentProduct.name,
@@ -1604,7 +1599,28 @@ var BF_FABRIC_COLLECTIONS = [
           requiredDeliveryDate: deliveryDelay === "yes" ? (deliveryDate || null) : null
         },
         url: "bed-frames.html#/" + currentProduct.slug
-      }, quantity);
+      }
+    }
+
+    function addCurrentToCart() {
+      if (!currentProduct) return;
+      if (!validateRequiredOptions()) return;
+
+      if (!hasCartStore()) {
+        console.error(
+          "[Rabbora Cart] window.RabboraCart is not available on this page. " +
+          "Check that <script src=\"cart-data.js\"></script> is present and loads before this script."
+        );
+        if (messageEl) {
+          messageEl.textContent = "Sorry, something went wrong adding this to your cart. Please refresh and try again.";
+          messageEl.classList.add("is-error");
+        }
+        return;
+      }
+
+      var unitPrice = currentPrice(currentProduct);
+
+      window.RabboraCart.add(currentCartProduct(), quantity);
 
       if (messageEl) {
         messageEl.classList.remove("is-error");
@@ -1620,11 +1636,45 @@ var BF_FABRIC_COLLECTIONS = [
     }
 
     if (buyNowBtn) {
+      var buyNowBusy = false;
       buyNowBtn.addEventListener("click", function () {
-        if (!currentProduct) return;
+        if (!currentProduct || buyNowBusy) return;
         if (!validateRequiredOptions()) return;
-        addCurrentToCart();
-        window.location.href = "cart.html";
+
+        if (!hasCartStore() || typeof window.RabboraCart.prepareBuyNow !== "function") {
+          console.error("[Rabbora Cart] prepareBuyNow is not available. Check that cart-data.js loads before this script.");
+          if (messageEl) {
+            messageEl.textContent = "Sorry, Buy Now is not available right now. Please refresh and try again.";
+            messageEl.classList.add("is-error");
+          }
+          return;
+        }
+
+        buyNowBusy = true;
+        buyNowBtn.disabled = true;
+        buyNowBtn.setAttribute("aria-busy", "true");
+        if (messageEl) {
+          messageEl.classList.remove("is-error");
+          messageEl.textContent = "Preparing your order…";
+        }
+
+        window.RabboraCart.prepareBuyNow(currentCartProduct(), quantity)
+          .then(function (result) {
+            if (result && result.ok) {
+              window.location.href = "checkout.html";
+              return;
+            }
+            throw new Error((result && result.message) || "Sorry, we couldn't prepare your order. Please try again.");
+          })
+          .catch(function (err) {
+            if (messageEl) {
+              messageEl.textContent = err && err.message ? err.message : "Sorry, we couldn't prepare your order. Please try again.";
+              messageEl.classList.add("is-error");
+            }
+            buyNowBusy = false;
+            buyNowBtn.disabled = false;
+            buyNowBtn.removeAttribute("aria-busy");
+          });
       });
     }
   });
