@@ -17,6 +17,7 @@ const { toPence, fromPence, penceToNumeric, CURRENCY } = require("../utils/prici
 const { AppError, notFound, badRequest, forbidden, conflict } = require("../utils/AppError");
 const { checkUnitPrice } = require("../routes/cart");
 const userService = require("./userService");
+const stripeConfig = require("../config/stripe");
 
 // Free Mainland UK delivery (as the site says). Can be changed in .env
 // with SHIPPING_FLAT_GBP=… (pounds), without code changes.
@@ -113,6 +114,22 @@ async function placeOrder(user, input) {
     );
     const cart = cartResult.rows[0];
     if (!cart) throw new AppError(400, "INVALID_ORDER", "Your basket is empty.");
+
+    // Online payment on: the basket is kept until the card payment is
+    // confirmed, so only one online order can wait for payment at a time.
+    const online = stripeConfig.isConfigured();
+    if (online) {
+      const waiting = await client.query(
+        `SELECT id FROM orders
+          WHERE user_id = $1 AND awaiting_payment = TRUE
+            AND payment_status = 'unpaid' AND status = 'pending'
+          ORDER BY id DESC LIMIT 1`,
+        [user.id]
+      );
+      if (waiting.rows[0]) {
+        throw new AppError(409, "ORDER_AWAITING_PAYMENT", "You already have an order waiting for payment. Please pay for it first.");
+      }
+    }
 
     const linesResult = await client.query(
       `SELECT ci.*, p.name AS product_name, p.slug AS product_slug, p.price AS product_price,
@@ -263,9 +280,14 @@ async function placeOrder(user, input) {
       items.push(r.rows[0]);
     }
 
-    // 5. Empty the cart.
-    await client.query("DELETE FROM cart_items WHERE cart_id = $1", [cart.id]);
-    await client.query("UPDATE carts SET updated_at = CURRENT_TIMESTAMP WHERE id = $1", [cart.id]);
+    // 5. Online payment: keep the basket until the payment is confirmed
+    //    (see paymentService). Otherwise empty the cart as before.
+    if (online) {
+      await client.query("UPDATE orders SET awaiting_payment = TRUE, updated_at = CURRENT_TIMESTAMP WHERE id = $1", [order.id]);
+    } else {
+      await client.query("DELETE FROM cart_items WHERE cart_id = $1", [cart.id]);
+      await client.query("UPDATE carts SET updated_at = CURRENT_TIMESTAMP WHERE id = $1", [cart.id]);
+    }
 
     return formatOrder(order, items);
   });

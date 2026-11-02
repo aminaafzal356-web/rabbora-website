@@ -109,6 +109,9 @@ function makeFakeDb(initialOrders) {
       }
       return { rows: [] };
     }
+    // Basket clearing after a confirmed payment reads the order's lines.
+    // These fixtures have no line rows, so nothing is removed from the basket.
+    if (s.startsWith("SELECT frontend_product_id, options FROM order_items")) return { rows: [] };
     throw new Error("Unexpected SQL in the repair test: " + s);
   }
 

@@ -305,3 +305,177 @@
 .checkout-page .cart-breadcrumb span {
   color: rgba(35, 35, 32, 0.6);
 }
+
+/* ---------- Contact (account email) ---------- */
+
+.checkout-page .ck-contact__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--color-ivory-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.checkout-page .ck-contact__label {
+  font-size: 0.85rem;
+  color: rgba(35, 35, 32, 0.68);
+}
+
+.checkout-page .ck-contact__value {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.checkout-page .ck-contact__hint {
+  margin: 0.7rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(35, 35, 32, 0.68);
+}
+
+/* ---------- Billing & delivery: First name / Last name row ---------- */
+
+.checkout-page .ck-name-split {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .checkout-page .ck-name-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.checkout-page .ck-shipping {
+  margin: 1.1rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(35, 35, 32, 0.78);
+}
+
+/* ---------- Secure payment ---------- */
+
+.checkout-page .ck-method {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  margin: 0 0 1.1rem;
+}
+
+.checkout-page .ck-method__title {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+
+.checkout-page .ck-brands {
+  list-style: none;
+  margin: 0 0 0.25rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.checkout-page .ck-brand {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(35, 35, 32, 0.8);
+  white-space: nowrap;
+}
+
+/* Container for the Stripe Payment Element (Part 2 mounts the card fields here). */
+.checkout-page .ck-payment-element {
+  margin-top: 1rem;
+  min-height: 3.5rem;
+  padding: 1rem;
+  border: 1px dashed rgba(35, 35, 32, 0.22);
+  border-radius: var(--radius-sm);
+  background: var(--color-ivory-soft);
+  font-size: 0.875rem;
+  color: rgba(35, 35, 32, 0.72);
+  line-height: 1.5;
+}
+
+.checkout-page .ck-payment-element p {
+  margin: 0;
+}
+
+.checkout-page .ck-payment .ck-trust {
+  margin-bottom: 1.25rem;
+}
+
+.checkout-page .ck-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.checkout-page .ck-terms input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.2rem;
+  accent-color: var(--color-forest);
+  cursor: pointer;
+}
+
+.checkout-page .ck-terms a {
+  color: var(--color-forest);
+  text-decoration: underline;
+}
+
+.checkout-page .ck-payment .ck-place-btn {
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Payment panel (after the order is saved) ---------- */
+
+.checkout-page .ck-pay-form {
+  margin: 0 0 1rem;
+}
+
+/* The live Stripe card form: a solid frame, not the placeholder's dashed one. */
+.checkout-page .ck-payment-element--live {
+  margin-top: 0;
+  min-height: 0;
+  padding: 1rem;
+  border-style: solid;
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.checkout-page .ck-pay-error {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #c0392b;
+  border-radius: var(--radius-sm);
+  background: #fdf1ef;
+  color: #7a1f14;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.checkout-page .ck-pay-error[hidden] {
+  display: none;
+}
+
+.checkout-page .ck-pay-secure {
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: rgba(35, 35, 32, 0.72);
+}

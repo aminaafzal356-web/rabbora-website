@@ -31,6 +31,7 @@ const { toPence } = require("../utils/pricing");
 const { AppError, notFound } = require("../utils/AppError");
 const stripeConfig = require("../config/stripe");
 const orderService = require("./orderService");
+const lineKey = require("../utils/lineKey");
 
 const STRIPE_CURRENCY = "gbp";
 const MIN_PENCE = 30; // Stripe's minimum charge in GBP (£0.30)
@@ -141,6 +142,16 @@ function lineItemsFor(order, items) {
   return { lines, totalPence };
 }
 
+// Is this Stripe PaymentIntent exactly for this order and amount?
+function intentMatches(intent, order) {
+  return !!intent &&
+    intent.object === "payment_intent" &&
+    intent.metadata && Number(intent.metadata.order_id) === order.id &&
+    intent.metadata.order_number === order.order_number &&
+    String(intent.currency || "").toLowerCase() === STRIPE_CURRENCY &&
+    intent.amount === toPence(order.total);
+}
+
 // Is this Stripe session exactly for this order and amount?
 function sessionMatches(session, order) {
   return !!session &&
@@ -157,14 +168,16 @@ function sessionMatches(session, order) {
 
 // order: a row locked FOR UPDATE inside `client`'s transaction.
 async function applyPaidLocked(client, order, session, source) {
-  if (!sessionMatches(session, order)) {
+  const isIntent = !!session && session.object === "payment_intent";
+  const matches = isIntent ? intentMatches(session, order) : sessionMatches(session, order);
+  if (!matches) {
     log("paid session does not match the order — NOT marked paid, check it in Stripe", {
       session: session && session.id, order: order.order_number, amount: session && session.amount_total,
       expected: toPence(order.total), currency: session && session.currency, source,
     });
     return { result: "mismatch", orderId: order.id };
   }
-  const pi = intentId(session.payment_intent);
+  const pi = isIntent ? session.id : intentId(session.payment_intent);
   if (order.payment_status === "paid") {
     if (!order.stripe_payment_intent_id && pi) {
       await client.query("UPDATE orders SET stripe_payment_intent_id = $1 WHERE id = $2 AND stripe_payment_intent_id IS NULL", [pi, order.id]);
@@ -207,13 +220,17 @@ async function applyPaidLocked(client, order, session, source) {
     `UPDATE orders
         SET payment_status = 'paid',
             status = CASE WHEN status = 'pending' THEN 'confirmed' ELSE status END,
-            stripe_checkout_session_id = $1, stripe_payment_intent_id = $2,
+            stripe_checkout_session_id = COALESCE($1, stripe_checkout_session_id),
+            stripe_payment_intent_id = $2,
+            awaiting_payment = FALSE,
             updated_at = CURRENT_TIMESTAMP
       WHERE id = $3 AND payment_status = 'unpaid'
       RETURNING id, status`,
-    [session.id, pi, order.id]
+    [isIntent ? null : session.id, pi, order.id]
   );
   if (!u.rows[0]) return { result: "already_paid", orderId: order.id };
+  // Paid: now the ordered lines leave the basket (lines added since stay).
+  await clearOrderedCartLines(client, order);
   log("order marked paid", { order: order.order_number, status: u.rows[0].status, session: session.id, paymentIntent: pi, source });
   return { result: "paid", orderId: order.id };
 }
@@ -235,6 +252,119 @@ async function markPaidFromSession(session, source) {
     }
     return applyPaidLocked(client, r.rows[0], session, source);
   });
+}
+
+// Marks an order paid from a PaymentIntent that Stripe reports as succeeded.
+async function markPaidFromIntent(intent, source) {
+  if (!intent || intent.object !== "payment_intent") return { result: "ignored" };
+  if (intent.status !== "succeeded") return { result: "not_paid" };
+  const orderId = Number(intent.metadata && intent.metadata.order_id);
+  if (!Number.isInteger(orderId) || orderId <= 0) {
+    log("paid payment without a Rabbora order reference — ignored", { intent: intent.id, source });
+    return { result: "no_order" };
+  }
+  await ensureSchema();
+  return withTransaction(async (client) => {
+    const r = await client.query("SELECT * FROM orders WHERE id = $1 FOR UPDATE", [orderId]);
+    if (!r.rows[0]) return { result: "no_order" };
+    return applyPaidLocked(client, r.rows[0], intent, source);
+  });
+}
+
+// Removes from the basket the lines the paid order contained. Lines the
+// customer added while the payment was waiting are kept.
+async function clearOrderedCartLines(client, order) {
+  const items = await client.query("SELECT frontend_product_id, options FROM order_items WHERE order_id = $1", [order.id]);
+  const keys = items.rows.map((row) => lineKey.build(row.frontend_product_id, row.options));
+  if (!keys.length) return;
+  const cart = await client.query("SELECT id FROM carts WHERE user_id = $1 FOR UPDATE", [order.user_id]);
+  if (!cart.rows[0]) return;
+  await client.query("DELETE FROM cart_items WHERE cart_id = $1 AND line_key = ANY($2::text[])", [cart.rows[0].id, keys]);
+  await client.query("UPDATE carts SET updated_at = CURRENT_TIMESTAMP WHERE id = $1", [cart.rows[0].id]);
+}
+
+// ---------- Payment Element: PaymentIntent for this order ----------
+
+const OPEN_INTENT_STATES = new Set(["requires_payment_method", "requires_confirmation", "requires_action"]);
+
+// POST /api/payments/stripe/payment-intent  { orderId }
+// Creates (or re-uses) the PaymentIntent for ONE of the customer's unpaid
+// orders. The amount is the order total from PostgreSQL, in pence. The
+// client secret is returned only to the logged-in owner of the order.
+async function createPaymentIntent(user, orderId) {
+  const stripe = stripeConfig.getStripe();
+  if (!stripe) {
+    log("Stripe client not available: STRIPE_SECRET_KEY is missing or not an sk_test_/sk_live_ key in backend/.env");
+    throw paymentsOff();
+  }
+  await ensureSchema();
+
+  const outcome = await withTransaction(async (client) => {
+    const r = await client.query("SELECT * FROM orders WHERE id = $1 AND user_id = $2 FOR UPDATE", [orderId, user.id]);
+    const order = r.rows[0];
+    if (!order) throw notFound("Order not found.");
+    if (order.payment_status === "paid") return { alreadyPaid: true };
+    if (order.payment_status !== "unpaid" || ["cancelled", "refunded"].includes(order.status)) {
+      throw new AppError(409, "ORDER_NOT_PAYABLE", "This order can no longer be paid online. Please contact us.");
+    }
+    if (order.currency !== "GBP") throw new AppError(409, "ORDER_NOT_PAYABLE", "This order can't be paid online. Please contact us.");
+    const amount = toPence(order.total);
+    if (amount < MIN_PENCE) throw new AppError(409, "ORDER_NOT_PAYABLE", "This order total is too small to pay online.");
+
+    // 1. The order's own intent: re-use it while it is open and right.
+    const previous = order.stripe_payment_intent_id;
+    if (previous) {
+      let existing = null;
+      try {
+        existing = await stripe.paymentIntents.retrieve(previous);
+      } catch (err) {
+        log("saved payment intent could not be read — a new one is made", { order: order.order_number, error: err.type || err.code || "error" });
+      }
+      if (existing && existing.status === "succeeded") {
+        const paid = await applyPaidLocked(client, order, existing, "pay-now");
+        if (["paid", "already_paid", "repaired"].includes(paid.result)) return { alreadyPaid: true };
+      }
+      if (existing && OPEN_INTENT_STATES.has(existing.status)) {
+        if (intentMatches(existing, order) && existing.client_secret && existing.amount === amount) {
+          return { clientSecret: existing.client_secret, paymentIntentId: existing.id, amount, reused: true };
+        }
+        // Open but not right for this order any more: cancel it so it can't be paid.
+        try { await stripe.paymentIntents.cancel(existing.id); } catch (err) { log("could not cancel an old payment intent", { intent: existing.id, error: err.type || err.code || "error" }); }
+      }
+    }
+
+    // 2. A new intent for this order and amount. Idempotency: a retried
+    //    request (network error) returns the same intent, never a second one.
+    const ref = String(order.id);
+    const params = {
+      amount,
+      currency: STRIPE_CURRENCY,
+      automatic_payment_methods: { enabled: true },
+      description: `Rabbora order ${order.order_number}`,
+      metadata: { order_id: ref, order_number: order.order_number },
+    };
+    if (order.customer_email) params.receipt_email = order.customer_email;
+    const fingerprint = crypto.createHash("sha256").update(JSON.stringify(params)).digest("hex").slice(0, 24);
+    let intent;
+    try {
+      intent = await stripe.paymentIntents.create(params, {
+        idempotencyKey: `rabbora-pi-${order.id}-${previous || "first"}-${fingerprint}`,
+      });
+    } catch (err) {
+      log("Stripe refused to create the payment intent", { order: order.order_number, error: err.type || "error", code: err.code || null, status: err.statusCode || null });
+      // Stripe unreachable or refused: a clear, safe message (the order stays saved, unpaid).
+      throw new AppError(502, "PAYMENT_PROVIDER_ERROR", "We couldn't set up the payment with our payment provider right now. Your order is saved and has not been charged. Please try again in a moment.");
+    }
+    await client.query(
+      "UPDATE orders SET stripe_payment_intent_id = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2",
+      [intent.id, order.id]
+    );
+    log("payment intent created", { order: order.order_number, intent: intent.id, amount, mode: stripeConfig.mode() });
+    return { clientSecret: intent.client_secret, paymentIntentId: intent.id, amount, reused: false };
+  });
+
+  if (outcome.alreadyPaid) throw new AppError(409, "ALREADY_PAID", "This order has already been paid.");
+  return { clientSecret: outcome.clientSecret, paymentIntentId: outcome.paymentIntentId, amount: outcome.amount / 100, currency: "GBP", reused: outcome.reused };
 }
 
 // ---------- creating / re-using the Checkout Session ----------
@@ -402,6 +532,7 @@ function verifyWebhook(rawBody, signature) {
   try {
     return stripe.webhooks.constructEvent(rawBody, signature, secret);
   } catch (err) {
+    log("webhook refused: signature check failed", { reason: err && err.type ? err.type : "invalid" });
     throw new AppError(400, "INVALID_SIGNATURE", "Invalid Stripe signature.");
   }
 }
@@ -409,7 +540,7 @@ function verifyWebhook(rawBody, signature) {
 // Events to enable for the endpoint in the Stripe Dashboard:
 //   checkout.session.completed, checkout.session.async_payment_succeeded,
 //   checkout.session.async_payment_failed, checkout.session.expired,
-//   charge.refunded
+//   charge.refunded, payment_intent.succeeded, payment_intent.payment_failed
 async function handleEvent(event) {
   const obj = event.data && event.data.object;
   const src = `webhook:${event.type}:${event.id}`;
@@ -417,6 +548,11 @@ async function handleEvent(event) {
     case "checkout.session.completed":
     case "checkout.session.async_payment_succeeded":
       return markPaidFromSession(obj, src);
+    case "payment_intent.succeeded":
+      return markPaidFromIntent(obj, src);
+    case "payment_intent.payment_failed":
+      log("payment failed — order stays unpaid", { intent: obj && obj.id, order: obj && obj.metadata && obj.metadata.order_number, event: event.id });
+      return { result: "failed_unpaid" };
     case "checkout.session.async_payment_failed":
       log("payment failed — order stays unpaid", { session: obj && obj.id, order: obj && obj.metadata && obj.metadata.order_number, event: event.id });
       return { result: "failed_unpaid" };
@@ -460,12 +596,35 @@ async function paymentStatus(user, orderId) {
       log("could not check the session on return", { order: row.order_number, error: err.type || err.code || "error" });
     }
   }
+  // Diagnostic only: a paid order that is still pending after the return
+  // check. Says which condition blocked the repair (no ids, keys or card data).
+  if (row.payment_status === "paid" && row.status === "pending" && !verified) {
+    log("paid order still pending after the return check — not changed", {
+      order: row.order_number,
+      stripeConfigured: !!stripe,
+      hasSavedSession: !!row.stripe_checkout_session_id,
+      hasPaymentIntent: !!row.stripe_payment_intent_id,
+    });
+  }
+  if (stripe && needsCheck && !verified && row.stripe_payment_intent_id) {
+    try {
+      const intent = await stripe.paymentIntents.retrieve(row.stripe_payment_intent_id);
+      if (intent.status === "succeeded") {
+        const outcome = await markPaidFromIntent(intent, "return");
+        verified = ["paid", "already_paid", "repaired"].includes(outcome.result);
+      }
+    } catch (err) {
+      log("could not check the payment intent on return", { order: row.order_number, error: err.type || err.code || "error" });
+    }
+  }
   const order = await orderService.getOrder(user, row.id);
   return { order, paid: order.paymentStatus === "paid", verified };
 }
 
 module.exports = {
   createCheckoutSession,
+  createPaymentIntent,
+  markPaidFromIntent,
   markPaidFromSession,
   applyPaidLocked, // exported for tests/payments-repair.test.js
   expireOpenSession,

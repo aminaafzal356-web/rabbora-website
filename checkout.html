@@ -27,7 +27,7 @@
 
   <link rel="stylesheet" href="cart.css" />
   <link rel="stylesheet" href="customer.css?v=customer-2" />
-  <link rel="stylesheet" href="checkout.css?v=checkout-redesign-1" />
+  <link rel="stylesheet" href="checkout.css?v=checkout-payment-element-1" />
 
   <script type="application/ld+json">
   {
@@ -347,8 +347,17 @@
 
           <div class="ck-main">
 
+            <section class="ck-step ck-contact" aria-labelledby="checkoutStepContact">
+              <h2 class="ck-step__heading" id="checkoutStepContact"><span class="ck-step__num" aria-hidden="true">1</span> Contact</h2>
+              <div class="ck-contact__row">
+                <span class="ck-contact__label">Email address</span>
+                <span class="ck-contact__value" id="checkoutEmail">&nbsp;</span>
+              </div>
+              <p class="ck-contact__hint">Your order confirmation is sent to this address.</p>
+            </section>
+
             <section class="ck-step" aria-labelledby="checkoutStepAddress">
-              <h2 class="ck-step__heading" id="checkoutStepAddress"><span class="ck-step__num" aria-hidden="true">1</span> Shipping address</h2>
+              <h2 class="ck-step__heading" id="checkoutStepAddress"><span class="ck-step__num" aria-hidden="true">2</span> Billing &amp; delivery details</h2>
               <div class="ck-address-list" id="checkoutAddressList" role="radiogroup" aria-labelledby="checkoutStepAddress"></div>
               <p class="ck-message" id="checkoutAddressMessage" role="status" hidden></p>
               <button type="button" class="btn btn--outline-forest" id="checkoutAddAddressBtn">Add a new address</button>
@@ -361,31 +370,50 @@
                   <button type="button" class="btn btn--outline-forest" id="checkoutAddressCancel">Cancel</button>
                 </div>
               </form>
-            </section>
 
-            <section class="ck-step" aria-labelledby="checkoutStepShipping">
-              <h2 class="ck-step__heading" id="checkoutStepShipping"><span class="ck-step__num" aria-hidden="true">2</span> Delivery</h2>
               <p class="ck-shipping" id="checkoutShippingText"></p>
             </section>
 
-            <section class="ck-step ck-payment" aria-labelledby="checkoutStepPayment">
-              <h2 class="ck-step__heading" id="checkoutStepPayment"><span class="ck-step__num" aria-hidden="true">3</span> Secure payment</h2>
-              <div class="ck-payment__card">
-                <p class="ck-payment__lead" id="checkoutPaymentLead">Your order is saved first. You then pay by card on Stripe&rsquo;s encrypted payment page.</p>
-                <ul class="ck-trust">
-                  <li>Encrypted, secure checkout</li>
-                  <li>Card details are entered on Stripe&rsquo;s page. Rabbora never sees or stores them.</li>
-                  <li>Your order stays saved even if payment is not completed.</li>
-                </ul>
+            <section class="ck-step" aria-labelledby="checkoutStepNotes">
+              <h2 class="ck-step__heading" id="checkoutStepNotes"><span class="ck-step__num" aria-hidden="true">3</span> Additional order notes <span class="ck-step__sub">(optional)</span></h2>
+              <div class="rb-field ck-notes" data-field="notes">
+                <label class="rb-field__label" for="checkoutNotes">Anything we should know about your order or delivery?</label>
+                <textarea class="rb-input rb-textarea" id="checkoutNotes" name="notes" rows="3" maxlength="1000" placeholder="e.g. access instructions, preferred delivery day"></textarea>
               </div>
             </section>
 
-            <section class="ck-step" aria-labelledby="checkoutStepNotes">
-              <h2 class="ck-step__heading" id="checkoutStepNotes"><span class="ck-step__num" aria-hidden="true">4</span> Order notes <span class="ck-step__sub">(optional)</span></h2>
-              <div class="rb-field ck-notes" data-field="notes">
-                <label class="rb-field__label" for="checkoutNotes">Anything we should know about your delivery?</label>
-                <textarea class="rb-input rb-textarea" id="checkoutNotes" name="notes" rows="3" maxlength="1000" placeholder="e.g. access instructions, preferred delivery day"></textarea>
+            <section class="ck-step ck-payment" aria-labelledby="checkoutStepPayment">
+              <h2 class="ck-step__heading" id="checkoutStepPayment"><span class="ck-step__num" aria-hidden="true">4</span> Secure payment</h2>
+              <p class="ck-payment__lead">All transactions are secure and encrypted.</p>
+
+              <div class="ck-method">
+                <p class="ck-method__title">Debit / Credit Card</p>
+                <ul class="ck-brands" aria-label="Accepted payment methods">
+                  <li class="ck-brand">Visa</li>
+                  <li class="ck-brand">Mastercard</li>
+                  <li class="ck-brand">American Express</li>
+                  <li class="ck-brand">Apple Pay</li>
+                  <li class="ck-brand">Google Pay</li>
+                </ul>
+                <!-- Stripe Payment Element mounts here in Part 2. -->
+                <div class="ck-payment-element" id="checkoutPaymentElement">
+                  <p>Your card details are entered in a secure payment form on this page, after you press Pay now.</p>
+                </div>
               </div>
+
+              <ul class="ck-trust">
+                <li>Encrypted, secure checkout</li>
+                <li>Card details are entered on Stripe&rsquo;s page. Rabbora never sees or stores them.</li>
+                <li>Your order stays saved even if payment is not completed.</li>
+              </ul>
+
+              <label class="ck-terms" for="checkoutTerms">
+                <input type="checkbox" id="checkoutTerms" name="terms" />
+                <span>I have read and agree to the website <a href="terms-and-conditions.html">terms and conditions</a> and I have reviewed my order carefully.</span>
+              </label>
+
+              <button type="button" class="btn btn--forest ck-place-btn" id="checkoutPlaceOrder" disabled aria-disabled="true">Pay now</button>
+              <p class="ck-message" id="checkoutPlaceMessage" role="alert" hidden></p>
             </section>
 
           </div>
@@ -402,7 +430,7 @@
                 <dd id="checkoutSubtotal">&pound;0.00</dd>
               </div>
               <div class="ck-totals__row">
-                <dt>Delivery</dt>
+                <dt>Delivery charges</dt>
                 <dd id="checkoutShipping">Free</dd>
               </div>
               <div class="ck-totals__row ck-totals__row--total">
@@ -414,9 +442,6 @@
             <div class="ck-summary__address" id="checkoutSummaryAddress"></div>
 
             <p class="ck-summary__note" id="checkoutPaymentNote">No payment is taken on this page. Your order is saved as unpaid and our team will contact you about payment.</p>
-
-            <button type="button" class="btn btn--forest ck-place-btn" id="checkoutPlaceOrder" disabled aria-disabled="true">Place order</button>
-            <p class="ck-message" id="checkoutPlaceMessage" role="alert" hidden></p>
 
             <ul class="ck-trust ck-trust--compact" aria-label="Why shop with Rabbora Living">
               <li>Free Mainland UK delivery</li>
@@ -466,6 +491,6 @@
   <script src="cart-data.js?v=cart-sync-1"></script>
   <script src="script.js"></script>
   <script src="customer.js?v=customer-1"></script>
-  <script src="checkout.js?v=checkout-redesign-1"></script>
+  <script src="checkout.js?v=checkout-payment-element-1"></script>
 </body>
 </html>

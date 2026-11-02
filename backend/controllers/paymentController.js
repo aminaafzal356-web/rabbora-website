@@ -41,6 +41,15 @@ module.exports = {
     res.status(201).json({ success: true, ...result });
   },
 
+  // POST /api/payments/stripe/payment-intent  { orderId }
+  // Payment Element on checkout.html: returns the client secret of this
+  // order's PaymentIntent (the amount comes from the order in the database).
+  createPaymentIntent: async (req, res) => {
+    const d = check(req.body).id("orderId", { required: true }).done();
+    const result = await paymentService.createPaymentIntent(req.user, d.orderId);
+    res.status(201).json({ success: true, ...result });
+  },
+
   // GET /api/payments/stripe/orders/:id/status
   // (a session_id in the address is ignored: the backend only checks the
   // session it saved on the order itself)
@@ -54,7 +63,13 @@ module.exports = {
   webhook: async (req, res) => {
     const event = paymentService.verifyWebhook(req.body, req.headers["stripe-signature"]);
     // A database error is thrown on -> 500, so Stripe tries again later.
-    const outcome = await paymentService.handleEvent(event);
+    let outcome;
+    try {
+      outcome = await paymentService.handleEvent(event);
+    } catch (err) {
+      console.error("[payments] webhook processing failed", { type: event.type, event: event.id, error: err && (err.code || err.name) || "error" });
+      throw err;
+    }
     res.status(200).json({ received: true, result: outcome.result });
   },
 };

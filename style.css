@@ -1819,6 +1819,23 @@ h1, h2, h3, h4 {
 
 /* ---------- Reduced motion: no zoom, no fades, no auto-advance ---------- */
 
+/* ---------- Laptop only (1200px to 1919px) ----------
+   Full-width slider, cover, no side bands. The mobile hero shows a window
+   about 0.74 times as tall as the screen is wide (34% of the phone height),
+   with the photo positioned at center 60%. The same window is used here,
+   so laptop framing matches the mobile framing. Tablet, mobile and 1920px
+   desktop keep the rules above. */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .hs-slider {
+    height: 73.6vw;
+  }
+
+  .hs-slide img {
+    object-fit: cover;
+    object-position: center 60%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hs-slide {
     transition: none;

@@ -12,17 +12,18 @@
  *           saves it as "pending" / "unpaid" and empties the basket in
  *           ONE transaction. If anything fails, nothing changes.
  *
- * Payment (Stripe Checkout, when the backend has Stripe keys):
- *   GET  /api/payments/stripe/config            is online payment on?
- *   POST /api/payments/stripe/checkout-session  { orderId, returnPath }
- *        -> the backend takes the amount from the SAVED order and answers
- *           with a Stripe address; this page only redirects there.
- *   Stripe sends the customer back to this page:
- *     ?payment=success&order=ID&session_id=…  -> GET /api/payments/stripe/orders/ID/status
- *        The backend checks the session with Stripe itself. "Payment
- *        received" is shown ONLY when the backend says the order is paid.
- *     ?payment=cancelled&order=ID              -> the order stays unpaid and
- *        can be paid again with "Pay now" (no second order is created).
+ * Payment (Stripe Payment Element, on this page, when the backend has keys):
+ *   GET  /api/payments/stripe/config            is online payment on? + publishable key
+ *   POST /api/payments/stripe/payment-intent    { orderId }
+ *        -> the backend takes the amount from the SAVED order and returns a
+ *           client secret. Stripe.js draws the card form on this page; card
+ *           details go straight to Stripe, never to this page's code.
+ *   "Pay now" -> stripe.confirmPayment(). The page then asks the backend
+ *   (GET /api/payments/stripe/orders/ID/status), which checks the payment
+ *   with Stripe itself. "Payment received" is shown ONLY when the backend
+ *   says the order is paid. The basket is emptied only then.
+ *   Stripe may send the customer back here after a bank check:
+ *     ?payment=success&order=ID  -> the status check above
  * Without Stripe keys the page works exactly as before (order placed,
  * payment arranged by the team).
  *
@@ -70,6 +71,8 @@
     total: document.getElementById("checkoutTotal"),
     summaryAddress: document.getElementById("checkoutSummaryAddress"),
     placeOrder: document.getElementById("checkoutPlaceOrder"),
+    terms: document.getElementById("checkoutTerms"),
+    email: document.getElementById("checkoutEmail"),
     placeMessage: document.getElementById("checkoutPlaceMessage"),
     confirmation: document.getElementById("checkoutConfirmation")
   };
@@ -79,8 +82,10 @@
     addresses: [],
     selectedAddressId: null,
     placing: false,
-    payments: { enabled: false, mode: null }, // GET /api/payments/stripe/config
-    paying: false
+    payments: { enabled: false, mode: null, publishableKey: "" }, // GET /api/payments/stripe/config
+    paying: false,       // true while a card payment is being confirmed (blocks a second submit)
+    pay: null,           // the order being paid, plus its Stripe objects (see mountPaymentElement)
+    lastOrder: null
   };
 
   function show(el, shown) {
@@ -311,9 +316,80 @@
     });
   }
 
+  function escapeAttr(value) {
+    return String(value == null ? "" : value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  }
+
+  function nameFieldHtml(id, label, autocomplete, field, value) {
+    return '<div class="rb-field rb-field--half" data-field="' + field + '">' +
+      '<label class="rb-field__label" for="' + id + '">' + label + "</label>" +
+      '<input class="rb-input" id="' + id + '" type="text" autocomplete="' + autocomplete + '" maxlength="100"' +
+      ' value="' + escapeAttr(value) + '" required aria-required="true" aria-invalid="false" aria-describedby="' + id + 'Error" />' +
+      '<p class="rb-field__error" id="' + id + 'Error" role="alert" hidden></p>' +
+      "</div>";
+  }
+
+  // Shows First name and Last name in place of the single "Full name" field.
+  // The address is still saved with one fullName, exactly as before.
+  function splitNameFields() {
+    var form = els.addressForm;
+    if (!form) return;
+    var wrap = form.querySelector('[data-field="fullName"]');
+    if (!wrap || wrap.getAttribute("data-split") === "1") return;
+    var full = wrap.querySelector('input[name="fullName"]');
+    if (!full) return;
+    var parts = full.value.trim().split(/\s+/);
+    var first = parts.shift() || "";
+    var last = parts.join(" ");
+    wrap.setAttribute("data-split", "1");
+    wrap.hidden = true;
+    full.tabIndex = -1;
+    var holder = document.createElement("div");
+    holder.className = "ck-name-split";
+    holder.innerHTML = nameFieldHtml("ckFirstName", "First name", "given-name", "firstName", first) +
+      nameFieldHtml("ckLastName", "Last name", "family-name", "lastName", last);
+    wrap.parentNode.insertBefore(holder, wrap);
+    var firstInput = holder.querySelector("#ckFirstName");
+    var lastInput = holder.querySelector("#ckLastName");
+    var sync = function () { full.value = (firstInput.value.trim() + " " + lastInput.value.trim()).trim(); };
+    [firstInput, lastInput].forEach(function (input) {
+      input.addEventListener("input", function () {
+        sync();
+        input.setAttribute("aria-invalid", "false");
+        var err = document.getElementById(input.id + "Error");
+        if (err) { err.hidden = true; err.textContent = ""; }
+      });
+    });
+    form._ckSyncName = sync;
+    sync();
+  }
+
+  // Runs before customer.js's submit handler: a missing first or last name
+  // is shown under its own field and the form is not sent.
+  function checkNameBeforeSubmit(event) {
+    var form = els.addressForm;
+    if (!form || !form._ckSyncName) return;
+    form._ckSyncName();
+    var firstInput = document.getElementById("ckFirstName");
+    var lastInput = document.getElementById("ckLastName");
+    if (!firstInput || !lastInput) return;
+    var missing = !firstInput.value.trim() ? firstInput : (!lastInput.value.trim() ? lastInput : null);
+    if (!missing) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    var err = document.getElementById(missing.id + "Error");
+    missing.setAttribute("aria-invalid", "true");
+    if (err) {
+      err.textContent = missing === firstInput ? "Please enter your first name." : "Please enter your last name.";
+      err.hidden = false;
+    }
+    missing.focus();
+  }
+
   function openAddressForm() {
     if (!els.addressForm) return;
     C.fillAddressForm(els.addressForm, null);
+    splitNameFields();
     els.addressForm.hidden = false;
     if (els.addAddressBtn) els.addAddressBtn.hidden = true;
   }
@@ -393,6 +469,14 @@
     announce("Your cart is empty.");
   }
 
+  // Contact section: the email the order confirmation goes to (from the account).
+  function loadAccountEmail() {
+    C.request("/auth/me").then(function (result) {
+      var user = result && result.ok && result.data ? result.data.user : null;
+      if (user && user.email && els.email) els.email.textContent = user.email;
+    }).catch(function () { return null; });
+  }
+
   function loadCheckout() {
     announce("Loading your basket…");
     // Let cart-data.js finish sending this browser's cart to the account
@@ -418,6 +502,7 @@
       showView("checkout");
       renderCart(r.cart);
       announce("");
+      loadAccountEmail();
       return loadAddresses();
     });
   }
@@ -429,7 +514,8 @@
   function updatePlaceButton() {
     if (!els.placeOrder) return;
     var ready = !state.placing && !!state.cart && state.cart.items.length > 0 &&
-      !!selectedAddress() && unavailableLines(state.cart).length === 0;
+      !!selectedAddress() && unavailableLines(state.cart).length === 0 &&
+      !!(els.terms && els.terms.checked);
     els.placeOrder.disabled = !ready;
     els.placeOrder.setAttribute("aria-disabled", String(!ready));
   }
@@ -438,7 +524,7 @@
     state.placing = placing;
     if (els.placeOrder) {
       els.placeOrder.setAttribute("aria-busy", placing ? "true" : "false");
-      els.placeOrder.textContent = placing ? "Placing your order…" : (state.payments.enabled ? "Place order and pay" : "Place order");
+      els.placeOrder.textContent = placing ? "Placing your order…" : (state.payments.enabled ? "Pay now" : "Place order");
     }
     updatePlaceButton();
   }
@@ -487,6 +573,10 @@
         }
         setPlacing(false);
         if (result.status === 401) return showLogin(C.errorMessage(result));
+        // One order may wait for payment at a time: take the customer to it.
+        if (result.status === 409 && result.data && result.data.code === "ORDER_AWAITING_PAYMENT") {
+          return resumeWaitingOrder();
+        }
         // Nothing was saved and the basket is unchanged (the backend
         // rolls everything back), e.g. a price change or no stock left.
         setMessage(els.placeMessage, C.errorMessage(result, "We couldn't place your order.") + " Your order has not been placed and your cart is unchanged.", true);
@@ -524,46 +614,227 @@
   }
 
   // ---------------------------------------------------------------
-  // Payment (Stripe Checkout)
+  // Payment (Stripe Payment Element, on this page)
   // ---------------------------------------------------------------
+
+  var STRIPE_JS_URL = "https://js.stripe.com/v3";
+  var stripeJsLoading = null;
 
   // Tells the customer what happens next when online payment is on.
   function updatePaymentNote() {
     var note = document.getElementById("checkoutPaymentNote");
-    if (note) note.textContent = "You will pay by card on Stripe\u2019s secure page after you place your order. No payment is taken until then.";
+    if (note) note.textContent = "Your card details are entered in a secure payment form on this page, after you place your order. No payment is taken until you confirm it.";
   }
 
   function loadPaymentConfig() {
     return C.request("/payments/stripe/config").then(function (result) {
       if (result.ok && result.data) {
-        state.payments = { enabled: !!result.data.enabled, mode: result.data.mode || null };
+        var key = typeof result.data.publishableKey === "string" ? result.data.publishableKey : "";
+        state.payments = {
+          enabled: !!result.data.enabled && /^pk_/.test(key),
+          mode: result.data.mode || null,
+          publishableKey: key
+        };
         if (state.payments.enabled) updatePaymentNote();
       }
     }).catch(function () { return null; });
   }
 
-  // Asks the backend for a Stripe Checkout address for this (already
-  // saved, unpaid) order and goes there. The backend works out the amount.
-  function startPayment(order) {
-    if (state.paying) return Promise.resolve();
+  // Loads Stripe.js (once) from Stripe's own address.
+  function loadStripeJs() {
+    if (window.Stripe) return Promise.resolve(window.Stripe);
+    if (!stripeJsLoading) {
+      stripeJsLoading = new Promise(function (resolve, reject) {
+        var script = document.createElement("script");
+        script.src = STRIPE_JS_URL;
+        script.async = true;
+        script.onload = function () {
+          if (window.Stripe) return resolve(window.Stripe);
+          stripeJsLoading = null;
+          reject(new Error("The secure payment form did not start. Please refresh the page and try again."));
+        };
+        script.onerror = function () {
+          stripeJsLoading = null;
+          if (script.parentNode) script.parentNode.removeChild(script);
+          reject(new Error("The secure payment form could not be loaded. Please check your connection, turn off any content blocker for this page, and try again."));
+        };
+        document.head.appendChild(script);
+      });
+    }
+    return stripeJsLoading;
+  }
+
+  // Where Stripe sends the customer if a bank check needs a separate page.
+  function returnUrl(orderId) {
+    return window.location.origin + window.location.pathname +
+      "?payment=success&order=" + encodeURIComponent(orderId);
+  }
+
+  function payButton() { return document.getElementById("ckPayButton"); }
+
+  function payError(message) {
+    var el = document.getElementById("ckPayError");
+    if (!el) return;
+    el.textContent = message || "";
+    el.hidden = !message;
+  }
+
+  // One button, three jobs: loading (disabled), pay, or retry after a load error.
+  function updatePayButton() {
+    var btn = payButton();
+    var pay = state.pay;
+    if (!btn || !pay) return;
+    if (state.paying) {
+      btn.disabled = true;
+      btn.textContent = "Processing payment…";
+    } else if (pay.loadError) {
+      btn.disabled = false;
+      btn.textContent = "Try again";
+    } else if (!pay.ready) {
+      btn.disabled = true;
+      btn.textContent = "Loading secure payment form…";
+    } else {
+      btn.disabled = false;
+      btn.textContent = "Pay " + C.money(pay.order.total) + " now";
+    }
+    btn.setAttribute("aria-busy", state.paying ? "true" : "false");
+  }
+
+  function onPaySubmit(event) {
+    event.preventDefault();
+    var pay = state.pay;
+    if (!pay || state.paying) return; // a second press while paying does nothing
+    if (pay.loadError) { mountPaymentElement(pay.order); return; }
+    if (!pay.ready) return;
+    confirmPayment(pay);
+  }
+
+  // Asks the backend for a PaymentIntent for this saved order (the backend
+  // works out the amount), then draws Stripe's Payment Element into the page.
+  function mountPaymentElement(order) {
+    var pay = { order: order, stripe: null, elements: null, ready: false, loadError: false };
+    state.pay = pay;
+    payError("");
+    updatePayButton();
+    var mount = document.getElementById("ckPaymentMount");
+    if (!mount) return Promise.resolve();
+    mount.innerHTML = "";
+
+    return C.request("/payments/stripe/payment-intent", { method: "POST", body: { orderId: order.id } })
+      .then(function (result) {
+        if (state.pay !== pay) return;
+        if (result.status === 401) return showLogin(C.errorMessage(result));
+        if (result.status === 409 && result.data && result.data.code === "ALREADY_PAID") {
+          return refreshAndRender(order.id, null, false);
+        }
+        if (!(result.ok && result.data && typeof result.data.clientSecret === "string")) {
+          throw new Error(C.errorMessage(result, "We couldn't set up the secure payment form. Please try again."));
+        }
+        var clientSecret = result.data.clientSecret;
+        return loadStripeJs().then(function (StripeFn) {
+          if (state.pay !== pay) return;
+          pay.stripe = StripeFn(state.payments.publishableKey);
+          pay.elements = pay.stripe.elements({ clientSecret: clientSecret });
+          var element = pay.elements.create("payment", { layout: "tabs" });
+          element.on("ready", function () {
+            if (state.pay !== pay) return;
+            pay.ready = true;
+            updatePayButton();
+          });
+          element.on("loaderror", function (event) {
+            if (state.pay !== pay) return;
+            pay.loadError = true;
+            payError((event && event.error && event.error.message) || "The card form could not be loaded. Please try again.");
+            updatePayButton();
+          });
+          element.mount(mount);
+        });
+      })
+      .catch(function (error) {
+        if (state.pay !== pay) return;
+        pay.loadError = true;
+        mount.innerHTML = "";
+        payError((error && error.message) || "We couldn't set up the secure payment form. Please try again.");
+        updatePayButton();
+      });
+  }
+
+  // Sends the card details to Stripe. Success is NOT taken from this browser:
+  // the status check below asks the backend, which checks Stripe itself.
+  function confirmPayment(pay) {
+    if (state.paying) return;
     state.paying = true;
-    announce("Taking you to our secure payment page…");
-    renderPaymentNotice(order, "Your order " + order.orderNumber + " is saved. Taking you to our secure payment page…", "info", false);
-    return C.request("/payments/stripe/checkout-session", {
-      method: "POST",
-      body: { orderId: order.id, returnPath: window.location.pathname }
+    payError("");
+    updatePayButton();
+    announce("Processing your payment…");
+    pay.stripe.confirmPayment({
+      elements: pay.elements,
+      confirmParams: { return_url: returnUrl(pay.order.id) },
+      redirect: "if_required"
     }).then(function (result) {
-      if (result.ok && result.data && typeof result.data.url === "string" && /^https:\/\//.test(result.data.url)) {
-        window.location.assign(result.data.url);
+      if (result.error) {
+        state.paying = false;
+        payError(result.error.message || "Your payment could not be completed. Please check your card details and try again.");
+        updatePayButton();
+        announce("Your payment was not completed.");
         return;
       }
+      return refreshAndRender(pay.order.id, null, false).then(function () { state.paying = false; });
+    }).catch(function () {
       state.paying = false;
-      if (result.status === 401) return showLogin(C.errorMessage(result));
-      if (result.status === 409 && result.data && result.data.code === "ALREADY_PAID") {
-        return refreshAndRender(order.id, null, false);
+      payError("We couldn't confirm your payment with our payment provider. If you have not been charged, please try again. If you think you have paid, do not pay again: check My Account or contact us.");
+      updatePayButton();
+    });
+  }
+
+  // The payment panel: the Payment Element and the Pay button, in place of
+  // the confirmation text, for an order that is saved but not yet paid.
+  function renderPayPanel(order, message, kind) {
+    showConfirmationHtml(
+      paymentHead("Secure payment", "Pay for your order",
+        "Order number <strong>" + C.escapeHtml(order.orderNumber) + "</strong>. Enter your card details below. " +
+        "Your order is paid only once your payment is confirmed.") +
+      (message ? '<p class="ck-notice ck-notice--' + (kind === "error" ? "error" : "info") + '" role="status">' + C.escapeHtml(message) + "</p>" : "") +
+      '<form id="ckPayForm" class="ck-pay-form" novalidate>' +
+        '<div class="ck-payment-element ck-payment-element--live" id="ckPaymentMount"></div>' +
+        '<p class="ck-pay-error" id="ckPayError" role="alert" hidden></p>' +
+        '<button type="submit" class="btn btn--forest ck-place-btn" id="ckPayButton" disabled>Loading secure payment form&hellip;</button>' +
+      "</form>" +
+      '<p class="ck-pay-secure">Your card details go directly to Stripe and are not stored on Rabbora&rsquo;s server.</p>' +
+      (order.items ? C.orderDetailHtml(order) : "") +
+      '<div class="ck-confirmation__actions">' +
+        '<a href="account.html#orders" class="btn btn--outline-forest">View my orders</a>' +
+      "</div>",
+      "Pay for order " + order.orderNumber + "."
+    );
+    var form = document.getElementById("ckPayForm");
+    if (form) form.addEventListener("submit", onPaySubmit);
+  }
+
+  // Shows the payment panel for an order that is saved but not paid.
+  function startPayment(order, message, kind) {
+    if (state.paying) return Promise.resolve();
+    if (!state.payments.enabled) {
+      renderPaymentNotice(order, "Online payment is not available right now. Your order is saved and unpaid. Please contact us to pay.", "error", false);
+      return Promise.resolve();
+    }
+    state.lastOrder = order;
+    renderPayPanel(order, message || "", kind || "info");
+    return mountPaymentElement(order);
+  }
+
+  // The backend keeps one order waiting for payment at a time. If the
+  // customer places another, take them to that order's payment instead.
+  function resumeWaitingOrder() {
+    return C.request("/orders").then(function (result) {
+      var waiting = result.ok && result.data && Array.isArray(result.data.orders)
+        ? result.data.orders.filter(function (o) { return o.paymentStatus === "unpaid" && o.status === "pending"; })[0]
+        : null;
+      if (!waiting) {
+        setMessage(els.placeMessage, "You have an order waiting for payment, but we couldn't load it. Please check My Account, or contact us.", true);
+        return;
       }
-      renderPaymentNotice(order, C.errorMessage(result, "We couldn't open the payment page.") +
-        " Your order is saved but has not been paid. Please try again, or contact us.", "error", true);
+      return startPayment(waiting, "You already have an order waiting for payment. Please pay for it below.", "info");
     });
   }
 
@@ -719,6 +990,8 @@
     showView("none");
     initAddresses();
     if (els.placeOrder) els.placeOrder.addEventListener("click", placeOrder);
+    if (els.terms) els.terms.addEventListener("change", updatePlaceButton);
+    if (els.addressForm) els.addressForm.addEventListener("submit", checkNameBeforeSubmit, true);
     if (els.confirmation) {
       els.confirmation.addEventListener("click", function (event) {
         var pay = event.target.closest("[data-pay-now]");
@@ -734,7 +1007,10 @@
     }
     var params = new URLSearchParams(window.location.search);
     loadPaymentConfig().then(function () {
-      if (state.payments.enabled && els.placeOrder && !state.placing) els.placeOrder.textContent = "Place order and pay";
+      if (state.payments.enabled && els.placeOrder && !state.placing) els.placeOrder.textContent = "Pay now";
+      // The card-form note in the basket column only applies when online payment is on.
+      var cardNote = document.getElementById("checkoutPaymentElement");
+      if (cardNote && !state.payments.enabled) cardNote.hidden = true;
       if (params.get("payment") === "success" || params.get("payment") === "cancelled") return handleReturn(params);
       return loadCheckout();
     });

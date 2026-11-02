@@ -4,6 +4,8 @@
 //                                                  { orderId, returnPath? } -> { url } (redirect to Stripe)
 //   GET  /api/payments/stripe/orders/:id/status    logged in: my order + payment status
 //                                                  (the backend checks the order's own saved session with Stripe)
+//   POST /api/payments/stripe/payment-intent        logged in: Payment Element client secret for MY unpaid order
+//                                                  { orderId } -> { clientSecret, paymentIntentId, amount }
 //   POST /api/payments/stripe/webhook              Stripe only — mounted in server.js BEFORE express.json(),
 //                                                  because the signature check needs the raw body.
 // The amount is always taken from the order in PostgreSQL. Orders become
@@ -18,6 +20,7 @@ const router = express.Router();
 
 router.get("/stripe/config", c.config);
 router.post("/stripe/checkout-session", requireAuth, c.createSession);
+router.post("/stripe/payment-intent", requireAuth, c.createPaymentIntent);
 router.get("/stripe/orders/:id/status", requireAuth, c.status);
 
 module.exports = { router, webhook: c.webhook };

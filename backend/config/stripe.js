@@ -14,16 +14,38 @@ let client = null;
 
 const env = (name) => (process.env[name] || "").trim();
 
+// Live keys are refused unless STRIPE_ALLOW_LIVE=true is set on purpose.
+// Until that switch is set, a live key switches online payment OFF, so a
+// live key can never take money by accident during testing.
+const LIVE_ALLOWED = env("STRIPE_ALLOW_LIVE").toLowerCase() === "true";
+
 // "test" | "live" | null — from the secret key prefix (sk_ or restricted rk_).
+// A TEST key in a production configuration is refused: the live site must
+// never take orders on test keys. Online payment is then off until the
+// production keys are set.
+const IS_PRODUCTION = env("NODE_ENV") === "production";
+
 function mode() {
   const key = env("STRIPE_SECRET_KEY");
-  if (/^(sk|rk)_test_/.test(key)) return "test";
-  if (/^(sk|rk)_live_/.test(key)) return "live";
+  if (/^(sk|rk)_test_/.test(key)) return IS_PRODUCTION ? null : "test";
+  if (/^(sk|rk)_live_/.test(key)) return LIVE_ALLOWED ? "live" : null;
   return null;
 }
 
+// True when a live key is present but refused (no STRIPE_ALLOW_LIVE=true).
+function testInProduction() {
+  return /^(sk|rk)_test_/.test(env("STRIPE_SECRET_KEY")) && IS_PRODUCTION;
+}
+
+function liveRefused() {
+  return /^(sk|rk)_live_/.test(env("STRIPE_SECRET_KEY")) && !LIVE_ALLOWED;
+}
+
+// Online payment is ON only when the secret key AND the matching publishable
+// key are both present for the same mode. A mismatch switches it OFF, so an
+// order is never saved as "awaiting payment" when the page cannot take a card.
 function isConfigured() {
-  return mode() !== null;
+  return mode() !== null && publishableKey() !== null;
 }
 
 function webhookSecret() {
@@ -57,6 +79,18 @@ function getStripe() {
 // One startup line + warnings. Never prints a key.
 function describe() {
   const m = mode();
+  if (!m && testInProduction()) {
+    return {
+      line: "Stripe payments: OFF — a TEST secret key is set in a PRODUCTION configuration (NODE_ENV=production). Set the live keys in the hosting panel, or remove the test keys.",
+      warnings: [],
+    };
+  }
+  if (!m && liveRefused()) {
+    return {
+      line: "Stripe payments: OFF — a LIVE secret key is set but STRIPE_ALLOW_LIVE is not true. Live payments are refused until you set STRIPE_ALLOW_LIVE=true on purpose.",
+      warnings: [],
+    };
+  }
   if (!m) {
     return {
       line: env("STRIPE_SECRET_KEY")
@@ -68,8 +102,14 @@ function describe() {
   const warnings = [];
   const pk = env("STRIPE_PUBLISHABLE_KEY");
   if (pk && !pk.startsWith(`pk_${m}_`)) warnings.push(`STRIPE_PUBLISHABLE_KEY is not a ${m} key (pk_${m}_…) — it is not sent to the browser.`);
+  if (!publishableKey()) {
+    return {
+      line: `Stripe payments: OFF — STRIPE_PUBLISHABLE_KEY must be a pk_${m}_… key that matches STRIPE_SECRET_KEY (${m} mode).`,
+      warnings,
+    };
+  }
   if (!webhookSecret()) warnings.push("STRIPE_WEBHOOK_SECRET is missing or not a whsec_… value — Stripe webhooks will be refused, so orders only become paid when the customer returns to the shop.");
   return { line: `Stripe payments: ON — ${m.toUpperCase()} mode`, warnings };
 }
 
-module.exports = { getStripe, isConfigured, mode, webhookSecret, publishableKey, describe };
+module.exports = { getStripe, isConfigured, mode, webhookSecret, publishableKey, describe, liveRefused, testInProduction };
