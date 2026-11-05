@@ -1,0 +1,63 @@
+/* Rabbora Living — newsletter confirmation and unsubscribe page (newsletter.html).
+   Uses the site colours and type from style.css. */
+
+.newsletter-page {
+  background-color: var(--color-ivory-soft);
+}
+
+.newsletter-page__section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding-block: 4rem;
+}
+
+.newsletter-page__inner {
+  max-width: 36rem;
+  text-align: center;
+}
+
+.newsletter-page__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.newsletter-page__title {
+  margin-top: 0.75rem;
+  font-size: 2rem;
+  color: var(--color-forest-dark);
+}
+
+.newsletter-page__text {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+.newsletter-page__actions {
+  margin-top: 2rem;
+}
+
+.newsletter-page__link {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-forest);
+  color: var(--color-ivory-soft);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.newsletter-page__link:hover {
+  background-color: var(--color-forest-dark);
+}
+
+@media (min-width: 768px) {
+  .newsletter-page__title {
+    font-size: 2.5rem;
+  }
+}

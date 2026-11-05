@@ -24,6 +24,10 @@
 //   GET   /api/admin/contact-messages             Contact form messages + status counts (same filters)
 //   GET   /api/admin/contact-messages/:id         one message
 //   PATCH /api/admin/contact-messages/:id         { status }
+//   GET   /api/admin/newsletter-subscribers       newsletter subscribers + counts (?status=&search=&page=&limit=)
+//   GET   /api/admin/newsletter-subscribers/export.csv   CSV download (same filters)
+//   GET   /api/admin/newsletter-subscribers/:id   one subscriber
+//   PATCH /api/admin/newsletter-subscribers/:id   { status: "unsubscribed" }
 //
 // Changes use the existing admin endpoints:
 //   POST  /api/products, PATCH /api/products/:id,
@@ -43,6 +47,7 @@
 const express = require("express");
 const c = require("../controllers/adminController");
 const enquiries = require("../controllers/enquiryController");
+const newsletter = require("../controllers/newsletterController");
 const { requireAdmin } = require("../middleware/auth");
 
 const router = express.Router();
@@ -70,5 +75,12 @@ router.patch("/fabric-sample-requests/:id", enquiries.adminUpdateFabricSampleReq
 router.get("/contact-messages", enquiries.adminListContactMessages);
 router.get("/contact-messages/:id", enquiries.adminGetContactMessage);
 router.patch("/contact-messages/:id", enquiries.adminUpdateContactMessage);
+
+// Newsletter subscribers (database/newsletter.sql). The CSV route must come
+// before ":id" so "export.csv" is not read as an id.
+router.get("/newsletter-subscribers", newsletter.adminList);
+router.get("/newsletter-subscribers/export.csv", newsletter.adminExportCsv);
+router.get("/newsletter-subscribers/:id", newsletter.adminGet);
+router.patch("/newsletter-subscribers/:id", newsletter.adminUpdate);
 
 module.exports = router;

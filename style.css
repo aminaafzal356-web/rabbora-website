@@ -2940,6 +2940,30 @@ h1, h2, h3, h4 {
   color: var(--color-brass-light);
 }
 
+.newsletter__message.is-info {
+  color: rgba(248, 244, 235, 0.85);
+}
+
+.newsletter__message.is-warning {
+  color: var(--color-brass-light);
+}
+
+.newsletter__form input[aria-invalid="true"] {
+  border-color: var(--color-clay);
+}
+
+.newsletter__form button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.newsletter__consent {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: rgba(248, 244, 235, 0.6);
+}
+
 
 
 /* =========================================================

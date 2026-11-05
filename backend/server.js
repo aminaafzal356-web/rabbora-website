@@ -31,6 +31,7 @@ const { sessionMiddleware, IS_PRODUCTION } = require("./config/session");
 const authRoutes = require("./routes/auth");
 const passwordResetRoutes = require("./routes/passwordReset");
 const enquiryRoutes = require("./routes/enquiries");
+const newsletterRoutes = require("./routes/newsletter");
 const productRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const categoryRoutes = require("./routes/categories");
@@ -163,6 +164,10 @@ app.use("/api", passwordResetRoutes);
 // (routes/enquiries.js; needs database/enquiries.sql). Admins read them
 // at /api/admin/fabric-sample-requests and /api/admin/contact-messages.
 app.use("/api", enquiryRoutes);
+
+// Newsletter sign-up: POST /api/newsletter/subscribe, /confirm, /unsubscribe
+// (routes/newsletter.js; needs database/newsletter.sql).
+app.use("/api/newsletter", newsletterRoutes);
 
 // Categories, products (with size pricing), fabric/storage catalogues
 app.use("/api/categories", categoryRoutes);

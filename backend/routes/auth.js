@@ -1,360 +1,289 @@
-// Rabbora Living — authentication routes
-// POST /api/register  — creates a customer account in the users table.
-// POST /api/login     — checks an email + password and starts a session.
-// POST /api/logout    — ends the current session.
-// GET  /api/me        — returns the logged-in user (401 when not logged in).
-//
-// Security rules followed here:
-// - The plain password is never stored, logged or returned. Only a
-//   bcrypt hash goes into users.password_hash.
-// - Every query uses $1, $2 ... parameters (no SQL built from input).
-// - PostgreSQL error details are logged on the server only; the
-//   customer always gets a short, safe message.
-// - Login answers wrong email, wrong password and inactive account with
-//   the same 401 message, so nobody can tell which emails are registered.
-// - Sessions live in PostgreSQL (config/session.js). The browser only
-//   gets a random ID in an HttpOnly cookie; the session itself only
-//   holds the user id — never a password or hash.
+/*!
+ * Rabbora Living — admin panel core (window.RabboraAdmin)
+ * ---------------------------------------------------------------
+ * Loaded on every admin page after ../api-config.js. It:
+ *   - checks the login with the EXISTING session (GET /api/auth/me);
+ *     not logged in -> login.html, logged in but not an admin -> an
+ *     "access denied" screen. The backend still checks every admin
+ *     request itself (requireAdmin): this is only the page guard.
+ *   - draws the sidebar navigation and the top bar;
+ *   - logs out with the existing POST /api/auth/logout;
+ *   - offers small helpers (API calls via RabboraApi, money, errors).
+ * No second login system, no second API helper, no hardcoded address.
+ */
+(function (window, document) {
+  "use strict";
 
-const express = require("express");
-const bcrypt = require("bcrypt");
-const db = require("../config/db");
-const {
-  startUserSession,
-  destroySession,
-  clearSessionCookie,
-  getSessionUserId,
-} = require("../config/session");
-
-const router = express.Router();
-
-// Same rules as the Create Account form (frontend register.js) and the
-// users table (backend/database/users.sql).
-const NAME_MAX = 100;
-const EMAIL_MAX = 254;
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_MAX = 20;
-const PHONE_ALLOWED = /^\+?[0-9 ()-]+$/;
-const PHONE_MIN_DIGITS = 10;
-const PHONE_MAX_DIGITS = 15;
-const PASSWORD_MIN = 8;
-// bcrypt only uses the first 72 bytes of a password; anything longer
-// would be silently cut, so it is rejected instead.
-const PASSWORD_MAX_BYTES = 72;
-const BCRYPT_ROUNDS = 12;
-
-// Returns the trimmed string, or "" when the value is missing or not text.
-function cleanText(value) {
-  return typeof value === "string" ? value.trim() : "";
-}
-
-// Checks the request body. Returns { values, errors } where errors is an
-// object of field -> message (empty when everything is valid).
-function validateRegistration(body) {
-  const errors = {};
-
-  const firstName = cleanText(body.firstName);
-  const lastName = cleanText(body.lastName);
-  const email = cleanText(body.email).toLowerCase();
-  const phone = cleanText(body.phone);
-  // The password is NOT trimmed: spaces are allowed as part of it.
-  const password = typeof body.password === "string" ? body.password : "";
-
-  if (!firstName) errors.firstName = "First name is required.";
-  else if (firstName.length > NAME_MAX) errors.firstName = `First name must be ${NAME_MAX} characters or fewer.`;
-
-  if (!lastName) errors.lastName = "Last name is required.";
-  else if (lastName.length > NAME_MAX) errors.lastName = `Last name must be ${NAME_MAX} characters or fewer.`;
-
-  if (!email) errors.email = "Email address is required.";
-  else if (email.length > EMAIL_MAX || !EMAIL_PATTERN.test(email)) errors.email = "Enter a valid email address.";
-
-  if (!phone) {
-    errors.phone = "Phone number is required.";
-  } else {
-    const digits = phone.replace(/\D/g, "").length;
-    if (phone.length > PHONE_MAX || !PHONE_ALLOWED.test(phone) || digits < PHONE_MIN_DIGITS || digits > PHONE_MAX_DIGITS) {
-      errors.phone = "Enter a valid phone number.";
-    }
+  var api = window.RabboraApi && typeof window.RabboraApi.request === "function" ? window.RabboraApi : null;
+  if (!api) {
+    console.error("[Rabbora Admin] ../api-config.js is not loaded — add it before admin-auth.js.");
   }
 
-  if (!password) errors.password = "Password is required.";
-  else if (password.length < PASSWORD_MIN) errors.password = `Password must be at least ${PASSWORD_MIN} characters.`;
-  else if (Buffer.byteLength(password, "utf8") > PASSWORD_MAX_BYTES) errors.password = "Password is too long.";
+  // Modules that exist get a link; the rest are shown as "Soon" (no fake pages).
+  var NAV = [
+    { key: "dashboard", label: "Dashboard", href: "index.html", icon: "M3 10l7-6 7 6v7a1 1 0 0 1-1 1h-4v-5H8v5H4a1 1 0 0 1-1-1z" },
+    { key: "products", label: "Products", href: "products.html", icon: "M3 6l7-3 7 3v8l-7 3-7-3zM3 6l7 3 7-3M10 9v8" },
+    { key: "categories", label: "Categories", href: "categories.html", icon: "M3 4h6v6H3zM11 4h6v6h-6zM3 12h6v5H3zM11 12h6v5h-6z" },
+    { key: "fabrics", label: "Fabrics", href: "fabrics.html", icon: "M4 4h12v12H4zM4 8h12M4 12h12M8 4v12M12 4v12" },
+    { key: "storage", label: "Storage options", href: "storage-options.html", icon: "M3 9h14v7H3zM3 9l2-5h10l2 5M8 12h4" },
+    { key: "inventory", label: "Inventory", href: "inventory.html", icon: "M3 5h14v3H3zM4 8h12v9H4zM8 11h4" },
+    { key: "orders", label: "Orders", href: "orders.html", icon: "M5 3h10l1 4H4zM4 7h12v10H4zM8 11h4" },
+    { key: "customers", label: "Customers", href: "customers.html", icon: "M10 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 17c1-3.5 4-5 7-5s6 1.5 7 5" },
+    { key: "reviews", label: "Reviews", href: "reviews.html", icon: "M10 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L2.8 8.3l5-.7z" },
+    { key: "fabric-samples", label: "Fabric Sample Requests", href: "fabric-sample-requests.html", icon: "M4 3h8l4 4v10H4zM12 3v4h4M7 10h6M7 13h6" },
+    { key: "contact-messages", label: "Contact Messages", href: "contact-messages.html", icon: "M3 5h14v10H3zM3 5l7 6 7-6" },
+    { key: "newsletter-subscribers", label: "Newsletter Subscribers", href: "newsletter-subscribers.html", icon: "M3 5h14v10H3zM3 5l7 6 7-6M3 15l5-4M17 15l-5-4" }
+  ];
 
-  return { values: { firstName, lastName, email, phone, password }, errors };
-}
+  var currentUser = null;
 
-// POST /api/register
-router.post("/register", async (req, res) => {
-  const body = req.body && typeof req.body === "object" ? req.body : {};
-  const { values, errors } = validateRegistration(body);
+  // ---------------------------------------------------------------
+  // Helpers
+  // ---------------------------------------------------------------
 
-  if (Object.keys(errors).length > 0) {
-    return res.status(400).json({
-      success: false,
-      message: "Please check the highlighted fields.",
-      errors,
+  function escapeHtml(value) {
+    var div = document.createElement("div");
+    div.textContent = value == null ? "" : String(value);
+    return div.innerHTML;
+  }
+
+  function money(amount) {
+    if (amount === null || amount === undefined || amount === "") return "—";
+    var n = Number(amount);
+    if (!isFinite(n)) return "—";
+    return "£" + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  // Product images are stored relative to the shop's root
+  // ("slatted/img-1.jfif"); admin pages live one folder down.
+  function imageUrl(path) {
+    if (!path) return "";
+    var p = String(path);
+    if (/^(https?:)?\/\//i.test(p) || p.charAt(0) === "/" || /^data:/i.test(p)) return p;
+    return "../" + p;
+  }
+
+  function request(path, options) {
+    if (!api) return Promise.resolve({ ok: false, status: 0, data: null });
+    return api.request(path, options).then(function (result) {
+      // Session ended while working: back to the login page.
+      if (result.status === 401 && path.indexOf("/auth/") !== 0) goToLogin();
+      if (result.status === 403 && path.indexOf("/auth/") !== 0) showDenied();
+      return result;
     });
   }
 
-  let client;
-  try {
-    client = await db.pool.connect();
+  // Field errors from either backend format: [{ field, message }] or { field: message }.
+  function fieldErrors(result) {
+    var out = {};
+    var errors = result && result.data ? result.data.errors : null;
+    if (Array.isArray(errors)) {
+      errors.forEach(function (e) { if (e && e.field && !out[e.field]) out[e.field] = e.message; });
+    } else if (errors && typeof errors === "object") {
+      Object.keys(errors).forEach(function (k) { out[k] = errors[k]; });
+    }
+    return out;
+  }
 
-    // 1. Is this email already registered?
-    const existing = await client.query("SELECT 1 FROM users WHERE email = $1", [values.email]);
-    if (existing.rowCount > 0) {
-      return res.status(409).json({
-        success: false,
-        message: "An account with this email address already exists.",
+  function errorMessage(result, fallback) {
+    if (!result || result.status === 0) return "Can't reach the server. Check that the backend is running and try again.";
+    if (result.status === 401) return "Your session has ended. Please log in again.";
+    if (result.status === 403) return "This account does not have admin access.";
+    var errs = fieldErrors(result);
+    var keys = Object.keys(errs);
+    if (keys.length) return errs[keys[0]];
+    if (result.data && result.data.message) return result.data.message;
+    return fallback || "Something went wrong. Please try again.";
+  }
+
+  // Small status banner at the top of the page content.
+  var flashTimer = null;
+  function flash(message, kind) {
+    var el = document.getElementById("adminFlash");
+    if (!el) return;
+    window.clearTimeout(flashTimer);
+    el.textContent = message || "";
+    el.className = "admin-flash" + (kind ? " admin-flash--" + kind : "");
+    el.hidden = !message;
+    if (message && kind === "success") {
+      flashTimer = window.setTimeout(function () { el.hidden = true; }, 5000);
+    }
+  }
+
+  function currentPage() {
+    var file = window.location.pathname.split("/").pop() || "index.html";
+    return file + (window.location.search || "");
+  }
+
+  function goToLogin() {
+    window.location.replace("login.html?next=" + encodeURIComponent(currentPage()));
+  }
+
+  // ---------------------------------------------------------------
+  // Layout
+  // ---------------------------------------------------------------
+
+  function icon(d) {
+    return '<svg class="admin-nav__icon" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="' + d +
+      '" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  function renderShell(activeKey) {
+    var sidebar = document.getElementById("adminSidebar");
+    if (sidebar) {
+      sidebar.innerHTML =
+        '<div class="admin-brand">' +
+          '<img src="../images/img-2.png" alt="" width="36" height="36" />' +
+          '<div><p class="admin-brand__name">Rabbora Living</p><p class="admin-brand__sub">Admin</p></div>' +
+        "</div>" +
+        '<nav class="admin-nav" aria-label="Admin">' +
+          "<ul>" +
+          NAV.map(function (item) {
+            if (!item.href) {
+              return '<li><span class="admin-nav__link is-disabled" aria-disabled="true">' + icon(item.icon) +
+                "<span>" + escapeHtml(item.label) + '</span><span class="admin-nav__soon">Soon</span></span></li>';
+            }
+            var active = item.key === activeKey;
+            return '<li><a class="admin-nav__link' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
+              (active ? ' aria-current="page"' : "") + ">" + icon(item.icon) + "<span>" + escapeHtml(item.label) + "</span></a></li>";
+          }).join("") +
+          "</ul>" +
+        "</nav>" +
+        '<div class="admin-sidebar__foot">' +
+          '<a class="admin-nav__link" href="../index.html" target="_blank" rel="noopener">' +
+            icon("M11 3h6v6M17 3l-8 8M15 11v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5") + "<span>View shop</span></a>" +
+          '<button type="button" class="admin-nav__link admin-logout" data-admin-logout>' +
+            icon("M8 17H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4M13 14l4-4-4-4M17 10H8") + "<span>Log out</span></button>" +
+        "</div>";
+    }
+
+    var user = document.getElementById("adminUser");
+    if (user && currentUser) {
+      user.innerHTML =
+        '<span class="admin-user__avatar" aria-hidden="true">' + escapeHtml((currentUser.first_name || "A").charAt(0)) + "</span>" +
+        '<span class="admin-user__text"><strong>' + escapeHtml(currentUser.first_name + " " + currentUser.last_name) + "</strong>" +
+        "<small>" + escapeHtml(currentUser.email) + "</small></span>";
+    }
+
+    var toggle = document.getElementById("adminMenuToggle");
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        var open = document.body.classList.toggle("admin-nav-open");
+        toggle.setAttribute("aria-expanded", String(open));
       });
     }
-
-    // 2. Hash the password (the plain password never leaves this function).
-    const passwordHash = await bcrypt.hash(values.password, BCRYPT_ROUNDS);
-
-    // 3. Create the user. role and is_active use the table defaults
-    //    ('customer' and TRUE). Only safe columns are returned.
-    const result = await client.query(
-      `INSERT INTO users (first_name, last_name, email, phone, password_hash)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING id, first_name, last_name, email, phone`,
-      [values.firstName, values.lastName, values.email, values.phone, passwordHash]
-    );
-
-    const user = result.rows[0];
-    return res.status(201).json({
-      success: true,
-      message: "Account created successfully.",
-      user: {
-        id: user.id,
-        firstName: user.first_name,
-        lastName: user.last_name,
-        email: user.email,
-        phone: user.phone,
-      },
-    });
-  } catch (err) {
-    // Two sign-ups with the same email at the same moment: the UNIQUE
-    // constraint catches the second one.
-    if (err.code === "23505") {
-      return res.status(409).json({
-        success: false,
-        message: "An account with this email address already exists.",
+    var scrim = document.getElementById("adminScrim");
+    if (scrim) {
+      scrim.addEventListener("click", function () {
+        document.body.classList.remove("admin-nav-open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
       });
     }
-
-    // Log only safe details (never the request body, the password or
-    // err.detail, which can contain the row's values).
-    console.error("[register] Could not create account:", err.code || "", err.constraint || "", err.message);
-
-    // A value the database rejected (CHECK / NOT NULL / too long).
-    if (err.code === "23514" || err.code === "23502" || err.code === "22001") {
-      return res.status(400).json({
-        success: false,
-        message: "Some of the details could not be accepted. Please check them and try again.",
-      });
-    }
-
-    return res.status(500).json({
-      success: false,
-      message: "We couldn't create your account right now. Please try again later.",
-    });
-  } finally {
-    if (client) client.release();
-  }
-});
-
-// ---------------------------------------------------------------------------
-// LOGIN
-// ---------------------------------------------------------------------------
-
-const INVALID_LOGIN_MESSAGE = "Invalid email or password.";
-
-// When no user matches the email, the password is still compared against
-// this throwaway hash, so a wrong email takes about as long as a wrong
-// password (the response time does not reveal whether the email exists).
-const DUMMY_PASSWORD_HASH = bcrypt.hashSync("rabbora-no-such-user", BCRYPT_ROUNDS);
-
-// Checks the login body. Only "is it there / is it an email" is checked
-// here; the password rules are not repeated, so the error never hints at
-// what a valid password looks like.
-function validateLogin(body) {
-  const errors = {};
-
-  const email = cleanText(body.email).toLowerCase();
-  // The password is NOT trimmed, exactly like registration.
-  const password = typeof body.password === "string" ? body.password : "";
-
-  if (!email) errors.email = "Email address is required.";
-  else if (email.length > EMAIL_MAX || !EMAIL_PATTERN.test(email)) errors.email = "Enter a valid email address.";
-
-  if (!password) errors.password = "Password is required.";
-
-  // "Remember me" — only an explicit true keeps the user logged in
-  // for 30 days; anything else means a 1-day browser session.
-  const remember = body.remember === true;
-
-  return { values: { email, password, remember }, errors };
-}
-
-// POST /api/login
-router.post("/login", async (req, res) => {
-  const body = req.body && typeof req.body === "object" ? req.body : {};
-  const { values, errors } = validateLogin(body);
-
-  if (Object.keys(errors).length > 0) {
-    return res.status(400).json({
-      success: false,
-      message: "Please check the highlighted fields.",
-      errors,
-    });
   }
 
-  try {
-    // 1. Find the account by its (lowercase) email.
-    const result = await db.query(
-      `SELECT id, first_name, last_name, email, phone, role, password_hash, is_active
-         FROM users
-        WHERE email = $1`,
-      [values.email]
-    );
-    const user = result.rows[0];
-
-    // 2. Always run one bcrypt comparison (real hash, or the dummy one).
-    //    Passwords longer than 72 bytes can never belong to an account
-    //    (registration rejects them) and bcrypt would cut them, so they
-    //    are treated as wrong.
-    const passwordTooLong = Buffer.byteLength(values.password, "utf8") > PASSWORD_MAX_BYTES;
-    const hashToCheck = user ? user.password_hash : DUMMY_PASSWORD_HASH;
-    const passwordMatches = await bcrypt.compare(values.password, hashToCheck);
-
-    // 3. Unknown email, wrong password or inactive account -> same answer.
-    if (!user || !passwordMatches || passwordTooLong || user.is_active !== true) {
-      return res.status(401).json({
-        success: false,
-        message: INVALID_LOGIN_MESSAGE,
-      });
-    }
-
-    // 4. Start a brand-new session for this user (the old session ID,
-    //    if any, is thrown away — protects against session fixation).
-    //    The session cookie is added to this response.
-    await startUserSession(req, user.id, values.remember);
-
-    // 5. Success: only safe fields (never password_hash).
-    res.set("Cache-Control", "no-store");
-    return res.status(200).json({
-      success: true,
-      message: "Logged in successfully.",
-      user: {
-        id: user.id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email,
-        phone: user.phone,
-        role: user.role,
-      },
-    });
-  } catch (err) {
-    // Safe details only (never the body, the password or the hash).
-    console.error("[login] Could not check login:", err.code || "", err.message);
-    return res.status(500).json({
-      success: false,
-      message: "We couldn't log you in right now. Please try again later.",
-    });
-  }
-});
-
-// ---------------------------------------------------------------------------
-// LOGOUT
-// ---------------------------------------------------------------------------
-
-// POST /api/logout
-// Deletes the session row and tells the browser to drop the cookie.
-// Works (200) even when nobody is logged in.
-router.post("/logout", async (req, res) => {
-  try {
-    await destroySession(req);
-    clearSessionCookie(res);
-    res.set("Cache-Control", "no-store");
-    return res.status(200).json({
-      success: true,
-      message: "You have been logged out.",
-    });
-  } catch (err) {
-    // The cookie is still removed from this browser.
-    clearSessionCookie(res);
-    console.error("[logout] Could not end session:", err.code || "", err.message);
-    return res.status(500).json({
-      success: false,
-      message: "We couldn't log you out right now. Please try again.",
-    });
-  }
-});
-
-// ---------------------------------------------------------------------------
-// CURRENT USER
-// ---------------------------------------------------------------------------
-
-const NOT_LOGGED_IN_MESSAGE = "Not logged in.";
-
-// GET /api/me
-// Returns the logged-in user's safe details, read fresh from the users
-// table, so a deactivated account is logged out straight away.
-router.get("/me", async (req, res) => {
-  res.set("Cache-Control", "no-store");
-
-  const userId = getSessionUserId(req);
-
-  if (!userId) {
-    // An expired (over the 1-day / 30-day limit) session is removed.
-    if (req.session && req.session.userId) {
-      try {
-        await destroySession(req);
-      } catch (err) {
-        console.error("[me] Could not remove expired session:", err.code || "", err.message);
+  function logout() {
+    var buttons = document.querySelectorAll("[data-admin-logout]");
+    for (var i = 0; i < buttons.length; i++) buttons[i].disabled = true;
+    return request("/auth/logout", { method: "POST" }).then(function (result) {
+      if (result.ok) {
+        currentUser = null;
+        window.location.replace("login.html?loggedOut=1");
+        return;
       }
-      clearSessionCookie(res);
-    }
-    return res.status(401).json({ success: false, message: NOT_LOGGED_IN_MESSAGE });
-  }
-
-  try {
-    const result = await db.query(
-      `SELECT id, first_name, last_name, email, phone, role
-         FROM users
-        WHERE id = $1 AND is_active = TRUE`,
-      [userId]
-    );
-    const user = result.rows[0];
-
-    // Account deleted or deactivated since login: end the session.
-    if (!user) {
-      await destroySession(req);
-      clearSessionCookie(res);
-      return res.status(401).json({ success: false, message: NOT_LOGGED_IN_MESSAGE });
-    }
-
-    return res.status(200).json({
-      success: true,
-      user: {
-        id: user.id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email,
-        phone: user.phone,
-        role: user.role,
-      },
-    });
-  } catch (err) {
-    console.error("[me] Could not load current user:", err.code || "", err.message);
-    return res.status(500).json({
-      success: false,
-      message: "We couldn't load your account right now. Please try again later.",
+      for (var j = 0; j < buttons.length; j++) buttons[j].disabled = false;
+      flash(errorMessage(result, "We couldn't log you out. Please try again."), "error");
     });
   }
-});
 
-module.exports = router;
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("[data-admin-logout]")) logout();
+  });
+
+  // "Access denied" for a logged-in customer (the backend would answer 403 anyway).
+  function showDenied() {
+    var denied = document.getElementById("adminDenied");
+    var layout = document.getElementById("adminLayout");
+    if (layout) layout.hidden = true;
+    if (denied) denied.hidden = false;
+    document.body.classList.remove("admin--loading");
+  }
+
+  /**
+   * Page guard. Resolves with the admin user, or never resolves (the
+   * page is redirected to the login or shows "access denied").
+   */
+  function requireAdmin(activeKey) {
+    return request("/auth/me").then(function (result) {
+      if (result.status === 401) {
+        goToLogin();
+        return new Promise(function () {});
+      }
+      if (!result.ok || !result.data || !result.data.user) {
+        document.body.classList.remove("admin--loading");
+        var layout = document.getElementById("adminLayout");
+        if (layout) layout.hidden = true;
+        var down = document.getElementById("adminOffline");
+        if (down) {
+          down.hidden = false;
+          down.querySelector("p").textContent = errorMessage(result, "The admin panel could not load.");
+        }
+        return new Promise(function () {});
+      }
+      if (result.data.user.role !== "admin") {
+        showDenied();
+        return new Promise(function () {});
+      }
+      currentUser = result.data.user;
+      renderShell(activeKey);
+      document.body.classList.remove("admin--loading");
+      return currentUser;
+    });
+  }
+
+  // Shows field errors under .admin-field[data-field] inside `scope`.
+  // Returns true when there are none (and focuses the first bad field).
+  function showErrors(scope, errors) {
+    var first = null;
+    var fields = scope.querySelectorAll(".admin-field[data-field]");
+    for (var i = 0; i < fields.length; i++) {
+      var name = fields[i].getAttribute("data-field");
+      var input = fields[i].querySelector("input, textarea, select");
+      var err = fields[i].querySelector(".admin-error");
+      var message = (errors && errors[name]) || "";
+      if (err) { err.textContent = message; err.hidden = !message; }
+      if (input) input.setAttribute("aria-invalid", message ? "true" : "false");
+      if (message && !first) first = input;
+    }
+    if (first) first.focus();
+    return !first;
+  }
+
+  function slugify(text, max) {
+    return String(text || "").toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, max || 255)
+      .replace(/-+$/g, "");
+  }
+
+  function formatDate(value) {
+    var d = new Date(value);
+    return isNaN(d.getTime()) ? "\u2014" : d.toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  }
+
+  window.RabboraAdmin = {
+    showErrors: showErrors,
+    slugify: slugify,
+    formatDate: formatDate,
+    request: request,
+    requireAdmin: requireAdmin,
+    logout: logout,
+    escapeHtml: escapeHtml,
+    money: money,
+    imageUrl: imageUrl,
+    fieldErrors: fieldErrors,
+    errorMessage: errorMessage,
+    flash: flash
+  };
+})(window, document);

@@ -427,37 +427,81 @@
     var messageEl = document.getElementById("newsletterMessage");
     if (!form || !messageEl) return;
 
+    var emailInput = document.getElementById("newsletter-email");
+    var submitBtn = document.getElementById("newsletterSubmit");
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var submitting = false;
+
+    function showMessage(text, kind) {
+      messageEl.textContent = text;
+      messageEl.classList.remove("is-error", "is-success", "is-info", "is-warning");
+      if (kind) messageEl.classList.add(kind);
+    }
+
+    function markInvalid(isInvalid) {
+      if (!emailInput) return;
+      if (isInvalid) emailInput.setAttribute("aria-invalid", "true");
+      else emailInput.removeAttribute("aria-invalid");
+    }
+
+    function setBusy(busy) {
+      submitting = busy;
+      form.setAttribute("aria-busy", busy ? "true" : "false");
+      if (submitBtn) {
+        submitBtn.disabled = busy;
+        submitBtn.textContent = busy ? "Subscribing\u2026" : "Subscribe";
+      }
+    }
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (submitting) return; // a second click while saving does nothing
 
-      var emailInput = document.getElementById("newsletter-email");
       var email = emailInput ? emailInput.value.trim() : "";
 
-      messageEl.classList.remove("is-error", "is-success");
+      if (!emailPattern.test(email) || email.length > 254) {
+        showMessage("Please enter a valid email address.", "is-error");
+        markInvalid(true);
+        if (emailInput) emailInput.focus();
+        return;
+      }
+      markInvalid(false);
 
-      if (!emailPattern.test(email)) {
-        messageEl.textContent = "Please enter a valid email address.";
-        messageEl.classList.add("is-error");
-        if (emailInput) emailInput.setAttribute("aria-invalid", "true");
+      if (!window.RabboraApi || typeof window.RabboraApi.request !== "function") {
+        showMessage("Sign-up is not available right now. Please try again later.", "is-error");
         return;
       }
 
-      if (emailInput) emailInput.removeAttribute("aria-invalid");
+      setBusy(true);
+      showMessage("", null);
 
-      // Placeholder submission handler.
-      // Replace with a real API call once the newsletter backend
-      // is connected, e.g.:
-      //   fetch("/api/newsletter", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify({ email: email })
-      //   });
-
-      messageEl.textContent = "Thanks \u2014 you're on the list.";
-      messageEl.classList.add("is-success");
-      form.reset();
+      window.RabboraApi.request("/newsletter/subscribe", { method: "POST", body: { email: email } })
+        .then(function (res) {
+          var data = res.data || {};
+          if (res.status === 201) {
+            // Saved, and the confirmation email has been handed to the mail server.
+            showMessage(data.message || "Thank you. Please check your inbox to confirm your subscription.", "is-success");
+            form.reset();
+          } else if (res.status === 202) {
+            // Saved, but the confirmation email could not be sent. The address stays in the box.
+            showMessage(data.message || "Thank you. We have saved your email. Please try again in a few minutes.", "is-warning");
+          } else if (res.status === 200) {
+            showMessage(data.message || "You are already subscribed.", "is-info");
+            form.reset();
+          } else if (res.status === 400 && Array.isArray(data.errors) && data.errors.length) {
+            showMessage(data.errors[0].message, "is-error");
+            markInvalid(true);
+          } else if (res.status === 429) {
+            showMessage(data.message || "Too many attempts. Please wait a few minutes and try again.", "is-error");
+          } else if (res.status === 0) {
+            showMessage("We could not reach the server. Please check your connection and try again.", "is-error");
+          } else {
+            showMessage("Sorry, we could not save your email just now. Please try again in a few minutes.", "is-error");
+          }
+        })
+        .then(function () {
+          setBusy(false);
+        });
     });
   }
 
