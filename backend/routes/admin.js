@@ -82,5 +82,6 @@ router.get("/newsletter-subscribers", newsletter.adminList);
 router.get("/newsletter-subscribers/export.csv", newsletter.adminExportCsv);
 router.get("/newsletter-subscribers/:id", newsletter.adminGet);
 router.patch("/newsletter-subscribers/:id", newsletter.adminUpdate);
+router.delete("/newsletter-subscribers/:id", newsletter.adminDelete);
 
 module.exports = router;

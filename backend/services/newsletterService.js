@@ -192,6 +192,28 @@ async function adminUnsubscribe(id) {
   return result.rows[0] ? toSubscriber(result.rows[0]) : null;
 }
 
+// Admin delete. Only a subscriber who confirmed their own email can be
+// deleted: status must be active or unsubscribed, and confirmed_at must be
+// set. A pending address (never confirmed, or re-subscribed and waiting for
+// its new link) is refused, so an admin can never remove a signup that the
+// customer has not confirmed. Returns { state: "deleted" | "not-found" |
+// "not-confirmed" }.
+async function adminDelete(id) {
+  const existing = await getSubscriber(id);
+  if (!existing) return { state: "not-found" };
+  if (existing.status === "pending" || !existing.confirmedAt) return { state: "not-confirmed" };
+
+  const result = await db.query(
+    `DELETE FROM newsletter_subscribers
+      WHERE id = $1
+        AND status IN ('active', 'unsubscribed')
+        AND confirmed_at IS NOT NULL
+      RETURNING id`,
+    [id]
+  );
+  return { state: result.rowCount > 0 ? "deleted" : "not-found" };
+}
+
 async function exportRows(f) {
   const { clause, params } = filtersSql(f);
   const rows = await db.query(
@@ -212,6 +234,7 @@ module.exports = {
   listSubscribers,
   getSubscriber,
   adminUnsubscribe,
+  adminDelete,
   exportRows,
   hashToken,
 };

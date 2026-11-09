@@ -4,7 +4,7 @@
 // when NEWSLETTER_TEST_DB names a database that already has
 // database/newsletter.sql applied; otherwise those tests are skipped.
 
-const { test, beforeEach, afterEach } = require("node:test");
+const { test, beforeEach, afterEach, after } = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("fs");
 const path = require("path");
@@ -337,5 +337,86 @@ realTest("real database: sign-up saves one row per address (any case), confirm a
   const stored = await db.query("SELECT status, unsubscribed_at FROM newsletter_subscribers WHERE lower(email) = $1", [email]);
   assert.equal(stored.rows[0].status, "unsubscribed");
   assert.ok(stored.rows[0].unsubscribed_at);
-  await db.pool.end();
+});
+
+// ---------- admin delete (confirmed subscribers only) ----------
+
+function withDeleteResult(state, fn) {
+  return async () => {
+    const original = service.adminDelete;
+    service.adminDelete = async () => ({ state });
+    try {
+      await fn();
+    } finally {
+      service.adminDelete = original;
+    }
+  };
+}
+
+test("admin delete with a bad id: 404 and nothing is deleted", async () => {
+  let called = 0;
+  const original = service.adminDelete;
+  service.adminDelete = async () => { called += 1; return { state: "deleted" }; };
+  try {
+    const res = await run(controller.adminDelete, fakeReq({}, { id: "abc" }), fakeRes());
+    assert.equal(res.statusCode, 404);
+    assert.equal(called, 0);
+  } finally {
+    service.adminDelete = original;
+  }
+});
+
+test("admin delete of an unknown id: 404", withDeleteResult("not-found", async () => {
+  const res = await run(controller.adminDelete, fakeReq({}, { id: "77" }), fakeRes());
+  assert.equal(res.statusCode, 404);
+}));
+
+test("admin delete of a pending subscriber: 409, explained, nothing deleted", withDeleteResult("not-confirmed", async () => {
+  const res = await run(controller.adminDelete, fakeReq({}, { id: "5" }), fakeRes());
+  assert.equal(res.statusCode, 409);
+  assert.equal(res.body.code, "NOT_CONFIRMED");
+  assert.match(res.body.message, /confirmed their email/i);
+}));
+
+test("admin delete of a confirmed subscriber: 200", withDeleteResult("deleted", async () => {
+  const res = await run(controller.adminDelete, fakeReq({}, { id: "5" }), fakeRes());
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.success, true);
+}));
+
+test("admin delete answers never contain a token or token hash", withDeleteResult("deleted", async () => {
+  const res = await run(controller.adminDelete, fakeReq({}, { id: "5" }), fakeRes());
+  const text = JSON.stringify(res.body);
+  assert.ok(!/token|hash/i.test(text), "no token or hash in the answer");
+}));
+
+test("the admin delete route is behind requireAdmin and handles DELETE by id", () => {
+  const admin = fs.readFileSync(path.join(__dirname, "..", "routes", "admin.js"), "utf8");
+  assert.ok(admin.indexOf("router.use(requireAdmin)") < admin.indexOf('router.delete("/newsletter-subscribers/:id"'));
+  assert.ok(admin.includes('router.delete("/newsletter-subscribers/:id", newsletter.adminDelete)'));
+});
+
+realTest("real database: a pending address cannot be deleted; after confirmation it can", async () => {
+  const db = require("../config/db");
+  await db.query("DELETE FROM newsletter_subscribers WHERE lower(email) LIKE 'real-del-%@example.test'");
+  const email = "real-del-1@example.test";
+  const sub = await REAL.subscribe(email);
+  const id = (await db.query("SELECT id FROM newsletter_subscribers WHERE lower(email) = $1", [email])).rows[0].id;
+
+  const refused = await REAL.adminDelete(Number(id));
+  assert.equal(refused.state, "not-confirmed");
+  const stillThere = await db.query("SELECT COUNT(*)::int AS n FROM newsletter_subscribers WHERE id = $1", [id]);
+  assert.equal(stillThere.rows[0].n, 1, "pending row is untouched");
+
+  assert.equal((await REAL.confirm(sub.confirmToken)).ok, true);
+  const deleted = await REAL.adminDelete(Number(id));
+  assert.equal(deleted.state, "deleted");
+  const gone = await db.query("SELECT COUNT(*)::int AS n FROM newsletter_subscribers WHERE id = $1", [id]);
+  assert.equal(gone.rows[0].n, 0);
+  assert.equal((await REAL.adminDelete(Number(id))).state, "not-found");
+});
+
+// Closes the shared database pool once, after every real-database test.
+after(async () => {
+  if (REAL_DB) await require("../config/db").pool.end();
 });

@@ -1,11 +1,13 @@
 /*!
  * Rabbora Living — admin newsletter subscribers (admin/newsletter-subscribers.html)
- *   GET   /api/admin/newsletter-subscribers                 list + counts (search, status, pages)
- *   GET   /api/admin/newsletter-subscribers/export.csv      CSV download (same filters)
- *   PATCH /api/admin/newsletter-subscribers/:id             { status: "unsubscribed" }
+ *   GET    /api/admin/newsletter-subscribers              list + counts (search, status, pages)
+ *   GET    /api/admin/newsletter-subscribers/export.csv   CSV download (same filters)
+ *   GET    /api/admin/newsletter-subscribers/:id          one subscriber (details panel)
+ *   PATCH  /api/admin/newsletter-subscribers/:id          { status: "unsubscribed" }
+ *   DELETE /api/admin/newsletter-subscribers/:id          confirmed subscribers only
  * Real data from PostgreSQL (table newsletter_subscribers). Newest first.
- * Admins can unsubscribe an address. Only the customer can subscribe again,
- * by confirming their own email, so there is no reactivate button here.
+ * Admins cannot confirm anyone: only the customer can confirm, by clicking the
+ * link in their own email. Tokens and token hashes are never sent to this page.
  */
 (function () {
   "use strict";
@@ -20,7 +22,8 @@
   var PAGE_SIZE = 25;
 
   var STATUSES = ["pending", "active", "unsubscribed"];
-  var STATUS_LABELS = { pending: "Pending", active: "Active", unsubscribed: "Unsubscribed" };
+  // "active" is stored as "active" but shown to the admin as "Confirmed".
+  var STATUS_LABELS = { pending: "Pending", active: "Confirmed", unsubscribed: "Unsubscribed" };
   var STATUS_BADGE = { pending: "warn", active: "ok", unsubscribed: "off" };
 
   var els = {
@@ -33,15 +36,22 @@
     prev: document.getElementById("pagerPrev"),
     next: document.getElementById("pagerNext"),
     pagerInfo: document.getElementById("pagerInfo"),
-    exportBtn: document.getElementById("exportCsv")
+    exportBtn: document.getElementById("exportCsv"),
+    detail: document.getElementById("detailPanel")
   };
-  var state = { list: [], total: 0, page: 1, requestId: 0 };
+  var state = { list: [], total: 0, page: 1, requestId: 0, open: null };
 
   function esc(v) { return A.escapeHtml(v); }
   function dash(v) { return v ? esc(A.formatDate(v)) : '<span class="admin-muted">—</span>'; }
 
   function statusBadge(status) {
     return '<span class="admin-badge admin-badge--' + (STATUS_BADGE[status] || "neutral") + '">' + esc(STATUS_LABELS[status] || status) + "</span>";
+  }
+
+  // Only a subscriber who confirmed their email can be deleted (the server
+  // enforces the same rule; this only decides which buttons are shown).
+  function canDelete(s) {
+    return s.status !== "pending" && Boolean(s.confirmedAt);
   }
 
   function readUrl() {
@@ -72,8 +82,8 @@
   function renderSummary(s) {
     var cards = [
       { key: "all", label: "Total", value: s.total },
+      { key: "active", label: "Confirmed", value: s.active },
       { key: "pending", label: "Pending confirmation", value: s.pending, warn: true },
-      { key: "active", label: "Active", value: s.active },
       { key: "unsubscribed", label: "Unsubscribed", value: s.unsubscribed }
     ];
     els.summary.innerHTML = cards.map(function (c) {
@@ -86,9 +96,7 @@
   // ---------- list ----------
 
   function rowHtml(r) {
-    var action = r.status === "unsubscribed"
-      ? '<span class="admin-muted">—</span>'
-      : '<button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-unsubscribe="' + r.id + '" data-email="' + esc(r.email) + '">Unsubscribe</button>';
+    var action = '<button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-open="' + r.id + '">View</button>';
     return "<tr>" +
       '<td data-label="Email" style="overflow-wrap:anywhere">' + esc(r.email) + "</td>" +
       '<td data-label="Status">' + statusBadge(r.status) + "</td>" +
@@ -136,20 +144,87 @@
     });
   }
 
+  // ---------- details ----------
+
+  function renderDetail(s) {
+    state.open = s;
+    var note = s.status === "pending"
+      ? '<p class="admin-hint">Waiting for this person to click the link in their confirmation email. It cannot be confirmed from the admin panel.</p>'
+      : "";
+    var unsubscribe = s.status === "unsubscribed"
+      ? ""
+      : '<button type="button" class="admin-btn admin-btn--ghost" data-detail-unsubscribe="' + s.id + '" data-email="' + esc(s.email) + '">Unsubscribe</button>';
+    var remove = canDelete(s)
+      ? '<button type="button" class="admin-btn admin-btn--danger-ghost" data-detail-delete="' + s.id + '" data-email="' + esc(s.email) + '">Delete subscriber</button>'
+      : '<p class="admin-hint">Pending subscribers can be deleted only after they confirm their email.</p>';
+
+    els.detail.innerHTML =
+      '<div class="admin-panel__head">' +
+        '<h2 class="admin-panel__title">Subscriber #' + esc(s.id) + " " + statusBadge(s.status) + "</h2>" +
+        '<button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-close>Close</button>' +
+      "</div>" +
+      '<dl class="admin-facts admin-facts--wide">' +
+        '<div><dt>Email</dt><dd style="overflow-wrap:anywhere">' + esc(s.email) + "</dd></div>" +
+        "<div><dt>Status</dt><dd>" + statusBadge(s.status) + "</dd></div>" +
+        "<div><dt>Source</dt><dd>" + esc(s.source) + "</dd></div>" +
+        "<div><dt>Subscription date</dt><dd>" + dash(s.consentAt) + "</dd></div>" +
+        "<div><dt>Confirmation date</dt><dd>" + (s.confirmedAt ? dash(s.confirmedAt) : '<span class="admin-muted">Not confirmed yet</span>') + "</dd></div>" +
+        "<div><dt>Unsubscribed date</dt><dd>" + dash(s.unsubscribedAt) + "</dd></div>" +
+      "</dl>" +
+      note +
+      '<div class="admin-actions">' + unsubscribe + remove + "</div>";
+    els.detail.hidden = false;
+  }
+
+  function openSubscriber(id) {
+    state.open = null;
+    els.detail.hidden = false;
+    els.detail.innerHTML = '<p class="admin-muted">Loading…</p>';
+    els.detail.scrollIntoView({ block: "start", behavior: "smooth" });
+    return A.request(ENDPOINT + "/" + encodeURIComponent(id)).then(function (result) {
+      if (result.ok && result.data && result.data.subscriber) {
+        renderDetail(result.data.subscriber);
+        els.detail.focus();
+        return;
+      }
+      els.detail.innerHTML = '<p class="admin-flash admin-flash--error">' +
+        esc(A.errorMessage(result, "This subscriber could not be loaded.")) + "</p>";
+    });
+  }
+
+  function closeDetail() {
+    state.open = null;
+    els.detail.hidden = true;
+    els.detail.innerHTML = "";
+  }
+
   // ---------- actions ----------
 
-  function unsubscribe(button) {
-    var id = button.getAttribute("data-unsubscribe");
-    var email = button.getAttribute("data-email");
+  function unsubscribe(id, email, button) {
     if (!window.confirm("Unsubscribe " + email + "? They will stop receiving newsletter emails.")) return;
-    button.disabled = true;
+    if (button) button.disabled = true;
     A.request(ENDPOINT + "/" + encodeURIComponent(id), { method: "PATCH", body: { status: "unsubscribed" } }).then(function (result) {
       if (result.ok && result.data && result.data.subscriber) {
         A.flash(email + " has been unsubscribed.", "success");
+        if (state.open && String(state.open.id) === String(id)) openSubscriber(id);
         return load();
       }
-      button.disabled = false;
+      if (button) button.disabled = false;
       A.flash(A.errorMessage(result, "The subscriber could not be unsubscribed."), "error");
+    });
+  }
+
+  function remove(id, email, button) {
+    if (!window.confirm("Delete " + email + " permanently? This removes the subscriber from the database and cannot be undone.")) return;
+    if (button) button.disabled = true;
+    A.request(ENDPOINT + "/" + encodeURIComponent(id), { method: "DELETE" }).then(function (result) {
+      if (result.ok) {
+        A.flash(email + " has been deleted.", "success");
+        closeDetail();
+        return load();
+      }
+      if (button) button.disabled = false;
+      A.flash(A.errorMessage(result, "The subscriber could not be deleted."), "error");
     });
   }
 
@@ -199,8 +274,15 @@
     load();
   });
   els.rows.addEventListener("click", function (event) {
-    var b = event.target.closest("[data-unsubscribe]");
-    if (b) unsubscribe(b);
+    var b = event.target.closest("[data-open]");
+    if (b) openSubscriber(b.getAttribute("data-open"));
+  });
+  els.detail.addEventListener("click", function (event) {
+    if (event.target.closest("[data-close]")) return closeDetail();
+    var u = event.target.closest("[data-detail-unsubscribe]");
+    if (u) return unsubscribe(u.getAttribute("data-detail-unsubscribe"), u.getAttribute("data-email"), u);
+    var d = event.target.closest("[data-detail-delete]");
+    if (d) remove(d.getAttribute("data-detail-delete"), d.getAttribute("data-email"), d);
   });
   els.exportBtn.addEventListener("click", exportCsv);
 

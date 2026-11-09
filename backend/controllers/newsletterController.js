@@ -6,12 +6,13 @@
 //             GET   /api/admin/newsletter-subscribers/export.csv   CSV download
 //             GET   /api/admin/newsletter-subscribers/:id          one subscriber
 //             PATCH /api/admin/newsletter-subscribers/:id          { status: "unsubscribed" }
+//             DELETE /api/admin/newsletter-subscribers/:id         confirmed subscribers only
 // Every field is checked here before anything reaches the database.
 
 const newsletterService = require("../services/newsletterService");
 const { sendConfirmationEmail } = require("../services/newsletterEmail");
 const { parseId, pagination, isPlainObject, EMAIL_PATTERN } = require("../utils/validate");
-const { validationError, notFound } = require("../utils/AppError");
+const { validationError, notFound, conflict } = require("../utils/AppError");
 
 const TOKEN_PATTERN = /^[A-Za-z0-9_-]{32,100}$/;
 
@@ -149,6 +150,23 @@ async function adminUpdate(req, res) {
   res.status(200).json({ success: true, message: "Subscriber unsubscribed.", subscriber });
 }
 
+// DELETE /api/admin/newsletter-subscribers/:id
+// Removes a subscriber who has confirmed their email. A pending address is
+// refused with 409 (the admin cannot confirm it on the customer's behalf).
+async function adminDelete(req, res) {
+  const id = parseId(req.params.id);
+  if (!id) throw notFound("Subscriber not found.");
+  const result = await newsletterService.adminDelete(id);
+  if (result.state === "not-found") throw notFound("Subscriber not found.");
+  if (result.state === "not-confirmed") {
+    throw conflict(
+      "NOT_CONFIRMED",
+      "Only a subscriber who has confirmed their email can be deleted. Pending subscribers must confirm first."
+    );
+  }
+  res.status(200).json({ success: true, message: "Subscriber deleted." });
+}
+
 // Spreadsheet programs run text starting with = + - @ as a formula.
 // Such cells are prefixed with an apostrophe so they stay plain text.
 function csvCell(value) {
@@ -187,6 +205,7 @@ async function adminExportCsv(req, res) {
 }
 
 module.exports = {
+  adminDelete,
   subscribe,
   confirm,
   unsubscribe,

@@ -43,6 +43,8 @@
 
         <section class="admin-stats admin-stats--compact" id="listSummary" aria-label="Summary"></section>
 
+        <section class="admin-panel admin-editor-panel admin-detail" id="detailPanel" hidden tabindex="-1" aria-label="Subscriber details"></section>
+
         <section class="admin-panel">
           <div class="admin-toolbar admin-toolbar--two">
             <div class="admin-field admin-toolbar__search">
@@ -51,7 +53,7 @@
             </div>
             <div class="admin-field">
               <label class="admin-label" for="listStatus">Status</label>
-              <select class="admin-input" id="listStatus"><option value="all">All</option><option value="pending">Pending confirmation</option><option value="active">Active</option><option value="unsubscribed">Unsubscribed</option></select>
+              <select class="admin-input" id="listStatus"><option value="all">All</option><option value="pending">Pending confirmation</option><option value="active">Confirmed</option><option value="unsubscribed">Unsubscribed</option></select>
             </div>
           </div>
           <div class="admin-actions">
@@ -100,6 +102,6 @@
 
   <script src="../api-config.js"></script>
   <script src="js/admin-auth.js?v=admin-4"></script>
-  <script src="js/newsletter-subscribers.js?v=1"></script>
+  <script src="js/newsletter-subscribers.js?v=2"></script>
 </body>
 </html>
