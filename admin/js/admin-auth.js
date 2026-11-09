@@ -31,7 +31,8 @@
     { key: "customers", label: "Customers", href: "customers.html", icon: "M10 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 17c1-3.5 4-5 7-5s6 1.5 7 5" },
     { key: "reviews", label: "Reviews", href: "reviews.html", icon: "M10 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L2.8 8.3l5-.7z" },
     { key: "fabric-samples", label: "Fabric Sample Requests", href: "fabric-sample-requests.html", icon: "M4 3h8l4 4v10H4zM12 3v4h4M7 10h6M7 13h6" },
-    { key: "contact-messages", label: "Contact Messages", href: "contact-messages.html", icon: "M3 5h14v10H3zM3 5l7 6 7-6" }
+    { key: "contact-messages", label: "Contact Messages", href: "contact-messages.html", icon: "M3 5h14v10H3zM3 5l7 6 7-6" },
+    { key: "newsletter-subscribers", label: "Newsletter Subscribers", href: "newsletter-subscribers.html", icon: "M3 5h14v10H3zM3 5l7 6 7-6M3 15l5-4M17 15l-5-4" }
   ];
 
   var currentUser = null;
