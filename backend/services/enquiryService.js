@@ -4,6 +4,7 @@
 // both tables are separate from the users table.
 
 const db = require("../config/db");
+const notificationService = require("./notificationService");
 const { notFound } = require("../utils/AppError");
 
 const STATUSES = ["new", "read", "in_progress", "completed", "cancelled"];
@@ -64,7 +65,14 @@ async function createFabricSampleRequest(v) {
      RETURNING *`,
     [v.name, v.email, v.phone, v.postcode, v.address, v.selectedFabrics, v.notes, v.marketingConsent]
   );
-  return { request: toSample(result.rows[0]), duplicate: false };
+  const request = toSample(result.rows[0]);
+  await notificationService.notifyEvent({
+    eventType: "new_fabric_sample_request",
+    message: `${request.name || "A customer"} asked for fabric samples.`,
+    recordId: request.id,
+    dedupeKey: `fabric-sample:${request.id}`,
+  });
+  return { request, duplicate: false };
 }
 
 async function createContactMessage(v) {
@@ -83,7 +91,14 @@ async function createContactMessage(v) {
      RETURNING *`,
     [v.name, v.email, v.phone, v.subject, v.message]
   );
-  return { contactMessage: toMessage(result.rows[0]), duplicate: false };
+  const contactMessage = toMessage(result.rows[0]);
+  await notificationService.notifyEvent({
+    eventType: "new_contact_message",
+    message: `${contactMessage.name || "A customer"}: ${contactMessage.subject || "New message"}`,
+    recordId: contactMessage.id,
+    dedupeKey: `contact:${contactMessage.id}`,
+  });
+  return { contactMessage, duplicate: false };
 }
 
 // ---------------------------------------------------------------

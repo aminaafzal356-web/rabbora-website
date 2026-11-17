@@ -13,6 +13,7 @@
 
 const db = require("../config/db");
 const { withTransaction } = require("../utils/transaction");
+const notificationService = require("./notificationService");
 const { toPence, fromPence, penceToNumeric, CURRENCY } = require("../utils/pricing");
 const { AppError, notFound, badRequest, forbidden, conflict } = require("../utils/AppError");
 const { checkUnitPrice } = require("../routes/cart");
@@ -96,7 +97,7 @@ function optionText(options, ...keys) {
 // ---------- place an order ----------
 
 async function placeOrder(user, input) {
-  return withTransaction(async (client) => {
+  const placed = await withTransaction(async (client) => {
     // Addresses: a saved address (by id) or one typed at checkout.
     const shipping = input.shippingAddressId
       ? await userService.getAddress(user.id, input.shippingAddressId, client)
@@ -291,6 +292,15 @@ async function placeOrder(user, input) {
 
     return formatOrder(order, items);
   });
+
+  // Admin notification: only after the order is committed.
+  await notificationService.notifyEvent({
+    eventType: "new_order",
+    message: `Order ${placed.orderNumber} placed by ${placed.customer && placed.customer.name ? placed.customer.name : "a customer"}.`,
+    recordId: placed.id,
+    dedupeKey: `order:${placed.id}`,
+  });
+  return placed;
 }
 
 // ---------- reading ----------

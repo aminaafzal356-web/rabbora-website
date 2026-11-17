@@ -47,6 +47,7 @@
 const express = require("express");
 const c = require("../controllers/adminController");
 const enquiries = require("../controllers/enquiryController");
+const notifications = require("../controllers/notificationController");
 const newsletter = require("../controllers/newsletterController");
 const { requireAdmin } = require("../middleware/auth");
 
@@ -83,5 +84,14 @@ router.get("/newsletter-subscribers/export.csv", newsletter.adminExportCsv);
 router.get("/newsletter-subscribers/:id", newsletter.adminGet);
 router.patch("/newsletter-subscribers/:id", newsletter.adminUpdate);
 router.delete("/newsletter-subscribers/:id", newsletter.adminDelete);
+
+// Admin notifications (bell in the header). read-all is registered before
+// ":id" routes so it is never read as an id.
+router.get("/notifications", notifications.list);
+router.get("/notifications/poll", notifications.poll);
+router.post("/notifications/read-all", notifications.markAllRead);
+router.post("/notifications/:id/read", notifications.markRead);
+router.get("/notification-preferences", notifications.getPreferences);
+router.put("/notification-preferences", notifications.updatePreferences);
 
 module.exports = router;

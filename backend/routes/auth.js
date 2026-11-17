@@ -26,6 +26,7 @@ const {
   getSessionUserId,
 } = require("../config/session");
 const { sendWelcomeEmail } = require("../services/welcomeEmailService");
+const notificationService = require("../services/notificationService");
 
 const router = express.Router();
 
@@ -141,6 +142,13 @@ router.post("/register", async (req, res) => {
     // or change this answer. sendWelcomeEmail() never throws.
     setImmediate(() => {
       sendWelcomeEmail({ id: user.id, firstName: user.first_name, email: user.email }).catch(() => {});
+      // Admin notification for the new account. Only after the INSERT succeeded.
+      notificationService.notifyEvent({
+        eventType: "new_customer_registration",
+        message: `${user.first_name} ${user.last_name} created an account.`,
+        recordId: user.id,
+        dedupeKey: `registration:${user.id}`,
+      });
     });
     return undefined;
   } catch (err) {

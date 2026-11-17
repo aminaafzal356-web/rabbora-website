@@ -5,6 +5,7 @@
 
 const crypto = require("crypto");
 const db = require("../config/db");
+const notificationService = require("./notificationService");
 const { withTransaction } = require("../utils/transaction");
 
 const STATUSES = ["pending", "active", "unsubscribed"];
@@ -101,6 +102,15 @@ async function confirm(token) {
       RETURNING id`,
     [hashToken(token)]
   );
+  if (result.rowCount > 0) {
+    // Admin notification: the subscriber is now confirmed. No email address in the message.
+    await notificationService.notifyEvent({
+      eventType: "new_newsletter_subscriber",
+      message: "A new subscriber confirmed their email address.",
+      recordId: Number(result.rows[0].id),
+      dedupeKey: `newsletter:${result.rows[0].id}`,
+    });
+  }
   return { ok: result.rowCount > 0 };
 }
 

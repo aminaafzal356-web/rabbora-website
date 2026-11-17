@@ -4,6 +4,7 @@
 // shown publicly. An admin approves with setApproval(id, true).
 
 const db = require("../config/db");
+const notificationService = require("./notificationService");
 const { notFound, forbidden, conflict, badRequest } = require("../utils/AppError");
 
 function format(r, { withUser = false } = {}) {
@@ -133,6 +134,12 @@ async function createReview(userId, productId, d) {
        VALUES ($1, $2, $3, $4, $5, FALSE) RETURNING *`,
       [userId, productId, d.rating, d.title || null, d.body]
     );
+    await notificationService.notifyEvent({
+      eventType: "new_product_review",
+      message: `New ${d.rating}-star review on product #${productId}.`,
+      recordId: Number(r.rows[0].id),
+      dedupeKey: `review:${r.rows[0].id}`,
+    });
     return format(r.rows[0], { withUser: true });
   } catch (err) {
     if (err.code === "23505") throw conflict("DUPLICATE_REVIEW", "You have already reviewed this product. You can edit your review instead.");

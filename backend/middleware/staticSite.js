@@ -28,6 +28,7 @@ const ALLOWED_EXTENSIONS = new Set([
   ".png", ".jpg", ".jpeg", ".jfif", ".webp", ".gif", ".svg", ".ico",
   ".woff", ".woff2", ".ttf", ".otf",
   ".mp4", ".webm",
+  ".wav", // admin notification sound (admin/assets/sounds/)
 ]);
 
 // The folder that contains backend/ (the repository root when the whole

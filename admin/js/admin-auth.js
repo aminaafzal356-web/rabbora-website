@@ -14,6 +14,10 @@
 (function (window, document) {
   "use strict";
 
+  // Read before any page code runs: list pages rewrite their own address
+  // bar, which would otherwise remove a ?open=<id> from a notification link.
+  window.RabboraAdminOpenParam = new URLSearchParams(window.location.search).get("open");
+
   var api = window.RabboraApi && typeof window.RabboraApi.request === "function" ? window.RabboraApi : null;
   if (!api) {
     console.error("[Rabbora Admin] ../api-config.js is not loaded — add it before admin-auth.js.");
@@ -212,6 +216,26 @@
    * Page guard. Resolves with the admin user, or never resolves (the
    * page is redirected to the login or shows "access denied").
    */
+  // Adds the notification bell (CSS and script) once the admin is confirmed.
+  // The files are found next to this script, so it works from any admin page.
+  function loadNotifications() {
+    var self = document.querySelector('script[src*="admin-auth.js"]');
+    var src = self ? self.getAttribute("src") : "js/admin-auth.js";
+    var assetBase = src.replace(/js\/admin-auth\.js.*$/, "");
+    window.RabboraAdminAssets = { base: assetBase };
+    if (!document.querySelector('link[href*="notifications.css"]')) {
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = assetBase + "css/notifications.css?v=1";
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('script[src*="notifications.js"]')) {
+      var script = document.createElement("script");
+      script.src = assetBase + "js/notifications.js?v=1";
+      document.body.appendChild(script);
+    }
+  }
+
   function requireAdmin(activeKey) {
     return request("/auth/me").then(function (result) {
       if (result.status === 401) {
@@ -235,6 +259,7 @@
       }
       currentUser = result.data.user;
       renderShell(activeKey);
+      loadNotifications();
       document.body.classList.remove("admin--loading");
       return currentUser;
     });
